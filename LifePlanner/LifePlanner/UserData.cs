@@ -16,6 +16,12 @@ namespace LifePlanner
         public UserData()
         {
             InitializeComponent();
+        }
+
+        private void UserData_Load(object sender, EventArgs e)
+        {
+
+            //chatbot_panel.Show();
             foreach (Control c in data_panel.Controls)
             {
                 c.Hide();
@@ -25,77 +31,14 @@ namespace LifePlanner
                 c.Show();
                 c.BringToFront();
             }
+
+            submit_button.Enabled = false;
+            submit_button.Hide();
+
+            label1.Show();
+            label1.BringToFront();
         }
 
-        private void UserData_Load(object sender, EventArgs e)
-        {
-            
-            //chatbot_panel.Show();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            foreach (Control c in data_panel.Controls)
-            {
-                c.Show();
-            }
-            foreach (Control c in chatbot_panel.Controls)
-            {
-                c.Hide();
-                c.Enabled = false;
-            }
-            chatbot_panel.Enabled = false;
-            chatbot_panel.Hide();
-            //data_panel.Show();
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            foreach (Control c in data_panel.Controls)
-            {
-                c.Show();
-            }
-            foreach (Control c in chatbot_panel.Controls)
-            {
-                c.Hide();
-                c.Enabled = false;
-            }
-            chatbot_panel.Enabled = false;
-            chatbot_panel.Hide();
-            //data_panel.Show();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            foreach (Control c in data_panel.Controls)
-            {
-                c.Show();
-            }
-            foreach (Control c in chatbot_panel.Controls)
-            {
-                c.Hide();
-                c.Enabled = false;
-            }
-            chatbot_panel.Enabled = false;
-            chatbot_panel.Hide();
-            //data_panel.Show();
-        }
-
-        private void chatbot_panel_Paint(object sender, PaintEventArgs e)
-        {
-            foreach (Control c in data_panel.Controls)
-            {
-                c.Show();
-            }
-            foreach (Control c in chatbot_panel.Controls)
-            {
-                c.Hide();
-                c.Enabled = false;
-            }
-            chatbot_panel.Enabled = false;
-            chatbot_panel.Hide();
-            //data_panel.Show();
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -124,6 +67,26 @@ namespace LifePlanner
 
             Form form = new Options();
             form.Show();
+        }
+
+        private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
+        {
+            foreach (Control c in data_panel.Controls)
+            {
+                c.Show();
+            }
+            foreach (Control c in chatbot_panel.Controls)
+            {
+                c.Hide();
+                c.Enabled = false;
+            }
+            chatbot_panel.Enabled = false;
+            chatbot_panel.Hide();
+
+            submit_button.Enabled = true;
+            submit_button.Show();
+
+            label1.Hide();
         }
     }
 }

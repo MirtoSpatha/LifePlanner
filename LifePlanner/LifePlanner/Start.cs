@@ -20,40 +20,7 @@ namespace LifePlanner
             //form.Show();
             //form.BringToFront();
             //this.SendToBack();
-        }
-
-        private void chatbot_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
-        {
-            Form form = new UserData();
-            form.Show();
-            this.Hide();
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            Form form = new UserData();
-            form.Show();
-            this.Hide();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            Form form = new UserData();
-            form.Show();
-            this.Hide();
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            Form form = new UserData();
-            form.Show();
-            this.Hide();
-        }
+        }        
 
         private void Start_Load(object sender, EventArgs e)
         {
@@ -70,6 +37,12 @@ namespace LifePlanner
             }
             */
         }
-    }
-   
+
+        private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
+        {
+            Form form = new UserData();
+            form.Show();
+            this.Hide();
+        }
+    }   
 }
