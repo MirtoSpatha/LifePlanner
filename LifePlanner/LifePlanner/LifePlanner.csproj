@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6EBAF9A0-7972-4BA7-B2F8-0F54F118E256}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LifePlanner</RootNamespace>
+    <AssemblyName>LifePlanner</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Blank.Designer.cs">
+      <DependentUpon>Blank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Day.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Day.Designer.cs">
+      <DependentUpon>Day.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Day_Plan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Day_Plan.Designer.cs">
+      <DependentUpon>Day_Plan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingPage.Designer.cs">
+      <DependentUpon>LoadingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Start.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Start.Designer.cs">
+      <DependentUpon>Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyProgressBar.Designer.cs">
+      <DependentUpon>MyProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserData.Designer.cs">
+      <DependentUpon>UserData.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Blank.resx">
+      <DependentUpon>Blank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Day.resx">
+      <DependentUpon>Day.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Day_Plan.resx">
+      <DependentUpon>Day_Plan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingPage.resx">
+      <DependentUpon>LoadingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Start.resx">
+      <DependentUpon>Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyProgressBar.resx">
+      <DependentUpon>MyProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserData.resx">
+      <DependentUpon>UserData.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Rooms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1200px-Bluetooth.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom_Bright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom_Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bedroom_Bright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bedroom_Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chatbot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee-machine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hallway_Bright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hallway_Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_1_tr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kitchen_Bright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kitchen_Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\living_room_Bright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\living_room_Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvclosed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvopen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house_outside.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house_outside.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-ali.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\building_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous_button.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
