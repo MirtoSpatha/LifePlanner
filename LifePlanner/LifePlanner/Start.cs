@@ -42,7 +42,7 @@ namespace LifePlanner
         {
             Form form = new UserData();
             form.Show();
-            this.Hide();
+            Hide();
         }
     }   
 }

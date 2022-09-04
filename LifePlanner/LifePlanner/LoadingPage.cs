@@ -42,8 +42,7 @@ namespace LifePlanner
             {
                 timer1.Stop();
                 this.Enabled = false;
-                this.Hide();
-                this.Close();
+                Hide();
             }
         }
 

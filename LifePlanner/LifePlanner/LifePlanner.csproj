@@ -52,6 +52,12 @@
     <Compile Include="Blank.Designer.cs">
       <DependentUpon>Blank.cs</DependentUpon>
     </Compile>
+    <Compile Include="DailyPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailyPlan.Designer.cs">
+      <DependentUpon>DailyPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Day.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="Day_Plan.Designer.cs">
       <DependentUpon>Day_Plan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Exit.Designer.cs">
+      <DependentUpon>Exit.cs</DependentUpon>
     </Compile>
     <Compile Include="LoadingPage.cs">
       <SubType>Form</SubType>
@@ -104,11 +116,17 @@
     <EmbeddedResource Include="Blank.resx">
       <DependentUpon>Blank.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DailyPlan.resx">
+      <DependentUpon>DailyPlan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Day.resx">
       <DependentUpon>Day.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Day_Plan.resx">
       <DependentUpon>Day_Plan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exit.resx">
+      <DependentUpon>Exit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>

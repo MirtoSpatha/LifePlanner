@@ -20,8 +20,6 @@ namespace LifePlanner
 
         private void UserData_Load(object sender, EventArgs e)
         {
-
-            //chatbot_panel.Show();
             foreach (Control c in data_panel.Controls)
             {
                 c.Hide();
@@ -39,34 +37,24 @@ namespace LifePlanner
             label1.BringToFront();
         }
 
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //System.Resources.IResourceWriter writer = new System.Resources.IResourceWriter();
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void submit_button_Click(object sender, EventArgs e)
         {
             StreamWriter sw = new StreamWriter("UserData.txt", true);
-            sw.WriteLine("Username: " + textBox1.Text);
-            sw.WriteLine("Gender: " + comboBox1.Text);
-            sw.WriteLine("Age: " + textBox2.Text);
-            sw.WriteLine("Address: " + textBox3.Text);
-            sw.WriteLine("Work Address: " + textBox4.Text);
-            sw.WriteLine("Means of Transport: " + comboBox2.Text);
-            sw.WriteLine("Shoe Size: " + textBox5.Text);
-            sw.WriteLine("Favorite Beverage: " + textBox6.Text);
-            sw.WriteLine("Pet: " + comboBox3.Text);
+            sw.WriteLine(textBox1.Text); //Username
+            sw.WriteLine(comboBox1.Text); //Gender
+            sw.WriteLine(textBox2.Text); //Age
+            sw.WriteLine(textBox3.Text); //Address
+            sw.WriteLine(textBox4.Text); //Work Address
+            sw.WriteLine(comboBox2.Text); //Means of Transport
+            sw.WriteLine(textBox5.Text); // Show Size
+            sw.WriteLine(textBox6.Text); //Favorite Beverage
+            sw.WriteLine(comboBox3.Text); //Pet
+            sw.WriteLine(Program.Date); //Date
             sw.Close();
 
             Form form = new Options();
             form.Show();
+            Hide();
         }
 
         private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
