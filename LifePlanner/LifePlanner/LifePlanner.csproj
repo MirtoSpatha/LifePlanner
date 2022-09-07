@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEventPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddEventPanel.Designer.cs">
+      <DependentUpon>AddEventPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Blank.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     <Compile Include="UserData.Designer.cs">
       <DependentUpon>UserData.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddEventPanel.resx">
+      <DependentUpon>AddEventPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Blank.resx">
       <DependentUpon>Blank.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +258,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\previous_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

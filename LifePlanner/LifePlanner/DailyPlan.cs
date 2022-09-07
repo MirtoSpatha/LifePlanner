@@ -19,7 +19,22 @@ namespace LifePlanner
 
         private void DailyPlan_Load(object sender, EventArgs e)
         {
-           
+            label2.Text = Program.Date.ToString();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
