@@ -178,6 +178,9 @@
   <data name="living_room_Dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\living_room_Dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="location" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\location.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo_ali" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\logo-ali.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -190,6 +193,9 @@
   <data name="speech_bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\speech-bubble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="transportation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\transportation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tvclosed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\tvclosed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -198,5 +204,14 @@
   </data>
   <data name="_1200px_Bluetooth_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\1200px-Bluetooth.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Λεωφορείο" xml:space="preserve">
+    <value>Λεωφορείο</value>
+  </data>
+  <data name="Μετρό" xml:space="preserve">
+    <value>Μετρό</value>
+  </data>
+  <data name="Περπάτημα" xml:space="preserve">
+    <value>Περπάτημα</value>
   </data>
 </root>
