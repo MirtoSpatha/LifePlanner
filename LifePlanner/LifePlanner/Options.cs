@@ -17,29 +17,28 @@ namespace LifePlanner
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
         {
+            panel1.Visible = panel1.Enabled = true;
+            foreach (Control c in panel1.Controls)
+            {
+                c.Visible = true;
+                c.Enabled = true;
+            }
 
-        }
-
-        private void calendar_pictureBox_Click(object sender, EventArgs e)
-        {
-
+            chatbot_panel.Visible = chatbot_panel.Enabled = false;
+            foreach (Control c in chatbot_panel.Controls)
+            {
+                c.Visible = false;
+                c.Enabled = false;
+            }
         }
 
         private void home_pictureBox_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Options_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chatbot_panel_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Hide();
+            House h = new House();
+            h.Show();
         }
     }
 }
