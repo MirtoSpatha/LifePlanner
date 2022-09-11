@@ -12,6 +12,8 @@ namespace LifePlanner
 {
     public partial class Options : Form
     {
+        bool first = true;
+
         public Options()
         {
             InitializeComponent();
@@ -19,13 +21,30 @@ namespace LifePlanner
 
         private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
         {
-            panel1.Visible = panel1.Enabled = true;
-            foreach (Control c in panel1.Controls)
+            if (first)
             {
-                c.Visible = true;
-                c.Enabled = true;
+                panel1.Visible = panel1.Enabled = true;
+                foreach (Control c in panel1.Controls)
+                {
+                    c.Visible = true;
+                }
+
+                label1.Text = "Κάνε κλικ πανω στο ημερολόγιο\nγια τη δημιουργία του\n" +
+                "ημερήσιου πλάνου σου ή στο\n" +
+                "σπιτάκι για να διαχειριστείς τις\n" +
+                "συσκευές του σπιτιού σου\n" +
+                "από απόσταση!";
+
+                first = false;
+
+                return;
             }
 
+            foreach (Control c in panel1.Controls)
+            {
+                c.Enabled = true;
+            }
+            
             chatbot_panel.Visible = chatbot_panel.Enabled = false;
             foreach (Control c in chatbot_panel.Controls)
             {
@@ -39,6 +58,17 @@ namespace LifePlanner
             this.Hide();
             House h = new House();
             h.Show();
+        }
+
+        private void home_pictureBox_MouseHover(object sender, EventArgs e)
+        {
+
+            ((PictureBox)sender).BackColor = Color.FromArgb(128, 255, 128);
+        }
+
+        private void home_pictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).BackColor = Color.Transparent;
         }
     }
 }

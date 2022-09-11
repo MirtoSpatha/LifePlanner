@@ -55,10 +55,10 @@
             this.chatbot_panel.Controls.Add(this.pictureBox1);
             this.chatbot_panel.Controls.Add(this.pictureBox2);
             this.chatbot_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chatbot_panel.Location = new System.Drawing.Point(291, 216);
+            this.chatbot_panel.Location = new System.Drawing.Point(211, 182);
             this.chatbot_panel.Margin = new System.Windows.Forms.Padding(2);
             this.chatbot_panel.Name = "chatbot_panel";
-            this.chatbot_panel.Size = new System.Drawing.Size(382, 209);
+            this.chatbot_panel.Size = new System.Drawing.Size(462, 243);
             this.chatbot_panel.TabIndex = 5;
             this.chatbot_panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
             // 
@@ -66,20 +66,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label1.Location = new System.Drawing.Point(44, 66);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label1.Location = new System.Drawing.Point(62, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 17);
+            this.label1.Size = new System.Drawing.Size(196, 32);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Διάλεξε τι θες να κάνεις πρώτα:";
+            this.label1.Text = "Διάλεξε τι θες να κάνεις πρώτα!\r\n\r\n";
             this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pictureBox3.Image = global::LifePlanner.Resource1.logo_ali;
-            this.pictureBox3.Location = new System.Drawing.Point(202, 168);
+            this.pictureBox3.Location = new System.Drawing.Point(272, 201);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 32);
@@ -92,7 +92,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::LifePlanner.Resource1.chatbot;
-            this.pictureBox1.Location = new System.Drawing.Point(238, 66);
+            this.pictureBox1.Location = new System.Drawing.Point(311, 99);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 144);
@@ -105,10 +105,10 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::LifePlanner.Resource1.speech_bubble;
-            this.pictureBox2.Location = new System.Drawing.Point(27, 24);
+            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(226, 133);
+            this.pictureBox2.Size = new System.Drawing.Size(319, 195);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -121,10 +121,10 @@
             this.panel1.Controls.Add(this.calendar_pictureBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(9, 23);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 178);
+            this.panel1.Size = new System.Drawing.Size(673, 178);
             this.panel1.TabIndex = 6;
             this.panel1.Visible = false;
             // 
@@ -143,6 +143,8 @@
             this.home_pictureBox.TabStop = false;
             this.home_pictureBox.Visible = false;
             this.home_pictureBox.Click += new System.EventHandler(this.home_pictureBox_Click);
+            this.home_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
+            this.home_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
             // 
             // label3
             // 
@@ -171,6 +173,8 @@
             this.calendar_pictureBox.TabIndex = 3;
             this.calendar_pictureBox.TabStop = false;
             this.calendar_pictureBox.Visible = false;
+            this.calendar_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
+            this.calendar_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
             // 
             // label2
             // 
