@@ -41,5 +41,10 @@ namespace LifePlanner
         {
 
         }
+
+        private void Options_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

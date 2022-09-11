@@ -205,13 +205,4 @@
   <data name="_1200px_Bluetooth_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\1200px-Bluetooth.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Λεωφορείο" xml:space="preserve">
-    <value>Λεωφορείο</value>
-  </data>
-  <data name="Μετρό" xml:space="preserve">
-    <value>Μετρό</value>
-  </data>
-  <data name="Περπάτημα" xml:space="preserve">
-    <value>Περπάτημα</value>
-  </data>
 </root>

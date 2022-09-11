@@ -24,6 +24,7 @@ namespace LifePlanner
 
         private void Start_Load(object sender, EventArgs e)
         {
+            SendToBack();
             /*
             Form form = new LoadingPage();
             this.Hide();

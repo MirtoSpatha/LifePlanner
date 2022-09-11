@@ -10,7 +10,9 @@ namespace LifePlanner
 {
     internal static class Program
     {
+        public static bool NewUser = false;
         public static string Date = null;
+        public static List<string> items = new List<string> { "Αυτοκίνητο", "Λεωφορείο", "Μετρό", "Περπάτημα" };
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -19,8 +21,7 @@ namespace LifePlanner
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DailyPlan());
-            /*
+            
             StreamReader sr = new StreamReader("UserData.txt", true);
             string s = "0";
             try
@@ -38,8 +39,8 @@ namespace LifePlanner
             if (s == null) 
             {
                 Date = DateTime.Today.ToString("D");
-                //Application.Run(new LoadingPage());
-                Application.Run(new Start());
+                NewUser = true;
+                Application.Run(new LoadingPage());
             }
             else if(s == "0")
             {
@@ -57,12 +58,12 @@ namespace LifePlanner
                 var fileContent = File.ReadLines(path).ToList();
                 fileContent[fileContent.Count - 1] = Date;
                 File.WriteAllLines(path, fileContent);
-                
-                //Application.Run(new LoadingPage());
-                Application.Run(new Options());
+
+                NewUser = false;
+                Application.Run(new LoadingPage());
             
             }
-        */
+        
             
                 /*
                  A

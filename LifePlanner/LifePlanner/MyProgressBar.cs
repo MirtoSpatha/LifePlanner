@@ -16,7 +16,8 @@ namespace LifePlanner.Controls
         {
             InitializeComponent();
             this.Size = new Size(425, 25);
-            this.BackColor = Color.DimGray;
+            //this.BackColor = Color.FromArgb(161, 166, 203);
+            this.BackColor = Color.FromArgb(236, 183, 172);
             DoubleBuffered = true;
         }
 
@@ -27,7 +28,8 @@ namespace LifePlanner.Controls
 
         int pb_value = 30, pb_max = 100, pb_min = 0;
         float per = 0f;
-        Color barcolor = Color.FromArgb(161, 166, 203);
+        //Color barcolor = Color.FromArgb(214, 150, 137);
+        Color barcolor = Color.FromArgb(140, 146, 192);
         public Color BarColor { get { return barcolor; } set { barcolor = value; Invalidate(); }}
         public int Min { get { return pb_min; } set { pb_min = value; Invalidate(); } }
         public int Max { get { return pb_max; } set { pb_max = value; Invalidate(); } }

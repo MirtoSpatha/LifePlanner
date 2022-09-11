@@ -6,7 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using Timer = System.Windows.Forms.Timer;
 
 namespace LifePlanner
 {
@@ -15,9 +18,16 @@ namespace LifePlanner
         public LoadingPage()
         {
             InitializeComponent();
+        }
+
+        private void LoadingPage_Load(object sender, EventArgs e)
+        {
             this.Enabled = true;
-            this.MinimumSize = new Size(876, 541);
-            this.MaximumSize = new Size(876, 541);
+            this.Size = new Size(876, 541);
+            myProgressBar2.Value = 0;
+            timer1.Start();
+            timer1.Enabled = true;
+            this.label1.ForeColor = Color.FromArgb(68, 67, 104);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -28,6 +38,13 @@ namespace LifePlanner
                 Color.FromArgb(161, 166, 203), 7, ButtonBorderStyle.Solid,
                 Color.FromArgb(161, 166, 203), 7, ButtonBorderStyle.Solid,
                 Color.FromArgb(161, 166, 203), 7, ButtonBorderStyle.Solid);
+
+            
+        }
+
+        private void myProgressBar2_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -43,13 +60,15 @@ namespace LifePlanner
                 timer1.Stop();
                 this.Enabled = false;
                 Hide();
+                if (Program.NewUser == true)
+                {
+                    new Start().Show();
+                }
+                else
+                {
+                    new Options().Show();
+                }
             }
-        }
-
-        private void LoadingPage_Load(object sender, EventArgs e)
-        {
-            myProgressBar2.Value = 0;
-            timer1.Start();
         }
     }
 }
