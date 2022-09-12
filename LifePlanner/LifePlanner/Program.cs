@@ -21,7 +21,7 @@ namespace LifePlanner
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+            Application.Run(new DailyPlan());
             StreamReader sr = new StreamReader("UserData.txt", true);
             string s = "0";
             try

@@ -70,5 +70,10 @@ namespace LifePlanner
                 }
             }
         }
+
+        private void LoadingPage_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
