@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bathroom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bathroom.Designer.cs">
+      <DependentUpon>Bathroom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bedroom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bedroom.Designer.cs">
+      <DependentUpon>Bedroom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Blank.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,11 +76,23 @@
     <Compile Include="Day_Plan.Designer.cs">
       <DependentUpon>Day_Plan.cs</DependentUpon>
     </Compile>
-    <Compile Include="House.cs">
+    <Compile Include="Hall.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="House.Designer.cs">
-      <DependentUpon>House.cs</DependentUpon>
+    <Compile Include="Hall.Designer.cs">
+      <DependentUpon>Hall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen.Designer.cs">
+      <DependentUpon>Kitchen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LivingRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LivingRoom.Designer.cs">
+      <DependentUpon>LivingRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="LoadingPage.cs">
       <SubType>Form</SubType>
@@ -76,6 +100,7 @@
     <Compile Include="LoadingPage.Designer.cs">
       <DependentUpon>LoadingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Misc.cs" />
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +141,8 @@
     <EmbeddedResource Include="Day_Plan.resx">
       <DependentUpon>Day_Plan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="House.resx">
-      <DependentUpon>House.cs</DependentUpon>
+    <EmbeddedResource Include="Hall.resx">
+      <DependentUpon>Hall.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>
@@ -242,13 +267,25 @@
     <None Include="Resources\previous_button.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\menu.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\livingroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kitchen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

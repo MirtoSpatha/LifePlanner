@@ -173,6 +173,7 @@
             this.calendar_pictureBox.TabIndex = 3;
             this.calendar_pictureBox.TabStop = false;
             this.calendar_pictureBox.Visible = false;
+            this.calendar_pictureBox.Click += new System.EventHandler(this.calendar_pictureBox_Click);
             this.calendar_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
             this.calendar_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
             // 

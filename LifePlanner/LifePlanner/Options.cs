@@ -56,7 +56,7 @@ namespace LifePlanner
         private void home_pictureBox_Click(object sender, EventArgs e)
         {
             this.Hide();
-            House h = new House();
+            Hall h = new Hall();
             h.Show();
         }
 
@@ -69,6 +69,11 @@ namespace LifePlanner
         private void home_pictureBox_MouseLeave(object sender, EventArgs e)
         {
             ((PictureBox)sender).BackColor = Color.Transparent;
+        }
+
+        private void calendar_pictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
