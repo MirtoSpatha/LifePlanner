@@ -36,7 +36,7 @@ namespace LifePlanner
             //Application.Run(new DailyPlan());
 
 
-
+            
 
             
             username = File.ReadLines("UserData.txt").Skip(0).Take(1).First();

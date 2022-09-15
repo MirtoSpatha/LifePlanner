@@ -12,6 +12,7 @@ namespace LifePlanner
 {
     public partial class DailyPlan : Form
     {
+        AddEventPanel event_panel = null;
         public DailyPlan()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace LifePlanner
         private void DailyPlan_Load(object sender, EventArgs e)
         {
             label2.Text = Program.Date.ToString();
+            panel2.Hide();
         }
 
         private void label26_Click(object sender, EventArgs e)
@@ -46,9 +48,17 @@ namespace LifePlanner
 
         private void panelt5_MouseClick(object sender, MouseEventArgs e)
         {
-            AddEventPanel panel = new AddEventPanel("05:00");
-            panel.Parent = this;
-            panel.Show();
+            event_panel = new AddEventPanel("05:00");
+            panel2.Size = event_panel.Size;
+            panel2.Anchor = AnchorStyles.None;
+            event_panel.Parent = panel2;
+            panel2.Show();
+            //panel.Show();
+        }
+
+        private void panel2_VisibleChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

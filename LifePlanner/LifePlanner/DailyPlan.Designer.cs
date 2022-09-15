@@ -87,6 +87,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -132,7 +133,6 @@
             this.tableLayoutPanel1.Controls.Add(this.panelt10, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.panelt12, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.panelt9, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.panelt8, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.panelt7, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panelt6, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelt5, 1, 0);
@@ -153,7 +153,6 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label21, 0, 19);
@@ -161,6 +160,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label25, 0, 23);
             this.tableLayoutPanel1.Controls.Add(this.panelt11, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label13, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.panelt8, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(288, 68);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 24;
@@ -815,12 +816,21 @@
             this.label27.Text = "Ημερήσιο Πλάνο";
             this.label27.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(295, 27);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(432, 554);
+            this.panel2.TabIndex = 12;
+            this.panel2.VisibleChanged += new System.EventHandler(this.panel2_VisibleChanged);
+            // 
             // DailyPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1059, 867);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -903,5 +913,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel panel2;
     }
 }

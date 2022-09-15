@@ -55,8 +55,8 @@
             this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -101,6 +101,7 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Δημιούργησε μια Δραστηριότητα:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Date_label
             // 
@@ -109,9 +110,9 @@
             this.Date_label.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.Date_label.Location = new System.Drawing.Point(72, 60);
             this.Date_label.Name = "Date_label";
-            this.Date_label.Size = new System.Drawing.Size(254, 23);
+            this.Date_label.Size = new System.Drawing.Size(132, 23);
             this.Date_label.TabIndex = 6;
-            this.Date_label.Text = "Δημιούργησε ένα Γεγονός:";
+            this.Date_label.Text = "Ημερομηνία:";
             this.Date_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBox1
@@ -191,15 +192,17 @@
             this.textBox1.Size = new System.Drawing.Size(313, 32);
             this.textBox1.TabIndex = 9;
             this.textBox1.Text = "Τίτλος:";
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.button1.Location = new System.Drawing.Point(269, 721);
+            this.button1.Location = new System.Drawing.Point(263, 721);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 37);
+            this.button1.Size = new System.Drawing.Size(118, 37);
             this.button1.TabIndex = 10;
             this.button1.Text = "Υποβολή";
             this.button1.UseVisualStyleBackColor = false;
@@ -218,6 +221,8 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.BackColor = System.Drawing.Color.White;
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             "Καθημερινή",
@@ -366,6 +371,7 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             "Λεωφορείο, Περπάτημα",
@@ -457,6 +463,16 @@
             this.panel2.Size = new System.Drawing.Size(393, 770);
             this.panel2.TabIndex = 1;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::LifePlanner.Resource1.coffee_cup;
+            this.pictureBox4.Location = new System.Drawing.Point(13, 580);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(42, 41);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 34;
+            this.pictureBox4.TabStop = false;
+            // 
             // radioButton9
             // 
             this.radioButton9.AutoSize = true;
@@ -469,16 +485,6 @@
             this.radioButton9.TabStop = true;
             this.radioButton9.Text = "Δεν θέλω να αγοράσω ρόφημα";
             this.radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::LifePlanner.Resource1.coffee_cup;
-            this.pictureBox4.Location = new System.Drawing.Point(13, 580);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(42, 41);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 34;
-            this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 

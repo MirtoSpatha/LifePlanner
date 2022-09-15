@@ -21,6 +21,7 @@ namespace LifePlanner
         public AddEventPanel(string StartTime)
         {
             InitializeComponent();
+            BringToFront();
             this.StartTime = StartTime;
         }
 
@@ -29,6 +30,9 @@ namespace LifePlanner
             // date and time
             Date_label.Text = Program.Date.ToString();
             comboBox1.Text = StartTime;
+            var current = comboBox1.SelectedIndex;
+            string after = comboBox1.Items[current + 1].ToString();
+            comboBox2.Text = after;
             //comboBox2.Text = DateTime.ParseExact(StartTime, "HH:mm",null).AddHours(1).ToString();
             EndTime = comboBox2.Text;
             // Address
@@ -36,12 +40,14 @@ namespace LifePlanner
             // transportation
             comboBox4.Hide();
             radioButton4.Text = Program.transportation + " (Προεπιλογή)";
+            /*
             int index = Program.items.IndexOf(radioButton4.Text);
             List<string> result = Program.items;
             result.RemoveAt(index);
             radioButton5.Text = result[0];
             radioButton6.Text = result[1];
             radioButton7.Text = result[2];
+            */
 
             // Drink
             textBox3.Hide();
@@ -66,7 +72,8 @@ namespace LifePlanner
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Parent.Hide();
+            Hide();
         }
 
         public void plan_Event()
@@ -81,7 +88,9 @@ namespace LifePlanner
 
         private void label5_Click(object sender, EventArgs e)
         {
+            Parent.Hide();
             Hide();
+
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -97,6 +106,22 @@ namespace LifePlanner
         private void radioButton11_CheckedChanged(object sender, EventArgs e)
         {
             textBox3.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if(textBox1.Text == "")
+                textBox1.Text = "Τίτλος:";
         }
     }
 }
