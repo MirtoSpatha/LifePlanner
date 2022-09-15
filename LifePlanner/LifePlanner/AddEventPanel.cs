@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace LifePlanner
     {
         string StartTime;
         string EndTime;
+        private Dictionary<string,string> event_info = new Dictionary<string,string>();
 
         public AddEventPanel(string StartTime)
         {
@@ -72,13 +74,10 @@ namespace LifePlanner
 
         private void button1_Click(object sender, EventArgs e)
         {
+            event_info.Add("Τίτλος", textBox1.Text);
+            //event_info.Add("ώρα Έναρξης"΄, )
             Parent.Hide();
             Hide();
-        }
-
-        public void plan_Event()
-        {
-            return;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
