@@ -80,11 +80,11 @@
             this.panelt11 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label27 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -188,7 +188,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(747, 1539);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(817, 1539);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // panelt4
@@ -198,7 +198,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelt4.Location = new System.Drawing.Point(109, 1430);
             this.panelt4.Name = "panelt4";
-            this.panelt4.Size = new System.Drawing.Size(704, 98);
+            this.panelt4.Size = new System.Drawing.Size(704, 105);
             this.panelt4.TabIndex = 11;
             // 
             // panelt3
@@ -421,6 +421,8 @@
             this.panelt5.Name = "panelt5";
             this.panelt5.Size = new System.Drawing.Size(704, 55);
             this.panelt5.TabIndex = 9;
+            this.panelt5.Paint += new System.Windows.Forms.PaintEventHandler(this.panelt5_Paint);
+            this.panelt5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt5_MouseClick);
             // 
             // label23
             // 
@@ -691,7 +693,7 @@
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label25.Location = new System.Drawing.Point(18, 1467);
+            this.label25.Location = new System.Drawing.Point(18, 1471);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(70, 23);
             this.label25.TabIndex = 9;
@@ -734,40 +736,16 @@
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label26
+            // checkBox4
             // 
-            this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label26.Location = new System.Drawing.Point(26, 19);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(230, 23);
-            this.label26.TabIndex = 6;
-            this.label26.Text = "Οι Δραστηριότητές μου:";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label26.Click += new System.EventHandler(this.label26_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.checkBox1.Location = new System.Drawing.Point(30, 60);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(152, 27);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Καθημερινές";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.checkBox2.Location = new System.Drawing.Point(30, 98);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(127, 27);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "Αθλητικές";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Font = new System.Drawing.Font("Bookman Old Style", 12F);
+            this.checkBox4.Location = new System.Drawing.Point(30, 178);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(159, 27);
+            this.checkBox4.TabIndex = 13;
+            this.checkBox4.Text = "Εντός Σπιτιού";
+            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
@@ -780,16 +758,40 @@
             this.checkBox3.Text = "Επίσημες";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBox2
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.checkBox4.Location = new System.Drawing.Point(30, 178);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(159, 27);
-            this.checkBox4.TabIndex = 13;
-            this.checkBox4.Text = "Εντός Σπιτιού";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Bookman Old Style", 12F);
+            this.checkBox2.Location = new System.Drawing.Point(30, 98);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(127, 27);
+            this.checkBox2.TabIndex = 11;
+            this.checkBox2.Text = "Αθλητικές";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Bookman Old Style", 12F);
+            this.checkBox1.Location = new System.Drawing.Point(30, 60);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(152, 27);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "Καθημερινές";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label26.Location = new System.Drawing.Point(26, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(230, 23);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "Οι Δραστηριότητές μου:";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // pictureBox1
             // 

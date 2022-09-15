@@ -17,6 +17,7 @@ namespace LifePlanner
     {
         string StartTime;
         string EndTime;
+
         public AddEventPanel(string StartTime)
         {
             InitializeComponent();
@@ -28,41 +29,24 @@ namespace LifePlanner
             // date and time
             Date_label.Text = Program.Date.ToString();
             comboBox1.Text = StartTime;
-            comboBox2.Text = DateTime.ParseExact(StartTime, "HH:mm",null).AddHours(1).ToString();
+            //comboBox2.Text = DateTime.ParseExact(StartTime, "HH:mm",null).AddHours(1).ToString();
             EndTime = comboBox2.Text;
+            // Address
+            textBox2.Hide();
             // transportation
-            StreamReader sr = new StreamReader("names.txt");
-            try
-            {
-                String s = sr.ReadLine();
-                while (s != null)
-                {
-                    if (Program.items.Contains(s))
-                    {
-                        break;
-                    }
-                    s = sr.ReadLine();
-                }
-                if (s == null)
-                {
-                    MessageBox.Show("Fatal Error, Null Value");
-                }
-                radioButton4.Text = s;
-            }
-            catch (IOException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                sr.Close();
-            }
+            comboBox4.Hide();
+            radioButton4.Text = Program.transportation + " (Προεπιλογή)";
             int index = Program.items.IndexOf(radioButton4.Text);
             List<string> result = Program.items;
             result.RemoveAt(index);
             radioButton5.Text = result[0];
             radioButton6.Text = result[1];
             radioButton7.Text = result[2];
+
+            // Drink
+            textBox3.Hide();
+            radioButton10.Text = Program.drink + " (Προεπιλογή)";
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -98,6 +82,21 @@ namespace LifePlanner
         private void label5_Click(object sender, EventArgs e)
         {
             Hide();
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox2.Show();
+        }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox4.Show();
+        }
+
+        private void radioButton11_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox3.Show();
         }
     }
 }

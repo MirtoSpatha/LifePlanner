@@ -19,7 +19,7 @@ namespace LifePlanner
 
         private void DailyPlan_Load(object sender, EventArgs e)
         {
-            //label2.Text = Program.Date.ToString();
+            label2.Text = Program.Date.ToString();
         }
 
         private void label26_Click(object sender, EventArgs e)
@@ -37,6 +37,18 @@ namespace LifePlanner
                 Color.Transparent, 1, ButtonBorderStyle.Solid,
                 Color.Transparent, 1, ButtonBorderStyle.Solid);
             
+        }
+
+        private void panelt5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelt5_MouseClick(object sender, MouseEventArgs e)
+        {
+            AddEventPanel panel = new AddEventPanel("05:00");
+            panel.Parent = this;
+            panel.Show();
         }
     }
 }
