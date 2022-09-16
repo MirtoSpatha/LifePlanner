@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,13 +37,32 @@ namespace LifePlanner
             //set initial menu button location
             button1.Location = new Point(panel1.Location.X, panel1.Location.Y);
 
-            //disable form controls except robot's to interact with robot
-            foreach(Control c in Controls)
+            try
             {
-                if (c.Parent != chatbot_panel && c != chatbot_panel)
-                    c.Enabled = false;
-            }
+                StreamReader sr = new StreamReader("OtherData.txt", true);
 
+                if (sr.ReadLine().Contains("false"))
+                {
+                    //hide robot interaction if its not the first time
+                    chatbot_panel.Hide();
+                }
+                else
+                {
+                    //disable form controls except robot's to interact with robot
+                    foreach (Control c in Controls)
+                    {
+                        if (c.Parent != chatbot_panel && c != chatbot_panel)
+                            c.Enabled = false;
+                    }
+                }
+
+                sr.Close();
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("An Exception was occured while trying to read the file");
+            }
+            
         }
 
         //door lock
@@ -95,6 +115,29 @@ namespace LifePlanner
                         else if (c.Parent == chatbot_panel || c == chatbot_panel)
                             c.Enabled = c.Visible = false;
                     }
+
+                    //change the variable first_house to false.
+                    //That means next time we will not interact with robot
+                    try
+                    {
+                        //read all the lines and change only the desirable one.
+                        //Then rewrite all lines again
+                        StreamReader sr = new StreamReader("OtherData.txt", true);
+                        String[] lines = sr.ReadToEnd().Split('\n');
+                        sr.Close();
+
+                        lines[0] = lines[0].Replace("true", "false");
+
+                        StreamWriter sw = new StreamWriter("OtherData.txt");
+                        foreach(String line in lines)
+                            sw.Write(line);
+                        sw.Close();
+                    }
+                    catch(Exception)
+                    {
+                        Console.WriteLine("An Exception was occured while trying to read/write the file");
+                    }
+
                     break;
             }
         }
