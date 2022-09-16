@@ -13,7 +13,6 @@ namespace LifePlanner
 {
     public partial class Hall : Form
     {
-        bool menu_open = false;
         bool lights_on = true;
         String door_status = "Κλειστή";
         int robot_clicks = 0;
@@ -26,7 +25,7 @@ namespace LifePlanner
         private void button1_Click(object sender, EventArgs e)
         {
             //run show/hide function for menu and return result in menu_open
-            menu_open = Misc.ShowHide(this, button1, panel1, menu_open);
+            Misc.ShowHide(this, button1, panel1);
         }
 
         private void Hall_Load(object sender, EventArgs e)

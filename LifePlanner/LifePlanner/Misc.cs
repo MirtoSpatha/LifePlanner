@@ -13,13 +13,15 @@ namespace LifePlanner
 {
     class Misc
     {
+        public static bool menu_open = false;
+
         /**
          * Function that shows/hides the menu at House forms.
          * returns a boolean value which indicates if the menu has
          * been closed(false) or opened(true)
          */
 
-        public static bool ShowHide(Form form, Button menubutton, Panel menupanel, bool menu_open)
+        public static void ShowHide(Form form, Button menubutton, Panel menupanel)
         {
             if (!menu_open)
             {
@@ -32,7 +34,7 @@ namespace LifePlanner
                 menubutton.Location = new Point(menupanel.Location.X + menupanel.Width, menupanel.Location.Y);
                 menupanel.Visible = menupanel.Enabled = true;
                 menubutton.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128); //red
-                return true;
+                menu_open = true;
             }
             else
             {
@@ -45,7 +47,7 @@ namespace LifePlanner
                 menubutton.Location = new Point(menupanel.Location.X, menupanel.Location.Y);
                 menupanel.Visible = menupanel.Enabled = false;
                 menubutton.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128); //green
-                return false;
+                menu_open = false;
             }
         }
 
