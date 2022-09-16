@@ -68,7 +68,7 @@ namespace LifePlanner
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::LifePlanner.Resource1.menu1;
+            this.button1.BackgroundImage = global::LifePlanner.Resource1.menu;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;

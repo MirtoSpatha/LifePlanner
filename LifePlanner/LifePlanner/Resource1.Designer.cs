@@ -315,7 +315,7 @@ namespace LifePlanner {
         /// </summary>
         internal static System.Drawing.Bitmap menu {
             get {
-                object obj = ResourceManager.GetObject("menu1", resourceCulture);
+                object obj = ResourceManager.GetObject("menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
