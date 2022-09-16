@@ -132,6 +132,12 @@
     <Compile Include="UserData.Designer.cs">
       <DependentUpon>UserData.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Bathroom.resx">
+      <DependentUpon>Bathroom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bedroom.resx">
+      <DependentUpon>Bedroom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Blank.resx">
       <DependentUpon>Blank.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Hall.resx">
       <DependentUpon>Hall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen.resx">
+      <DependentUpon>Kitchen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LivingRoom.resx">
+      <DependentUpon>LivingRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>

@@ -37,32 +37,9 @@ namespace LifePlanner
             //set initial menu button location
             button1.Location = new Point(panel1.Location.X, panel1.Location.Y);
 
-            try
-            {
-                StreamReader sr = new StreamReader("OtherData.txt", true);
+            //Show or hide assistant based on file variable
+            Misc.manageAssistantfromFile(this,chatbot_panel,"first_house");
 
-                if (sr.ReadLine().Contains("false"))
-                {
-                    //hide robot interaction if its not the first time
-                    chatbot_panel.Hide();
-                }
-                else
-                {
-                    //disable form controls except robot's to interact with robot
-                    foreach (Control c in Controls)
-                    {
-                        if (c.Parent != chatbot_panel && c != chatbot_panel)
-                            c.Enabled = false;
-                    }
-                }
-
-                sr.Close();
-            }
-            catch(Exception)
-            {
-                Console.WriteLine("An Exception was occured while trying to read the file");
-            }
-            
         }
 
         //door lock
@@ -108,6 +85,7 @@ namespace LifePlanner
                     break;
 
                 default:
+                    //hide robot and enable the other controls
                     foreach (Control c in Controls)
                     {
                         if (c.Parent != chatbot_panel && c != chatbot_panel)
@@ -116,27 +94,8 @@ namespace LifePlanner
                             c.Enabled = c.Visible = false;
                     }
 
-                    //change the variable first_house to false.
-                    //That means next time we will not interact with robot
-                    try
-                    {
-                        //read all the lines and change only the desirable one.
-                        //Then rewrite all lines again
-                        StreamReader sr = new StreamReader("OtherData.txt", true);
-                        String[] lines = sr.ReadToEnd().Split('\n');
-                        sr.Close();
-
-                        lines[0] = lines[0].Replace("true", "false");
-
-                        StreamWriter sw = new StreamWriter("OtherData.txt");
-                        foreach(String line in lines)
-                            sw.Write(line);
-                        sw.Close();
-                    }
-                    catch(Exception)
-                    {
-                        Console.WriteLine("An Exception was occured while trying to read/write the file");
-                    }
+                    //change the file variable for this assistant
+                    Misc.changeAssistantStateInFile("first_house");
 
                     break;
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace LifePlanner
     class Misc
     {
         /**
-         * Function that shows/hides the menu at House functions.
+         * Function that shows/hides the menu at House forms.
          * returns a boolean value which indicates if the menu has
          * been closed(false) or opened(true)
          */
@@ -48,6 +49,9 @@ namespace LifePlanner
             }
         }
 
+        /**
+         * Disable the menu button that corresponds to the current room
+         */
         public static void manageButtons(Form form, Panel panel)
         {
             String formname = form.Name;
@@ -59,6 +63,71 @@ namespace LifePlanner
                     c.Enabled = false;
                     return;
                 }
+            }
+        }
+
+        /**
+         * Check if current form's assistant has been viewed before. If yes, Disable interaction
+         */
+        public static void manageAssistantfromFile(Form form, Panel chatbot_panel, String variable)
+        {
+            try
+            {
+                StreamReader sr = new StreamReader("OtherData.txt", true);
+                String[] lines = sr.ReadToEnd().Split('\n');
+                sr.Close();
+
+                //hide robot interaction if its not the first time
+                if (lines.Contains(variable + ": false") )
+                {
+                    chatbot_panel.Hide();
+                }                   
+                else
+                {
+                    //disable form controls except robot's to interact with robot
+                    foreach (Control c in form.Controls)
+                    {
+                        if (c.Parent != chatbot_panel && c != chatbot_panel)
+                            c.Enabled = false;
+                    }
+                }              
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An Exception was occured while trying to read the file");
+            }
+        }
+
+        /**
+         * Change the given file variable to false.
+         * This is for disabling the assistant interaction next time
+         */
+        public static void changeAssistantStateInFile(String variable)
+        {            
+            try
+            {
+                //read all the lines and change only the desirable one.
+                //Then rewrite all lines again
+                StreamReader sr = new StreamReader("OtherData.txt", true);
+                String[] lines = sr.ReadToEnd().Split('\n');
+                sr.Close();
+
+                String vrb;
+
+                for(int i=0; i<lines.Length; i++)
+                {
+                    if (lines[i].StartsWith(variable + ": true"))
+                        lines[i] = lines[i].Replace("true","false");
+                }
+
+                StreamWriter sw = new StreamWriter("OtherData.txt");
+                foreach (String line in lines)
+                    sw.Write(line);
+                sw.Close();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An Exception was occured while trying to read/write the file");
             }
         }
     }
