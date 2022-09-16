@@ -22,7 +22,7 @@ namespace LifePlanner
         public static string work_address = null;
         public static string transportation = null;
         public static string shoe_size = null;
-        public static string drink = null;
+        public static string beverage = null;
         public static string pet = null;
         public static string Date = null;
         /// <summary>
@@ -58,7 +58,7 @@ namespace LifePlanner
                 work_address = File.ReadLines("UserData.txt").Skip(4).Take(1).First();
                 transportation = File.ReadLines("UserData.txt").Skip(5).Take(1).First();
                 shoe_size = File.ReadLines("UserData.txt").Skip(6).Take(1).First();
-                drink = File.ReadLines("UserData.txt").Skip(7).Take(1).First();
+                beverage = File.ReadLines("UserData.txt").Skip(7).Take(1).First();
                 pet = File.ReadLines("UserData.txt").Skip(8).Take(1).First();
                 //Wednesday, June 17, 2009
                 Date = File.ReadLines("UserData.txt").Last();
