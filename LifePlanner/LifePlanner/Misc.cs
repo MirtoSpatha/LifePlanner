@@ -47,5 +47,19 @@ namespace LifePlanner
                 return false;
             }
         }
+
+        public static void manageButtons(Form form, Panel panel)
+        {
+            String formname = form.Name;
+            
+            foreach(Control c in panel.Controls)
+            {
+                if (c is Button && c.Name.Equals(formname + "btn"))
+                {
+                    c.Enabled = false;
+                    return;
+                }
+            }
+        }
     }
 }

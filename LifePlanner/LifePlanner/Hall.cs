@@ -24,13 +24,19 @@ namespace LifePlanner
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //run show/hide function for menu and return result in menu_open
             menu_open = Misc.ShowHide(this, button1, panel1, menu_open);
         }
 
-        private void House_Load(object sender, EventArgs e)
+        private void Hall_Load(object sender, EventArgs e)
         {
+            //disable the menu button that corresponds to the form
+            Misc.manageButtons(this, panel1);
+
+            //set initial menu button location
             button1.Location = new Point(panel1.Location.X, panel1.Location.Y);
 
+            //disable form controls except robot's to interact with robot
             foreach(Control c in Controls)
             {
                 if (c.Parent != chatbot_panel && c != chatbot_panel)
@@ -91,6 +97,33 @@ namespace LifePlanner
                     }
                     break;
             }
+        }
+
+        private void Kitchen_panel_MouseClick(object sender, MouseEventArgs e)
+        {
+            String panel = ((Control)sender).Name;
+
+            switch (panel)
+            {
+                case "Kitchen_panel":
+                    Kitchen k = new Kitchen();
+                    k.Show();
+                    break;
+                case "Bedroom_panel":
+                    Bedroom b = new Bedroom();
+                    b.Show();
+                    break;
+                case "LivingRoom_panel":
+                    LivingRoom lr = new LivingRoom();
+                    lr.Show();
+                    break;
+                case "Bathroom_panel":
+                    Bathroom br = new Bathroom();
+                    br.Show();
+                    break;
+            }
+
+            this.Hide();
         }
     }
 }
