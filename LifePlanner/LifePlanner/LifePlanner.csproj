@@ -107,6 +107,7 @@
     <Compile Include="Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
+    <Compile Include="Serialize.cs" />
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +185,9 @@
     <EmbeddedResource Include="UserData.resx">
       <DependentUpon>UserData.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -246,9 +250,6 @@
     <None Include="Resources\living_room_Bright.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\living_room_Dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\tvclosed.png" />
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +302,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\living_room_Dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\living_room_Bright1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

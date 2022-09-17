@@ -13,23 +13,30 @@ namespace LifePlanner
 {
     public partial class Hall : Form
     {
-        bool lights_on = true;
-        String door_status = "Κλειστή";
-        int robot_clicks = 0;
+        private bool menu_open;
+        private bool lights_on;
+        String door_status;
+        private int robot_clicks = 0;
 
-        public Hall()
+        public Hall(bool lights_on = true, String door_status = "Κλειστή")
         {
             InitializeComponent();
+
+            this.lights_on = lights_on;
+            this.door_status = door_status;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //run show/hide function for menu and return result in menu_open
-            Misc.ShowHide(this, button1, panel1);
+            menu_open = Misc.ShowHide(this, button1, panel1, menu_open);
         }
 
         private void Hall_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = (lights_on) ? Resource1.Hallway_Bright : Resource1.Hallway_Dark;
+            pictureBox1.Image = (door_status == "Κλειστή") ? Resource1.locked : Resource1.unlocked;
+
             //disable the menu button that corresponds to the form
             Misc.manageButtons(this, panel1);
 
@@ -103,28 +110,17 @@ namespace LifePlanner
         private void Kitchen_panel_MouseClick(object sender, MouseEventArgs e)
         {
             String panel = ((Control)sender).Name;
+            String formname = panel.Replace("_panel","");
 
-            switch (panel)
-            {
-                case "Kitchen_panel":
-                    Kitchen k = new Kitchen();
-                    k.Show();
-                    break;
-                case "Bedroom_panel":
-                    Bedroom b = new Bedroom();
-                    b.Show();
-                    break;
-                case "LivingRoom_panel":
-                    LivingRoom lr = new LivingRoom();
-                    lr.Show();
-                    break;
-                case "Bathroom_panel":
-                    Bathroom br = new Bathroom();
-                    br.Show();
-                    break;
-            }
-
+            Misc.openForm(formname);
             this.Hide();
+        }
+
+        private void Hall_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Hall h = new Hall(lights_on, door_status);
+            h.Show();
+            h.Hide();
         }
     }
 }

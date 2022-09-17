@@ -13,7 +13,6 @@ namespace LifePlanner
 {
     class Misc
     {
-        public static bool menu_open = false;
 
         /**
          * Function that shows/hides the menu at House forms.
@@ -21,7 +20,7 @@ namespace LifePlanner
          * been closed(false) or opened(true)
          */
 
-        public static void ShowHide(Form form, Button menubutton, Panel menupanel)
+        public static bool ShowHide(Form form, Button menubutton, Panel menupanel, bool menu_open)
         {
             if (!menu_open)
             {
@@ -34,7 +33,7 @@ namespace LifePlanner
                 menubutton.Location = new Point(menupanel.Location.X + menupanel.Width, menupanel.Location.Y);
                 menupanel.Visible = menupanel.Enabled = true;
                 menubutton.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128); //red
-                menu_open = true;
+                return true;
             }
             else
             {
@@ -47,7 +46,7 @@ namespace LifePlanner
                 menubutton.Location = new Point(menupanel.Location.X, menupanel.Location.Y);
                 menupanel.Visible = menupanel.Enabled = false;
                 menubutton.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128); //green
-                menu_open = false;
+                return false;
             }
         }
 
@@ -130,6 +129,52 @@ namespace LifePlanner
             catch (Exception)
             {
                 Console.WriteLine("An Exception was occured while trying to read/write the file");
+            }
+        }
+
+        /**
+         * Shows a form if already exists.
+         * If not, the form is being created
+         * and added to the list so it can be
+         * accesed next time
+         */
+        public static void openForm(String formname)
+        {
+
+            foreach(Form f in Application.OpenForms)
+            {
+                if (f.Name.Equals(formname))
+                {
+                    f.Show();
+                    return;
+                }
+                        
+            }
+
+            Console.WriteLine("Form not found!");
+
+            switch (formname)
+            {
+                case "Kitchen":
+                    Kitchen k = new Kitchen();
+                    k.Show();
+                    break;
+                case "Bedroom":
+                    Bedroom b = new Bedroom();
+                    b.Show();
+                    break;
+                case "LivingRoom":
+                    LivingRoom lr = new LivingRoom();
+                    lr.Show();
+                    break;
+                case "Bathroom":
+                    Bathroom br = new Bathroom();
+                    br.Show();          
+                    break;
+                default:
+                    Hall h = new Hall();
+                    h.Show();
+                    break;
             }
         }
     }

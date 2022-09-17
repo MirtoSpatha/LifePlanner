@@ -54,6 +54,7 @@ namespace LifePlanner
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.Exit_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -66,6 +67,7 @@ namespace LifePlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -153,7 +155,7 @@ namespace LifePlanner
             // 
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel7.Location = new System.Drawing.Point(481, 122);
+            this.panel7.Location = new System.Drawing.Point(481, 123);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(24, 24);
             this.panel7.TabIndex = 14;
@@ -381,6 +383,18 @@ namespace LifePlanner
             this.pictureBox9.TabIndex = 22;
             this.pictureBox9.TabStop = false;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox10.Image = global::LifePlanner.Resource1.light;
+            this.pictureBox10.Location = new System.Drawing.Point(511, 112);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(40, 45);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 23;
+            this.pictureBox10.TabStop = false;
+            // 
             // Hall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,6 +403,7 @@ namespace LifePlanner
             this.BackgroundImage = global::LifePlanner.Resource1.Hallway_Bright;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(850, 449);
+            this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.chatbot_panel);
             this.Controls.Add(this.pictureBox3);
@@ -407,6 +422,7 @@ namespace LifePlanner
             this.Name = "Hall";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "House";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Hall_FormClosing);
             this.Load += new System.EventHandler(this.Hall_Load);
             this.Exit_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -422,6 +438,7 @@ namespace LifePlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,5 +469,6 @@ namespace LifePlanner
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox10;
     }
 }
