@@ -18,6 +18,7 @@ namespace LifePlanner
     {
         string StartTime;
         string EndTime;
+        string Title;
         string selected_activity;
         string selected_address;
         string selected_transportation;
@@ -39,26 +40,21 @@ namespace LifePlanner
             var current = comboBox1.SelectedIndex;
             string after = comboBox1.Items[current + 1].ToString();
             comboBox2.Text = after;
-            //comboBox2.Text = DateTime.ParseExact(StartTime, "HH:mm",null).AddHours(1).ToString();
             EndTime = comboBox2.Text;
             // Address
             textBox2.Hide();
             // transportation
             comboBox4.Hide();
             radioButton4.Text = Program.transportation + " (Προεπιλογή)";
-            /*
-            int index = Program.items.IndexOf(radioButton4.Text);
+            int index = Program.items.IndexOf(Program.transportation);
             List<string> result = Program.items;
             result.RemoveAt(index);
             radioButton5.Text = result[0];
             radioButton6.Text = result[1];
             radioButton7.Text = result[2];
-            */
-
             // Beverage
             textBox3.Hide();
             radioButton10.Text = Program.beverage + " (Προεπιλογή)";
-
         }
 
         private void textBox1_Click(object sender, EventArgs e)
@@ -70,7 +66,16 @@ namespace LifePlanner
         private void textBox1_Leave(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
+            {
                 textBox1.Text = "Τίτλος:";
+                Title = "null";
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "Τίτλος:" && textBox1.Text != "")
+                Title = textBox1.Text;
         }
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
@@ -115,8 +120,7 @@ namespace LifePlanner
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (textBox2.Text != "")
-                selected_address = textBox2.Text;
+            selected_address = textBox2.Text;
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
@@ -158,8 +162,7 @@ namespace LifePlanner
 
         private void comboBox4_TextChanged(object sender, EventArgs e)
         {
-            if (comboBox4.Text != "")
-                selected_transportation = comboBox4.Text;
+            selected_transportation = comboBox4.Text;
         }
 
         private void radioButton9_CheckedChanged(object sender, EventArgs e)
@@ -176,7 +179,7 @@ namespace LifePlanner
 
         private void radioButton11_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton3.Checked == true)
+            if (radioButton11.Checked == true)
             {
                 textBox3.Show();
                 selected_beverage = textBox3.Text;
@@ -189,8 +192,7 @@ namespace LifePlanner
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            if (textBox3.Text != "")
-                selected_beverage = textBox3.Text;
+            selected_beverage = textBox3.Text;
         }
 
         private void labelX_Click(object sender, EventArgs e)
@@ -201,24 +203,53 @@ namespace LifePlanner
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            event_info.Add("Title", textBox1.Text);
-            event_info.Add("Start Time", StartTime);
-            event_info.Add("End Time", EndTime);
-            event_info.Add("Activity", selected_activity);
-            event_info.Add("Address", selected_address);
-            event_info.Add("Transportation", selected_transportation);
-            event_info.Add("Beverage", selected_beverage);
-            foreach (string value in event_info.Values)
+            //form validation 
+            if (textBox1.Text == "" || textBox1.Text == "Τίτλος:")
             {
-                MessageBox.Show(value);
+                MessageBox.Show("Δώσε έναν τίτλο στη δραστηριότητά σου.");
+                textBox1.Text = "Τίτλος:";
+                Title = "null";
             }
-            Parent.Hide();
-            Hide();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
+            if (comboBox3.Text == "")
+            {
+                MessageBox.Show("Επίλεξε το είδος της δραστηριότητάς σου.");
+                selected_activity = "null";
+            }
+            if (radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == ""))
+            {
+                MessageBox.Show("Διάλεξε ή συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\".");
+                selected_address = "null";
+            }
+            if (radioButton4.Checked == false & radioButton5.Checked == false & radioButton6.Checked == false & radioButton7.Checked == false & (radioButton8.Checked == false || comboBox4.Text == ""))
+            {
+                MessageBox.Show("Διάλεξε έναν τρόπο μεταφοράς.");
+                selected_transportation = "null";
+            }
+            if (radioButton9.Checked == false & radioButton10.Checked == false & (radioButton11.Checked == false || textBox3.Text == ""))
+            {
+                MessageBox.Show("Συμπλήρωσε το ρόφημα της αρεσκείας σου.");
+                selected_beverage = "null";
+            }
+            //event added in planner
+            if (Title != "null" & selected_activity != "null" & selected_address != "null" & selected_transportation != "null" & selected_beverage != "null")
+            {
+                event_info.Add("Title", Title);
+                event_info.Add("Start Time", StartTime);
+                event_info.Add("End Time", EndTime);
+                event_info.Add("Activity", selected_activity);
+                event_info.Add("Address", selected_address);
+                event_info.Add("Transportation", selected_transportation);
+                event_info.Add("Beverage", selected_beverage);
+                foreach (string value in event_info.Values)
+                {
+                    MessageBox.Show(value);
+                }
+                //exit event form
+                Parent.Hide();
+                Hide();
+                
+            }
+            
         }
     }
 }

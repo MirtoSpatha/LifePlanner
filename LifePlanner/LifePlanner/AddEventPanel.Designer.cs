@@ -49,29 +49,29 @@
             this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.beverage_panel = new System.Windows.Forms.Panel();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.transportation_panel = new System.Windows.Forms.Panel();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.address_panel = new System.Windows.Forms.Panel();
-            this.transportation_panel = new System.Windows.Forms.Panel();
-            this.beverage_panel = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.beverage_panel.SuspendLayout();
+            this.transportation_panel.SuspendLayout();
+            this.address_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.address_panel.SuspendLayout();
-            this.transportation_panel.SuspendLayout();
-            this.beverage_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -198,6 +198,7 @@
             this.textBox1.TabIndex = 9;
             this.textBox1.Text = "Τίτλος:";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // buttonSubmit
@@ -382,17 +383,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(393, 770);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // pictureBox4
+            // beverage_panel
             // 
-            this.pictureBox4.Image = global::LifePlanner.Resource1.coffee_cup;
-            this.pictureBox4.Location = new System.Drawing.Point(13, 580);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(42, 41);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 34;
-            this.pictureBox4.TabStop = false;
+            this.beverage_panel.Controls.Add(this.radioButton10);
+            this.beverage_panel.Controls.Add(this.radioButton9);
+            this.beverage_panel.Controls.Add(this.radioButton11);
+            this.beverage_panel.Controls.Add(this.textBox3);
+            this.beverage_panel.Location = new System.Drawing.Point(87, 606);
+            this.beverage_panel.Name = "beverage_panel";
+            this.beverage_panel.Size = new System.Drawing.Size(305, 109);
+            this.beverage_panel.TabIndex = 37;
             // 
             // radioButton9
             // 
@@ -408,49 +409,18 @@
             this.radioButton9.UseVisualStyleBackColor = true;
             this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
             // 
-            // pictureBox3
+            // transportation_panel
             // 
-            this.pictureBox3.Image = global::LifePlanner.Resource1.transportation;
-            this.pictureBox3.Location = new System.Drawing.Point(13, 373);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(42, 41);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 24;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::LifePlanner.Resource1.location;
-            this.pictureBox2.Location = new System.Drawing.Point(13, 231);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(42, 41);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 18;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::LifePlanner.Resource1.clock;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 41);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton4.Font = new System.Drawing.Font("Bookman Old Style", 11F);
-            this.radioButton4.Location = new System.Drawing.Point(4, 4);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(140, 25);
-            this.radioButton4.TabIndex = 20;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Προεπιλογή";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.transportation_panel.Controls.Add(this.radioButton5);
+            this.transportation_panel.Controls.Add(this.radioButton4);
+            this.transportation_panel.Controls.Add(this.radioButton6);
+            this.transportation_panel.Controls.Add(this.radioButton7);
+            this.transportation_panel.Controls.Add(this.radioButton8);
+            this.transportation_panel.Controls.Add(this.comboBox4);
+            this.transportation_panel.Location = new System.Drawing.Point(87, 399);
+            this.transportation_panel.Name = "transportation_panel";
+            this.transportation_panel.Size = new System.Drawing.Size(256, 166);
+            this.transportation_panel.TabIndex = 36;
             // 
             // radioButton5
             // 
@@ -465,6 +435,20 @@
             this.radioButton5.Text = "Μέσο 1";
             this.radioButton5.UseVisualStyleBackColor = true;
             this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton4.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.radioButton4.Location = new System.Drawing.Point(4, 4);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(140, 25);
+            this.radioButton4.TabIndex = 20;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Προεπιλογή";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // radioButton6
             // 
@@ -534,29 +518,45 @@
             this.address_panel.Size = new System.Drawing.Size(222, 110);
             this.address_panel.TabIndex = 35;
             // 
-            // transportation_panel
+            // pictureBox4
             // 
-            this.transportation_panel.Controls.Add(this.radioButton5);
-            this.transportation_panel.Controls.Add(this.radioButton4);
-            this.transportation_panel.Controls.Add(this.radioButton6);
-            this.transportation_panel.Controls.Add(this.radioButton7);
-            this.transportation_panel.Controls.Add(this.radioButton8);
-            this.transportation_panel.Controls.Add(this.comboBox4);
-            this.transportation_panel.Location = new System.Drawing.Point(87, 399);
-            this.transportation_panel.Name = "transportation_panel";
-            this.transportation_panel.Size = new System.Drawing.Size(256, 166);
-            this.transportation_panel.TabIndex = 36;
+            this.pictureBox4.Image = global::LifePlanner.Resource1.coffee_cup;
+            this.pictureBox4.Location = new System.Drawing.Point(13, 580);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(42, 41);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 34;
+            this.pictureBox4.TabStop = false;
             // 
-            // beverage_panel
+            // pictureBox3
             // 
-            this.beverage_panel.Controls.Add(this.radioButton10);
-            this.beverage_panel.Controls.Add(this.radioButton9);
-            this.beverage_panel.Controls.Add(this.radioButton11);
-            this.beverage_panel.Controls.Add(this.textBox3);
-            this.beverage_panel.Location = new System.Drawing.Point(87, 606);
-            this.beverage_panel.Name = "beverage_panel";
-            this.beverage_panel.Size = new System.Drawing.Size(305, 109);
-            this.beverage_panel.TabIndex = 37;
+            this.pictureBox3.Image = global::LifePlanner.Resource1.transportation;
+            this.pictureBox3.Location = new System.Drawing.Point(13, 373);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(42, 41);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 24;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LifePlanner.Resource1.location;
+            this.pictureBox2.Location = new System.Drawing.Point(13, 231);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(42, 41);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 18;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LifePlanner.Resource1.clock;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 41);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // AddEventPanel
             // 
@@ -572,16 +572,16 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.beverage_panel.ResumeLayout(false);
+            this.beverage_panel.PerformLayout();
+            this.transportation_panel.ResumeLayout(false);
+            this.transportation_panel.PerformLayout();
+            this.address_panel.ResumeLayout(false);
+            this.address_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.address_panel.ResumeLayout(false);
-            this.address_panel.PerformLayout();
-            this.transportation_panel.ResumeLayout(false);
-            this.transportation_panel.PerformLayout();
-            this.beverage_panel.ResumeLayout(false);
-            this.beverage_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
