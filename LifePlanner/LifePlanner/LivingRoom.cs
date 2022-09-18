@@ -100,12 +100,25 @@ namespace LifePlanner
             tv_on = !tv_on;
         }
 
-        private void label2_MouseClick(object sender, MouseEventArgs e)
+        private void Hallbtn_Click(object sender, EventArgs e)
+        {
+            String form = ((Button)sender).Name.Replace("btn", "");
+            Misc.openForm(form);
+            this.Hide();           
+        }
+        private void LivingRoom_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            LivingRoom lr = new LivingRoom(gif_channel, lights_on, channel, tv_on);
+            lr.Show();
+            lr.Hide();
+        }
+
+        private void chatbot_panel_Click(object sender, EventArgs e)
         {
             switch (robot_clicks)
             {
                 case 0:
-                    label2.Text =  "Στο παράθυρο που θα σου εμφανιστεί,\n" +
+                    label2.Text = "Στο παράθυρο που θα σου εμφανιστεί,\n" +
                                    "εισήγαγε έναν διψήφιο αριθμό πατόντας\n" +
                                    "τα κουμπιά και μετά πάτα 'ΟΚ'.Αν θες να\n" +
                                    "αλλάξεις την επιλογή σου, πάτα πρώτα\n" +
@@ -128,19 +141,6 @@ namespace LifePlanner
 
                     break;
             }
-        }
-
-        private void Hallbtn_Click(object sender, EventArgs e)
-        {
-            String form = ((Button)sender).Name.Replace("btn", "");
-            Misc.openForm(form);
-            this.Hide();           
-        }
-        private void LivingRoom_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            LivingRoom lr = new LivingRoom(gif_channel, lights_on, channel, tv_on);
-            lr.Show();
-            lr.Hide();
         }
     }
 }

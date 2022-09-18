@@ -48,18 +48,18 @@ namespace LifePlanner
             this.panel4 = new System.Windows.Forms.Panel();
             this.chatbot_panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.tvpanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.chatbot_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -250,29 +250,42 @@ namespace LifePlanner
             // 
             this.chatbot_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chatbot_panel.Controls.Add(this.label2);
+            this.chatbot_panel.Controls.Add(this.pictureBox8);
             this.chatbot_panel.Controls.Add(this.pictureBox6);
             this.chatbot_panel.Controls.Add(this.pictureBox7);
-            this.chatbot_panel.Controls.Add(this.pictureBox8);
             this.chatbot_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chatbot_panel.Location = new System.Drawing.Point(458, 250);
+            this.chatbot_panel.Location = new System.Drawing.Point(434, 250);
             this.chatbot_panel.Margin = new System.Windows.Forms.Padding(2);
             this.chatbot_panel.Name = "chatbot_panel";
-            this.chatbot_panel.Size = new System.Drawing.Size(464, 276);
+            this.chatbot_panel.Size = new System.Drawing.Size(488, 276);
             this.chatbot_panel.TabIndex = 30;
-            this.chatbot_panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label2_MouseClick);
+            this.chatbot_panel.Click += new System.EventHandler(this.chatbot_panel_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label2.Location = new System.Drawing.Point(52, 34);
+            this.label2.Location = new System.Drawing.Point(52, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(238, 96);
             this.label2.TabIndex = 3;
             this.label2.Text = resources.GetString("label2.Text");
-            this.label2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label2_MouseClick);
+            this.label2.Click += new System.EventHandler(this.chatbot_panel_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = global::LifePlanner.Resource1.speech_bubble;
+            this.pictureBox8.Location = new System.Drawing.Point(1, 1);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(341, 231);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 10;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.chatbot_panel_Click);
             // 
             // pictureBox6
             // 
@@ -285,33 +298,20 @@ namespace LifePlanner
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 8;
             this.pictureBox6.TabStop = false;
-            this.pictureBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label2_MouseClick);
+            this.pictureBox6.Click += new System.EventHandler(this.chatbot_panel_Click);
             // 
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.Image = global::LifePlanner.Resource1.chatbot;
-            this.pictureBox7.Location = new System.Drawing.Point(312, 129);
+            this.pictureBox7.Location = new System.Drawing.Point(335, 129);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(151, 144);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 0;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label2_MouseClick);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = global::LifePlanner.Resource1.speech_bubble;
-            this.pictureBox8.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(341, 231);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 2;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label2_MouseClick);
+            this.pictureBox7.Click += new System.EventHandler(this.chatbot_panel_Click);
             // 
             // LivingRoom
             // 
@@ -342,9 +342,9 @@ namespace LifePlanner
             this.panel1.PerformLayout();
             this.chatbot_panel.ResumeLayout(false);
             this.chatbot_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,9 +366,9 @@ namespace LifePlanner
         private System.Windows.Forms.ToolStripMenuItem αλλαγήΚαναλιούToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel chatbot_panel;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox8;
     }
 }
