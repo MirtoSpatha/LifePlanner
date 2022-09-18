@@ -18,7 +18,7 @@ namespace LifePlanner
         String door_status;
         private int robot_clicks = 0;
 
-        public Hall(bool lights_on = true, String door_status = "Κλειστή")
+        public Hall(bool lights_on = true, String door_status = "Κλειδωμένη")
         {
             InitializeComponent();
 
@@ -35,7 +35,7 @@ namespace LifePlanner
         private void Hall_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = (lights_on) ? Resource1.Hallway_Bright : Resource1.Hallway_Dark;
-            pictureBox1.Image = (door_status == "Κλειστή") ? Resource1.locked : Resource1.unlocked;
+            pictureBox1.Image = (door_status == "Κλειδωμένη") ? Resource1.locked : Resource1.unlocked;
 
             //disable the menu button that corresponds to the form
             Misc.manageButtons(this, panel1);
@@ -51,8 +51,8 @@ namespace LifePlanner
         //door lock
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = (door_status == "Ανοιχτή") ? Resource1.locked : Resource1.unlocked;
-            door_status = (door_status == "Ανοιχτή") ? "Κλειστή" : "Ανοιχτή";
+            pictureBox1.Image = (door_status == "Ξεκλείδωτη") ? Resource1.locked : Resource1.unlocked;
+            door_status = (door_status == "Ξεκλείδωτη") ? "Κλειδωμένη" : "Ξεκλείδωτη";
         }
 
         private void Exit_panel_MouseClick(object sender, MouseEventArgs e)
@@ -113,6 +113,13 @@ namespace LifePlanner
             String formname = panel.Replace("_panel","");
 
             Misc.openForm(formname);
+            this.Hide();
+        }  
+
+        private void Hallbtn_Click(object sender, EventArgs e)
+        {
+            String form = ((Button)sender).Name.Replace("btn", "");
+            Misc.openForm(form);
             this.Hide();
         }
 

@@ -143,6 +143,66 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ch1 {
+            get {
+                object obj = ResourceManager.GetObject("ch1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ch2 {
+            get {
+                object obj = ResourceManager.GetObject("ch2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ch3 {
+            get {
+                object obj = ResourceManager.GetObject("ch3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ch4 {
+            get {
+                object obj = ResourceManager.GetObject("ch4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ch5 {
+            get {
+                object obj = ResourceManager.GetObject("ch5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ch6 {
+            get {
+                object obj = ResourceManager.GetObject("ch6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chatbot {
             get {
                 object obj = ResourceManager.GetObject("chatbot", resourceCulture);
@@ -217,16 +277,6 @@ namespace LifePlanner {
             get {
                 object obj = ResourceManager.GetObject("icon_1_tr", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon icon_11 {
-            get {
-                object obj = ResourceManager.GetObject("icon_11", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -386,6 +436,16 @@ namespace LifePlanner {
         internal static System.Drawing.Bitmap tvopen {
             get {
                 object obj = ResourceManager.GetObject("tvopen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tvstatic {
+            get {
+                object obj = ResourceManager.GetObject("tvstatic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

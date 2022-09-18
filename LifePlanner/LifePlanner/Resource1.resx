@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icon_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\icon_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="previous_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\previous_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -214,11 +211,32 @@
   <data name="wc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\wc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ch1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch6.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="light" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tvstatic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\tvstatic.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="living_room_Dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\living_room_Dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

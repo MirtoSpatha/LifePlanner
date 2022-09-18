@@ -55,7 +55,6 @@ namespace LifePlanner
 
         private void home_pictureBox_Click(object sender, EventArgs e)
         {
-            //Misc.initialiseFormlist();
             Misc.openForm("Hall");
             this.Hide();
         }

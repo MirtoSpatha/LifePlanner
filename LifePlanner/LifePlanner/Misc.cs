@@ -62,8 +62,8 @@ namespace LifePlanner
                 if (c is Button && c.Name.Equals(formname + "btn"))
                 {
                     c.Enabled = false;
-                    return;
                 }
+
             }
         }
 
@@ -75,7 +75,7 @@ namespace LifePlanner
             try
             {
                 StreamReader sr = new StreamReader("OtherData.txt", true);
-                String[] lines = sr.ReadToEnd().Split('\n');
+                String[] lines = sr.ReadToEnd().Split('|');
                 sr.Close();
 
                 //hide robot interaction if its not the first time
@@ -110,12 +110,10 @@ namespace LifePlanner
                 //read all the lines and change only the desirable one.
                 //Then rewrite all lines again
                 StreamReader sr = new StreamReader("OtherData.txt", true);
-                String[] lines = sr.ReadToEnd().Split('\n');
+                String[] lines = sr.ReadToEnd().Split('|');
                 sr.Close();
 
-                String vrb;
-
-                for(int i=0; i<lines.Length; i++)
+                for (int i=0; i<lines.Length; i++)
                 {
                     if (lines[i].StartsWith(variable + ": true"))
                         lines[i] = lines[i].Replace("true","false");
@@ -123,7 +121,11 @@ namespace LifePlanner
 
                 StreamWriter sw = new StreamWriter("OtherData.txt");
                 foreach (String line in lines)
-                    sw.Write(line);
+                {
+                    if(!line.Equals(""))
+                        sw.Write(line + "|");
+                }
+                    
                 sw.Close();
             }
             catch (Exception)
@@ -140,7 +142,7 @@ namespace LifePlanner
          */
         public static void openForm(String formname)
         {
-
+            Console.WriteLine(formname);
             foreach(Form f in Application.OpenForms)
             {
                 if (f.Name.Equals(formname))
@@ -177,5 +179,6 @@ namespace LifePlanner
                     break;
             }
         }
+
     }
 }

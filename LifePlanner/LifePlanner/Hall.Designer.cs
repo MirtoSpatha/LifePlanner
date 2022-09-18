@@ -225,6 +225,7 @@ namespace LifePlanner
             this.LivingRoombtn.TabIndex = 12;
             this.LivingRoombtn.Text = "Σαλόνι";
             this.LivingRoombtn.UseVisualStyleBackColor = true;
+            this.LivingRoombtn.Click += new System.EventHandler(this.Hallbtn_Click);
             // 
             // label1
             // 
@@ -251,6 +252,7 @@ namespace LifePlanner
             this.Bedroombtn.TabIndex = 11;
             this.Bedroombtn.Text = "Υπνοδωμάτιο";
             this.Bedroombtn.UseVisualStyleBackColor = true;
+            this.Bedroombtn.Click += new System.EventHandler(this.Hallbtn_Click);
             // 
             // Hallbtn
             // 
@@ -264,6 +266,7 @@ namespace LifePlanner
             this.Hallbtn.TabIndex = 8;
             this.Hallbtn.Text = "Διάδρομος";
             this.Hallbtn.UseVisualStyleBackColor = true;
+            this.Hallbtn.Click += new System.EventHandler(this.Hallbtn_Click);
             // 
             // Kitchenbtn
             // 
@@ -277,6 +280,7 @@ namespace LifePlanner
             this.Kitchenbtn.TabIndex = 10;
             this.Kitchenbtn.Text = "Κουζίνα";
             this.Kitchenbtn.UseVisualStyleBackColor = true;
+            this.Kitchenbtn.Click += new System.EventHandler(this.Hallbtn_Click);
             // 
             // Bathroombtn
             // 
@@ -290,6 +294,7 @@ namespace LifePlanner
             this.Bathroombtn.TabIndex = 9;
             this.Bathroombtn.Text = "Τουαλέτα";
             this.Bathroombtn.UseVisualStyleBackColor = true;
+            this.Bathroombtn.Click += new System.EventHandler(this.Hallbtn_Click);
             // 
             // pictureBox3
             // 
