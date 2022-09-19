@@ -13,6 +13,11 @@ namespace LifePlanner
 {
     class Misc
     {
+        //some global variables for feeder
+        public static int food_percentage = 70;
+        public static int water_percentage = 70;
+        public static String food_timer = "";
+        public static String water_timer = "";
 
         /**
          * Function that shows/hides the menu at House forms.

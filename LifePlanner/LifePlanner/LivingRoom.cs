@@ -12,7 +12,7 @@ namespace LifePlanner
 {
     public partial class LivingRoom : Form
     {
-        private int robot_clicks;
+        private int robot_clicks = 0;
 
         private bool lights_on;
         private bool menu_open;
@@ -126,6 +126,11 @@ namespace LifePlanner
                     robot_clicks += 1;
                     break;
 
+                case 1:
+                    label2.Text = "Η αυτόματη ταΐστρα βρίσκεται κάτω\nαριστερά στην οθόνη σου! Πάτα\nπάνω της για περισσότερες\nπληροφορίες!";
+                    robot_clicks += 1;
+                    break;
+
                 default:
                     //hide robot and enable the other controls
                     foreach (Control c in Controls)
@@ -141,6 +146,12 @@ namespace LifePlanner
 
                     break;
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Feeder f = new Feeder();
+            f.Show();
         }
     }
 }
