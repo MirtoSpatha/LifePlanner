@@ -23,7 +23,7 @@ namespace LifePlanner
         string selected_address;
         string selected_transportation;
         string selected_beverage;
-        private Dictionary<string,string> event_info = new Dictionary<string,string>();
+        public Dictionary<string,string> event_info = new Dictionary<string,string>();
 
         public AddEventPanel(string StartTime)
         {
@@ -34,6 +34,7 @@ namespace LifePlanner
 
         private void AddEventPanel_Load(object sender, EventArgs e)
         {
+            event_info.Clear();
             // date and time
             Date_label.Text = Program.Date.ToString();
             comboBox1.Text = StartTime;
@@ -245,6 +246,7 @@ namespace LifePlanner
                     MessageBox.Show(value);
                 }
                 //exit event form
+                DailyPlan.submit_clicked = true;
                 Parent.Hide();
                 Hide();
                 
