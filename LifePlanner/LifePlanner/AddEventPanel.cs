@@ -65,11 +65,13 @@ namespace LifePlanner
             DailyPlan.restricted_hours = DailyPlan.find_restricted_hours();
             //comboBox1.Items.Add(CItems);
             //comboBox2.Items.Add(CItems);
+            /*
             foreach (string h in DailyPlan.restricted_hours)
             {
                 comboBox1.Items.Remove(h);
                 comboBox2.Items.Remove(h);
             }
+            */
             event_info.Clear();
             // date and time
             Date_label.Text = Program.Date.ToString();
@@ -281,16 +283,18 @@ namespace LifePlanner
             if (Title != "null" & selected_activity != "null" & selected_address != "null" & selected_transportation != "null" & selected_beverage != "null")
             {
                 event_info.Add("Title", Title);
-                event_info.Add("Start Time", StartTime);
-                event_info.Add("End Time", EndTime);
+                event_info.Add("StartTime", StartTime);
+                event_info.Add("EndTime", EndTime);
                 event_info.Add("Activity", selected_activity);
                 event_info.Add("Address", selected_address);
                 event_info.Add("Transportation", selected_transportation);
                 event_info.Add("Beverage", selected_beverage);
+                /*
                 foreach (string value in event_info.Values)
                 {
                     MessageBox.Show(value);
                 }
+                */
                 //exit event form
                 DailyPlan.submit_clicked = true;
                 Parent.Hide();

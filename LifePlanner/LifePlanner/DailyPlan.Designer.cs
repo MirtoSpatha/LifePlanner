@@ -836,7 +836,7 @@
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.Location = new System.Drawing.Point(317, 53);
+            this.panel2.Location = new System.Drawing.Point(366, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(432, 554);
             this.panel2.TabIndex = 12;

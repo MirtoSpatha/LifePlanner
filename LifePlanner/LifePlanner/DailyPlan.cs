@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -186,10 +187,33 @@ namespace LifePlanner
 
         private void panel2_VisibleChanged(object sender, EventArgs e)
         {
+            if (panel2.Visible == false)
             // check if event exists in these time slots
             if (submit_clicked == true)
             {
-                containers.Add(new_event_panel.event_info);
+                TimeSpan t1 = TimeSpan.Parse(new_event_panel.event_info["StartTime"]);
+                TimeSpan t2 = TimeSpan.Parse(new_event_panel.event_info["EndTime"]);
+                TimeSpan t = t2.Subtract(t1);
+                int d = (int)t.TotalHours;
+                int start_hour = (int)t1.TotalHours;
+                for (int i = 0; i < d; i++)
+                {
+                    string panelname = "panelt" + (start_hour + i);
+                    Label l1 = new Label();
+                    l1.Text = new_event_panel.event_info["Title"];
+                    l1.Font = new Font ("Bookman Old Style", (float)10.2, FontStyle.Bold);
+                    l1.Parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
+                    l1.Location = l1.Parent.Location;
+                    Label l2 = new Label();
+                    l2.Text = new_event_panel.event_info["Address"];
+                    l2.Font = new Font("Bookman Old Style", 10, FontStyle.Regular);
+                    l2.Parent = l1.Parent;
+                    l2.Location = new Point (l1.Location.X, l1.Location.Y + l1.Height);
+                    //TimeSpan p = TimeSpan.FromHours(i);
+                    //p = t1.Add(p);
+                    //restricted_hours.Add(p.ToString(@"hh\:mm"));
+                }
+                //containers.Add(new_event_panel.event_info);
                 /*
                 foreach (CheckBox c in panel1.Controls)
                 {
@@ -199,7 +223,7 @@ namespace LifePlanner
                         // change color
                     }
                 }*/
-                day_schedule.Add(containers);
+                //day_schedule.Add(containers);
                 MessageBox.Show("ok");
             }
             //event_panel.event_info.Clear();
@@ -217,7 +241,7 @@ namespace LifePlanner
                 panel2.Size = new_event_panel.Size;
                 panel2.Anchor = AnchorStyles.None;
                 new_event_panel.Parent = panel2;
-                containers.Add(panelt5);
+                //containers.Add(panelt5);
                 //containers.Add(panel2);
                 panel2.Show();
             }
@@ -242,9 +266,14 @@ namespace LifePlanner
 
         public static HashSet<string> find_restricted_hours()
         {
+            
             foreach (List<object> l in day_schedule)
             {
                 int index = day_schedule.IndexOf(l);
+                MessageBox.Show(l[0].ToString());
+                //MessageBox.Show(l[1][1].ToString());
+                restricted_hours.Add("s");
+                /*
                 Dictionary<string, string> information = (Dictionary<string, string>) day_schedule[index][1];
                 restricted_hours.Add(information["StartTime"]);
                 restricted_hours.Add(information["EndTime"]);
@@ -257,7 +286,7 @@ namespace LifePlanner
                     TimeSpan p = TimeSpan.FromHours(i);
                     p = t1.Add(p);
                     restricted_hours.Add(p.ToString(@"hh\:mm"));
-                }
+                }*/
             }
             return restricted_hours;
         }
