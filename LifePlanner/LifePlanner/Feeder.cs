@@ -16,9 +16,6 @@ namespace LifePlanner
         private String message = "";
         private bool first_visit;
 
-        //specifies the form that called the feeder
-        private Form caller;
-
         private static Bitmap getImagefromPercentage(String type, String percentage)
         {
             int percentage_int = Convert.ToInt32(percentage.Replace("%", ""));
@@ -41,14 +38,20 @@ namespace LifePlanner
 
         }
 
-        public Feeder(Form caller)
+        public Feeder()
         {
             InitializeComponent();
-            this.caller = caller;
         }
 
         private void Feeder_Load(object sender, EventArgs e)
         {
+            first_visit = Misc.manageAssistantfromFile(this, chatbot_panel, "first_feeder");
+            Console.WriteLine("Load");
+        }
+
+        private void Feeder_Shown(object sender, EventArgs e)
+        {
+            Console.WriteLine("Shown");
             //get percentages from global variables and set them to labels
             food_percentage.Text = Misc.food_percentage.ToString() + "%";
             water_percentage.Text = Misc.water_percentage.ToString() + "%";
@@ -57,25 +60,40 @@ namespace LifePlanner
             food.Image = getImagefromPercentage("Food", food_percentage.Text);
             water.Image = getImagefromPercentage("Water", water_percentage.Text);
 
-            Misc.manageAssistantfromFile(this, chatbot_panel, "first_feeder");
-
             //set message if something was over(food or water)
             if (Misc.food_percentage == 0 && Misc.water_percentage == 0)
-                message = "Το φαγητό και το νερό του κατοικίδιού σου τελείωσε!";
+                message = "Το φαγητό και το νερό του\n κατοικίδιού σου τελείωσε!\n";
             else if (Misc.food_percentage == 0)
-                message = "Το φαγητό του κατοικίδιού σου τελείωσε!";
+                message = "Το φαγητό του κατοικίδιού σου τελείωσε!\n";
             else if (Misc.water_percentage == 0)
-                message = "Το νερό του κατοικίδιού σου τελείωσε!";
+                message = "Το νερό του κατοικίδιού σου τελείωσε!\n";
 
-            //show message on chatbot depending if its the first time of viewing feeder or not
-            if (chatbot_panel.Visible == true && !message.Equals(""))
+            //update message if food/water has been kicked
+            if (Misc.old_food_percentage != 0)
             {
-                label1.Text = message;
-                first_visit = true;
+                message += "Το κατοικίδιο σου έριξε\n το μπολάκι με το φαγητό του!\nΤο φαγητό έπεσε από " + Misc.old_food_percentage + "% σε " + Misc.food_percentage + "%.";
+                Misc.old_food_percentage = 0;
+            }
+            else if (Misc.old_water_percentage != 0)
+            {
+                message += "Το κατοικίδιο σου έριξε\n το μπολάκι με το νερό του!\nΤο νερό έπεσε από " + Misc.old_water_percentage + "% σε " + Misc.water_percentage + "%.";
+                Misc.old_water_percentage = 0;
             }
 
-            else if (chatbot_panel.Visible == false && !message.Equals(""))
+            //show message on chatbot depending if its the first time of viewing feeder or not
+            if (first_visit && !message.Equals(""))
             {
+                label1.Text = message;
+            }
+            else if (!first_visit && !message.Equals(""))
+            {
+                if (chatbot_panel.Visible == true)
+                {
+                    MessageBox.Show("Ο έξυπνος βοηθός λέει: " + message, "Ector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    message = "";
+                    return;
+                }
+                    
                 //disable form controls except robot's to interact with robot
                 foreach (Control c in Controls)
                 {
@@ -89,6 +107,8 @@ namespace LifePlanner
 
                 first_visit = false;
             }
+
+            message = "";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -169,6 +189,7 @@ namespace LifePlanner
 
                     //change the file variable for this assistant
                     Misc.changeAssistantStateInFile("first_feeder");
+                    first_visit = false;
 
                     break;
             }
@@ -281,10 +302,12 @@ namespace LifePlanner
                 if (chatbot_panel.Visible == true)
                 {
                     MessageBox.Show("Ο έξυπνος βοηθός λέει: " + message, "Ector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    message = "";
                     return;
                 }
 
                 label1.Text = message;
+                message = "";
 
                 //disable form controls except robot's to interact with robot
                 foreach (Control c in Controls)
@@ -345,10 +368,12 @@ namespace LifePlanner
                 if (chatbot_panel.Visible == true)
                 {
                     MessageBox.Show("Ο έξυπνος βοηθός λέει: " + message,"Ector",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    message = "";
                     return;
                 }
 
                 label1.Text = message;
+                message = "";
 
                 //disable form controls except robot's to interact with robot
                 foreach (Control c in Controls)
@@ -386,5 +411,7 @@ namespace LifePlanner
             e.Cancel = true;
             this.Hide();
         }
+
+        
     }
 }

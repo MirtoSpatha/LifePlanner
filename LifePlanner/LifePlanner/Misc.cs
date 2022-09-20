@@ -19,11 +19,14 @@ namespace LifePlanner
         private static LivingRoom lr = null;
         private static Bathroom b = null;
         private static Hall h = null;
+        private static Feeder f = null;
 
 
         //some global variables for feeder
         public static int food_percentage = 70;
         public static int water_percentage = 70;
+        public static int old_food_percentage = 0;
+        public static int old_water_percentage = 0;
 
         /**
          * Function that shows/hides the menu at House forms.
@@ -81,7 +84,7 @@ namespace LifePlanner
         /**
          * Check if current form's assistant has been viewed before. If yes, Disable interaction
          */
-        public static void manageAssistantfromFile(Form form, Panel chatbot_panel, String variable)
+        public static bool manageAssistantfromFile(Form form, Panel chatbot_panel, String variable)
         {
             try
             {
@@ -93,6 +96,7 @@ namespace LifePlanner
                 if (lines.Contains(variable + ": false") )
                 {
                     chatbot_panel.Hide();
+                    return false;
                 }                   
                 else
                 {
@@ -102,11 +106,13 @@ namespace LifePlanner
                         if (c.Parent != chatbot_panel && c != chatbot_panel)
                             c.Enabled = false;
                     }
+                    return true;
                 }              
             }
             catch (Exception)
             {
                 Console.WriteLine("An Exception was occured while trying to read the file");
+                return true;
             }
         }
 
@@ -237,6 +243,19 @@ namespace LifePlanner
                     else
                     {
                         b.Show();
+                    }
+                    break;
+
+                case "Feeder":
+                    if(f == null)
+                    {
+                        Console.WriteLine("null");
+                        f = new Feeder();
+                        f.Show();
+                    }
+                    else
+                    {
+                        f.Show();
                     }
                     break;
 

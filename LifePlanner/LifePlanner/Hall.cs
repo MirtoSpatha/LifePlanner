@@ -31,6 +31,7 @@ namespace LifePlanner
 
         private void Hall_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("fef");
             //disable the menu button that corresponds to the form
             Misc.manageButtons(this, panel1);
 

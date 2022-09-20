@@ -133,7 +133,7 @@ namespace LifePlanner
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Feeder f = new Feeder(this);
+            Feeder f = new Feeder();
             f.Show();
         }
 

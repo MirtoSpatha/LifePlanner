@@ -460,6 +460,7 @@ namespace LifePlanner
             this.Text = "Feeder";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Feeder_FormClosing);
             this.Load += new System.EventHandler(this.Feeder_Load);
+            this.Shown += new System.EventHandler(this.Feeder_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
