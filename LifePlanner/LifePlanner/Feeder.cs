@@ -16,18 +16,21 @@ namespace LifePlanner
         private String message = "";
         private bool first_visit;
 
+        //specifies the form that called the feeder
+        private Form caller;
+
         private static Bitmap getImagefromPercentage(String type, String percentage)
         {
             int percentage_int = Convert.ToInt32(percentage.Replace("%", ""));
-            if(percentage_int == 0)
+            if (percentage_int == 0)
             {
                 return Resource1.empty_bowl;
             }
-            else if(percentage_int > 0 && percentage_int <= 40)
+            else if (percentage_int > 0 && percentage_int <= 40)
             {
                 return (type.Equals("Food")) ? Resource1.little_bowl : Resource1.little_water_bowl;
             }
-            else if(percentage_int > 40 && percentage_int <= 80)
+            else if (percentage_int > 40 && percentage_int <= 80)
             {
                 return (type.Equals("Food")) ? Resource1.middle_bowl : Resource1.middle_water;
             }
@@ -35,12 +38,13 @@ namespace LifePlanner
             {
                 return (type.Equals("Food")) ? Resource1.full_bowl : Resource1.full_water_bowl;
             }
-            
+
         }
 
-        public Feeder()
+        public Feeder(Form caller)
         {
             InitializeComponent();
+            this.caller = caller;
         }
 
         private void Feeder_Load(object sender, EventArgs e)
@@ -58,9 +62,9 @@ namespace LifePlanner
             //set message if something was over(food or water)
             if (Misc.food_percentage == 0 && Misc.water_percentage == 0)
                 message = "Το φαγητό και το νερό του κατοικίδιού σου τελείωσε!";
-            else if(Misc.food_percentage == 0)
+            else if (Misc.food_percentage == 0)
                 message = "Το φαγητό του κατοικίδιού σου τελείωσε!";
-            else if(Misc.water_percentage == 0)
+            else if (Misc.water_percentage == 0)
                 message = "Το νερό του κατοικίδιού σου τελείωσε!";
 
             //show message on chatbot depending if its the first time of viewing feeder or not
@@ -69,8 +73,8 @@ namespace LifePlanner
                 label1.Text = message;
                 first_visit = true;
             }
-                
-            else if(chatbot_panel.Visible == false && !message.Equals(""))
+
+            else if (chatbot_panel.Visible == false && !message.Equals(""))
             {
                 //disable form controls except robot's to interact with robot
                 foreach (Control c in Controls)
@@ -208,23 +212,21 @@ namespace LifePlanner
 
                 if (food_mins != 0 || food_seconds != 0)
                 {
-                    Misc.food_timer = ((food_mins.ToString().Length == 1) ? "0"+ food_mins.ToString() : food_mins.ToString()) + ":" + ((food_seconds.ToString().Length == 1) ? "0" + food_seconds.ToString() : food_seconds.ToString());
+                    food_timer.Text = ((food_mins.ToString().Length == 1) ? "0" + food_mins.ToString() : food_mins.ToString()) + ":" + ((food_seconds.ToString().Length == 1) ? "0" + food_seconds.ToString() : food_seconds.ToString());
                     label14.Visible = food_timer.Visible = true;
-                    food_timer.Text = Misc.food_timer;
 
                     food_clock.Enabled = true;
                 }
 
                 if (water_mins != 0 || water_seconds != 0)
                 {
-                    Misc.water_timer = ((water_mins.ToString().Length == 1) ? "0" + water_mins.ToString() : water_mins.ToString()) + ":" + ((water_seconds.ToString().Length == 1) ? "0" + water_seconds.ToString() : water_seconds.ToString());
+                    water_timer.Text = ((water_mins.ToString().Length == 1) ? "0" + water_mins.ToString() : water_mins.ToString()) + ":" + ((water_seconds.ToString().Length == 1) ? "0" + water_seconds.ToString() : water_seconds.ToString());
                     label17.Visible = water_timer.Visible = true;
-                    water_timer.Text = Misc.water_timer;
 
                     water_clock.Enabled = true;
                 }
 
-                if(food_mins == 0 && food_seconds == 0 && water_mins == 0 && water_seconds == 0)
+                if (food_mins == 0 && food_seconds == 0 && water_mins == 0 && water_seconds == 0)
                 {
                     MessageBox.Show("Παρακαλώ ρυθμίστε σωστά τουλάχιστον ένα χρονόμετρο", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
@@ -240,9 +242,7 @@ namespace LifePlanner
             }
             else
             {
-                Misc.food_timer = "";
                 label14.Visible = food_timer.Visible = false;
-                Misc.water_timer = "";
                 label17.Visible = water_timer.Visible = false;
 
                 timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
@@ -251,7 +251,7 @@ namespace LifePlanner
                 {
                     c.Enabled = true;
                 }
-            }            
+            }
         }
 
         private void food_clock_Tick(object sender, EventArgs e)
@@ -261,16 +261,30 @@ namespace LifePlanner
 
             if (secs == 0 && mins == 0)
             {
+                this.Show();
+
                 food_clock.Enabled = false;
 
                 food_percentage.Text = "100%";
                 Misc.food_percentage = 100;
-                Misc.food_timer = "";
 
                 food.Image = Resource1.full_bowl;
 
-                label1.Text = message = "Το φαγητό του κατοικίδιού\nσου γέμισε!";
+                message = "Το φαγητό του κατοικίδιού\nσου γέμισε!";
                 food_timer.Visible = label14.Visible = false;
+
+                if (food_clock.Enabled == false && water_clock.Enabled == false)
+                    timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
+
+                //in case while informing user for something,
+                //something else occurs
+                if (chatbot_panel.Visible == true)
+                {
+                    MessageBox.Show("Ο έξυπνος βοηθός λέει: " + message, "Ector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                label1.Text = message;
 
                 //disable form controls except robot's to interact with robot
                 foreach (Control c in Controls)
@@ -282,8 +296,6 @@ namespace LifePlanner
                 //some sound effects
 
                 chatbot_panel.Show();
-
-                timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
 
                 foreach (Control c in panel1.Controls)
                 {
@@ -302,8 +314,7 @@ namespace LifePlanner
                 secs -= 1;
             }
 
-            Misc.food_timer = ((mins.ToString().Length == 1) ? "0" + mins.ToString() : mins.ToString()) + ":" + ((secs.ToString().Length == 1) ? "0" + secs.ToString() : secs.ToString());
-            food_timer.Text = Misc.food_timer;
+            food_timer.Text = ((mins.ToString().Length == 1) ? "0" + mins.ToString() : mins.ToString()) + ":" + ((secs.ToString().Length == 1) ? "0" + secs.ToString() : secs.ToString());
 
         }
 
@@ -314,16 +325,30 @@ namespace LifePlanner
 
             if (secs == 0 && mins == 0)
             {
+                this.Show();
+
                 water_clock.Enabled = false;
 
                 water_percentage.Text = "100%";
                 Misc.water_percentage = 100;
-                Misc.water_timer = "";
 
                 water.Image = Resource1.full_water_bowl;
 
-                label1.Text = message = "Το νερό του κατοικίδιού\nσου γέμισε!";
+                message = "Το νερό του κατοικίδιού\nσου γέμισε!";
                 water_timer.Visible = label17.Visible = false;
+
+                if (food_clock.Enabled == false && water_clock.Enabled == false)
+                    timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
+
+                //in case while informing user for something,
+                //something else occurs
+                if (chatbot_panel.Visible == true)
+                {
+                    MessageBox.Show("Ο έξυπνος βοηθός λέει: " + message,"Ector",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                label1.Text = message;
 
                 //disable form controls except robot's to interact with robot
                 foreach (Control c in Controls)
@@ -335,8 +360,6 @@ namespace LifePlanner
                 //some sound effects
 
                 chatbot_panel.Show();
-
-                timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
 
                 foreach (Control c in panel1.Controls)
                 {
@@ -355,8 +378,13 @@ namespace LifePlanner
                 secs -= 1;
             }
 
-            Misc.water_timer = ((mins.ToString().Length == 1) ? "0" + mins.ToString() : mins.ToString()) + ":" + ((secs.ToString().Length == 1) ? "0" + secs.ToString() : secs.ToString());
-            water_timer.Text = Misc.water_timer;
+            water_timer.Text = ((mins.ToString().Length == 1) ? "0" + mins.ToString() : mins.ToString()) + ":" + ((secs.ToString().Length == 1) ? "0" + secs.ToString() : secs.ToString());
+        }
+
+        private void Feeder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

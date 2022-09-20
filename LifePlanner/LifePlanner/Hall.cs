@@ -13,17 +13,14 @@ namespace LifePlanner
 {
     public partial class Hall : Form
     {
-        private bool menu_open;
-        private bool lights_on;
-        String door_status;
+        private bool menu_open = false;
+        private bool lights_on = true;
+        String door_status = "Κλειδωμένη";
         private int robot_clicks = 0;
 
-        public Hall(bool lights_on = true, String door_status = "Κλειδωμένη")
+        public Hall()
         {
             InitializeComponent();
-
-            this.lights_on = lights_on;
-            this.door_status = door_status;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,9 +31,6 @@ namespace LifePlanner
 
         private void Hall_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = (lights_on) ? Resource1.Hallway_Bright : Resource1.Hallway_Dark;
-            pictureBox1.Image = (door_status == "Κλειδωμένη") ? Resource1.locked : Resource1.unlocked;
-
             //disable the menu button that corresponds to the form
             Misc.manageButtons(this, panel1);
 
@@ -125,9 +119,8 @@ namespace LifePlanner
 
         private void Hall_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Hall h = new Hall(lights_on, door_status);
-            h.Show();
-            h.Hide();
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

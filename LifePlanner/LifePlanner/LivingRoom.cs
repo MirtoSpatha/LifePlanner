@@ -14,32 +14,20 @@ namespace LifePlanner
     {
         private int robot_clicks = 0;
 
-        private bool lights_on;
-        private bool menu_open;
-        private bool tv_on;
+        private bool lights_on = true;
+        private bool menu_open = false;
+        private bool tv_on = false;
         public string channel;
         public Bitmap gif_channel;
 
-        public LivingRoom(Bitmap gif_channel = null, bool lights_on = true, string channel = "", bool tv_on=false)
+        public LivingRoom()
         {
             InitializeComponent();
-
-            this.lights_on = lights_on;
-            this.channel = channel;
-            this.gif_channel = gif_channel;
-            this.tv_on = tv_on;
         }
 
         private void LivingRoom_Load(object sender, EventArgs e)
         {
             Misc.manageAssistantfromFile(this, chatbot_panel, "first_livingroom");
-
-            if (tv_on)
-                pictureBox1.Image = gif_channel ?? Resource1.tvstatic;
-            else
-                pictureBox1.Image = null;
-
-            this.BackgroundImage = (lights_on) ? Resource1.living_room_Bright : Resource1.living_room_Dark;
 
             //disable the menu button that corresponds to the form
             Misc.manageButtons(this, panel1);
@@ -106,12 +94,7 @@ namespace LifePlanner
             Misc.openForm(form);
             this.Hide();           
         }
-        private void LivingRoom_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            LivingRoom lr = new LivingRoom(gif_channel, lights_on, channel, tv_on);
-            lr.Show();
-            lr.Hide();
-        }
+       
 
         private void chatbot_panel_Click(object sender, EventArgs e)
         {
@@ -150,8 +133,14 @@ namespace LifePlanner
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Feeder f = new Feeder();
+            Feeder f = new Feeder(this);
             f.Show();
+        }
+
+        private void LivingRoom_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

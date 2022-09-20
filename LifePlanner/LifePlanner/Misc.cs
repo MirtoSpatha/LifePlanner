@@ -13,11 +13,17 @@ namespace LifePlanner
 {
     class Misc
     {
+        //Form variables
+        private static Kitchen k = null;
+        private static Bedroom br = null;
+        private static LivingRoom lr = null;
+        private static Bathroom b = null;
+        private static Hall h = null;
+
+
         //some global variables for feeder
         public static int food_percentage = 70;
         public static int water_percentage = 70;
-        public static String food_timer = "";
-        public static String water_timer = "";
 
         /**
          * Function that shows/hides the menu at House forms.
@@ -147,8 +153,7 @@ namespace LifePlanner
          */
         public static void openForm(String formname)
         {
-            Console.WriteLine(formname);
-            foreach(Form f in Application.OpenForms)
+            /*foreach(Form f in Application.OpenForms)
             {
                 if (f.Name.Equals(formname))
                 {
@@ -182,7 +187,72 @@ namespace LifePlanner
                     Hall h = new Hall();
                     h.Show();
                     break;
+            }*/
+
+
+            switch (formname)
+            {
+                case "Kitchen":
+                    if(k == null)
+                    {
+                        k = new Kitchen();
+                        k.Show();
+                    }
+                    else
+                    {
+                        k.Show();
+                    }
+                    break;
+
+                case "Bedroom":
+                    if (br == null)
+                    {
+                        br = new Bedroom();
+                        br.Show();
+                    }
+                    else
+                    {
+                        br.Show();
+                    }
+                    break;
+
+                case "LivingRoom":
+                    if (lr == null)
+                    {
+                        lr = new LivingRoom();
+                        lr.Show();
+                    }
+                    else
+                    {
+                        lr.Show();
+                    }
+                    break;
+
+                case "Bathroom":
+                    if (b == null)
+                    {
+                        b = new Bathroom();
+                        b.Show();
+                    }
+                    else
+                    {
+                        b.Show();
+                    }
+                    break;
+
+                default:
+                    if (h == null)
+                    {
+                        h = new Hall();
+                        h.Show();
+                    }
+                    else
+                    {
+                        h.Show();
+                    }
+                    break;
             }
+                
         }
 
     }
