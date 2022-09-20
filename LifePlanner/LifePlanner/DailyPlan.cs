@@ -15,7 +15,8 @@ namespace LifePlanner
         AddEventPanel new_event_panel = null;
         List<object> containers = new List<object>();
         public static bool submit_clicked = false;
-        List<List<object>> day_schedule = new List<List<object>>();
+        public static List<List<object>> day_schedule = new List<List<object>>();
+        public static HashSet<string> restricted_hours = new HashSet<string>();
 
         public DailyPlan()
         {
@@ -34,6 +35,7 @@ namespace LifePlanner
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel1.ResumeLayout();
             tableLayoutPanel1.PerformLayout();
+            vScrollBar1.Parent = tableLayoutPanel1;
         }
 
         private void label26_Click(object sender, EventArgs e)
@@ -188,6 +190,7 @@ namespace LifePlanner
             if (submit_clicked == true)
             {
                 containers.Add(new_event_panel.event_info);
+                /*
                 foreach (CheckBox c in panel1.Controls)
                 {
                     if (c.Text == new_event_panel.event_info["Activity"])
@@ -195,13 +198,14 @@ namespace LifePlanner
                         containers.Add(c.Text);
                         // change color
                     }
-                }
+                }*/
                 day_schedule.Add(containers);
+                MessageBox.Show("ok");
             }
             //event_panel.event_info.Clear();
             containers.Clear();
-            //if (day_schedule.Count == 24)
-            //MessageBox.Show("There are more than 24 events");
+            if (day_schedule.Count == 24)
+            MessageBox.Show("There are more than 24 events");
         }
 
         private void event_handler(Control c, string StartTime)
@@ -228,6 +232,34 @@ namespace LifePlanner
                 panel4.Show();
             }
             
+        }
+
+        private void labelX_Click(object sender, EventArgs e)
+        {
+            //e.Cancel = true;
+            this.Hide();
+        }
+
+        public static HashSet<string> find_restricted_hours()
+        {
+            foreach (List<object> l in day_schedule)
+            {
+                int index = day_schedule.IndexOf(l);
+                Dictionary<string, string> information = (Dictionary<string, string>) day_schedule[index][1];
+                restricted_hours.Add(information["StartTime"]);
+                restricted_hours.Add(information["EndTime"]);
+                TimeSpan t1 = TimeSpan.Parse(information["StartTime"]);
+                TimeSpan t2 = TimeSpan.Parse(information["EndTime"]);
+                TimeSpan t = t2.Subtract(t1);
+                int d = (int) t.TotalHours;
+                for(int i=1; i<d+1; i++)
+                {
+                    TimeSpan p = TimeSpan.FromHours(i);
+                    p = t1.Add(p);
+                    restricted_hours.Add(p.ToString(@"hh\:mm"));
+                }
+            }
+            return restricted_hours;
         }
     }
 }

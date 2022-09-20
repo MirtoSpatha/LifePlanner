@@ -52,6 +52,7 @@
             this.panelt9 = new System.Windows.Forms.Panel();
             this.panelt7 = new System.Windows.Forms.Panel();
             this.panelt6 = new System.Windows.Forms.Panel();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panelt5 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -80,17 +81,19 @@
             this.panelt8 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label26 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label27 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.labelX = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panelt6.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -423,11 +426,19 @@
             this.panelt6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelt6.Controls.Add(this.vScrollBar1);
             this.panelt6.Location = new System.Drawing.Point(110, 66);
             this.panelt6.Name = "panelt6";
             this.panelt6.Size = new System.Drawing.Size(705, 55);
             this.panelt6.TabIndex = 10;
             this.panelt6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt6_MouseClick);
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(681, -62);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(28, 694);
+            this.vScrollBar1.TabIndex = 15;
             // 
             // panelt5
             // 
@@ -754,7 +765,6 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.checkBox4);
             this.panel1.Controls.Add(this.checkBox3);
             this.panel1.Controls.Add(this.checkBox2);
@@ -765,14 +775,6 @@
             this.panel1.Size = new System.Drawing.Size(291, 829);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(3, 211);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(432, 554);
-            this.panel2.TabIndex = 12;
-            this.panel2.VisibleChanged += new System.EventHandler(this.panel2_VisibleChanged);
             // 
             // checkBox4
             // 
@@ -831,6 +833,15 @@
             this.label26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.Location = new System.Drawing.Point(317, 53);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(432, 554);
+            this.panel2.TabIndex = 12;
+            this.panel2.VisibleChanged += new System.EventHandler(this.panel2_VisibleChanged);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LifePlanner.Resource1.calendar;
@@ -872,18 +883,34 @@
             this.panel4.Size = new System.Drawing.Size(432, 554);
             this.panel4.TabIndex = 14;
             // 
+            // labelX
+            // 
+            this.labelX.AutoSize = true;
+            this.labelX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelX.Font = new System.Drawing.Font("Verdana Pro Cond", 14F);
+            this.labelX.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelX.Location = new System.Drawing.Point(1109, 0);
+            this.labelX.Name = "labelX";
+            this.labelX.Size = new System.Drawing.Size(56, 31);
+            this.labelX.TabIndex = 15;
+            this.labelX.Text = "  X  ";
+            this.labelX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelX.Click += new System.EventHandler(this.labelX_Click);
+            // 
             // DailyPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1165, 867);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.labelX);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DailyPlan";
@@ -892,6 +919,7 @@
             this.Load += new System.EventHandler(this.DailyPlan_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panelt6.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -966,5 +994,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.Label labelX;
     }
 }
