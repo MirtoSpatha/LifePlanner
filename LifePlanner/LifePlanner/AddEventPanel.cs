@@ -26,6 +26,11 @@ namespace LifePlanner
         public Dictionary<string,string> event_info = new Dictionary<string,string>();
         //ComboBox.ObjectCollection CItems;
 
+        public AddEventPanel()
+        {
+
+        }
+
         public AddEventPanel(string StartTime)
         {
             InitializeComponent();
@@ -217,7 +222,7 @@ namespace LifePlanner
         private void radioButton9_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton9.Checked == true)
-                selected_beverage = "Nothing";
+                selected_beverage = "Όχι";
         }
 
         private void radioButton10_CheckedChanged(object sender, EventArgs e)

@@ -286,5 +286,20 @@
   <ItemGroup>
     <None Include="Resources\delete.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unchecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_everyday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_formal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_sport.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

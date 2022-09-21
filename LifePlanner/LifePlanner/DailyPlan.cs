@@ -13,8 +13,8 @@ namespace LifePlanner
 {
     public partial class DailyPlan : Form
     {
-        AddEventPanel new_event_panel = null;
-        ModifyEventPanel old_event_panel = null;
+        AddEventPanel new_event_panel = new AddEventPanel();
+        ModifyEventPanel old_event_panel = new ModifyEventPanel();
         List<object> containers = new List<object>();
         public static bool submit_clicked = false;
         public static List<Dictionary<string,string>> day_schedule = new List<Dictionary<string,string>>();
@@ -30,15 +30,17 @@ namespace LifePlanner
         {
             label2.Text = Program.Date.ToString();
             panel2.Hide();
-            tableLayoutPanel1.AutoScroll = true;
+            panel4.Hide();
+            //tableLayoutPanel1.AutoScroll = true;
             tableLayoutPanel1.Dock = DockStyle.Right;
             //tableLayoutPanel1.Height = 699;
-            tableLayoutPanel1.VerticalScroll.Visible = true;
-            tableLayoutPanel1.HorizontalScroll.Visible = false;
-            tableLayoutPanel1.SuspendLayout();
-            tableLayoutPanel1.ResumeLayout();
-            tableLayoutPanel1.PerformLayout();
+            //tableLayoutPanel1.VerticalScroll.Visible = true;
+            //tableLayoutPanel1.HorizontalScroll.Visible = false;
+            //tableLayoutPanel1.SuspendLayout();
+            //tableLayoutPanel1.ResumeLayout();
+            //tableLayoutPanel1.PerformLayout();
             vScrollBar1.Parent = tableLayoutPanel1;
+
         }
 
         private void label26_Click(object sender, EventArgs e)
@@ -191,6 +193,7 @@ namespace LifePlanner
         {
             if (panel2.Visible == false)
                 display_event(new_event_panel.event_info);
+            submit_clicked = false;
             if (day_schedule.Count == 24)
                 MessageBox.Show("There are more than 24 events");
             /*
@@ -209,6 +212,7 @@ namespace LifePlanner
         {
             if (panel4.Visible == false)
                 display_event(old_event_panel.event_info);
+            submit_clicked = false;
             if (day_schedule.Count == 24)
                 MessageBox.Show("There are more than 24 events");
             /*
@@ -228,6 +232,7 @@ namespace LifePlanner
             //add event
             if (!c.HasChildren)
             {
+                
                 new_event_panel = new AddEventPanel(StartTime);
                 panel2.Size = new_event_panel.Size;
                 panel2.Anchor = AnchorStyles.None;
@@ -241,11 +246,12 @@ namespace LifePlanner
             //modify event
             else
             {
-                MessageBox.Show("An event exists");
-                old_event_panel = new ModifyEventPanel();
-                //panel4.Size = old_event_panel.Size;
+                old_event_panel = new ModifyEventPanel(new_event_panel.event_info);
+                panel4.Size = old_event_panel.Size;
                 panel4.Anchor = AnchorStyles.None;
-                //old_event_panel.Parent = panel2;
+                old_event_panel.Parent = panel4;
+                panel4.Visible = true;
+                panel4.BringToFront();
                 panel4.Show();
             }
             
@@ -260,10 +266,10 @@ namespace LifePlanner
         public static HashSet<string> find_restricted_hours()
         {
             
-            foreach (List<object> l in day_schedule)
+            //foreach (List<object> l in day_schedule)
             {
-                int index = day_schedule.IndexOf(l);
-                MessageBox.Show(l[0].ToString());
+                //int index = day_schedule.IndexOf(l);
+                //MessageBox.Show(l[0].ToString());
                 //MessageBox.Show(l[1][1].ToString());
                 restricted_hours.Add("s");
                 /*
@@ -312,7 +318,7 @@ namespace LifePlanner
                     labels[i].Location = labels[i].Parent.Location;
                     labels[i].Visible = true;
                     labels[i].BringToFront();
-                    MessageBox.Show(count1.ToString() + " new " + labels[i].Text);
+                    //MessageBox.Show(count1.ToString() + " new " + labels[i].Text);
                     /*
                     Label l2 = new Label();
                     if (l2.Created)
@@ -357,7 +363,63 @@ namespace LifePlanner
                     //p = t1.Add(p);
                     //restricted_hours.Add(p.ToString(@"hh\:mm"));
                 }
-                MessageBox.Show("ok");
+                //MessageBox.Show("ok");
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //238, 142, 180
+            CheckBox currentCheckBox = (sender as CheckBox);
+            if (currentCheckBox.Checked)
+            {
+                currentCheckBox.Image = Resource1.check_everyday;
+            }
+            else
+            {
+                currentCheckBox.Image = Resource1._unchecked;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            //222, 125, 255
+            CheckBox currentCheckBox = (sender as CheckBox);
+            if (currentCheckBox.Checked)
+            {
+                currentCheckBox.Image = Resource1.check_sport;
+            }
+            else
+            {
+                currentCheckBox.Image = Resource1._unchecked;
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            //125, 142, 158
+            CheckBox currentCheckBox = (sender as CheckBox);
+            if (currentCheckBox.Checked)
+            {
+                currentCheckBox.Image = Resource1.check_formal;
+            }
+            else
+            {
+                currentCheckBox.Image = Resource1._unchecked;
+            }
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            //125, 152, 255
+            CheckBox currentCheckBox = (sender as CheckBox);
+            if (currentCheckBox.Checked)
+            {
+                currentCheckBox.Image = Resource1.check_house;
+            }
+            else
+            {
+                currentCheckBox.Image = Resource1._unchecked;
             }
         }
     }

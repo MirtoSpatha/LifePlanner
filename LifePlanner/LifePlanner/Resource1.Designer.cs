@@ -73,6 +73,16 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap _unchecked {
+            get {
+                object obj = ResourceManager.GetObject("_unchecked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap bathroom_Bright {
             get {
                 object obj = ResourceManager.GetObject("bathroom_Bright", resourceCulture);
@@ -136,6 +146,46 @@ namespace LifePlanner {
         public static System.Drawing.Bitmap chatbot {
             get {
                 object obj = ResourceManager.GetObject("chatbot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap check_everyday {
+            get {
+                object obj = ResourceManager.GetObject("check_everyday", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap check_formal {
+            get {
+                object obj = ResourceManager.GetObject("check_formal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap check_house {
+            get {
+                object obj = ResourceManager.GetObject("check_house", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap check_sport {
+            get {
+                object obj = ResourceManager.GetObject("check_sport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

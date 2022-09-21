@@ -22,14 +22,21 @@ namespace LifePlanner
         string selected_transportation;
         string selected_beverage;
 
-        public ModifyEventPanel(Dictionary<string,string> info)
+        public ModifyEventPanel()
+        {
+
+        }
+
+        public ModifyEventPanel(Dictionary<string, string> info)
         {
             InitializeComponent();
+            BringToFront();
             event_info = new Dictionary<string, string>(info);
         }
 
         private void ModifyEventPanel_Load(object sender, EventArgs e)
         {
+            MessageBox.Show(event_info["Address"] + " new " + event_info["Beverage"]);
             textBox1.Text = event_info["Title"];
             comboBox1.Text = event_info["StartTime"];
             comboBox2.Text = event_info["EndTime"];
@@ -37,7 +44,7 @@ namespace LifePlanner
             comboBox4.Text = event_info["Address"];
             comboBox5.Text = event_info["Transportation"];
             comboBox7.Text = event_info["Beverage"];
-            comboBox7.Items.AddRange(new object[]{ "Δεν θέλω να αγοράσω ρόφημα", Program.beverage,"Άλλο"});
+            comboBox7.Items.AddRange(new object[] { "Δεν θέλω να αγοράσω ρόφημα", Program.beverage, "Άλλο" });
             textBox2.Hide();
             textBox3.Hide();
             comboBox6.Visible = false;
@@ -167,12 +174,12 @@ namespace LifePlanner
                 event_info["Address"] = selected_address;
                 event_info["Transportation"] = selected_transportation;
                 event_info["Beverage"] = selected_beverage;
-                
+
                 foreach (string value in event_info.Values)
                 {
                     MessageBox.Show(value);
                 }
-                
+
                 //exit event form
                 //DailyPlan.submit_clicked = true;
                 Parent.Hide();
@@ -180,4 +187,5 @@ namespace LifePlanner
 
             }
         }
+    }
 }

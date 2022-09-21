@@ -49,14 +49,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -190,9 +190,9 @@
             this.buttonSubmit.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonSubmit.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.buttonSubmit.Location = new System.Drawing.Point(230, 604);
+            this.buttonSubmit.Location = new System.Drawing.Point(217, 604);
             this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(147, 37);
+            this.buttonSubmit.Size = new System.Drawing.Size(160, 37);
             this.buttonSubmit.TabIndex = 10;
             this.buttonSubmit.Text = "Αποθήκευση";
             this.buttonSubmit.UseVisualStyleBackColor = false;
@@ -357,6 +357,49 @@
             this.label7.Text = "Λεπτομέρειες Δραστηριότητας:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // comboBox4
+            // 
+            this.comboBox4.BackColor = System.Drawing.Color.White;
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Σπίτι",
+            "Εργασία",
+            "Άλλο"});
+            this.comboBox4.Location = new System.Drawing.Point(87, 266);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(196, 24);
+            this.comboBox4.TabIndex = 38;
+            this.comboBox4.TextChanged += new System.EventHandler(this.comboBox4_TextChanged);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.BackColor = System.Drawing.Color.White;
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "Αυτοκίνητο",
+            "Λεωφορείο",
+            "Μετρό",
+            "Περπάτημα",
+            "Συνδυασμός"});
+            this.comboBox5.Location = new System.Drawing.Point(87, 388);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(196, 24);
+            this.comboBox5.TabIndex = 39;
+            this.comboBox5.TextChanged += new System.EventHandler(this.comboBox5_TextChanged);
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.BackColor = System.Drawing.Color.White;
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(88, 518);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(196, 24);
+            this.comboBox7.TabIndex = 40;
+            this.comboBox7.TextChanged += new System.EventHandler(this.comboBox7_TextChanged);
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
@@ -407,49 +450,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.BackColor = System.Drawing.Color.White;
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Σπίτι",
-            "Εργασία",
-            "Άλλο"});
-            this.comboBox4.Location = new System.Drawing.Point(87, 266);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(196, 24);
-            this.comboBox4.TabIndex = 38;
-            this.comboBox4.TextChanged += new System.EventHandler(this.comboBox4_TextChanged);
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.BackColor = System.Drawing.Color.White;
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "Αυτοκίνητο",
-            "Λεωφορείο",
-            "Μετρό",
-            "Περπάτημα",
-            "Συνδυασμός"});
-            this.comboBox5.Location = new System.Drawing.Point(87, 388);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(196, 24);
-            this.comboBox5.TabIndex = 39;
-            this.comboBox5.TextChanged += new System.EventHandler(this.comboBox5_TextChanged);
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.BackColor = System.Drawing.Color.White;
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(88, 518);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(196, 24);
-            this.comboBox7.TabIndex = 40;
-            this.comboBox7.TextChanged += new System.EventHandler(this.comboBox7_TextChanged);
             // 
             // ModifyEventPanel
             // 

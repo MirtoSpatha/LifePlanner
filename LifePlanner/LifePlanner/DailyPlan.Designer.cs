@@ -95,6 +95,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panelt6.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -778,47 +779,87 @@
             // 
             // checkBox4
             // 
+            this.checkBox4.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox4.AutoSize = true;
+            this.checkBox4.Checked = true;
+            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox4.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.checkBox4.FlatAppearance.BorderSize = 0;
+            this.checkBox4.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightCyan;
+            this.checkBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox4.Font = new System.Drawing.Font("Bookman Old Style", 12F);
+            this.checkBox4.Image = global::LifePlanner.Resource1.check_house;
             this.checkBox4.Location = new System.Drawing.Point(30, 178);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(159, 27);
+            this.checkBox4.Size = new System.Drawing.Size(169, 33);
             this.checkBox4.TabIndex = 13;
-            this.checkBox4.Text = "Εντός Σπιτιού";
+            this.checkBox4.Text = " Εντός Σπιτιού";
+            this.checkBox4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // checkBox3
             // 
+            this.checkBox3.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.checkBox3.FlatAppearance.BorderSize = 0;
+            this.checkBox3.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightCyan;
+            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox3.Font = new System.Drawing.Font("Bookman Old Style", 12F);
+            this.checkBox3.Image = global::LifePlanner.Resource1.check_formal;
             this.checkBox3.Location = new System.Drawing.Point(30, 137);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(121, 27);
+            this.checkBox3.Size = new System.Drawing.Size(131, 33);
             this.checkBox3.TabIndex = 12;
-            this.checkBox3.Text = "Επίσημες";
+            this.checkBox3.Text = " Επίσημες";
+            this.checkBox3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox2
             // 
+            this.checkBox2.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.checkBox2.FlatAppearance.BorderSize = 0;
+            this.checkBox2.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightCyan;
+            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox2.Font = new System.Drawing.Font("Bookman Old Style", 12F);
+            this.checkBox2.Image = global::LifePlanner.Resource1.check_sport;
             this.checkBox2.Location = new System.Drawing.Point(30, 98);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(127, 27);
+            this.checkBox2.Size = new System.Drawing.Size(137, 33);
             this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "Αθλητικές";
+            this.checkBox2.Text = " Αθλητικές";
+            this.checkBox2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox1
             // 
+            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.checkBox1.FlatAppearance.BorderSize = 0;
+            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightCyan;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox1.Font = new System.Drawing.Font("Bookman Old Style", 12F);
+            this.checkBox1.Image = global::LifePlanner.Resource1.check_everyday;
             this.checkBox1.Location = new System.Drawing.Point(30, 60);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(152, 27);
+            this.checkBox1.Size = new System.Drawing.Size(162, 33);
             this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Καθημερινές";
+            this.checkBox1.Text = " Καθημερινές";
+            this.checkBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label26
             // 
@@ -878,7 +919,7 @@
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(366, 156);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(432, 554);
             this.panel4.TabIndex = 14;
@@ -905,12 +946,12 @@
             this.ClientSize = new System.Drawing.Size(1157, 867);
             this.Controls.Add(this.labelX);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DailyPlan";
@@ -922,6 +963,7 @@
             this.panelt6.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
