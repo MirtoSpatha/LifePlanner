@@ -86,7 +86,7 @@ namespace LifePlanner
             comboBox4.Hide();
             radioButton4.Text = Program.transportation + " (Προεπιλογή)";
             int index = Program.items.IndexOf(Program.transportation);
-            List<string> result = Program.items;
+            List<string> result = new List<string>(Program.items);
             result.RemoveAt(index);
             radioButton5.Text = result[0];
             radioButton6.Text = result[1];
@@ -246,6 +246,7 @@ namespace LifePlanner
 
         private void labelX_Click(object sender, EventArgs e)
         {
+            Parent.Visible = false;
             Parent.Hide();
             Hide();
         }

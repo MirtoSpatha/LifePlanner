@@ -75,8 +75,6 @@ namespace LifePlanner
                 //Application.Run(new LoadingPage());
 
             }
-
-
             Application.Run(new DailyPlan());
 
 

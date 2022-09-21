@@ -88,6 +88,12 @@
     <Compile Include="LoadingPage.Designer.cs">
       <DependentUpon>LoadingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifyEventPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModifyEventPanel.Designer.cs">
+      <DependentUpon>ModifyEventPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyEventPanel.resx">
+      <DependentUpon>ModifyEventPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.cs</DependentUpon>
@@ -273,6 +282,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\coffee_cup.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

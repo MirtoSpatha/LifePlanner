@@ -67,7 +67,7 @@
             // myProgressBar2
             // 
             this.myProgressBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(166)))), ((int)(((byte)(203)))));
-            this.myProgressBar2.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(183)))), ((int)(((byte)(172)))));
+            this.myProgressBar2.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
             this.myProgressBar2.Location = new System.Drawing.Point(238, 429);
             this.myProgressBar2.Max = 100;
             this.myProgressBar2.Min = 0;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(876, 541);
             this.Controls.Add(this.myProgressBar2);
             this.Controls.Add(this.pictureBox1);

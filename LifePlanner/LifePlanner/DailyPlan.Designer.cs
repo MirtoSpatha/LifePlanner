@@ -836,7 +836,7 @@
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.Location = new System.Drawing.Point(366, 27);
+            this.panel2.Location = new System.Drawing.Point(362, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(432, 554);
             this.panel2.TabIndex = 12;
@@ -857,7 +857,7 @@
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label27.Location = new System.Drawing.Point(131, 25);
+            this.label27.Location = new System.Drawing.Point(127, 25);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(167, 23);
             this.label27.TabIndex = 11;
@@ -869,7 +869,7 @@
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel3.AutoScroll = true;
             this.panel3.Controls.Add(this.tableLayoutPanel1);
-            this.panel3.Location = new System.Drawing.Point(295, 68);
+            this.panel3.Location = new System.Drawing.Point(291, 68);
             this.panel3.MaximumSize = new System.Drawing.Size(819, 1539);
             this.panel3.MinimumSize = new System.Drawing.Size(819, 1539);
             this.panel3.Name = "panel3";
@@ -902,7 +902,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1165, 867);
+            this.ClientSize = new System.Drawing.Size(1157, 867);
             this.Controls.Add(this.labelX);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label27);
