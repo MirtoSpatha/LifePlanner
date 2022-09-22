@@ -15,11 +15,10 @@ namespace LifePlanner
     {
         AddEventPanel new_event_panel = new AddEventPanel();
         ModifyEventPanel old_event_panel = new ModifyEventPanel();
-        List<object> containers = new List<object>();
         public static bool submit_clicked = false;
-        public static List<Dictionary<string,string>> day_schedule = new List<Dictionary<string,string>>();
         public static HashSet<string> restricted_hours = new HashSet<string>();
         List<Label> labels = new List<Label>();
+        Dictionary<Panel,Dictionary<string,string>> panel_events = new Dictionary<Panel,Dictionary<string,string>>();
 
         public DailyPlan()
         {
@@ -194,18 +193,6 @@ namespace LifePlanner
             if (panel2.Visible == false)
                 display_event(new_event_panel.event_info);
             submit_clicked = false;
-            if (day_schedule.Count == 24)
-                MessageBox.Show("There are more than 24 events");
-            /*
-                 * change color
-                foreach (CheckBox c in panel1.Controls)
-                {
-                    if (c.Text == new_event_panel.event_info["Activity"])
-                    {
-                        containers.Add(c.Text);
-                        // change color
-                    }
-                }*/
         }
 
         private void panel4_VisibleChanged(object sender, EventArgs e)
@@ -213,18 +200,6 @@ namespace LifePlanner
             if (panel4.Visible == false)
                 display_event(old_event_panel.event_info);
             submit_clicked = false;
-            if (day_schedule.Count == 24)
-                MessageBox.Show("There are more than 24 events");
-            /*
-                 * change color
-                foreach (CheckBox c in panel1.Controls)
-                {
-                    if (c.Text == new_event_panel.event_info["Activity"])
-                    {
-                        containers.Add(c.Text);
-                        // change color
-                    }
-                }*/
         }
 
         private void event_handler(Control c, string StartTime)
@@ -294,7 +269,6 @@ namespace LifePlanner
         {
             if (submit_clicked == true)
             {
-                day_schedule.Add(new_event_panel.event_info);
                 TimeSpan t1 = TimeSpan.Parse(new_event_panel.event_info["StartTime"]);
                 TimeSpan t2 = TimeSpan.Parse(new_event_panel.event_info["EndTime"]);
                 TimeSpan t = t2.Subtract(t1);
@@ -312,12 +286,36 @@ namespace LifePlanner
                         count1++;
                     labels[i].Text = new_event_panel.event_info["Title"];
                     labels[i].Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Bold);
-                    labels[i].Parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
+                    Panel parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
+                    panel_events.Add(parent, event_info);
+                    l1.Parent = parent;
                     labels[i].Parent.Visible = true;
                     labels[i].Parent.BringToFront();
                     labels[i].Location = labels[i].Parent.Location;
                     labels[i].Visible = true;
                     labels[i].BringToFront();
+
+
+                    // panel coloring
+                    switch(event_info["Activity"])
+                    {
+                        case "Καθημερινή":
+                            parent.BackColor = Color.FromArgb(238, 142, 180); 
+                            break;
+                        case "Αθλητική":
+                            parent.BackColor = Color.FromArgb(222, 125, 255);
+                            break;
+                        case "Επίσημη":
+                            parent.BackColor = Color.FromArgb(125, 142, 158);
+                            break;
+                        case "Εντός Σπιτιού":
+                            parent.BackColor = Color.FromArgb(125, 152, 255);
+                            break;
+                    }
+                        
+                    
+                    
+                    
                     //MessageBox.Show(count1.ToString() + " new " + labels[i].Text);
                     /*
                     Label l2 = new Label();
@@ -374,10 +372,36 @@ namespace LifePlanner
             if (currentCheckBox.Checked)
             {
                 currentCheckBox.Image = Resource1.check_everyday;
+                foreach (Panel p in tableLayoutPanel1.Controls.OfType<Panel>())
+                {
+                    if (p.BackColor == Color.LightCyan & panel_events.ContainsKey(p))
+                    {
+                        if (panel_events[p]["Activity"] == "Καθημερινή")
+                        {
+                            p.BackColor = Color.FromArgb(238, 142, 180);
+                            foreach (Control c in p.Controls.OfType<Control>())
+                            {
+                                c.Show();
+                            }
+                        }
+                        
+                    }
+                }
             }
             else
             {
                 currentCheckBox.Image = Resource1._unchecked;
+                foreach (Panel p in tableLayoutPanel1.Controls.OfType<Panel>())
+                {
+                    if (p.BackColor == Color.FromArgb(238, 142, 180))
+                    {
+                        p.BackColor = Color.LightCyan;
+                        foreach (Control c in p.Controls.OfType<Control>())
+                        {
+                            c.Hide();
+                        }
+                    }
+                }
             }
         }
 
@@ -388,10 +412,37 @@ namespace LifePlanner
             if (currentCheckBox.Checked)
             {
                 currentCheckBox.Image = Resource1.check_sport;
+                foreach (Panel p in tableLayoutPanel1.Controls.OfType<Panel>())
+                {
+                    if (p.BackColor == Color.LightCyan & panel_events.ContainsKey(p))
+                    {
+                        if (panel_events[p]["Activity"] == "Αθλητική")
+                        {
+                            p.BackColor = Color.FromArgb(222, 125, 255);
+                            foreach (Control c in p.Controls.OfType<Control>())
+                            {
+                                c.Show();
+                            }
+                        }
+                        
+                    }
+                }
+
             }
             else
             {
                 currentCheckBox.Image = Resource1._unchecked;
+                foreach (Panel p in tableLayoutPanel1.Controls.OfType<Panel>())
+                {
+                    if (p.BackColor == Color.FromArgb(222, 125, 255))
+                    {
+                        p.BackColor = Color.LightCyan;
+                        foreach (Control c in p.Controls.OfType<Control>())
+                        {
+                            c.Hide();
+                        }
+                    }
+                }
             }
         }
 
@@ -402,10 +453,37 @@ namespace LifePlanner
             if (currentCheckBox.Checked)
             {
                 currentCheckBox.Image = Resource1.check_formal;
+                foreach (Panel p in tableLayoutPanel1.Controls.OfType<Panel>())
+                {
+                    if (p.BackColor == Color.LightCyan & panel_events.ContainsKey(p))
+                    {
+                        if (panel_events[p]["Activity"] == "Επίσημη")
+                        {
+                            p.BackColor = Color.FromArgb(125, 142, 158);
+                            foreach (Control c in p.Controls.OfType<Control>())
+                            {
+                                c.Show();
+                            }
+                        }
+                        
+                    }
+                }
+
             }
             else
             {
                 currentCheckBox.Image = Resource1._unchecked;
+                foreach (Panel p in tableLayoutPanel1.Controls.OfType<Panel>())
+                {
+                    if (p.BackColor == Color.FromArgb(125, 142, 158))
+                    {
+                        p.BackColor = Color.LightCyan;
+                        foreach (Control c in p.Controls.OfType<Control>())
+                        {
+                            c.Hide();
+                        }
+                    }
+                }
             }
         }
 
@@ -416,10 +494,36 @@ namespace LifePlanner
             if (currentCheckBox.Checked)
             {
                 currentCheckBox.Image = Resource1.check_house;
+                foreach (Panel p in tableLayoutPanel1.Controls.OfType<Panel>())
+                {
+                    if (p.BackColor == Color.LightCyan & panel_events.ContainsKey(p))
+                    {
+                        if (panel_events[p]["Activity"] == "Εντός Σπιτιού")
+                        {
+                            p.BackColor = Color.FromArgb(125, 152, 255);
+                            foreach (Control c in p.Controls.OfType<Control>())
+                            {
+                                c.Show();
+                            }
+                        }
+                        
+                    }
+                }
             }
             else
             {
                 currentCheckBox.Image = Resource1._unchecked;
+                foreach (Panel p in tableLayoutPanel1.Controls.OfType<Panel>())
+                {
+                    if (p.BackColor == Color.FromArgb(125, 152, 255))
+                    {
+                        p.BackColor = Color.LightCyan;
+                        foreach (Control c in p.Controls.OfType<Control>())
+                        {
+                            c.Hide();
+                        }
+                    }
+                }
             }
         }
     }
