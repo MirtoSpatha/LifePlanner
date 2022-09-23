@@ -212,7 +212,7 @@ namespace LifePlanner
             //modify event
             else
             {
-                old_event_panel = new ModifyEventPanel(panel_events[(Panel) c]);
+                old_event_panel = new ModifyEventPanel(panel_events[(Panel) c], (Panel) c);
                 panel4.Size = old_event_panel.Size;
                 panel4.Anchor = AnchorStyles.None;
                 old_event_panel.Parent = panel4;
@@ -267,6 +267,13 @@ namespace LifePlanner
             else if (saved == true)
             {
                 // when the user modifies the hour of the event, the previous event has to be deleted
+                Dictionary<string,string> old_event = panel_events[ModifyEventPanel.provoker];
+                foreach (var item in panel_events.Where(kvp => kvp.Value == old_event).ToList())
+                {
+                    item.Key.BackColor = Color.LightCyan;
+                    item.Key.Controls.Clear();
+                    panel_events.Remove(item.Key);
+                }
                 display_event(event_info, false);
             }
             // recently deleted event
@@ -470,7 +477,6 @@ namespace LifePlanner
                 string panelname = "panelt" + (start_hour + i);
                 Label l1 = new Label();
                 labels.Add(l1);
-                //Label l1 = new Label();
                 if (l1.Created)
                     count1++;
                 labels[i].Text = event_info["Title"];
@@ -480,6 +486,7 @@ namespace LifePlanner
                     panel_events.Add(parent, event_info);
                 else
                 {
+                    panel_events.Add(parent, event_info);
                     MessageBox.Show("modified");
                 }
                 l1.Parent = parent;

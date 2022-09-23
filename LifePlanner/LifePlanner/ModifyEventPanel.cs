@@ -13,7 +13,8 @@ namespace LifePlanner
 {
     public partial class ModifyEventPanel : UserControl
     {
-        public Dictionary<string, string> event_info = null;
+        public Dictionary<string, string> event_info = new Dictionary<string, string>();
+        public static Panel provoker = new Panel();
         string StartTime;
         string EndTime;
         string Title;
@@ -27,16 +28,18 @@ namespace LifePlanner
 
         }
 
-        public ModifyEventPanel(Dictionary<string, string> info)
+        public ModifyEventPanel(Dictionary<string, string> info, Panel provoker)
         {
             InitializeComponent();
             BringToFront();
-            event_info = new Dictionary<string, string>(info);
+            event_info = info;
+            ModifyEventPanel.provoker = provoker;
         }
 
         private void ModifyEventPanel_Load(object sender, EventArgs e)
         {
             //MessageBox.Show(event_info["Address"] + " new " + event_info["Beverage"]);
+            Parent.Visible = true;
             Title = textBox1.Text = event_info["Title"];
             StartTime = comboBox1.Text = event_info["StartTime"];
             EndTime = comboBox2.Text = event_info["EndTime"];
@@ -53,10 +56,14 @@ namespace LifePlanner
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            DailyPlan.deleted = true;
-            Parent.Visible = false;
-            Parent.Hide();
-            Hide();
+            DialogResult q = MessageBox.Show("Θέλεις σίγουρα να διαγράψεις τη δραστηριότητα;", "Διαγραφή Δραστηριότητας", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (q == DialogResult.OK)
+            {
+                DailyPlan.deleted = true;
+                Parent.Hide();
+                Hide();
+                Parent.Visible = false;
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
