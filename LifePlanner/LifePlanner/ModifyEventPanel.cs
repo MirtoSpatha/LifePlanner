@@ -36,14 +36,14 @@ namespace LifePlanner
 
         private void ModifyEventPanel_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(event_info["Address"] + " new " + event_info["Beverage"]);
-            textBox1.Text = event_info["Title"];
-            comboBox1.Text = event_info["StartTime"];
-            comboBox2.Text = event_info["EndTime"];
-            comboBox3.Text = event_info["Activity"];
-            comboBox4.Text = event_info["Address"];
-            comboBox5.Text = event_info["Transportation"];
-            comboBox7.Text = event_info["Beverage"];
+            //MessageBox.Show(event_info["Address"] + " new " + event_info["Beverage"]);
+            Title = textBox1.Text = event_info["Title"];
+            StartTime = comboBox1.Text = event_info["StartTime"];
+            EndTime = comboBox2.Text = event_info["EndTime"];
+            selected_activity = comboBox3.Text = event_info["Activity"];
+            selected_address = comboBox4.Text = event_info["Address"];
+            selected_transportation = comboBox5.Text = event_info["Transportation"];
+            selected_beverage = comboBox7.Text = event_info["Beverage"];
             comboBox7.Items.AddRange(new object[] { "Δεν θέλω να αγοράσω ρόφημα", Program.beverage, "Άλλο" });
             textBox2.Hide();
             textBox3.Hide();
@@ -53,11 +53,15 @@ namespace LifePlanner
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-
+            DailyPlan.deleted = true;
+            Parent.Visible = false;
+            Parent.Hide();
+            Hide();
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
+            Parent.Visible = true;
             Parent.Hide();
             Hide();
         }
@@ -175,13 +179,9 @@ namespace LifePlanner
                 event_info["Transportation"] = selected_transportation;
                 event_info["Beverage"] = selected_beverage;
 
-                foreach (string value in event_info.Values)
-                {
-                    MessageBox.Show(value);
-                }
-
                 //exit event form
-                //DailyPlan.submit_clicked = true;
+                DailyPlan.saved = true;
+                Parent.Visible = false;
                 Parent.Hide();
                 Hide();
 

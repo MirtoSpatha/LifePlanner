@@ -919,10 +919,11 @@
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Location = new System.Drawing.Point(362, 27);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(432, 554);
             this.panel4.TabIndex = 14;
+            this.panel4.VisibleChanged += new System.EventHandler(this.panel4_VisibleChanged);
             // 
             // labelX
             // 

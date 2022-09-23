@@ -251,7 +251,7 @@ namespace LifePlanner
 
         private void labelX_Click(object sender, EventArgs e)
         {
-            Parent.Visible = false;
+            Parent.Visible = true;
             Parent.Hide();
             Hide();
         }
@@ -303,6 +303,7 @@ namespace LifePlanner
                 */
                 //exit event form
                 DailyPlan.submit_clicked = true;
+                Parent.Visible = false;
                 Parent.Hide();
                 Hide();
                 

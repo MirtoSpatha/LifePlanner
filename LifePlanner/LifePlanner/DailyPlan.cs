@@ -17,6 +17,7 @@ namespace LifePlanner
         ModifyEventPanel old_event_panel = new ModifyEventPanel();
         public static bool submit_clicked = false;
         public static bool deleted = false;
+        public static bool saved = false;
         public static HashSet<string> restricted_hours = new HashSet<string>();
         List<Label> labels = new List<Label>();
         Dictionary<Panel,Dictionary<string,string>> panel_events = new Dictionary<Panel,Dictionary<string,string>>();
@@ -184,15 +185,15 @@ namespace LifePlanner
         private void panel2_VisibleChanged(object sender, EventArgs e)
         {
             if (panel2.Visible == false)
-                display_event(new_event_panel.event_info);
+                update_planner(new_event_panel.event_info);
             submit_clicked = false;
         }
 
         private void panel4_VisibleChanged(object sender, EventArgs e)
         {
             if (panel4.Visible == false)
-                display_event(old_event_panel.event_info);
-            submit_clicked = false;
+                update_planner(old_event_panel.event_info);
+            saved = false;
         }
 
         private void event_handler(Control c, string StartTime)
@@ -200,7 +201,6 @@ namespace LifePlanner
             //add event
             if (!c.HasChildren)
             {
-                
                 new_event_panel = new AddEventPanel(StartTime);
                 panel2.Size = new_event_panel.Size;
                 panel2.Anchor = AnchorStyles.None;
@@ -212,7 +212,7 @@ namespace LifePlanner
             //modify event
             else
             {
-                old_event_panel = new ModifyEventPanel(new_event_panel.event_info);
+                old_event_panel = new ModifyEventPanel(panel_events[(Panel) c]);
                 panel4.Size = old_event_panel.Size;
                 panel4.Anchor = AnchorStyles.None;
                 old_event_panel.Parent = panel4;
@@ -256,109 +256,28 @@ namespace LifePlanner
             return restricted_hours;
         }
 
-        private void display_event(Dictionary<string,string> event_info)
+        private void update_planner(Dictionary<string,string> event_info)
         {
-            // recently created or modified event
+            // recently created event
             if (submit_clicked == true)
             {
-                TimeSpan t1 = TimeSpan.Parse(new_event_panel.event_info["StartTime"]);
-                TimeSpan t2 = TimeSpan.Parse(new_event_panel.event_info["EndTime"]);
-                TimeSpan t = t2.Subtract(t1);
-                int d = (int)t.TotalHours;
-                int start_hour = (int)t1.TotalHours;
-                int count1 = 0;
-                int count2 = 0;
-                for (int i = 0; i < d; i++)
-                {
-                    string panelname = "panelt" + (start_hour + i);
-                    Label l1 = new Label();
-                    labels.Add(l1);
-                    //Label l1 = new Label();
-                    if (l1.Created)
-                        count1++;
-                    labels[i].Text = new_event_panel.event_info["Title"];
-                    labels[i].Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Bold);
-                    Panel parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
-                    panel_events.Add(parent, event_info);
-                    l1.Parent = parent;
-                    labels[i].Parent.Visible = true;
-                    labels[i].Parent.BringToFront();
-                    labels[i].Location = labels[i].Parent.Location;
-                    labels[i].Visible = true;
-                    labels[i].BringToFront();
-
-
-                    // panel coloring
-                    switch(event_info["Activity"])
-                    {
-                        case "Καθημερινή":
-                            parent.BackColor = Color.FromArgb(238, 142, 180); 
-                            break;
-                        case "Αθλητική":
-                            parent.BackColor = Color.FromArgb(222, 125, 255);
-                            break;
-                        case "Επίσημη":
-                            parent.BackColor = Color.FromArgb(125, 142, 158);
-                            break;
-                        case "Εντός Σπιτιού":
-                            parent.BackColor = Color.FromArgb(125, 152, 255);
-                            break;
-                    }
-                        
-                    
-                    
-                    
-                    //MessageBox.Show(count1.ToString() + " new " + labels[i].Text);
-                    /*
-                    Label l2 = new Label();
-                    if (l2.Created)
-                        count2++;
-                    l2.Text = new_event_panel.event_info["Address"];
-                    l2.Font = new Font("Bookman Old Style", 10, FontStyle.Regular);
-                    l2.Parent = l1.Parent;
-                    l2.Parent.Visible = true;
-                    l2.Parent.BringToFront();
-                    l2.Location = new Point(l1.Location.X, l1.Location.Y + l1.Height);
-                    l2.Visible = true;
-                    l2.BringToFront();
-                    MessageBox.Show(count2.ToString() + " new " + l2.Text);
-                    */
-                    /*
-                    Label l1 = new Label();
-                    if (l1.Created)
-                        count1++;
-                    l1.Text = new_event_panel.event_info["Title"];
-                    l1.Font = new Font ("Bookman Old Style", (float)10.2, FontStyle.Bold);
-                    l1.Parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
-                    l1.Parent.Visible = true;
-                    l1.Parent.BringToFront();
-                    l1.Location = l1.Parent.Location;
-                    l1.Visible = true;
-                    l1.BringToFront();
-                    MessageBox.Show(count1.ToString() + " new " + l1.Text);
-                    Label l2 = new Label();
-                    if (l2.Created)
-                        count2++;
-                    l2.Text = new_event_panel.event_info["Address"];
-                    l2.Font = new Font("Bookman Old Style", 10, FontStyle.Regular);
-                    l2.Parent = l1.Parent;
-                    l2.Parent.Visible = true;
-                    l2.Parent.BringToFront();
-                    l2.Location = new Point (l1.Location.X, l1.Location.Y + l1.Height);
-                    l2.Visible = true;
-                    l2.BringToFront();
-                    MessageBox.Show(count2.ToString() + " new " + l2.Text);
-                    */
-                    //TimeSpan p = TimeSpan.FromHours(i);
-                    //p = t1.Add(p);
-                    //restricted_hours.Add(p.ToString(@"hh\:mm"));
-                }
-                //MessageBox.Show("ok");
+                display_event(event_info, true);
+            }
+            // recently modified event
+            else if (saved == true)
+            {
+                // when the user modifies the hour of the event, the previous event has to be deleted
+                display_event(event_info, false);
             }
             // recently deleted event
             else if (deleted == true)
             {
-                
+                foreach (var item in panel_events.Where(kvp => kvp.Value == event_info).ToList())
+                {
+                    item.Key.BackColor = Color.LightCyan;
+                    item.Key.Controls.Clear();
+                    panel_events.Remove(item.Key);
+                }
             }
         }
 
@@ -536,5 +455,107 @@ namespace LifePlanner
                 }
             }
         }
+    
+        private void display_event(Dictionary<string, string> event_info, bool new_event)
+        {
+            TimeSpan t1 = TimeSpan.Parse(event_info["StartTime"]);
+            TimeSpan t2 = TimeSpan.Parse(event_info["EndTime"]);
+            TimeSpan t = t2.Subtract(t1);
+            int d = (int)t.TotalHours;
+            int start_hour = (int)t1.TotalHours;
+            int count1 = 0;
+            int count2 = 0;
+            for (int i = 0; i < d; i++)
+            {
+                string panelname = "panelt" + (start_hour + i);
+                Label l1 = new Label();
+                labels.Add(l1);
+                //Label l1 = new Label();
+                if (l1.Created)
+                    count1++;
+                labels[i].Text = event_info["Title"];
+                labels[i].Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Bold);
+                Panel parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
+                if (new_event)
+                    panel_events.Add(parent, event_info);
+                else
+                {
+                    MessageBox.Show("modified");
+                }
+                l1.Parent = parent;
+                labels[i].Parent.Visible = true;
+                labels[i].Parent.BringToFront();
+                labels[i].Location = labels[i].Parent.Location;
+                labels[i].Visible = true;
+                labels[i].BringToFront();
+
+
+                // panel coloring
+                switch (event_info["Activity"])
+                {
+                    case "Καθημερινή":
+                        parent.BackColor = Color.FromArgb(238, 142, 180);
+                        break;
+                    case "Αθλητική":
+                        parent.BackColor = Color.FromArgb(222, 125, 255);
+                        break;
+                    case "Επίσημη":
+                        parent.BackColor = Color.FromArgb(125, 142, 158);
+                        break;
+                    case "Εντός Σπιτιού":
+                        parent.BackColor = Color.FromArgb(125, 152, 255);
+                        break;
+                }
+
+
+
+
+                //MessageBox.Show(count1.ToString() + " new " + labels[i].Text);
+                /*
+                Label l2 = new Label();
+                if (l2.Created)
+                    count2++;
+                l2.Text = new_event_panel.event_info["Address"];
+                l2.Font = new Font("Bookman Old Style", 10, FontStyle.Regular);
+                l2.Parent = l1.Parent;
+                l2.Parent.Visible = true;
+                l2.Parent.BringToFront();
+                l2.Location = new Point(l1.Location.X, l1.Location.Y + l1.Height);
+                l2.Visible = true;
+                l2.BringToFront();
+                MessageBox.Show(count2.ToString() + " new " + l2.Text);
+                */
+                /*
+                Label l1 = new Label();
+                if (l1.Created)
+                    count1++;
+                l1.Text = new_event_panel.event_info["Title"];
+                l1.Font = new Font ("Bookman Old Style", (float)10.2, FontStyle.Bold);
+                l1.Parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
+                l1.Parent.Visible = true;
+                l1.Parent.BringToFront();
+                l1.Location = l1.Parent.Location;
+                l1.Visible = true;
+                l1.BringToFront();
+                MessageBox.Show(count1.ToString() + " new " + l1.Text);
+                Label l2 = new Label();
+                if (l2.Created)
+                    count2++;
+                l2.Text = new_event_panel.event_info["Address"];
+                l2.Font = new Font("Bookman Old Style", 10, FontStyle.Regular);
+                l2.Parent = l1.Parent;
+                l2.Parent.Visible = true;
+                l2.Parent.BringToFront();
+                l2.Location = new Point (l1.Location.X, l1.Location.Y + l1.Height);
+                l2.Visible = true;
+                l2.BringToFront();
+                MessageBox.Show(count2.ToString() + " new " + l2.Text);
+                */
+                //TimeSpan p = TimeSpan.FromHours(i);
+                //p = t1.Add(p);
+                //restricted_hours.Add(p.ToString(@"hh\:mm"));
+            }
+        }
     }
+
 }
