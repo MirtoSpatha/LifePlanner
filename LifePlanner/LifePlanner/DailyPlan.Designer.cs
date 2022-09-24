@@ -50,10 +50,8 @@
             this.panelt10 = new System.Windows.Forms.Panel();
             this.panelt12 = new System.Windows.Forms.Panel();
             this.panelt9 = new System.Windows.Forms.Panel();
-            this.panelt7 = new System.Windows.Forms.Panel();
             this.panelt6 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.panelt5 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -92,10 +90,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelX = new System.Windows.Forms.Label();
+            this.panelt5 = new System.Windows.Forms.Panel();
+            this.panelt7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelt6.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -411,17 +410,6 @@
             this.panelt9.TabIndex = 11;
             this.panelt9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt9_MouseClick);
             // 
-            // panelt7
-            // 
-            this.panelt7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelt7.Location = new System.Drawing.Point(110, 128);
-            this.panelt7.Name = "panelt7";
-            this.panelt7.Size = new System.Drawing.Size(705, 55);
-            this.panelt7.TabIndex = 10;
-            this.panelt7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt7_MouseClick);
-            // 
             // panelt6
             // 
             this.panelt6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -440,18 +428,6 @@
             this.vScrollBar1.Name = "vScrollBar1";
             this.vScrollBar1.Size = new System.Drawing.Size(28, 694);
             this.vScrollBar1.TabIndex = 15;
-            // 
-            // panelt5
-            // 
-            this.panelt5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelt5.BackColor = System.Drawing.Color.LightCyan;
-            this.panelt5.Location = new System.Drawing.Point(110, 4);
-            this.panelt5.Name = "panelt5";
-            this.panelt5.Size = new System.Drawing.Size(705, 55);
-            this.panelt5.TabIndex = 9;
-            this.panelt5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt5_MouseClick);
             // 
             // label23
             // 
@@ -939,6 +915,29 @@
             this.labelX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelX.Click += new System.EventHandler(this.labelX_Click);
             // 
+            // panelt5
+            // 
+            this.panelt5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelt5.BackColor = System.Drawing.Color.LightCyan;
+            this.panelt5.Location = new System.Drawing.Point(110, 4);
+            this.panelt5.Name = "panelt5";
+            this.panelt5.Size = new System.Drawing.Size(705, 55);
+            this.panelt5.TabIndex = 9;
+            this.panelt5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt5_MouseClick);
+            // 
+            // panelt7
+            // 
+            this.panelt7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelt7.Location = new System.Drawing.Point(110, 128);
+            this.panelt7.Name = "panelt7";
+            this.panelt7.Size = new System.Drawing.Size(705, 55);
+            this.panelt7.TabIndex = 10;
+            this.panelt7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt7_MouseClick);
+            // 
             // DailyPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -946,13 +945,13 @@
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1157, 867);
             this.Controls.Add(this.labelX);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DailyPlan";
@@ -964,7 +963,6 @@
             this.panelt6.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1020,9 +1018,7 @@
         private System.Windows.Forms.Panel panelt12;
         private System.Windows.Forms.Panel panelt9;
         private System.Windows.Forms.Panel panelt8;
-        private System.Windows.Forms.Panel panelt7;
         private System.Windows.Forms.Panel panelt6;
-        private System.Windows.Forms.Panel panelt5;
         private System.Windows.Forms.Panel panelt11;
         private System.Windows.Forms.Panel panelt3;
         private System.Windows.Forms.Panel panelt4;
@@ -1039,5 +1035,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Label labelX;
+        private System.Windows.Forms.Panel panelt5;
+        private System.Windows.Forms.Panel panelt7;
     }
 }

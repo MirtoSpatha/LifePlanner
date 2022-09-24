@@ -476,25 +476,14 @@ namespace LifePlanner
             {
                 string panelname = "panelt" + (start_hour + i);
                 Label l1 = new Label();
-                labels.Add(l1);
-                if (l1.Created)
-                    count1++;
-                labels[i].Text = event_info["Title"];
-                labels[i].Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Bold);
+                l1.Text = event_info["Title"];
+                l1.Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Bold);
                 Panel parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
-                if (new_event)
-                    panel_events.Add(parent, event_info);
-                else
-                {
-                    panel_events.Add(parent, event_info);
-                    MessageBox.Show("modified");
-                }
+                parent.Controls.Add(l1);
+                panel_events.Add(parent, event_info);
                 l1.Parent = parent;
-                labels[i].Parent.Visible = true;
-                labels[i].Parent.BringToFront();
-                labels[i].Location = labels[i].Parent.Location;
-                labels[i].Visible = true;
-                labels[i].BringToFront();
+                if (l1.Created)
+                    MessageBox.Show(l1.Text);
 
 
                 // panel coloring
@@ -514,7 +503,7 @@ namespace LifePlanner
                         break;
                 }
 
-
+                l1.BringToFront();
 
 
                 //MessageBox.Show(count1.ToString() + " new " + labels[i].Text);
