@@ -234,7 +234,7 @@ namespace LifePlanner
             // recently created event
             if (submit_clicked == true)
             {
-                display_event(event_info, true);
+                display_event(event_info);
             }
             // recently modified event
             else if (saved == true)
@@ -250,13 +250,23 @@ namespace LifePlanner
                     int start_hour = (int)t1.TotalHours;
                     for (int i = 0; i < d; i++)
                     {
-                        restricted_hours.Remove((start_hour + i).ToString());
+                        int k = start_hour + i;
+                        if (k / 10 >= 1)
+                        {
+                            string k1 = k + ":00";
+                            restricted_hours.Remove(k1);
+                        }
+                        else
+                        {
+                            string k1 = "0" + k + ":00";
+                            restricted_hours.Remove(k1);
+                        }
                     }
                     item.Key.BackColor = Color.LightCyan;
                     item.Key.Controls.Clear();
                     panel_events.Remove(item.Key);
                 }
-                display_event(event_info, false);
+                display_event(event_info);
             }
             // recently deleted event
             else if (deleted == true)
@@ -270,7 +280,17 @@ namespace LifePlanner
                     int start_hour = (int)t1.TotalHours;
                     for (int i = 0; i < d; i++)
                     {
-                        restricted_hours.Remove((start_hour+i).ToString());
+                        int k = start_hour + i;
+                        if (k / 10 >= 1)
+                        {
+                            string k1 = k + ":00";
+                            restricted_hours.Remove(k1);
+                        }
+                        else
+                        {
+                            string k1 = "0" + k + ":00";
+                            restricted_hours.Remove(k1);
+                        }
                     }
                     item.Key.BackColor = Color.LightCyan;
                     item.Key.Controls.Clear();
@@ -454,7 +474,7 @@ namespace LifePlanner
             }
         }
     
-        private void display_event(Dictionary<string, string> event_info, bool new_event)
+        private void display_event(Dictionary<string, string> event_info)
         {
             TimeSpan t1 = TimeSpan.Parse(event_info["StartTime"]);
             TimeSpan t2 = TimeSpan.Parse(event_info["EndTime"]);
@@ -467,8 +487,18 @@ namespace LifePlanner
                 Panel parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
                 panel_events.Add(parent, event_info);
 
-                restricted_hours.Add((start_hour+i).ToString());
-                
+                int k = start_hour + i;
+                if (k/10 >= 1)
+                {
+                    string k1 = k + ":00";
+                    restricted_hours.Add(k1);
+                }
+                else
+                {
+                    string k1 = "0" + k + ":00";
+                    restricted_hours.Add(k1);
+                }
+
                 Label l1 = new Label();
                 l1.Text = event_info["Title"];
                 l1.Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Bold);

@@ -24,7 +24,6 @@ namespace LifePlanner
         string selected_transportation;
         string selected_beverage;
         public Dictionary<string,string> event_info = new Dictionary<string,string>();
-        //ComboBox.ObjectCollection CItems;
 
         public AddEventPanel()
         {
@@ -36,47 +35,14 @@ namespace LifePlanner
             InitializeComponent();
             BringToFront();
             this.StartTime = StartTime;
-            /*
-            CItems.AddRange(new object[] {
-            "05:00",
-            "06:00",
-            "07:00",
-            "08:00",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00",
-            "19:00",
-            "20:00",
-            "21:00",
-            "22:00",
-            "23:00",
-            "00:00",
-            "01:00",
-            "02:00",
-            "03:00",
-            "04:00"}); ;
-            */
         }
 
         private void AddEventPanel_Load(object sender, EventArgs e)
         {
-            //DailyPlan.restricted_hours = DailyPlan.find_restricted_hours();
-            //comboBox1.Items.Add(CItems);
-            //comboBox2.Items.Add(CItems);
-            /*
             foreach (string h in DailyPlan.restricted_hours)
             {
-                comboBox1.Items.Remove(h);
-                comboBox2.Items.Remove(h);
+
             }
-            */
             event_info.Clear();
             // date and time
             Date_label.Text = Program.Date.ToString();
