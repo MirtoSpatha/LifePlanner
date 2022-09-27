@@ -67,7 +67,7 @@ namespace LifePlanner
 
         private void AddEventPanel_Load(object sender, EventArgs e)
         {
-            DailyPlan.restricted_hours = DailyPlan.find_restricted_hours();
+            //DailyPlan.restricted_hours = DailyPlan.find_restricted_hours();
             //comboBox1.Items.Add(CItems);
             //comboBox2.Items.Add(CItems);
             /*

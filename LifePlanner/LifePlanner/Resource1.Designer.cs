@@ -63,16 +63,6 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap _1200px_Bluetooth_svg {
-            get {
-                object obj = ResourceManager.GetObject("_1200px_Bluetooth_svg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap _unchecked {
             get {
                 object obj = ResourceManager.GetObject("_unchecked", resourceCulture);
@@ -133,9 +123,49 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bus_coffee_map {
+            get {
+                object obj = ResourceManager.GetObject("bus_coffee_map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap bus_map {
+            get {
+                object obj = ResourceManager.GetObject("bus_map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap calendar {
             get {
                 object obj = ResourceManager.GetObject("calendar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap car_coffee_map {
+            get {
+                object obj = ResourceManager.GetObject("car_coffee_map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap car_map {
+            get {
+                object obj = ResourceManager.GetObject("car_map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,6 +393,46 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap metro_bus_coffee_map {
+            get {
+                object obj = ResourceManager.GetObject("metro_bus_coffee_map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap metro_bus_map {
+            get {
+                object obj = ResourceManager.GetObject("metro_bus_map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap metro_coffee_map {
+            get {
+                object obj = ResourceManager.GetObject("metro_coffee_map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap metro_map {
+            get {
+                object obj = ResourceManager.GetObject("metro_map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap next_button {
             get {
                 object obj = ResourceManager.GetObject("next_button", resourceCulture);
@@ -403,9 +473,9 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tvclosed {
+        public static System.Drawing.Bitmap walk_coffee_map {
             get {
-                object obj = ResourceManager.GetObject("tvclosed", resourceCulture);
+                object obj = ResourceManager.GetObject("walk_coffee_map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,9 +483,9 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap tvopen {
+        public static System.Drawing.Bitmap walk_map {
             get {
-                object obj = ResourceManager.GetObject("tvopen", resourceCulture);
+                object obj = ResourceManager.GetObject("walk_map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

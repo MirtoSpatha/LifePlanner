@@ -50,8 +50,10 @@
             this.panelt10 = new System.Windows.Forms.Panel();
             this.panelt12 = new System.Windows.Forms.Panel();
             this.panelt9 = new System.Windows.Forms.Panel();
+            this.panelt7 = new System.Windows.Forms.Panel();
             this.panelt6 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.panelt5 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -90,13 +92,16 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelX = new System.Windows.Forms.Label();
-            this.panelt5 = new System.Windows.Forms.Panel();
-            this.panelt7 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelt6.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -410,6 +415,17 @@
             this.panelt9.TabIndex = 11;
             this.panelt9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt9_MouseClick);
             // 
+            // panelt7
+            // 
+            this.panelt7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelt7.Location = new System.Drawing.Point(110, 128);
+            this.panelt7.Name = "panelt7";
+            this.panelt7.Size = new System.Drawing.Size(705, 55);
+            this.panelt7.TabIndex = 10;
+            this.panelt7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt7_MouseClick);
+            // 
             // panelt6
             // 
             this.panelt6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -428,6 +444,18 @@
             this.vScrollBar1.Name = "vScrollBar1";
             this.vScrollBar1.Size = new System.Drawing.Size(28, 694);
             this.vScrollBar1.TabIndex = 15;
+            // 
+            // panelt5
+            // 
+            this.panelt5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelt5.BackColor = System.Drawing.Color.LightCyan;
+            this.panelt5.Location = new System.Drawing.Point(110, 4);
+            this.panelt5.Name = "panelt5";
+            this.panelt5.Size = new System.Drawing.Size(705, 55);
+            this.panelt5.TabIndex = 9;
+            this.panelt5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt5_MouseClick);
             // 
             // label23
             // 
@@ -764,10 +792,9 @@
             this.checkBox4.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightCyan;
             this.checkBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox4.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.checkBox4.Image = global::LifePlanner.Resource1.check_house;
             this.checkBox4.Location = new System.Drawing.Point(30, 178);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(169, 33);
+            this.checkBox4.Size = new System.Drawing.Size(153, 33);
             this.checkBox4.TabIndex = 13;
             this.checkBox4.Text = " Εντός Σπιτιού";
             this.checkBox4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -785,10 +812,9 @@
             this.checkBox3.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightCyan;
             this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox3.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.checkBox3.Image = global::LifePlanner.Resource1.check_formal;
             this.checkBox3.Location = new System.Drawing.Point(30, 137);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(131, 33);
+            this.checkBox3.Size = new System.Drawing.Size(115, 33);
             this.checkBox3.TabIndex = 12;
             this.checkBox3.Text = " Επίσημες";
             this.checkBox3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -806,10 +832,9 @@
             this.checkBox2.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightCyan;
             this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox2.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.checkBox2.Image = global::LifePlanner.Resource1.check_sport;
             this.checkBox2.Location = new System.Drawing.Point(30, 98);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(137, 33);
+            this.checkBox2.Size = new System.Drawing.Size(121, 33);
             this.checkBox2.TabIndex = 11;
             this.checkBox2.Text = " Αθλητικές";
             this.checkBox2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -827,10 +852,9 @@
             this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightCyan;
             this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox1.Font = new System.Drawing.Font("Bookman Old Style", 12F);
-            this.checkBox1.Image = global::LifePlanner.Resource1.check_everyday;
             this.checkBox1.Location = new System.Drawing.Point(30, 60);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(162, 33);
+            this.checkBox1.Size = new System.Drawing.Size(146, 33);
             this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = " Καθημερινές";
             this.checkBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -861,7 +885,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LifePlanner.Resource1.calendar;
             this.pictureBox1.Location = new System.Drawing.Point(12, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 50);
@@ -915,28 +938,37 @@
             this.labelX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelX.Click += new System.EventHandler(this.labelX_Click);
             // 
-            // panelt5
+            // panel5
             // 
-            this.panelt5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelt5.BackColor = System.Drawing.Color.LightCyan;
-            this.panelt5.Location = new System.Drawing.Point(110, 4);
-            this.panelt5.Name = "panelt5";
-            this.panelt5.Size = new System.Drawing.Size(705, 55);
-            this.panelt5.TabIndex = 9;
-            this.panelt5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt5_MouseClick);
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel5.Controls.Add(this.label28);
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Location = new System.Drawing.Point(317, 10);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(522, 473);
+            this.panel5.TabIndex = 16;
             // 
-            // panelt7
+            // pictureBox2
             // 
-            this.panelt7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelt7.Location = new System.Drawing.Point(110, 128);
-            this.panelt7.Name = "panelt7";
-            this.panelt7.Size = new System.Drawing.Size(705, 55);
-            this.panelt7.TabIndex = 10;
-            this.panelt7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelt7_MouseClick);
+            this.pictureBox2.Location = new System.Drawing.Point(39, 43);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(448, 401);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label28.Font = new System.Drawing.Font("Verdana Pro Cond", 14F);
+            this.label28.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label28.Location = new System.Drawing.Point(465, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(56, 31);
+            this.label28.TabIndex = 16;
+            this.label28.Text = "  X  ";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label28.Click += new System.EventHandler(this.labelX_Click);
             // 
             // DailyPlan
             // 
@@ -944,6 +976,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1157, 867);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.labelX);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.pictureBox1);
@@ -966,6 +999,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1037,5 +1073,8 @@
         private System.Windows.Forms.Label labelX;
         private System.Windows.Forms.Panel panelt5;
         private System.Windows.Forms.Panel panelt7;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

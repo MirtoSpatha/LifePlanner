@@ -191,9 +191,6 @@
     <Folder Include="Rooms\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1200px-Bluetooth.svg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bathroom_Bright.png" />
   </ItemGroup>
   <ItemGroup>
@@ -239,16 +236,7 @@
     <None Include="Resources\living_room_Dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tvclosed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tvopen.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icon_1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\house_outside.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\house_outside.jpg" />
@@ -278,9 +266,6 @@
     <None Include="Resources\transportation.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\x-button.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\coffee_cup.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -300,6 +285,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check_sport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\metro-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\metro-coffee-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus-coffee-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\metro-bus-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\metro-bus-coffee-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walk-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walk-coffee-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-coffee-map.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace LifePlanner
 {
@@ -19,7 +20,6 @@ namespace LifePlanner
         public static bool deleted = false;
         public static bool saved = false;
         public static HashSet<string> restricted_hours = new HashSet<string>();
-        List<Label> labels = new List<Label>();
         Dictionary<Panel,Dictionary<string,string>> panel_events = new Dictionary<Panel,Dictionary<string,string>>();
 
         public DailyPlan()
@@ -229,33 +229,6 @@ namespace LifePlanner
             this.Hide();
         }
 
-        public static HashSet<string> find_restricted_hours()
-        {
-            
-            //foreach (List<object> l in day_schedule)
-            {
-                //int index = day_schedule.IndexOf(l);
-                //MessageBox.Show(l[0].ToString());
-                //MessageBox.Show(l[1][1].ToString());
-                restricted_hours.Add("s");
-                /*
-                Dictionary<string, string> information = (Dictionary<string, string>) day_schedule[index][1];
-                restricted_hours.Add(information["StartTime"]);
-                restricted_hours.Add(information["EndTime"]);
-                TimeSpan t1 = TimeSpan.Parse(information["StartTime"]);
-                TimeSpan t2 = TimeSpan.Parse(information["EndTime"]);
-                TimeSpan t = t2.Subtract(t1);
-                int d = (int) t.TotalHours;
-                for(int i=1; i<d+1; i++)
-                {
-                    TimeSpan p = TimeSpan.FromHours(i);
-                    p = t1.Add(p);
-                    restricted_hours.Add(p.ToString(@"hh\:mm"));
-                }*/
-            }
-            return restricted_hours;
-        }
-
         private void update_planner(Dictionary<string,string> event_info)
         {
             // recently created event
@@ -270,6 +243,15 @@ namespace LifePlanner
                 Dictionary<string,string> old_event = panel_events[ModifyEventPanel.provoker];
                 foreach (var item in panel_events.Where(kvp => kvp.Value == old_event).ToList())
                 {
+                    TimeSpan t1 = TimeSpan.Parse(old_event["StartTime"]);
+                    TimeSpan t2 = TimeSpan.Parse(old_event["EndTime"]);
+                    TimeSpan t = t2.Subtract(t1);
+                    int d = (int)t.TotalHours;
+                    int start_hour = (int)t1.TotalHours;
+                    for (int i = 0; i < d; i++)
+                    {
+                        restricted_hours.Remove((start_hour + i).ToString());
+                    }
                     item.Key.BackColor = Color.LightCyan;
                     item.Key.Controls.Clear();
                     panel_events.Remove(item.Key);
@@ -281,6 +263,15 @@ namespace LifePlanner
             {
                 foreach (var item in panel_events.Where(kvp => kvp.Value == event_info).ToList())
                 {
+                    TimeSpan t1 = TimeSpan.Parse(event_info["StartTime"]);
+                    TimeSpan t2 = TimeSpan.Parse(event_info["EndTime"]);
+                    TimeSpan t = t2.Subtract(t1);
+                    int d = (int)t.TotalHours;
+                    int start_hour = (int)t1.TotalHours;
+                    for (int i = 0; i < d; i++)
+                    {
+                        restricted_hours.Remove((start_hour+i).ToString());
+                    }
                     item.Key.BackColor = Color.LightCyan;
                     item.Key.Controls.Clear();
                     panel_events.Remove(item.Key);
@@ -470,21 +461,44 @@ namespace LifePlanner
             TimeSpan t = t2.Subtract(t1);
             int d = (int)t.TotalHours;
             int start_hour = (int)t1.TotalHours;
-            int count1 = 0;
-            int count2 = 0;
             for (int i = 0; i < d; i++)
             {
                 string panelname = "panelt" + (start_hour + i);
+                Panel parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
+                panel_events.Add(parent, event_info);
+
+                restricted_hours.Add((start_hour+i).ToString());
+                
                 Label l1 = new Label();
                 l1.Text = event_info["Title"];
                 l1.Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Bold);
-                Panel parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
                 parent.Controls.Add(l1);
-                panel_events.Add(parent, event_info);
                 l1.Parent = parent;
-                if (l1.Created)
-                    MessageBox.Show(l1.Text);
+                l1.Dock = DockStyle.Left;
+                l1.BringToFront();
 
+                Label l2 = new Label();
+                l2.Text = event_info["Address"];
+                l2.Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Regular);
+                parent.Controls.Add(l2);
+                l2.Parent = parent;
+                l2.Location = new Point(l1.Location.X, l1.Location.Y + 18);
+                l2.BringToFront();
+
+                if (event_info["Activity"] != "Εντός Σπιτιού")
+                {
+                    Button b1 = new Button();
+                    b1.Text = "Διαδρομή";
+                    b1.Font = new Font("Bookman Old Style", (float)10.2, FontStyle.Bold);
+                    parent.Controls.Add(b1);
+                    b1.Parent = parent;
+                    b1.MouseClick += b1_MouseClick;
+                    b1.Location = new Point(l1.Location.X + 400, l1.Location.Y + 5);
+                    b1.BackColor = Color.White;
+                    b1.AutoSize = true;
+                    b1.BringToFront();
+                    b1.Tag = event_info;
+                }  
 
                 // panel coloring
                 switch (event_info["Activity"])
@@ -502,55 +516,117 @@ namespace LifePlanner
                         parent.BackColor = Color.FromArgb(125, 152, 255);
                         break;
                 }
-
-                l1.BringToFront();
-
-
-                //MessageBox.Show(count1.ToString() + " new " + labels[i].Text);
-                /*
-                Label l2 = new Label();
-                if (l2.Created)
-                    count2++;
-                l2.Text = new_event_panel.event_info["Address"];
-                l2.Font = new Font("Bookman Old Style", 10, FontStyle.Regular);
-                l2.Parent = l1.Parent;
-                l2.Parent.Visible = true;
-                l2.Parent.BringToFront();
-                l2.Location = new Point(l1.Location.X, l1.Location.Y + l1.Height);
-                l2.Visible = true;
-                l2.BringToFront();
-                MessageBox.Show(count2.ToString() + " new " + l2.Text);
-                */
-                /*
-                Label l1 = new Label();
-                if (l1.Created)
-                    count1++;
-                l1.Text = new_event_panel.event_info["Title"];
-                l1.Font = new Font ("Bookman Old Style", (float)10.2, FontStyle.Bold);
-                l1.Parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
-                l1.Parent.Visible = true;
-                l1.Parent.BringToFront();
-                l1.Location = l1.Parent.Location;
-                l1.Visible = true;
-                l1.BringToFront();
-                MessageBox.Show(count1.ToString() + " new " + l1.Text);
-                Label l2 = new Label();
-                if (l2.Created)
-                    count2++;
-                l2.Text = new_event_panel.event_info["Address"];
-                l2.Font = new Font("Bookman Old Style", 10, FontStyle.Regular);
-                l2.Parent = l1.Parent;
-                l2.Parent.Visible = true;
-                l2.Parent.BringToFront();
-                l2.Location = new Point (l1.Location.X, l1.Location.Y + l1.Height);
-                l2.Visible = true;
-                l2.BringToFront();
-                MessageBox.Show(count2.ToString() + " new " + l2.Text);
-                */
-                //TimeSpan p = TimeSpan.FromHours(i);
-                //p = t1.Add(p);
-                //restricted_hours.Add(p.ToString(@"hh\:mm"));
             }
+        }
+
+        private void b1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Button b1 = sender as Button;
+            Dictionary<string,string> event_info = b1.Tag as Dictionary<string, string>;
+            switch (event_info["Transportation"])
+            {
+                case "Αυτοκίνητο":
+                    if (event_info["Beverage"] != "Όχι")
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.car_coffee_map;
+                    }
+                    else
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.car_map;
+                    }
+                    break;
+                case "Λεωφορείο":
+                    if (event_info["Beverage"] != "Όχι")
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.bus_coffee_map;
+                    }
+                    else
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.bus_map;
+                    }
+                    break;
+                case "Μετρό":
+                    if (event_info["Beverage"] != "Όχι")
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.metro_coffee_map;
+                    }
+                    else
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.metro_map;
+                    }
+                    break;
+                case "Περπάτημα":
+                    if (event_info["Beverage"] != "Όχι")
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.walk_coffee_map;
+                    }
+                    else
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.walk_map;
+                    }
+                    break;
+                case "Λεωφορείο, Περπάτημα":
+                    if (event_info["Beverage"] != "Όχι")
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.bus_coffee_map;
+                    }
+                    else
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.bus_map;
+                    }
+                    break;
+                case "Λεωφορείο, Μετρό":
+                    if (event_info["Beverage"] != "Όχι")
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.metro_bus_coffee_map;
+                    }
+                    else
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.metro_bus_map;
+                    }
+                    break;
+                case "Λεωφορείο, Μετρό, Περπάτημα":
+                    if (event_info["Beverage"] != "Όχι")
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.metro_bus_coffee_map;
+                    }
+                    else
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.metro_bus_map;
+                    }
+                    break;
+                case "Μετρό, Περπάτημα":
+                    if (event_info["Beverage"] != "Όχι")
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.metro_coffee_map;
+                    }
+                    else
+                    {
+                        panel5.Show();
+                        pictureBox2.Image = Resource1.metro_map;
+                    }
+                    break;
+            }
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+            panel5.Hide();
         }
     }
 
