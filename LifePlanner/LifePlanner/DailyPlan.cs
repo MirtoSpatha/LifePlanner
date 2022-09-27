@@ -523,6 +523,8 @@ namespace LifePlanner
         {
             Button b1 = sender as Button;
             Dictionary<string,string> event_info = b1.Tag as Dictionary<string, string>;
+            panel5.Visible = true;
+            panel5.BringToFront();
             switch (event_info["Transportation"])
             {
                 case "Αυτοκίνητο":
