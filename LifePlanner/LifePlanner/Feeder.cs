@@ -420,7 +420,7 @@ namespace LifePlanner
             if (food_percentage <= 0)
             {
                 food_percentage = 0;
-                food_percentage_lbl.Text = food_percentage.ToString();
+                food_percentage_lbl.Text = food_percentage.ToString() + "%";
 
                 message.Append("Το φαγητό του κατοικίδιού σου τελείωσε!\n");
                 //if food has been kicked
@@ -452,7 +452,7 @@ namespace LifePlanner
             if (water_percentage <= 0)
             {
                 water_percentage = 0;
-                water_percentage_lbl.Text = water_percentage.ToString();
+                water_percentage_lbl.Text = water_percentage.ToString() + "%";
 
                 message.Append("Το νερό του κατοικίδιού σου τελείωσε!\n");
                 //if water has been kicked
@@ -491,8 +491,8 @@ namespace LifePlanner
 
             }
 
-            food_percentage_lbl.Text = food_percentage.ToString();
-            water_percentage_lbl.Text = water_percentage.ToString();
+            food_percentage_lbl.Text = food_percentage.ToString() + "%";
+            water_percentage_lbl.Text = water_percentage.ToString() + "%";
         }
 
         private void Feeder_FormClosing(object sender, FormClosingEventArgs e)
