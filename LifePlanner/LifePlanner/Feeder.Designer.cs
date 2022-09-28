@@ -340,6 +340,7 @@ namespace LifePlanner
             // 
             this.water.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.water.Enabled = false;
+            this.water.Image = global::LifePlanner.Resource1.middle_water;
             this.water.Location = new System.Drawing.Point(454, 75);
             this.water.Name = "water";
             this.water.Size = new System.Drawing.Size(112, 94);
@@ -351,6 +352,7 @@ namespace LifePlanner
             // 
             this.food.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.food.Enabled = false;
+            this.food.Image = global::LifePlanner.Resource1.middle_bowl;
             this.food.Location = new System.Drawing.Point(48, 75);
             this.food.Name = "food";
             this.food.Size = new System.Drawing.Size(112, 94);

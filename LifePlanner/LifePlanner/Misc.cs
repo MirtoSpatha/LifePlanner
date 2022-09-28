@@ -13,6 +13,9 @@ namespace LifePlanner
 {
     class Misc
     {
+        //public list to access messagebox forms
+        public static List<Messagebox> mblist = new List<Messagebox>();
+
         //Form variables
         private static Kitchen k = null;
         private static Bedroom br = null;

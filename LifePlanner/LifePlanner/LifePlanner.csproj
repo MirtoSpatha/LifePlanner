@@ -100,6 +100,12 @@
     <Compile Include="LoadingPage.Designer.cs">
       <DependentUpon>LoadingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Messagebox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Messagebox.Designer.cs">
+      <DependentUpon>Messagebox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyEventPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messagebox.resx">
+      <DependentUpon>Messagebox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyEventPanel.resx">
       <DependentUpon>ModifyEventPanel.cs</DependentUpon>
