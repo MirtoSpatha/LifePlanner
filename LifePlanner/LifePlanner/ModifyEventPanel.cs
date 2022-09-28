@@ -80,22 +80,12 @@ namespace LifePlanner
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
-            if (DailyPlan.restricted_hours.Contains(comboBox1.SelectedItem))
-            {
-                comboBox1.SelectedIndex = -1;
-            }
-            else
-                StartTime = comboBox1.Text;
+           StartTime = comboBox1.Text;
         }
 
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
-            if (DailyPlan.restricted_hours.Contains(comboBox2.SelectedItem))
-            {
-                comboBox2.SelectedIndex = -1;
-            }
-            else
-                EndTime = comboBox2.Text;
+           EndTime = comboBox2.Text;
         }
 
         private void comboBox3_TextChanged(object sender, EventArgs e)
@@ -154,6 +144,22 @@ namespace LifePlanner
                 MessageBox.Show("Δώσε έναν τίτλο στη δραστηριότητά σου.");
                 textBox1.Text = event_info["Title"];
                 Title = "null";
+            }
+            if (DailyPlan.start_time_restricted_hours.Contains(comboBox1.Text) || (DailyPlan.panel_events.Where(kvp => kvp.Value["StartTime"] == comboBox1.Text).Count() > 0))
+            {
+                MessageBox.Show("Επίλεξε μια ώρα έναρξης στην οποία δεν υπάρχει δραστηριότητα.");
+                StartTime = "null";
+            }
+            if (DailyPlan.end_time_restricted_hours.Contains(comboBox2.Text) || (DailyPlan.panel_events.Where(kvp => kvp.Value["EndTime"] == comboBox2.Text).Count() > 0))
+            {
+                MessageBox.Show("Επίλεξε μια ώρα λήξης στην οποία δεν υπάρχει δραστηριότητα.");
+                EndTime = "null";
+            }
+            if (comboBox2.SelectedIndex <= comboBox1.SelectedIndex)
+            {
+                MessageBox.Show("Ή ώρα λήξης πρέπει να είναι μεταγενέστερη της ώρας έναρξης.");
+                StartTime = "null";
+                EndTime = "null";
             }
             if (comboBox3.Text == "")
             {

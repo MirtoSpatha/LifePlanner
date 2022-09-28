@@ -39,9 +39,13 @@ namespace LifePlanner
 
         private void AddEventPanel_Load(object sender, EventArgs e)
         {
-            foreach (string h in DailyPlan.restricted_hours)
+            foreach (string h in DailyPlan.start_time_restricted_hours)
             {
-
+                MessageBox.Show("Start time " + h);
+            }
+            foreach (string h in DailyPlan.end_time_restricted_hours)
+            {
+                MessageBox.Show("End time " + h);
             }
             event_info.Clear();
             // date and time
@@ -90,22 +94,12 @@ namespace LifePlanner
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
-            if (DailyPlan.restricted_hours.Contains(comboBox1.SelectedItem))
-            {
-                comboBox1.SelectedIndex = -1;
-            }
-            else
-                StartTime = comboBox1.Text;
+            StartTime = comboBox1.Text;
         }
 
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
-            if (DailyPlan.restricted_hours.Contains(comboBox2.SelectedItem))
-            {
-                comboBox2.SelectedIndex = -1;
-            }
-            else
-                EndTime = comboBox2.Text;
+            EndTime = comboBox2.Text;
         }
        
         private void comboBox3_TextChanged(object sender, EventArgs e)
@@ -231,6 +225,22 @@ namespace LifePlanner
                 textBox1.Text = "Τίτλος:";
                 Title = "null";
             }
+            if (DailyPlan.start_time_restricted_hours.Contains(comboBox1.Text) || (DailyPlan.panel_events.Where(kvp => kvp.Value["StartTime"] == comboBox1.Text).Count() >0))
+            {
+                MessageBox.Show("Επίλεξε μια ώρα έναρξης στην οποία δεν υπάρχει δραστηριότητα.");
+                StartTime = "null";
+            }
+            if (DailyPlan.end_time_restricted_hours.Contains(comboBox2.Text) || (DailyPlan.panel_events.Where(kvp => kvp.Value["EndTime"] == comboBox2.Text).Count() > 0))
+            {
+                MessageBox.Show("Επίλεξε μια ώρα λήξης στην οποία δεν υπάρχει δραστηριότητα.");
+                EndTime = "null";
+            }
+            if (comboBox2.SelectedIndex <= comboBox1.SelectedIndex)
+            {
+                MessageBox.Show("Ή ώρα λήξης πρέπει να είναι μεταγενέστερη της ώρας έναρξης.");
+                StartTime = "null";
+                EndTime = "null";
+            }
             if (comboBox3.Text == "")
             {
                 MessageBox.Show("Επίλεξε το είδος της δραστηριότητάς σου.");
@@ -252,7 +262,7 @@ namespace LifePlanner
                 selected_beverage = "null";
             }
             //event added in planner
-            if (Title != "null" & selected_activity != "null" & selected_address != "null" & selected_transportation != "null" & selected_beverage != "null")
+            if (Title != "null" & StartTime!="null" & EndTime!="null" & selected_activity != "null" & selected_address != "null" & selected_transportation != "null" & selected_beverage != "null")
             {
                 event_info.Add("Title", Title);
                 event_info.Add("StartTime", StartTime);
@@ -261,12 +271,6 @@ namespace LifePlanner
                 event_info.Add("Address", selected_address);
                 event_info.Add("Transportation", selected_transportation);
                 event_info.Add("Beverage", selected_beverage);
-                /*
-                foreach (string value in event_info.Values)
-                {
-                    MessageBox.Show(value);
-                }
-                */
                 //exit event form
                 DailyPlan.submit_clicked = true;
                 Parent.Visible = false;

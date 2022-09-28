@@ -19,8 +19,9 @@ namespace LifePlanner
         public static bool submit_clicked = false;
         public static bool deleted = false;
         public static bool saved = false;
-        public static HashSet<string> restricted_hours = new HashSet<string>();
-        Dictionary<Panel,Dictionary<string,string>> panel_events = new Dictionary<Panel,Dictionary<string,string>>();
+        public static HashSet<string> start_time_restricted_hours = new HashSet<string>();
+        public static HashSet<string> end_time_restricted_hours = new HashSet<string>();
+        public static Dictionary<Panel,Dictionary<string,string>> panel_events = new Dictionary<Panel,Dictionary<string,string>>();
 
         public DailyPlan()
         {
@@ -254,12 +255,23 @@ namespace LifePlanner
                         if (k / 10 >= 1)
                         {
                             string k1 = k + ":00";
-                            restricted_hours.Remove(k1);
+                            start_time_restricted_hours.Remove(k1);
                         }
                         else
                         {
                             string k1 = "0" + k + ":00";
-                            restricted_hours.Remove(k1);
+                            start_time_restricted_hours.Remove(k1);
+                        }
+                        int j = start_hour + i + 1;
+                        if (j / 10 >= 1)
+                        {
+                            string j1 = j + ":00";
+                            end_time_restricted_hours.Remove(j1);
+                        }
+                        else
+                        {
+                            string j1 = "0" + j + ":00";
+                            end_time_restricted_hours.Remove(j1);
                         }
                     }
                     item.Key.BackColor = Color.LightCyan;
@@ -284,12 +296,23 @@ namespace LifePlanner
                         if (k / 10 >= 1)
                         {
                             string k1 = k + ":00";
-                            restricted_hours.Remove(k1);
+                            start_time_restricted_hours.Remove(k1);
                         }
                         else
                         {
                             string k1 = "0" + k + ":00";
-                            restricted_hours.Remove(k1);
+                            start_time_restricted_hours.Remove(k1);
+                        }
+                        int j = start_hour + i + 1;
+                        if (j / 10 >= 1)
+                        {
+                            string j1 = j + ":00";
+                            end_time_restricted_hours.Remove(j1);
+                        }
+                        else
+                        {
+                            string j1 = "0" + j + ":00";
+                            end_time_restricted_hours.Remove(j1);
                         }
                     }
                     item.Key.BackColor = Color.LightCyan;
@@ -491,12 +514,23 @@ namespace LifePlanner
                 if (k/10 >= 1)
                 {
                     string k1 = k + ":00";
-                    restricted_hours.Add(k1);
+                    start_time_restricted_hours.Add(k1);
                 }
                 else
                 {
                     string k1 = "0" + k + ":00";
-                    restricted_hours.Add(k1);
+                    start_time_restricted_hours.Add(k1);
+                }
+                int j = start_hour + i + 1;
+                if (j / 10 >= 1)
+                {
+                    string j1 = j + ":00";
+                    end_time_restricted_hours.Add(j1);
+                }
+                else
+                {
+                    string j1 = "0" + j + ":00";
+                    end_time_restricted_hours.Add(j1);
                 }
 
                 Label l1 = new Label();
