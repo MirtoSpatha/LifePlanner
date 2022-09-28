@@ -52,9 +52,7 @@
     <Compile Include="AddEventPanel.Designer.cs">
       <DependentUpon>AddEventPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Blank.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Blank.cs" />
     <Compile Include="Blank.Designer.cs">
       <DependentUpon>Blank.cs</DependentUpon>
     </Compile>
@@ -64,15 +62,11 @@
     <Compile Include="DailyPlan.Designer.cs">
       <DependentUpon>DailyPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Day.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Day.cs" />
     <Compile Include="Day.Designer.cs">
       <DependentUpon>Day.cs</DependentUpon>
     </Compile>
-    <Compile Include="Day_Plan.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Day_Plan.cs" />
     <Compile Include="Day_Plan.Designer.cs">
       <DependentUpon>Day_Plan.cs</DependentUpon>
     </Compile>
