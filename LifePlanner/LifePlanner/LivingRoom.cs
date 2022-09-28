@@ -133,8 +133,7 @@ namespace LifePlanner
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Feeder f = new Feeder();
-            f.Show();
+            Misc.openForm("Feeder");
         }
 
         private void LivingRoom_FormClosing(object sender, FormClosingEventArgs e)

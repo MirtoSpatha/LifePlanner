@@ -21,13 +21,6 @@ namespace LifePlanner
         private static Hall h = null;
         private static Feeder f = null;
 
-
-        //some global variables for feeder
-        public static int food_percentage = 70;
-        public static int water_percentage = 70;
-        public static int old_food_percentage = 0;
-        public static int old_water_percentage = 0;
-
         /**
          * Function that shows/hides the menu at House forms.
          * returns a boolean value which indicates if the menu has
@@ -106,6 +99,7 @@ namespace LifePlanner
                         if (c.Parent != chatbot_panel && c != chatbot_panel)
                             c.Enabled = false;
                     }
+
                     return true;
                 }              
             }
@@ -153,9 +147,8 @@ namespace LifePlanner
 
         /**
          * Shows a form if already exists.
-         * If not, the form is being created
-         * and added to the list so it can be
-         * accesed next time
+         * If not, the form object is being instantiated
+         * and can be accessed later
          */
         public static void openForm(String formname)
         {

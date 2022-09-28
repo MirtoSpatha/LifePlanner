@@ -33,8 +33,8 @@ namespace LifePlanner
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Feeder));
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.food_percentage = new System.Windows.Forms.Label();
-            this.water_percentage = new System.Windows.Forms.Label();
+            this.food_percentage_lbl = new System.Windows.Forms.Label();
+            this.water_percentage_lbl = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -64,6 +64,8 @@ namespace LifePlanner
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.set_feeder = new System.Windows.Forms.Button();
+            this.pet_timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -80,6 +82,7 @@ namespace LifePlanner
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Location = new System.Drawing.Point(45, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 15);
@@ -89,33 +92,37 @@ namespace LifePlanner
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(450, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 15);
             this.label4.TabIndex = 33;
             this.label4.Text = "Ποσότητα νερού:";
             // 
-            // food_percentage
+            // food_percentage_lbl
             // 
-            this.food_percentage.AutoSize = true;
-            this.food_percentage.Location = new System.Drawing.Point(167, 40);
-            this.food_percentage.Name = "food_percentage";
-            this.food_percentage.Size = new System.Drawing.Size(32, 15);
-            this.food_percentage.TabIndex = 34;
-            this.food_percentage.Text = "70%";
+            this.food_percentage_lbl.AutoSize = true;
+            this.food_percentage_lbl.Enabled = false;
+            this.food_percentage_lbl.Location = new System.Drawing.Point(167, 40);
+            this.food_percentage_lbl.Name = "food_percentage_lbl";
+            this.food_percentage_lbl.Size = new System.Drawing.Size(32, 15);
+            this.food_percentage_lbl.TabIndex = 34;
+            this.food_percentage_lbl.Text = "70%";
             // 
-            // water_percentage
+            // water_percentage_lbl
             // 
-            this.water_percentage.AutoSize = true;
-            this.water_percentage.Location = new System.Drawing.Point(555, 40);
-            this.water_percentage.Name = "water_percentage";
-            this.water_percentage.Size = new System.Drawing.Size(32, 15);
-            this.water_percentage.TabIndex = 35;
-            this.water_percentage.Text = "70%";
+            this.water_percentage_lbl.AutoSize = true;
+            this.water_percentage_lbl.Enabled = false;
+            this.water_percentage_lbl.Location = new System.Drawing.Point(555, 40);
+            this.water_percentage_lbl.Name = "water_percentage_lbl";
+            this.water_percentage_lbl.Size = new System.Drawing.Size(32, 15);
+            this.water_percentage_lbl.TabIndex = 35;
+            this.water_percentage_lbl.Text = "70%";
             // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Enabled = false;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(48, 193);
@@ -129,6 +136,7 @@ namespace LifePlanner
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Enabled = false;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(454, 193);
@@ -265,6 +273,7 @@ namespace LifePlanner
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.numericUpDown3);
+            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(48, 280);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(518, 308);
@@ -286,6 +295,7 @@ namespace LifePlanner
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Enabled = false;
             this.label14.Location = new System.Drawing.Point(166, 95);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(122, 15);
@@ -296,6 +306,7 @@ namespace LifePlanner
             // food_timer
             // 
             this.food_timer.AutoSize = true;
+            this.food_timer.Enabled = false;
             this.food_timer.Location = new System.Drawing.Point(166, 133);
             this.food_timer.Name = "food_timer";
             this.food_timer.Size = new System.Drawing.Size(48, 15);
@@ -306,6 +317,7 @@ namespace LifePlanner
             // water_timer
             // 
             this.water_timer.AutoSize = true;
+            this.water_timer.Enabled = false;
             this.water_timer.Location = new System.Drawing.Point(341, 133);
             this.water_timer.Name = "water_timer";
             this.water_timer.Size = new System.Drawing.Size(48, 15);
@@ -316,6 +328,7 @@ namespace LifePlanner
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.Enabled = false;
             this.label17.Location = new System.Drawing.Point(341, 95);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(105, 15);
@@ -326,6 +339,7 @@ namespace LifePlanner
             // water
             // 
             this.water.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.water.Enabled = false;
             this.water.Location = new System.Drawing.Point(454, 75);
             this.water.Name = "water";
             this.water.Size = new System.Drawing.Size(112, 94);
@@ -336,6 +350,7 @@ namespace LifePlanner
             // food
             // 
             this.food.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.food.Enabled = false;
             this.food.Location = new System.Drawing.Point(48, 75);
             this.food.Name = "food";
             this.food.Size = new System.Drawing.Size(112, 94);
@@ -433,12 +448,31 @@ namespace LifePlanner
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Click += new System.EventHandler(this.label1_Click);
             // 
+            // set_feeder
+            // 
+            this.set_feeder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.set_feeder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.set_feeder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.set_feeder.Location = new System.Drawing.Point(217, 166);
+            this.set_feeder.Name = "set_feeder";
+            this.set_feeder.Size = new System.Drawing.Size(179, 70);
+            this.set_feeder.TabIndex = 65;
+            this.set_feeder.Text = "Ενεργοποίηση αυτόματης ταΐστρας";
+            this.set_feeder.UseVisualStyleBackColor = true;
+            this.set_feeder.Click += new System.EventHandler(this.set_feeder_Click);
+            // 
+            // pet_timer
+            // 
+            this.pet_timer.Interval = 1000;
+            this.pet_timer.Tick += new System.EventHandler(this.pet_timer_Tick);
+            // 
             // Feeder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(613, 605);
+            this.Controls.Add(this.set_feeder);
             this.Controls.Add(this.chatbot_panel);
             this.Controls.Add(this.water_timer);
             this.Controls.Add(this.label17);
@@ -449,8 +483,8 @@ namespace LifePlanner
             this.Controls.Add(this.button1);
             this.Controls.Add(this.water);
             this.Controls.Add(this.food);
-            this.Controls.Add(this.water_percentage);
-            this.Controls.Add(this.food_percentage);
+            this.Controls.Add(this.water_percentage_lbl);
+            this.Controls.Add(this.food_percentage_lbl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -460,7 +494,6 @@ namespace LifePlanner
             this.Text = "Feeder";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Feeder_FormClosing);
             this.Load += new System.EventHandler(this.Feeder_Load);
-            this.Shown += new System.EventHandler(this.Feeder_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
@@ -482,8 +515,8 @@ namespace LifePlanner
         #endregion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label food_percentage;
-        private System.Windows.Forms.Label water_percentage;
+        private System.Windows.Forms.Label food_percentage_lbl;
+        private System.Windows.Forms.Label water_percentage_lbl;
         private System.Windows.Forms.PictureBox food;
         private System.Windows.Forms.PictureBox water;
         private System.Windows.Forms.Button button1;
@@ -513,5 +546,7 @@ namespace LifePlanner
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button set_feeder;
+        private System.Windows.Forms.Timer pet_timer;
     }
 }

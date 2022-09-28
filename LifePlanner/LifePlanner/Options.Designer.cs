@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
             this.chatbot_panel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.calendar_pictureBox = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pet_timer = new System.Windows.Forms.Timer(this.components);
             this.chatbot_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -192,12 +190,6 @@
             this.label2.Text = "Δημιουργία του Ημερήσιου Πλάνου:";
             this.label2.Visible = false;
             // 
-            // pet_timer
-            // 
-            this.pet_timer.Enabled = true;
-            this.pet_timer.Interval = 1000;
-            this.pet_timer.Tick += new System.EventHandler(this.food_and_pet_timer_Tick);
-            // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +229,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox home_pictureBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Timer pet_timer;
     }
 }

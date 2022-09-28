@@ -16,6 +16,12 @@ namespace LifePlanner
         private String message = "";
         private bool first_visit;
 
+        //some  variables for feeder
+        private static int food_percentage = 70;
+        private static int water_percentage = 70;
+        private static int old_food_percentage = 0;
+        private static int old_water_percentage = 0;
+
         private static Bitmap getImagefromPercentage(String type, String percentage)
         {
             int percentage_int = Convert.ToInt32(percentage.Replace("%", ""));
@@ -47,115 +53,37 @@ namespace LifePlanner
         {
             first_visit = Misc.manageAssistantfromFile(this, chatbot_panel, "first_feeder");
             Console.WriteLine("Load");
-        }
-
-        private void Feeder_Shown(object sender, EventArgs e)
-        {
-            Console.WriteLine("Shown");
-            //get percentages from global variables and set them to labels
-            food_percentage.Text = Misc.food_percentage.ToString() + "%";
-            water_percentage.Text = Misc.water_percentage.ToString() + "%";
-
-            //set the images depending on the label percentages
-            food.Image = getImagefromPercentage("Food", food_percentage.Text);
-            water.Image = getImagefromPercentage("Water", water_percentage.Text);
-
-            //set message if something was over(food or water)
-            if (Misc.food_percentage == 0 && Misc.water_percentage == 0)
-                message = "Το φαγητό και το νερό του\n κατοικίδιού σου τελείωσε!\n";
-            else if (Misc.food_percentage == 0)
-                message = "Το φαγητό του κατοικίδιού σου τελείωσε!\n";
-            else if (Misc.water_percentage == 0)
-                message = "Το νερό του κατοικίδιού σου τελείωσε!\n";
-
-            //update message if food/water has been kicked
-            if (Misc.old_food_percentage != 0)
-            {
-                message += "Το κατοικίδιο σου έριξε\n το μπολάκι με το φαγητό του!\nΤο φαγητό έπεσε από " + Misc.old_food_percentage + "% σε " + Misc.food_percentage + "%.";
-                Misc.old_food_percentage = 0;
-            }
-            else if (Misc.old_water_percentage != 0)
-            {
-                message += "Το κατοικίδιο σου έριξε\n το μπολάκι με το νερό του!\nΤο νερό έπεσε από " + Misc.old_water_percentage + "% σε " + Misc.water_percentage + "%.";
-                Misc.old_water_percentage = 0;
-            }
-
-            //show message on chatbot depending if its the first time of viewing feeder or not
-            if (first_visit && !message.Equals(""))
-            {
-                label1.Text = message;
-            }
-            else if (!first_visit && !message.Equals(""))
-            {
-                if (chatbot_panel.Visible == true)
-                {
-                    MessageBox.Show("Ο έξυπνος βοηθός λέει: " + message, "Ector", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    message = "";
-                    return;
-                }
-                    
-                //disable form controls except robot's to interact with robot
-                foreach (Control c in Controls)
-                {
-                    if (c.Parent != chatbot_panel && c != chatbot_panel)
-                        c.Enabled = false;
-                }
-
-                //show chatbot
-                label1.Text = message;
-                chatbot_panel.Show();
-
-                first_visit = false;
-            }
-
-            message = "";
-        }
+        }       
 
         private void label1_Click(object sender, EventArgs e)
         {
-            //in case its the first time visiting feeder and pet needs food/water,
-            //after the missing food/water message we show the first time dialog
-            if (!message.Equals("") && first_visit)
-            {
-                label1.Text = "Καλοσήρθες στην αυτόματη ταΐστρα!\n" +
-                "Εδώ μπορείς να ρυθμίσεις μία ώρα που\n" +
-                "θες να ταΐσεις το κατοικίδιο σου\n" +
-                "αυτόματα, να ελέγξεις τη ποσότητα του\n" +
-                "φαγητού και του νερού του και να\n" +
-                "προσθέσεις άμεσα λίγο νερό ή και\n" +
-                "φαγητό!";
-
-                message = "";
-
-                return;
-            }
-            //in case its not the first time visiting feeder,
-            //just hide assistant after missing food/water message
-            else if (!message.Equals("") && !first_visit)
-            {
-                //hide robot and enable the other controls
-                chatbot_panel.Hide();
-                foreach (Control c in Controls)
-                {
-                    if (c.Parent != chatbot_panel && c != chatbot_panel)
-                        c.Enabled = true;
-                }
-
-                return;
-            }
-
             switch (robot_clicks)
             {
                 case 0:
-                    label1.Text = "Για να γεμίσεις το μπολ του φαγητού\n" +
-                                    "πάτα 'Γέμισμα φαγητού'.Για να\n" +
-                                    "γεμίσεις το μπολ του νερού\n" +
-                                    "πάτα 'Γέμισμα νερού'.";
+                    label1.Text = "Για να ενεργοποιήσεις την\nαυτόματη ταΐστρα, πάτα" +
+                                  "\n'Ενεργοποίηση αυτόματης ταΐστρας'.";
                     robot_clicks += 1;
                     break;
 
                 case 1:
-                    label1.Text = "Έχεις την επιλογή να ορίσεις εσύ σε\n" +
+                    chatbot_panel.Hide();
+                    set_feeder.Enabled = true;
+                    label1.Text = "Ας ξεκινήσουμε!";
+                    robot_clicks += 1;
+                    break;
+
+                case 2: 
+                    label1.Text =   "Για να γεμίσεις το μπολ του φαγητού\n" +
+                                    "πάτα 'Γέμισμα φαγητού'.Για να\n" +
+                                    "γεμίσεις το μπολ του νερού\n" +
+                                    "πάτα 'Γέμισμα νερού'.\nΜπορεις να" +
+                                    "επιλέξεις εσύ την\nποσότητα που θέλεις να\n" +
+                                    "προσθέσεις!";
+                    robot_clicks += 1;
+                    break;
+
+                case 3:
+                    label1.Text =   "Έχεις την επιλογή να ορίσεις εσύ σε\n" +
                                     "πόση ώρα και πόσα λεπτά θες να\nγεμίσεις τα " +
                                     "μπολ του νερού\nκαι του φαγητού " +
                                     "ορίζοντας τις\nαντίστοιχες τιμές " +
@@ -163,20 +91,27 @@ namespace LifePlanner
                     robot_clicks += 1;
                     break;
 
-                case 2:
-                    label1.Text = "Μόλις τελειώσεις, πάτα\n'Oρισμός αυτόματης " +
+                case 4:
+                    label1.Text =   "Μόλις τελειώσεις, πάτα\n'Oρισμός αυτόματης " +
                                     "ταΐστρας' και η\nαντίστροφη μέτρηση για το\n" +
                                     "γέμισμα των μπολ θα ξεκινήσει.\nΕγώ θα σε " +
                                     "ιδοποιήσω\nόταν γεμίσουν!";
                     robot_clicks += 1;
                     break;
 
-                case 3:
+                case 5:
                     label1.Text = "Εάν θέλεις να ακυρώσεις το\n" +
-                                    "αυτόματο τάισμα, πάτα\nξανά το κουμπί.Σε οποιαδήποτε\nάλλη περίπτωση που κάτι " +
-                                    "παέι\nστραβά, εγώ θα σε ιδοποιήσω!";
+                                  "αυτόματο τάισμα, πάτα 'Ακύρωση'.\nΣε οποιαδήποτε άλλη περίπτωση που κάτι\n" +
+                                  "παέι στραβά, εγώ θα σε ιδοποιήσω!";
                     robot_clicks += 1;
                     break;
+
+                case 6:
+                    label1.Text = "Για να απενεργοποιήσεις την αυτόματη\n" +
+                                  "ταΐστρα, πάτα 'Ενεργοποίηση αυτόματης ταΐστρας'";
+                    robot_clicks += 1;
+                    break;
+
 
                 default:
                     //hide robot and enable the other controls
@@ -187,9 +122,17 @@ namespace LifePlanner
                             c.Enabled = true;
                     }
 
-                    //change the file variable for this assistant
-                    Misc.changeAssistantStateInFile("first_feeder");
-                    first_visit = false;
+                    if(robot_clicks == 7)
+                    {
+                        //change the file variable for this assistant
+                        Misc.changeAssistantStateInFile("first_feeder");
+                        first_visit = false;
+
+                        //start pet timer for pet events
+                        pet_timer.Enabled = true;
+                    }
+
+                    robot_clicks += 1;
 
                     break;
             }
@@ -197,26 +140,26 @@ namespace LifePlanner
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (food_percentage.Text.Equals("100%"))
+            if (food_percentage_lbl.Text.Equals("100%"))
             {
                 MessageBox.Show("Το φαγητό είναι ήδη γεμάτο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            food_percentage.Text = "100%";
-            Misc.food_percentage = 100;
+            food_percentage_lbl.Text = "100%";
+            food_percentage = 100;
             //some sound effects
             food.Image = Resource1.full_bowl;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (water_percentage.Text.Equals("100%"))
+            if (water_percentage_lbl.Text.Equals("100%"))
             {
                 MessageBox.Show("Το νερό είναι ήδη γεμάτο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            water_percentage.Text = "100%";
-            Misc.water_percentage = 100;
+            water_percentage_lbl.Text = "100%";
+            water_percentage = 100;
             //some sound effects
             water.Image = Resource1.full_water_bowl;
         }
@@ -265,6 +208,7 @@ namespace LifePlanner
             {
                 label14.Visible = food_timer.Visible = false;
                 label17.Visible = water_timer.Visible = false;
+                food_clock.Enabled = water_clock.Enabled = false;
 
                 timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
 
@@ -273,6 +217,30 @@ namespace LifePlanner
                     c.Enabled = true;
                 }
             }
+        }
+
+        private void set_feeder_Click(object sender, EventArgs e)
+        {
+            set_feeder.FlatAppearance.MouseOverBackColor = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας") ? Color.FromArgb(128, 255, 128) : Color.FromArgb(255, 128, 128);
+            set_feeder.Text = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας") ? "Eνεργοποίηση αυτόματης ταΐστρας" : "Απενεργοποίηση αυτόματης ταΐστρας";
+
+            //if its first visit we show assistant and disable the button
+            if (first_visit)
+            {
+                chatbot_panel.Show();
+                set_feeder.Enabled = false;
+                return;
+            }
+
+            //Otherwise we have to enable/disable the feeder controls
+            foreach (Control c in Controls)
+            {
+                if (c.Parent != chatbot_panel && c != chatbot_panel && !c.Name.Equals("set_feeder"))
+                    c.Enabled = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας");
+            }
+
+            //enable/disable pet timer for pet events
+            pet_timer.Enabled = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας");
         }
 
         private void food_clock_Tick(object sender, EventArgs e)
@@ -286,13 +254,18 @@ namespace LifePlanner
 
                 food_clock.Enabled = false;
 
-                food_percentage.Text = "100%";
-                Misc.food_percentage = 100;
+                /*TODO begin*/ 
+                food_percentage_lbl.Text = "100%";
+                food_percentage = 100;
+                
 
                 food.Image = Resource1.full_bowl;
 
                 message = "Το φαγητό του κατοικίδιού\nσου γέμισε!";
+                /*TODO end*/
                 food_timer.Visible = label14.Visible = false;
+
+               
 
                 if (food_clock.Enabled == false && water_clock.Enabled == false)
                     timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
@@ -352,12 +325,14 @@ namespace LifePlanner
 
                 water_clock.Enabled = false;
 
-                water_percentage.Text = "100%";
-                Misc.water_percentage = 100;
+                /*TODO begin*/
+                water_percentage_lbl.Text = "100%";
+                water_percentage = 100;
 
                 water.Image = Resource1.full_water_bowl;
 
                 message = "Το νερό του κατοικίδιού\nσου γέμισε!";
+                /*TODO end*/
                 water_timer.Visible = label17.Visible = false;
 
                 if (food_clock.Enabled == false && water_clock.Enabled == false)
@@ -404,6 +379,120 @@ namespace LifePlanner
             }
 
             water_timer.Text = ((mins.ToString().Length == 1) ? "0" + mins.ToString() : mins.ToString()) + ":" + ((secs.ToString().Length == 1) ? "0" + secs.ToString() : secs.ToString());
+        }
+
+        private void pet_timer_Tick(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            int rand_int = r.Next(1, 11);
+            StringBuilder message = new StringBuilder("");
+
+            //40% propability at every tick to eat food
+            //20% to drop by 10% and 20% to drop by 20%
+            if (rand_int >= 1 && rand_int <= 4)
+            {
+                double result = (double)rand_int / 2;
+                food_percentage -= (int)Math.Ceiling(result) * 10;
+            }
+            //40% propability at every tick to drink water
+            //20% to drop by 10% and 20% to drop by 20%
+            else if (rand_int >= 5 && rand_int <= 8)
+            {
+                double result = (double)rand_int / 6;
+                water_percentage -= (int)Math.Ceiling(result) * 10;
+                
+            }
+            //20% propability at every tick for pet to kick something
+            //10% to kick food and 10% to kick water
+            //loss is 40%
+            else if (rand_int == 9)
+            {
+                old_food_percentage = food_percentage;
+                food_percentage -= 40;
+            }
+            else
+            {
+                old_water_percentage = water_percentage;
+                water_percentage -= 40;
+            }
+
+            //if food percentage drops to 0 or less
+            if (food_percentage <= 0)
+            {
+                food_percentage = 0;
+                food_percentage_lbl.Text = food_percentage.ToString();
+
+                message.Append("Το φαγητό του κατοικίδιού σου τελείωσε!\n");
+                //if food has been kicked
+                if(old_food_percentage != 0)
+                    message.Append("Το κατοικίδιο σου έριξε\n το μπολάκι με το φαγητό του!\nΤο φαγητό έπεσε από " + old_food_percentage + "% σε " + food_percentage + "%.");
+
+                old_food_percentage = 0;
+
+                //show form with chatbot if no message is displaying
+                //if there is already a message displaying, show message box
+                this.Show();
+
+                if (chatbot_panel.Visible)
+                    MessageBox.Show("Ο έξυπνος βοηθός λέει: " + message, "Ector", MessageBoxButtons.OK, MessageBoxIcon.Information);               
+                else
+                {
+                    //disable form controls except robot's to interact with robot
+                    foreach (Control c in Controls)
+                    {
+                        if (c.Parent != chatbot_panel && c != chatbot_panel)
+                            c.Enabled = false;
+                    }
+                    label1.Text = message.ToString();
+                    chatbot_panel.Show();                  
+                }               
+            }
+
+            //if water percentage drops to 0 or less
+            if (water_percentage <= 0)
+            {
+                water_percentage = 0;
+                water_percentage_lbl.Text = water_percentage.ToString();
+
+                message.Append("Το νερό του κατοικίδιού σου τελείωσε!\n");
+                //if water has been kicked
+                if (old_water_percentage != 0)
+                    message.Append("Το κατοικίδιο σου έριξε\n το μπολάκι με το νερό του!\nΤο νερό έπεσε από " + old_water_percentage + "% σε " + water_percentage + "%.");
+
+                old_water_percentage = 0;
+
+                //show form with chatbot if no message is displaying
+                //if there is already a message displaying, show message box
+                this.Show();
+
+                if (chatbot_panel.Visible)
+                    MessageBox.Show("Ο έξυπνος βοηθός λέει: " + message, "Ector", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    //disable form controls except robot's to interact with robot
+                    foreach (Control c in Controls)
+                    {
+                        if (c.Parent != chatbot_panel && c != chatbot_panel)
+                            c.Enabled = false;
+                    }
+                    label1.Text = message.ToString();
+                    chatbot_panel.Show();
+                }
+            }
+
+            //if food/water had been kicked without finishing
+            if (old_food_percentage != 0)
+            {
+
+            }
+
+            if(old_water_percentage != 0)
+            {
+
+            }
+
+            food_percentage_lbl.Text = food_percentage.ToString();
+            water_percentage_lbl.Text = water_percentage.ToString();
         }
 
         private void Feeder_FormClosing(object sender, FormClosingEventArgs e)
