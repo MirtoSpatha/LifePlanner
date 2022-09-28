@@ -12,14 +12,62 @@ namespace LifePlanner
 {
     public partial class Options : Form
     {
+        bool first = true;
+
         public Options()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (first)
+            {
+                panel1.Visible = panel1.Enabled = true;
+                foreach (Control c in panel1.Controls)
+                {
+                    c.Visible = true;
+                }
+
+                label1.Text = "Κάνε κλικ πανω στο ημερολόγιο\nγια τη δημιουργία του\n" +
+                "ημερήσιου πλάνου σου ή στο\n" +
+                "σπιτάκι για να διαχειριστείς τις\n" +
+                "συσκευές του σπιτιού σου\n" +
+                "από απόσταση!";
+
+                first = false;
+
+                return;
+            }
+
+            foreach (Control c in panel1.Controls)
+            {
+                c.Enabled = true;
+            }
+            
+            chatbot_panel.Visible = chatbot_panel.Enabled = false;
+            foreach (Control c in chatbot_panel.Controls)
+            {
+                c.Visible = false;
+                c.Enabled = false;
+            }
+        }
+
+        private void home_pictureBox_Click(object sender, EventArgs e)
+        {
+            Misc.openForm("Hall");
+            this.Hide();
+        }
+
+        private void home_pictureBox_MouseHover(object sender, EventArgs e)
         {
 
+            ((PictureBox)sender).BackColor = Color.FromArgb(128, 255, 128);
+        }
+
+        private void home_pictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).BackColor = Color.Transparent;
         }
 
         private void calendar_pictureBox_Click(object sender, EventArgs e)
@@ -27,18 +75,9 @@ namespace LifePlanner
 
         }
 
-        private void home_pictureBox_Click(object sender, EventArgs e)
+        private void food_and_pet_timer_Tick(object sender, EventArgs e)
         {
-
-        }
-
-        private void Options_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chatbot_panel_Paint(object sender, PaintEventArgs e)
-        {
+            
 
         }
 
