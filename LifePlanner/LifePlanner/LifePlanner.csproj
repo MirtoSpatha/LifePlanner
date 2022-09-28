@@ -310,5 +310,80 @@
   <ItemGroup>
     <None Include="Resources\car-coffee-map.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-ali_c.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kitchen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\livingroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvstatic.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch6.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feeder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empty_bowl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\little_water_bowl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\middle_water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\full_water_bowl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\little_bowl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\middle_bowl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\full_bowl.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
