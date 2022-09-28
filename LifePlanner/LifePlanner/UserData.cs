@@ -49,7 +49,7 @@ namespace LifePlanner
             sw.WriteLine(textBox5.Text); // Show Size
             sw.WriteLine(textBox6.Text); //Favorite Beverage
             sw.WriteLine(comboBox3.Text); //Pet
-            sw.WriteLine(Program.Date); //Date
+            sw.Write(Program.Date); //Date
             sw.Close();
 
             Form form = new Options();

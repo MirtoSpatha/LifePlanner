@@ -33,44 +33,50 @@ namespace LifePlanner
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            username = File.ReadLines("UserData.txt").Skip(0).Take(1).First();
-            if (username == null)
+            
+            try
+            {
+                username = File.ReadLines("UserData.txt").Skip(0).Take(1).First();
+            }
+            //if file is empty
+            catch (InvalidOperationException)
             {
                 Date = DateTime.Today.ToString("D");
                 NewUser = true;
-                //Application.Run(new LoadingPage());
+                Application.Run(new LoadingPage());
             }
-            else if (username == "0")
+            //if file does not exist
+            catch (FileNotFoundException)
             {
-                MessageBox.Show("Mistake at reading file");
+                MessageBox.Show("File not found");
+                NewUser = true;
+                Application.Run(new LoadingPage());
             }
-            else
-            {
-                gender = File.ReadLines("UserData.txt").Skip(1).Take(1).First();
-                age = File.ReadLines("UserData.txt").Skip(2).Take(1).First();
-                address = File.ReadLines("UserData.txt").Skip(3).Take(1).First();
-                work_address = File.ReadLines("UserData.txt").Skip(4).Take(1).First();
-                transportation = File.ReadLines("UserData.txt").Skip(5).Take(1).First();
-                shoe_size = File.ReadLines("UserData.txt").Skip(6).Take(1).First();
-                beverage = File.ReadLines("UserData.txt").Skip(7).Take(1).First();
-                pet = File.ReadLines("UserData.txt").Skip(8).Take(1).First();
-                //Wednesday, June 17, 2009
-                Date = File.ReadLines("UserData.txt").Last();
-                DateTime myDate = DateTime.ParseExact(Date, "D", null);
-                myDate = myDate.AddDays(1);
-                Date = myDate.ToString("D");
 
-                string path = "UserData.txt";
-                var fileContent = File.ReadLines(path).ToList();
-                fileContent[fileContent.Count - 1] = Date;
-                File.WriteAllLines(path, fileContent);
+            //Otherwise username exists as well as the other data
 
-                NewUser = false;
-                //Application.Run(new LoadingPage());
+            gender = File.ReadLines("UserData.txt").Skip(1).Take(1).First();
+            age = File.ReadLines("UserData.txt").Skip(2).Take(1).First();
+            address = File.ReadLines("UserData.txt").Skip(3).Take(1).First();
+            work_address = File.ReadLines("UserData.txt").Skip(4).Take(1).First();
+            transportation = File.ReadLines("UserData.txt").Skip(5).Take(1).First();
+            shoe_size = File.ReadLines("UserData.txt").Skip(6).Take(1).First();
+            beverage = File.ReadLines("UserData.txt").Skip(7).Take(1).First();
+            pet = File.ReadLines("UserData.txt").Skip(8).Take(1).First();
+            //Wednesday, June 17, 2009
+            Date = File.ReadLines("UserData.txt").Last();
+            DateTime myDate = DateTime.ParseExact(Date, "D", null);
+            myDate = myDate.AddDays(1);
+            Date = myDate.ToString("D");
 
-            }
-            Application.Run(new DailyPlan());
+            string path = "UserData.txt";
+            var fileContent = File.ReadLines(path).ToList();
+            fileContent[fileContent.Count - 1] = Date;
+            File.WriteAllLines(path, fileContent);
+
+            NewUser = false;
+            Application.Run(new LoadingPage());           
+            //Application.Run(new DailyPlan());
         }
     }
 }
