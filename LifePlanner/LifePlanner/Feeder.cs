@@ -148,10 +148,16 @@ namespace LifePlanner
                 MessageBox.Show("Το φαγητό είναι ήδη γεμάτο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            food_percentage_lbl.Text = "100%";
-            food_percentage = 100;
+
+            food_percentage += (int)numericUpDown5.Value;
+
+            if (food_percentage > 100)
+                food_percentage = 100;
+
+            food_percentage_lbl.Text = food_percentage.ToString() + "%";
+
             //some sound effects
-            food.Image = Resource1.full_bowl;
+            food.Image = getImagefromPercentage("Food", food_percentage_lbl.Text);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -163,10 +169,16 @@ namespace LifePlanner
                 MessageBox.Show("Το νερό είναι ήδη γεμάτο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            water_percentage_lbl.Text = "100%";
-            water_percentage = 100;
+
+            water_percentage += (int)numericUpDown6.Value;
+
+            if (water_percentage > 100)
+                water_percentage = 100;
+
+            water_percentage_lbl.Text = water_percentage.ToString() + "%";
+
             //some sound effects
-            water.Image = Resource1.full_water_bowl;
+            water.Image = getImagefromPercentage("Water", water_percentage_lbl.Text);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -262,13 +274,18 @@ namespace LifePlanner
                 pet_timer.Enabled = true;
                 food_clock.Enabled = false;
 
-                /*TODO begin*/ 
-                food_percentage_lbl.Text = "100%";
-                food_percentage = 100;
+                int old_percentage = food_percentage;
+                food_percentage += (int)numericUpDown5.Value;
+
+                if (food_percentage > 100)
+                    food_percentage = 100;
+
+                food_percentage_lbl.Text = food_percentage.ToString() + "%";
+
                 food.Image = getImagefromPercentage("Food", food_percentage_lbl.Text);
 
-                message = "Το φαγητό του κατοικίδιού\nσου γέμισε!";
-                /*TODO end*/
+                message = "Το φαγητό του κατοικίδιού\nσου γέμισε! Το φαγητό ανέβηκε\nαπό " + old_percentage + "% σε " + food_percentage + "%.";
+
                 food_timer.Visible = label14.Visible = false;              
 
                 if (food_clock.Enabled == false && water_clock.Enabled == false)
@@ -331,14 +348,18 @@ namespace LifePlanner
                 pet_timer.Enabled = true;
                 water_clock.Enabled = false;
 
-                /*TODO begin*/
-                water_percentage_lbl.Text = "100%";
-                water_percentage = 100;
+                int old_percentage = water_percentage;
+                water_percentage += (int)numericUpDown6.Value;
+
+                if (water_percentage > 100)
+                    water_percentage = 100;
+
+                water_percentage_lbl.Text = water_percentage.ToString() + "%";
 
                 water.Image = getImagefromPercentage("Water", water_percentage_lbl.Text);
 
-                message = "Το νερό του κατοικίδιού\nσου γέμισε!";
-                /*TODO end*/
+                message = "Το νερό του κατοικίδιού\nσου γέμισε! Το νερό ανέβηκε\nαπό " + old_percentage + "% σε " + food_percentage + "%.";
+
                 water_timer.Visible = label17.Visible = false;
 
                 if (food_clock.Enabled == false && water_clock.Enabled == false)

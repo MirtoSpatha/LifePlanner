@@ -66,6 +66,12 @@ namespace LifePlanner
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.set_feeder = new System.Windows.Forms.Button();
             this.pet_timer = new System.Windows.Forms.Timer(this.components);
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -77,6 +83,8 @@ namespace LifePlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -274,7 +282,7 @@ namespace LifePlanner
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.numericUpDown3);
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(48, 280);
+            this.panel1.Location = new System.Drawing.Point(48, 360);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(518, 308);
             this.panel1.TabIndex = 52;
@@ -380,7 +388,7 @@ namespace LifePlanner
             this.chatbot_panel.Controls.Add(this.pictureBox6);
             this.chatbot_panel.Controls.Add(this.pictureBox7);
             this.chatbot_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chatbot_panel.Location = new System.Drawing.Point(86, 255);
+            this.chatbot_panel.Location = new System.Drawing.Point(86, 328);
             this.chatbot_panel.Margin = new System.Windows.Forms.Padding(2);
             this.chatbot_panel.Name = "chatbot_panel";
             this.chatbot_panel.Size = new System.Drawing.Size(527, 351);
@@ -468,12 +476,104 @@ namespace LifePlanner
             this.pet_timer.Interval = 1000;
             this.pet_timer.Tick += new System.EventHandler(this.pet_timer_Tick);
             // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Enabled = false;
+            this.numericUpDown5.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown5.Location = new System.Drawing.Point(48, 303);
+            this.numericUpDown5.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.Size = new System.Drawing.Size(44, 20);
+            this.numericUpDown5.TabIndex = 66;
+            this.numericUpDown5.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Enabled = false;
+            this.label5.Location = new System.Drawing.Point(93, 305);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(18, 15);
+            this.label5.TabIndex = 67;
+            this.label5.Text = "%";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Enabled = false;
+            this.label6.Location = new System.Drawing.Point(497, 302);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(18, 15);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "%";
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Enabled = false;
+            this.numericUpDown6.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown6.Location = new System.Drawing.Point(453, 300);
+            this.numericUpDown6.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(44, 20);
+            this.numericUpDown6.TabIndex = 69;
+            this.numericUpDown6.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Enabled = false;
+            this.label15.Location = new System.Drawing.Point(45, 272);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(147, 15);
+            this.label15.TabIndex = 70;
+            this.label15.Text = "Προσθήκη φαγητού κατά:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Enabled = false;
+            this.label16.Location = new System.Drawing.Point(451, 267);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(130, 15);
+            this.label16.TabIndex = 71;
+            this.label16.Text = "Προσθήκη νερού κατά:";
+            // 
             // Feeder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(613, 605);
+            this.ClientSize = new System.Drawing.Size(613, 680);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.numericUpDown6);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.numericUpDown5);
             this.Controls.Add(this.set_feeder);
             this.Controls.Add(this.chatbot_panel);
             this.Controls.Add(this.water_timer);
@@ -509,6 +609,8 @@ namespace LifePlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -550,5 +652,11 @@ namespace LifePlanner
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button set_feeder;
         private System.Windows.Forms.Timer pet_timer;
+        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
     }
 }
