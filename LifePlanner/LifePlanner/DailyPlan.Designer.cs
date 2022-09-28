@@ -1018,7 +1018,6 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private Exit exit1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label23;

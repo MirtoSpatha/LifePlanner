@@ -223,12 +223,6 @@
   <data name="icon_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\icon_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\icon_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\icon_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_1_tr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\icon_1_tr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -259,13 +253,7 @@
   <data name="living_room_Bright" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\living_room_Bright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="living_room_Bright1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\living_room_Bright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="living_room_Dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\living_room_Dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="living_room_Dark1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\living_room_Dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="location" type="System.Resources.ResXFileRef, System.Windows.Forms">

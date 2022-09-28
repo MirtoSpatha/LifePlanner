@@ -46,9 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="AddEventPanel.cs">
-
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Bathroom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,16 +61,8 @@
     <Compile Include="Bedroom.Designer.cs">
       <DependentUpon>Bedroom.cs</DependentUpon>
     </Compile>
-    <Compile Include="Blank.cs">
-
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="AddEventPanel.Designer.cs">
       <DependentUpon>AddEventPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Blank.cs" />
-    <Compile Include="Blank.Designer.cs">
-      <DependentUpon>Blank.cs</DependentUpon>
     </Compile>
     <Compile Include="DailyPlan.cs">
       <SubType>Form</SubType>
@@ -78,21 +70,6 @@
     <Compile Include="DailyPlan.Designer.cs">
       <DependentUpon>DailyPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Day.cs" />
-    <Compile Include="Day.Designer.cs">
-      <DependentUpon>Day.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Day_Plan.cs" />
-    <Compile Include="Day_Plan.Designer.cs">
-      <DependentUpon>Day_Plan.cs</DependentUpon>
-    </Compile>
-
-    <Compile Include="Exit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Exit.Designer.cs">
-      <DependentUpon>Exit.cs</DependentUpon>
-
     <Compile Include="Feeder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,7 +93,6 @@
     </Compile>
     <Compile Include="LivingRoom.Designer.cs">
       <DependentUpon>LivingRoom.cs</DependentUpon>
-
     </Compile>
     <Compile Include="LoadingPage.cs">
       <SubType>Form</SubType>
@@ -124,31 +100,25 @@
     <Compile Include="LoadingPage.Designer.cs">
       <DependentUpon>LoadingPage.cs</DependentUpon>
     </Compile>
-
     <Compile Include="ModifyEventPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ModifyEventPanel.Designer.cs">
       <DependentUpon>ModifyEventPanel.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Misc.cs" />
-
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
-
     <Compile Include="Serialize.cs" />
-
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,52 +133,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
-    <Compile Include="Resource1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
-    </Compile>
     <Compile Include="TV.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TV.Designer.cs">
       <DependentUpon>TV.cs</DependentUpon>
     </Compile>
-
     <Compile Include="UserData.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserData.Designer.cs">
       <DependentUpon>UserData.cs</DependentUpon>
     </Compile>
-
     <EmbeddedResource Include="AddEventPanel.resx">
       <DependentUpon>AddEventPanel.cs</DependentUpon>
-
+    </EmbeddedResource>
     <EmbeddedResource Include="Bathroom.resx">
       <DependentUpon>Bathroom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bedroom.resx">
       <DependentUpon>Bedroom.cs</DependentUpon>
-
-    </EmbeddedResource>
-    <EmbeddedResource Include="Blank.resx">
-      <DependentUpon>Blank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DailyPlan.resx">
       <DependentUpon>DailyPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Day.resx">
-      <DependentUpon>Day.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Day_Plan.resx">
-      <DependentUpon>Day_Plan.cs</DependentUpon>
-    </EmbeddedResource>
-
-    <EmbeddedResource Include="Exit.resx">
-      <DependentUpon>Exit.cs</DependentUpon>
-
     <EmbeddedResource Include="Feeder.resx">
       <DependentUpon>Feeder.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,7 +168,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LivingRoom.resx">
       <DependentUpon>LivingRoom.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>
@@ -230,6 +177,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
@@ -246,11 +197,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Resource1.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="TV.resx">
       <DependentUpon>TV.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,17 +265,7 @@
     <None Include="Resources\living_room_Bright.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\living_room_Dark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon_1.ico" />
-
-    <None Include="Resources\tvclosed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tvopen.jpg" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\house_outside.jpg" />
@@ -350,7 +286,6 @@
     <None Include="Resources\previous_button.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\clock.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -424,20 +359,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bedroom.png" />
-
     <None Include="Resources\menu1.png" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\locked.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\menu1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\unlocked.png" />
-
     <None Include="Resources\unlocked.png" />
   </ItemGroup>
   <ItemGroup>
@@ -451,7 +382,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\kitchen.png" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit.png" />
@@ -460,11 +390,9 @@
     <None Include="Resources\light.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\ch3.gif" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\tvstatic.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -474,11 +402,9 @@
     <None Include="Resources\ch2.gif" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\ch3.gif" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\ch4.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -488,11 +414,9 @@
     <None Include="Resources\ch6.gif" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\feeder.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\living_room_Dark.png" />
   </ItemGroup>
   <ItemGroup>
@@ -502,14 +426,12 @@
     <None Include="Resources\little_bowl.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\empty_bowl.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\little_water_bowl.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\middle_water.png" />
   </ItemGroup>
   <ItemGroup>
@@ -524,7 +446,7 @@
   <ItemGroup>
     <None Include="Resources\full_bowl.png" />
   </ItemGroup>
-
+  <ItemGroup>
     <None Include="Resources\middle_bowl.png" />
   </ItemGroup>
   <ItemGroup>
@@ -536,6 +458,8 @@
   <ItemGroup>
     <None Include="Resources\full_water_bowl.png" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Include="Resources\speech-bubble.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
