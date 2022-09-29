@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +22,25 @@ namespace LifePlanner
         private static int water_percentage = 70;
         private static int old_food_percentage = 0;
         private static int old_water_percentage = 0;
+
+        private static void soundThread(String type)
+        {
+            Console.WriteLine("Thread running");
+            if (!type.Equals("None"))
+            {
+                new SoundPlayer("./sounds/" + type + ".wav").Play();
+
+                if(type.Equals("kick"))
+                    Thread.Sleep(2000);
+                else
+                    Thread.Sleep(4000);
+            }
+
+            if (Program.pet == "Γάτα")
+                new SoundPlayer("./sounds/cat.wav").Play();
+            else if (Program.pet == "Σκύλος")
+                new SoundPlayer("./sounds/dog.wav").Play();
+        }
 
         private static Bitmap getImagefromPercentage(String type, String percentage)
         {
@@ -156,7 +177,8 @@ namespace LifePlanner
 
             food_percentage_lbl.Text = food_percentage.ToString() + "%";
 
-            //some sound effects
+            new Thread(() => soundThread("food")).Start();
+
             food.Image = getImagefromPercentage("Food", food_percentage_lbl.Text);
         }
 
@@ -177,7 +199,8 @@ namespace LifePlanner
 
             water_percentage_lbl.Text = water_percentage.ToString() + "%";
 
-            //some sound effects
+            new Thread(() => soundThread("water")).Start();
+
             water.Image = getImagefromPercentage("Water", water_percentage_lbl.Text);
         }
 
@@ -296,7 +319,9 @@ namespace LifePlanner
                         c.Enabled = true;
                     }
                 }
-                    
+
+                new Thread(() => soundThread("food")).Start();
+
                 //in case while informing user for something,
                 //something else occurs
                 if (chatbot_panel.Visible == true)
@@ -313,8 +338,6 @@ namespace LifePlanner
                     if (c.Parent != chatbot_panel && c != chatbot_panel)
                         c.Enabled = false;
                 }
-
-                //some sound effects
 
                 chatbot_panel.Show();
 
@@ -358,7 +381,7 @@ namespace LifePlanner
 
                 water.Image = getImagefromPercentage("Water", water_percentage_lbl.Text);
 
-                message = "Το νερό του κατοικίδιού\nσου γέμισε! Το νερό ανέβηκε\nαπό " + old_percentage + "% σε " + food_percentage + "%.";
+                message = "Το νερό του κατοικίδιού\nσου γέμισε! Το νερό ανέβηκε\nαπό " + old_percentage + "% σε " + water_percentage + "%.";
 
                 water_timer.Visible = label17.Visible = false;
 
@@ -371,7 +394,8 @@ namespace LifePlanner
                         c.Enabled = true;
                     }
                 }
-                    
+
+                new Thread(() => soundThread("water")).Start();
 
                 //in case while informing user for something,
                 //something else occurs
@@ -389,8 +413,6 @@ namespace LifePlanner
                     if (c.Parent != chatbot_panel && c != chatbot_panel)
                         c.Enabled = false;
                 }
-
-                //some sound effects
 
                 chatbot_panel.Show();
 
@@ -461,18 +483,25 @@ namespace LifePlanner
             //if food percentage drops to 0(only during timeticking)
             if (food_percentage == 0 && !lock_food)
             {
+                String type = "None";
+
                 food_percentage_lbl.Text = food_percentage.ToString() + "%";
 
                 message.Append("Το φαγητό του κατοικίδιού σου τελείωσε!\n");
                 //if food has been kicked
                 if(old_food_percentage != 0)
+                {
                     message.Append("Το κατοικίδιο σου έριξε\nτο μπολάκι με το φαγητό του!\nΤο φαγητό έπεσε από " + old_food_percentage + "% σε " + food_percentage + "%.");
+                    type = "kick";
+                }
 
                 old_food_percentage = 0;
 
                 //show form with chatbot if no message is displaying
                 //if there is already a message displaying, show message box
                 this.Show();
+
+                new Thread(() => soundThread(type)).Start();
 
                 if (chatbot_panel.Visible)
                 {
@@ -495,14 +524,21 @@ namespace LifePlanner
             //if water percentage drops to 0(only during timeticking)
             if (water_percentage == 0 && !lock_water)
             {
+                String type = "None";
+
                 water_percentage_lbl.Text = water_percentage.ToString() + "%";
 
                 message.Append("Το νερό του κατοικίδιού σου τελείωσε!\n");
                 //if water had been kicked
                 if (old_water_percentage != 0)
+                {
                     message.Append("Το κατοικίδιο σου έριξε\nτο μπολάκι με το νερό του!\nΤο νερό έπεσε από " + old_water_percentage + "% σε " + water_percentage + "%.");
+                    type = "kick";
+                }
 
                 old_water_percentage = 0;
+
+                new Thread(() => soundThread(type)).Start();
 
                 //show form with chatbot if no message is displaying
                 //if there is already a message displaying, show message box
@@ -532,6 +568,8 @@ namespace LifePlanner
 
                 old_food_percentage = 0;
 
+                new Thread(() => soundThread("kick")).Start();
+
                 if (chatbot_panel.Visible)
                     new Messagebox(message.ToString(), this).Show();
                     //MessageBox.Show(message.ToString(), "Ector", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -554,6 +592,8 @@ namespace LifePlanner
                 this.Show();
 
                 old_water_percentage = 0;
+
+                new Thread(() => soundThread("kick")).Start();
 
                 if (chatbot_panel.Visible)
                     new Messagebox(message.ToString(), this).Show();

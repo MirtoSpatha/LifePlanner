@@ -52,6 +52,8 @@ namespace LifePlanner
             sw.Write(Program.Date); //Date
             sw.Close();
 
+            Program.pet = comboBox3.Text;
+
             Form form = new Options();
             form.Show();
             Hide();

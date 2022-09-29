@@ -473,7 +473,7 @@ namespace LifePlanner
             // 
             // pet_timer
             // 
-            this.pet_timer.Interval = 1000;
+            this.pet_timer.Interval = 7000;
             this.pet_timer.Tick += new System.EventHandler(this.pet_timer_Tick);
             // 
             // numericUpDown5
