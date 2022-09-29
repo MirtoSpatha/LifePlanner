@@ -236,6 +236,7 @@ namespace LifePlanner
                 }
 
                 timer_btn.Text = "Ακύρωση";
+                timer_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128); //red
 
                 foreach (Control c in panel1.Controls)
                 {
@@ -250,6 +251,7 @@ namespace LifePlanner
                 food_clock.Enabled = water_clock.Enabled = false;
 
                 timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
+                timer_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128); //green
 
                 foreach (Control c in panel1.Controls)
                 {
@@ -265,7 +267,7 @@ namespace LifePlanner
                 MessageBox.Show("Φαίνεται πως δεν έχεις ορίσει κατοικίδιο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
+                                                                                                                         //green                        //red
             set_feeder.FlatAppearance.MouseOverBackColor = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας") ? Color.FromArgb(128, 255, 128) : Color.FromArgb(255, 128, 128);
             set_feeder.Text = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας") ? "Eνεργοποίηση αυτόματης ταΐστρας" : "Απενεργοποίηση αυτόματης ταΐστρας";
 
@@ -300,7 +302,8 @@ namespace LifePlanner
                 }
 
                 water_clock.Enabled = food_clock.Enabled = food_timer.Visible = label14.Visible = water_timer.Visible = label17.Visible = false;
-                timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";               
+                timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
+                timer_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128); //green
             }
         }
 
