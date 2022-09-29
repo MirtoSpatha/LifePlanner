@@ -286,6 +286,22 @@ namespace LifePlanner
 
             //enable/disable pet timer for pet events
             pet_timer.Enabled = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας");
+
+            if (set_feeder.Text.Equals("Eνεργοποίηση αυτόματης ταΐστρας"))
+            {
+                //we have to enable these controls from panel1
+                //in case timers were runnung,
+                //even tho they will be disabled already from
+                //form control loop
+                if (water_clock.Enabled || food_clock.Enabled)
+                {
+                    foreach (Control c in panel1.Controls)
+                        c.Enabled = true;
+                }
+
+                water_clock.Enabled = food_clock.Enabled = food_timer.Visible = label14.Visible = water_timer.Visible = label17.Visible = false;
+                timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";               
+            }
         }
 
         private void food_clock_Tick(object sender, EventArgs e)
