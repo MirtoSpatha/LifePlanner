@@ -654,7 +654,5 @@ namespace LifePlanner
             e.Cancel = true;
             this.Hide();
         }
-
-        
     }
 }

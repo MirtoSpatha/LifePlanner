@@ -123,6 +123,9 @@
   <metadata name="water_clock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 17</value>
   </metadata>
+  <metadata name="pet_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>242, 17</value>
+  </metadata>
   <data name="label1.Text" xml:space="preserve">
     <value>Καλοσήρθες στην αυτόματη ταΐστρα!
 Εδώ μπορείς να ρυθμίσεις μία ώρα που
@@ -133,7 +136,4 @@
 φαγητό!
 </value>
   </data>
-  <metadata name="pet_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>242, 17</value>
-  </metadata>
 </root>

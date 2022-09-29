@@ -31,21 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
             this.chatbot_panel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.home_pictureBox = new System.Windows.Forms.PictureBox();
+            this.calendar_pictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.home_pictureBox = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.calendar_pictureBox = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.chatbot_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.home_pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calendar_pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // chatbot_panel
@@ -74,6 +74,82 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Διάλεξε τι θες να κάνεις πρώτα!\r\n\r\n";
             this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.home_pictureBox);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.calendar_pictureBox);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Enabled = false;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(673, 178);
+            this.panel1.TabIndex = 6;
+            this.panel1.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Enabled = false;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label3.Location = new System.Drawing.Point(384, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(232, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Περιήγηση στο Έξυπνο Σπίτι:";
+            this.label3.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Enabled = false;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label2.Location = new System.Drawing.Point(14, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(286, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Δημιουργία του Ημερήσιου Πλάνου:";
+            this.label2.Visible = false;
+            // 
+            // home_pictureBox
+            // 
+            this.home_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.home_pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.home_pictureBox.Enabled = false;
+            this.home_pictureBox.Image = global::LifePlanner.Resource1.building_home;
+            this.home_pictureBox.Location = new System.Drawing.Point(427, 58);
+            this.home_pictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.home_pictureBox.Name = "home_pictureBox";
+            this.home_pictureBox.Size = new System.Drawing.Size(123, 101);
+            this.home_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.home_pictureBox.TabIndex = 5;
+            this.home_pictureBox.TabStop = false;
+            this.home_pictureBox.Visible = false;
+            this.home_pictureBox.Click += new System.EventHandler(this.home_pictureBox_Click);
+            this.home_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
+            this.home_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
+            // 
+            // calendar_pictureBox
+            // 
+            this.calendar_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.calendar_pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.calendar_pictureBox.Enabled = false;
+            this.calendar_pictureBox.Image = global::LifePlanner.Resource1.calendar;
+            this.calendar_pictureBox.Location = new System.Drawing.Point(95, 58);
+            this.calendar_pictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.calendar_pictureBox.Name = "calendar_pictureBox";
+            this.calendar_pictureBox.Size = new System.Drawing.Size(123, 101);
+            this.calendar_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.calendar_pictureBox.TabIndex = 3;
+            this.calendar_pictureBox.TabStop = false;
+            this.calendar_pictureBox.Visible = false;
+            this.calendar_pictureBox.Click += new System.EventHandler(this.calendar_pictureBox_Click);
+            this.calendar_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
+            this.calendar_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
             // 
             // pictureBox3
             // 
@@ -114,82 +190,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.home_pictureBox);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.calendar_pictureBox);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(673, 178);
-            this.panel1.TabIndex = 6;
-            this.panel1.Visible = false;
-            // 
-            // home_pictureBox
-            // 
-            this.home_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.home_pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.home_pictureBox.Enabled = false;
-            this.home_pictureBox.Image = global::LifePlanner.Resource1.building_home;
-            this.home_pictureBox.Location = new System.Drawing.Point(427, 58);
-            this.home_pictureBox.Margin = new System.Windows.Forms.Padding(2);
-            this.home_pictureBox.Name = "home_pictureBox";
-            this.home_pictureBox.Size = new System.Drawing.Size(123, 101);
-            this.home_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.home_pictureBox.TabIndex = 5;
-            this.home_pictureBox.TabStop = false;
-            this.home_pictureBox.Visible = false;
-            this.home_pictureBox.Click += new System.EventHandler(this.home_pictureBox_Click);
-            this.home_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
-            this.home_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Enabled = false;
-            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label3.Location = new System.Drawing.Point(384, 16);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(232, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Περιήγηση στο Έξυπνο Σπίτι:";
-            this.label3.Visible = false;
-            // 
-            // calendar_pictureBox
-            // 
-            this.calendar_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.calendar_pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.calendar_pictureBox.Enabled = false;
-            this.calendar_pictureBox.Image = global::LifePlanner.Resource1.calendar;
-            this.calendar_pictureBox.Location = new System.Drawing.Point(58, 58);
-            this.calendar_pictureBox.Margin = new System.Windows.Forms.Padding(2);
-            this.calendar_pictureBox.Name = "calendar_pictureBox";
-            this.calendar_pictureBox.Size = new System.Drawing.Size(123, 101);
-            this.calendar_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.calendar_pictureBox.TabIndex = 3;
-            this.calendar_pictureBox.TabStop = false;
-            this.calendar_pictureBox.Visible = false;
-            this.calendar_pictureBox.Click += new System.EventHandler(this.calendar_pictureBox_Click);
-            this.calendar_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
-            this.calendar_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Enabled = false;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label2.Location = new System.Drawing.Point(14, 16);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(286, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Δημιουργία του Ημερήσιου Πλάνου:";
-            this.label2.Visible = false;
-            // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,13 +207,13 @@
             this.Load += new System.EventHandler(this.Options_Load_1);
             this.chatbot_panel.ResumeLayout(false);
             this.chatbot_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.home_pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calendar_pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
