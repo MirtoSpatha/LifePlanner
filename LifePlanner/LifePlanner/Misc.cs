@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonServiceLocator;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,8 @@ namespace LifePlanner
         public static List<Messagebox> mblist = new List<Messagebox>();
 
         //Form variables
+
+        private static DailyPlan dp = null;
         private static Options o = null;
         private static Kitchen k = null;
         private static Bedroom br = null;
@@ -195,6 +198,8 @@ namespace LifePlanner
                     break;
             }*/
 
+            //Options instance = ServiceLocator.Current.GetInstance<Options>();
+            //instance.Show();
 
             switch (formname)
             {
@@ -279,6 +284,18 @@ namespace LifePlanner
                     else
                     {
                         o.Show();
+                    }
+                    break;
+
+                case "DailyPlan":
+                    if (dp == null)
+                    {
+                        dp = new DailyPlan();
+                        dp.Show();
+                    }
+                    else
+                    {
+                        dp.Show();
                     }
                     break;
 

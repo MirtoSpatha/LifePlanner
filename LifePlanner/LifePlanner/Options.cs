@@ -72,7 +72,7 @@ namespace LifePlanner
 
         private void calendar_pictureBox_Click(object sender, EventArgs e)
         {
-
+            Misc.openForm("DailyPlan");
         }
 
         private void food_and_pet_timer_Tick(object sender, EventArgs e)
