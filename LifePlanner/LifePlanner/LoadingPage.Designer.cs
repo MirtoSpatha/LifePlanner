@@ -91,7 +91,6 @@
             this.Name = "LoadingPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoadingPage";
-            this.Load += new System.EventHandler(this.LoadingPage_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

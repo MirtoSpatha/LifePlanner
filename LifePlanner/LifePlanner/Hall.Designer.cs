@@ -56,6 +56,7 @@ namespace LifePlanner
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Exit_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -411,6 +412,23 @@ namespace LifePlanner
             this.pictureBox8.TabIndex = 2;
             this.pictureBox8.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Enabled = false;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label3.Location = new System.Drawing.Point(1, 429);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(217, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Έξοδος από το έξυπνο σπίτι";
+            this.label3.Visible = false;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
+            this.label3.MouseHover += new System.EventHandler(this.label3_MouseHover);
+            // 
             // Hall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,6 +437,7 @@ namespace LifePlanner
             this.BackgroundImage = global::LifePlanner.Resource1.Hallway_Bright;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(850, 449);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.chatbot_panel);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox10);
@@ -458,6 +477,7 @@ namespace LifePlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -489,5 +509,6 @@ namespace LifePlanner
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label3;
     }
 }

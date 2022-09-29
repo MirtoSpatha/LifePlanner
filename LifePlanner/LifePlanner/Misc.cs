@@ -17,6 +17,7 @@ namespace LifePlanner
         public static List<Messagebox> mblist = new List<Messagebox>();
 
         //Form variables
+        private static Options o = null;
         private static Kitchen k = null;
         private static Bedroom br = null;
         private static LivingRoom lr = null;
@@ -31,7 +32,7 @@ namespace LifePlanner
          * been closed(false) or opened(true)
          */
 
-        public static bool ShowHide(Form form, Button menubutton, Panel menupanel, bool menu_open)
+        public static bool ShowHide(Form form, Button menubutton, Panel menupanel, Label exitlabel, bool menu_open)
         {
             if (!menu_open)
             {
@@ -44,6 +45,7 @@ namespace LifePlanner
                 menubutton.Location = new Point(menupanel.Location.X + menupanel.Width, menupanel.Location.Y);
                 menupanel.Visible = menupanel.Enabled = true;
                 menubutton.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128); //red
+                exitlabel.Enabled = exitlabel.Visible = true;
                 return true;
             }
             else
@@ -57,6 +59,7 @@ namespace LifePlanner
                 menubutton.Location = new Point(menupanel.Location.X, menupanel.Location.Y);
                 menupanel.Visible = menupanel.Enabled = false;
                 menubutton.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128); //green
+                exitlabel.Enabled = exitlabel.Visible = false;
                 return false;
             }
         }
@@ -264,6 +267,18 @@ namespace LifePlanner
                     else
                     {
                         a.Show();
+                    }
+                    break;
+
+                case "Options":
+                    if (o == null)
+                    {
+                        o = new Options();
+                        o.Show();
+                    }
+                    else
+                    {
+                        o.Show();
                     }
                     break;
 

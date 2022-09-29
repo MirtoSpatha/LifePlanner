@@ -40,6 +40,7 @@ namespace LifePlanner
             this.Kitchenbtn = new System.Windows.Forms.Button();
             this.Bathroombtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -191,6 +192,23 @@ namespace LifePlanner
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Enabled = false;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label3.Location = new System.Drawing.Point(0, 534);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(217, 20);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Έξοδος από το έξυπνο σπίτι";
+            this.label3.Visible = false;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
+            this.label3.MouseHover += new System.EventHandler(this.label3_MouseHover);
+            // 
             // Bathroom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +217,7 @@ namespace LifePlanner
             this.BackgroundImage = global::LifePlanner.Resource1.bathroom_Bright;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(761, 554);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -214,6 +233,7 @@ namespace LifePlanner
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -230,5 +250,6 @@ namespace LifePlanner
         private System.Windows.Forms.Button Kitchenbtn;
         private System.Windows.Forms.Button Bathroombtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
     }
 }

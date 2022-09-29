@@ -66,14 +66,9 @@ namespace LifePlanner
                 }
                 else
                 {
-                    new Options().Show();
+                    Misc.openForm("Options");
                 }
             }
-        }
-
-        private void LoadingPage_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

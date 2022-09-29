@@ -32,7 +32,7 @@ namespace LifePlanner
         private void button1_Click(object sender, EventArgs e)
         {
             //run show/hide function for menu and return result in menu_open
-            menu_open = Misc.ShowHide(this, button1, panel1, menu_open);
+            menu_open = Misc.ShowHide(this, button1, panel1, label3, menu_open);
         }
 
         private void Hallbtn_Click(object sender, EventArgs e)
@@ -59,6 +59,21 @@ namespace LifePlanner
             Misc.openForm("Alarm");
         }
 
+        private void label3_MouseHover(object sender, EventArgs e)
+        {
+            label3.BackColor = Color.FromArgb(255, 128, 128);
+        }
+
+        private void label3_MouseLeave(object sender, EventArgs e)
+        {
+            label3.BackColor = Color.LightCyan;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Misc.openForm("Options");
+            this.Hide();
+        }
         private void Bedroom_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;

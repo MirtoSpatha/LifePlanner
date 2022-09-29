@@ -43,7 +43,7 @@ namespace LifePlanner
         {
             Form form = new UserData();
             form.Show();
-            Hide();
+            Close();
         }
     }   
 }

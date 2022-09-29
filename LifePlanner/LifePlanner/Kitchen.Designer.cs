@@ -40,6 +40,7 @@ namespace LifePlanner
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
@@ -191,6 +192,23 @@ namespace LifePlanner
             this.panel3.TabIndex = 29;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Enabled = false;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label3.Location = new System.Drawing.Point(0, 521);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(217, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Έξοδος από το έξυπνο σπίτι";
+            this.label3.Visible = false;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
+            this.label3.MouseHover += new System.EventHandler(this.label3_MouseHover);
+            // 
             // Kitchen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +217,7 @@ namespace LifePlanner
             this.BackgroundImage = global::LifePlanner.Resource1.kitchen_Bright;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(818, 544);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox10);
@@ -215,6 +234,7 @@ namespace LifePlanner
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -231,5 +251,6 @@ namespace LifePlanner
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
     }
 }

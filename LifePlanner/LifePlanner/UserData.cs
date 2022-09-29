@@ -54,9 +54,9 @@ namespace LifePlanner
 
             Program.pet = comboBox3.Text;
 
-            Form form = new Options();
-            form.Show();
-            Hide();
+            Misc.openForm("Options");
+
+            Close();
         }
 
         private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
