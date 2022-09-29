@@ -25,7 +25,6 @@ namespace LifePlanner
 
         private static void soundThread(String type)
         {
-            Console.WriteLine("Thread running");
             if (!type.Equals("None"))
             {
                 new SoundPlayer("./sounds/" + type + ".wav").Play();
@@ -261,6 +260,12 @@ namespace LifePlanner
 
         private void set_feeder_Click(object sender, EventArgs e)
         {
+            if(Program.pet != "Σκύλος" && Program.pet != "Γάτα")
+            {
+                MessageBox.Show("Φαίνεται πως δεν έχεις ορίσει κατοικίδιο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             set_feeder.FlatAppearance.MouseOverBackColor = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας") ? Color.FromArgb(128, 255, 128) : Color.FromArgb(255, 128, 128);
             set_feeder.Text = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας") ? "Eνεργοποίηση αυτόματης ταΐστρας" : "Απενεργοποίηση αυτόματης ταΐστρας";
 
