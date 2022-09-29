@@ -116,6 +116,10 @@ namespace LifePlanner
             Misc.openForm(form);
             this.Hide();
         }
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void Hall_FormClosing(object sender, FormClosingEventArgs e)
         {

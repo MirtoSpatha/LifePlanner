@@ -663,6 +663,16 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap shoes {
+            get {
+                object obj = ResourceManager.GetObject("shoes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap speech_bubble {
             get {
                 object obj = ResourceManager.GetObject("speech_bubble", resourceCulture);

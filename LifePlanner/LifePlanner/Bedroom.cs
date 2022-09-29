@@ -56,7 +56,7 @@ namespace LifePlanner
 
         private void panel5_Click(object sender, EventArgs e)
         {
-
+            Misc.openForm("Alarm");
         }
 
         private void Bedroom_FormClosing(object sender, FormClosingEventArgs e)

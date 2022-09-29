@@ -593,7 +593,7 @@ namespace LifePlanner
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Feeder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Feeder";
+            this.Text = "Τα";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Feeder_FormClosing);
             this.Load += new System.EventHandler(this.Feeder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

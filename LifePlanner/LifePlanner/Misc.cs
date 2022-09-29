@@ -23,6 +23,7 @@ namespace LifePlanner
         private static Bathroom b = null;
         private static Hall h = null;
         private static Feeder f = null;
+        private static Alarm a = null;
 
         /**
          * Function that shows/hides the menu at House forms.
@@ -245,13 +246,24 @@ namespace LifePlanner
                 case "Feeder":
                     if(f == null)
                     {
-                        Console.WriteLine("null");
                         f = new Feeder();
                         f.Show();
                     }
                     else
                     {
                         f.Show();
+                    }
+                    break;
+
+                case "Alarm":
+                    if (a == null)
+                    {
+                        a = new Alarm();
+                        a.Show();
+                    }
+                    else
+                    {
+                        a.Show();
                     }
                     break;
 

@@ -338,6 +338,8 @@ namespace LifePlanner
                 if (food_clock.Enabled == false && water_clock.Enabled == false)
                 {
                     timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
+                    timer_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128);
+
                     foreach (Control c in panel1.Controls)
                     {
                         c.Enabled = true;
@@ -412,6 +414,7 @@ namespace LifePlanner
                 if (food_clock.Enabled == false && water_clock.Enabled == false)
                 {
                     timer_btn.Text = "Ορισμός αυτόματης ταΐστρας";
+                    timer_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(128, 255, 128);
 
                     foreach (Control c in panel1.Controls)
                     {

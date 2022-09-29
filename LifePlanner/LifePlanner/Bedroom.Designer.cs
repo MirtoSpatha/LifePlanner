@@ -39,12 +39,10 @@ namespace LifePlanner
             this.Bathroombtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,17 +171,6 @@ namespace LifePlanner
             this.panel3.TabIndex = 32;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(709, 204);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(30, 30);
-            this.panel2.TabIndex = 31;
-            this.panel2.Click += new System.EventHandler(this.panel2_Click);
-            // 
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
@@ -196,15 +183,6 @@ namespace LifePlanner
             this.pictureBox10.TabIndex = 30;
             this.pictureBox10.TabStop = false;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel4.Location = new System.Drawing.Point(8, 8);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(30, 30);
-            this.panel4.TabIndex = 32;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
@@ -214,6 +192,16 @@ namespace LifePlanner
             this.panel5.Size = new System.Drawing.Size(38, 26);
             this.panel5.TabIndex = 32;
             this.panel5.Click += new System.EventHandler(this.panel5_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel2.Location = new System.Drawing.Point(710, 205);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(28, 30);
+            this.panel2.TabIndex = 31;
+            this.panel2.Click += new System.EventHandler(this.panel2_Click);
             // 
             // Bedroom
             // 
@@ -237,7 +225,6 @@ namespace LifePlanner
             this.Load += new System.EventHandler(this.Bedroom_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
@@ -254,9 +241,8 @@ namespace LifePlanner
         private System.Windows.Forms.Button Bathroombtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel2;
     }
 }
