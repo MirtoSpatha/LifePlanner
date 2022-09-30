@@ -36,7 +36,7 @@ namespace LifePlanner
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(240, 392);
+            this.label2.Location = new System.Drawing.Point(244, 273);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(256, 13);
             this.label2.TabIndex = 1;

@@ -34,6 +34,7 @@ namespace LifePlanner
 
             //Print dicts:
 
+            //1// for daily plan dic
             /*foreach (var item in DailyPlan.panel_events)
             {
                 Console.WriteLine(item.Key.Name);
@@ -42,8 +43,30 @@ namespace LifePlanner
                 Console.WriteLine();
             }*/
 
+            //2// for list of dics
+            /*foreach (var dict in dic_list)
+            {
+                foreach (var item in dict)
+                    Console.WriteLine(item.Key + ": " + item.Value);
+                Console.WriteLine();
+            }*/
+
 
             //foreach (var item in DailyPlan.panel_events.Where(x => x.Value["Activity"] == "Καθημερινή").ToList()) 
+        }
+
+        private List<Dictionary<string, string>> returnUniquedicsOf(Dictionary<Panel, Dictionary<string, string>> dic)
+        {
+            List<Dictionary<string, string>> dic_list = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> d in dic.Values)
+            {
+                if(!dic_list.Contains(d))
+                    dic_list.Add(d);
+            }
+
+            return dic_list;
+
         }
 
         private void Shoes_Load(object sender, EventArgs e)
@@ -59,28 +82,27 @@ namespace LifePlanner
                 return;
             }
 
-            var dict_list = DailyPlan.panel_events.SelectMany(x => x.Value).ToList();
+            List<Dictionary<string, string>> unique_events = returnUniquedicsOf(DailyPlan.panel_events);
 
-            for (int i = 0; i < DailyPlan.panel_events.Count; i++)
-            {
-                if (i != 0 && dict_list[i].Equals(dict_list[i - 1]))
-                    continue;
-
+            for (int i = 0; i < unique_events.Count; i++)
+            {                 
                 if (i != 0)
                 {
-                    Console.WriteLine("Mphka");
                     tableLayoutPanel1.RowCount += 2;
                     tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                     tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                     tableLayoutPanel1.Size = new Size(tableLayoutPanel1.Size.Width, tableLayoutPanel1.Size.Height + initial_height);
                 }
-                    
 
-                /*for (int j = 0; j < tableLayoutPanel1.ColumnCount; j++)
-                    tableLayoutPanel1.Controls.Add(new Label() { Text = "xxxxxxx@gmail.com" }, j, i);*/
+                tableLayoutPanel1.Controls.Add(new Label() { Text = unique_events[i]["Title"], AutoSize = true}, 0, 2 * i);
+                tableLayoutPanel1.Controls.Add(new Label() { Text = "Ώρα έναρξης: " + unique_events[i]["StartTime"] + "\nΏρα λήξης: " + unique_events[i]["EndTime"], AutoSize = true }, 1, 2 * i);
+                tableLayoutPanel1.Controls.Add(new Label() { Text = "Κατηγορία: " + unique_events[i]["Activity"], AutoSize = true }, 2, 2 * i);
+              
+                tableLayoutPanel1.Controls.Add(new PictureBox() { }, 0, 2 * i + 1);
+                tableLayoutPanel1.Controls.Add(new PictureBox() { }, 1, 2 * i + 1);
+                tableLayoutPanel1.Controls.Add(new PictureBox() { }, 2, 2 * i + 1);
+
             }
-
-            
 
         }
 
