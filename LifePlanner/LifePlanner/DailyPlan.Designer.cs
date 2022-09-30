@@ -95,6 +95,13 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.chatbot_panel = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelt6.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -102,6 +109,10 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.chatbot_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -420,6 +431,7 @@
             this.panelt7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelt7.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panelt7.Location = new System.Drawing.Point(110, 128);
             this.panelt7.Name = "panelt7";
             this.panelt7.Size = new System.Drawing.Size(705, 55);
@@ -432,6 +444,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelt6.Controls.Add(this.vScrollBar1);
+            this.panelt6.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panelt6.Location = new System.Drawing.Point(110, 66);
             this.panelt6.Name = "panelt6";
             this.panelt6.Size = new System.Drawing.Size(705, 55);
@@ -451,6 +464,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelt5.BackColor = System.Drawing.Color.LightCyan;
+            this.panelt5.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panelt5.Location = new System.Drawing.Point(110, 4);
             this.panelt5.Name = "panelt5";
             this.panelt5.Size = new System.Drawing.Size(705, 55);
@@ -770,6 +784,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label29);
             this.panel1.Controls.Add(this.checkBox4);
             this.panel1.Controls.Add(this.checkBox3);
             this.panel1.Controls.Add(this.checkBox2);
@@ -876,7 +892,6 @@
             this.label26.TabIndex = 6;
             this.label26.Text = "Οι Δραστηριότητές μου:";
             this.label26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // panel2
             // 
@@ -978,12 +993,104 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Bookman Old Style", 10F);
+            this.label29.Location = new System.Drawing.Point(3, 774);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(274, 21);
+            this.label29.TabIndex = 14;
+            this.label29.Text = "Έξοδος από το Ημερήσιο Πλάνο:";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label29.Click += new System.EventHandler(this.label29_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 11F);
+            this.button1.Location = new System.Drawing.Point(47, 297);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(174, 71);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Μετάβαση στην Παπουτσοθήκη";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // chatbot_panel
+            // 
+            this.chatbot_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.chatbot_panel.Controls.Add(this.label30);
+            this.chatbot_panel.Controls.Add(this.pictureBox6);
+            this.chatbot_panel.Controls.Add(this.pictureBox7);
+            this.chatbot_panel.Controls.Add(this.pictureBox8);
+            this.chatbot_panel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chatbot_panel.Location = new System.Drawing.Point(539, 528);
+            this.chatbot_panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chatbot_panel.Name = "chatbot_panel";
+            this.chatbot_panel.Size = new System.Drawing.Size(618, 339);
+            this.chatbot_panel.TabIndex = 36;
+            this.chatbot_panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.BackColor = System.Drawing.SystemColors.Control;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label30.Location = new System.Drawing.Point(51, 49);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(324, 108);
+            this.label30.TabIndex = 3;
+            this.label30.Text = resources.GetString("label30.Text");
+            this.label30.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.pictureBox6.Image = global::LifePlanner.Resource1.logo_ali;
+            this.pictureBox6.Location = new System.Drawing.Point(352, 286);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(43, 39);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 8;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Image = global::LifePlanner.Resource1.chatbot;
+            this.pictureBox7.Location = new System.Drawing.Point(416, 159);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(201, 177);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = global::LifePlanner.Resource1.speech_bubble;
+            this.pictureBox8.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(455, 284);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 2;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
+            // 
             // DailyPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1157, 867);
+            this.Controls.Add(this.chatbot_panel);
             this.Controls.Add(this.labelX);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.pictureBox1);
@@ -1010,6 +1117,11 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.chatbot_panel.ResumeLayout(false);
+            this.chatbot_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1083,5 +1195,12 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Panel chatbot_panel;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

@@ -22,6 +22,7 @@ namespace LifePlanner
         public static HashSet<string> start_time_restricted_hours = new HashSet<string>();
         public static HashSet<string> end_time_restricted_hours = new HashSet<string>();
         public static Dictionary<Panel,Dictionary<string,string>> panel_events = new Dictionary<Panel,Dictionary<string,string>>();
+        private int robot_clicks = 0;
 
         public DailyPlan()
         {
@@ -30,16 +31,21 @@ namespace LifePlanner
 
         private void DailyPlan_Load(object sender, EventArgs e)
         {
+            foreach (Control c in Controls)
+            {
+                if(c.GetType() == typeof(Panel) && c != chatbot_panel)
+                {
+                    c.Enabled = false;
+                }
+            }
             label2.Text = Program.Date.ToString();
             panel2.Hide();
             panel4.Hide();
             tableLayoutPanel1.Dock = DockStyle.Right;
             vScrollBar1.Parent = tableLayoutPanel1;
-        }
 
-        private void label26_Click(object sender, EventArgs e)
-        {
-
+            //Show or hide assistant based on file variable
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_plan");
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -52,6 +58,63 @@ namespace LifePlanner
                 Color.Transparent, 1, ButtonBorderStyle.Solid,
                 Color.Transparent, 1, ButtonBorderStyle.Solid);
             
+        }
+
+        private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
+        {
+            switch (robot_clicks)
+            {
+                case 0:
+
+                    label30.Text = "Μπορείς να δημιουργήσεις ή\n" +
+                                    "να τροποποιήσεις μια δραστηριότητα\n" +
+                                    "κάνοντας κλικ στην περιοχή δίπλα από κάθε ώρα\n" +
+                                    "και συμπληρώνοντας όλα τα πεδία\n" +
+                                    "στο παράθυρο που θα εμφανιστεί.\n" +
+                                    "Προσοχή όμως, δεν μπορείς να προσθέσεις\n" +
+                                    "δύο δραστηριότητες στην ίδια ώρα.";
+                   
+                    robot_clicks += 1;
+                    break;
+
+                case 1:
+
+                    label30.Text = "Κάνοντας κλικ στα χρωματιστά εικονίδια\n" +
+                                    "στο αριστερό μέρος της οθόνης,\n" +
+                                    "μπορείς να βλέπεις ή να κρύβεις τις δραστηριότητες\n" +
+                                    "που αντιστοιχούν σε κάθε χρώμα.";
+                    
+                    robot_clicks += 1;
+                    break;
+
+                case 2:
+
+                    label30.Text = "Όταν το ημερήσιο πλάνο είναι έτοιμο,\n" +
+                                   "μπορείς να κάνεις κλικ στο κουμπί\n" +
+                                   "\"Μετάβαση στην Παπουτσοθήκη\" για να\n" +
+                                   "διαλέξεις παπούτσια για κάθε δραστηριότητα.\n" +
+                                   "Μπορείς να επιστρέψεις στην πλατφόρμα\n" +
+                                   "διαχείρισης ημερήσιου πλάνου όποτε θες\n" +
+                                   "για να κάνεις τροποποιήσεις.";
+
+                    robot_clicks += 1;
+                    break;
+
+                default:
+                    //hide robot and enable the other controls
+                    foreach (Control c in Controls)
+                    {
+                        if (c.Parent != chatbot_panel && c != chatbot_panel)
+                            c.Enabled = true;
+                        else if (c.Parent == chatbot_panel || c == chatbot_panel)
+                            c.Enabled = c.Visible = false;
+                    }
+
+                    //change the file variable for this assistant
+                    Misc.changeAssistantStateInFile("first_plan");
+
+                    break;
+            }
         }
 
         private void panelt5_MouseClick(object sender, MouseEventArgs e)
@@ -223,6 +286,7 @@ namespace LifePlanner
             }
             
         }
+
 
         private void labelX_Click(object sender, EventArgs e)
         {
@@ -693,6 +757,11 @@ namespace LifePlanner
         private void label28_Click(object sender, EventArgs e)
         {
             panel5.Hide();
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 

@@ -98,6 +98,24 @@ namespace LifePlanner
         private void comboBox3_TextChanged(object sender, EventArgs e)
         {
             selected_activity = comboBox3.Text;
+            if (selected_activity == "Εντός Σπιτιού")
+            {
+                address_panel.Cursor = Cursors.No;
+                beverage_panel.Cursor = Cursors.No;
+                transportation_panel.Cursor = Cursors.No;
+                address_panel.Enabled = false;
+                beverage_panel.Enabled = false;
+                transportation_panel.Enabled= false;
+            }
+            else
+            {
+                address_panel.Cursor = Cursors.Default;
+                beverage_panel.Cursor = Cursors.Default;
+                transportation_panel.Cursor = Cursors.Default;
+                address_panel.Enabled = true;
+                beverage_panel.Enabled = true;
+                transportation_panel.Enabled = true;
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
