@@ -501,5 +501,98 @@
   <ItemGroup>
     <None Include="Resources\shoes.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Αθλητική1 - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Αθλητική1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Αθλητική2 - Copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Αθλητική2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Αθλητική3 - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Αθλητική3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Αθλητική4 - Copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Αθλητική4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Εντός Σπιτιού1 - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Εντός Σπιτιού1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Εντός Σπιτιού2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Εντός Σπιτιού3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Εντός Σπιτιού4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΑ1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΑ2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΑ3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΑ4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΓ1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΓ2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΓ3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΓ4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Καθημερινή5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΑ1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΑ2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΑ3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΑ4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΓ1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΓ2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΓ2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΓ3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΚαθημερινήΓ4.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
