@@ -56,7 +56,18 @@ namespace LifePlanner
             if (alarms.Contains(time))
                 MessageBox.Show("Αυτή η ώρα υπάρχει ήδη!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
+            {
+                richTextBox1.ReadOnly = false;
+
                 richTextBox1.AppendText(time + "\n");
+
+                richTextBox1.ReadOnly = true;
+
+                numericUpDown1.Maximum += 1;
+                numericUpDown1.Minimum = 1;
+                numericUpDown1.Value = numericUpDown1.Maximum;
+            }
+                
         }
 
         private void Alarm_FormClosing(object sender, FormClosingEventArgs e)
@@ -67,7 +78,27 @@ namespace LifePlanner
 
         private void Alarm_Load(object sender, EventArgs e)
         {
-            
+            numericUpDown1.Value = numericUpDown1.Maximum = numericUpDown1.Minimum = 0;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(numericUpDown1.Value == 0)
+            {
+                MessageBox.Show("Δεν υπάρχουν ξυπνητήρια για να σβήσεις!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            richTextBox1.ReadOnly = false;
+
+            int idx_start = richTextBox1.GetFirstCharIndexFromLine((int)numericUpDown1.Value - 1); //first char idx of desirable line
+            int len = richTextBox1.GetFirstCharIndexFromLine((int)numericUpDown1.Value) - idx_start; //len of desirable line = (first char idx of next line) - (first char idx of desirable line)
+            richTextBox1.Select(idx_start, len);
+            richTextBox1.SelectedText = "";
+
+            richTextBox1.ReadOnly = true;
+
+            numericUpDown1.Maximum -= 1;
         }
     }
 }

@@ -18,10 +18,9 @@ namespace LifePlanner
             InitializeComponent();
 
             //10-12
-            //{panelt10 : {Title : x , StartTime : y, EndTime : z, ...} , panelt11 : {Title : x , StartTime : y, EndTime : z, ...} }
+            //{panelt10 : {Title : x , StartTime : 10, EndTime : 11, ...} , panelt11 : {Title : y , StartTime : 11, EndTime : 12, ...} }
 
             //Activity: Καθημερινή, Επίσημη, Αθλητική, Εντός Σπιτιού
-            //Address: 
 
             /*event_info.Add("Title", Title);
             event_info.Add("StartTime", StartTime);
