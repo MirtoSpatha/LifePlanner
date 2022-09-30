@@ -69,7 +69,7 @@ namespace LifePlanner
         {
             if (!tv_on)
             {
-                MessageBox.Show("Παρακαλώ ανοίξτε πρώτα την τηλεόραση!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Παρακαλώ ανοίξτε πρώτα την τηλεόραση!", "Προεϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -102,10 +102,10 @@ namespace LifePlanner
             {
                 case 0:
                     label2.Text = "Στο παράθυρο που θα σου εμφανιστεί,\n" +
-                                   "εισήγαγε έναν διψήφιο αριθμό πατόντας\n" +
+                                   "εισήγαγε έναν διψήφιο αριθμό πατώντας\n" +
                                    "τα κουμπιά και μετά πάτα 'ΟΚ'.Αν θες να\n" +
                                    "αλλάξεις την επιλογή σου, πάτα πρώτα\n" +
-                                   "'Εκαθάριση'";
+                                   "'Εκκαθάριση'";
                     robot_clicks += 1;
                     break;
 

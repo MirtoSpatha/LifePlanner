@@ -41,6 +41,7 @@ namespace LifePlanner
         private void submit_button_Click(object sender, EventArgs e)
         {
             // form validation
+
             if (textBox1.Text != "")
                 Program.username = textBox1.Text;
             else
@@ -48,6 +49,7 @@ namespace LifePlanner
                 MessageBox.Show("Συμπλήρωσε το username σου.");
                 Program.username = "null";
             }
+
             if (comboBox1.Text != "")
                 Program.gender = comboBox1.Text;
             else
@@ -55,27 +57,31 @@ namespace LifePlanner
                 MessageBox.Show("Επίλεξε το φύλο σου.");
                 Program.gender = "null";
             }
-            if (textBox2.Text != "" || new Regex(@"^\d{1,2}+$").IsMatch(textBox2.Text))
+
+            if (new Regex(@"^(\d{1,2})+$").IsMatch(textBox2.Text))
                 Program.age = textBox2.Text;
             else
             {
-                MessageBox.Show("Συμπλήρωσε την ηλικία σου.");
+                MessageBox.Show("Συμπλήρωσε την ηλικία σου σε έτη (πχ. 25).");
                 Program.age = "null";
             }
-            if (new Regex(@"^[a-zA-Z]*[ ]\d{1,3}+$").IsMatch(textBox3.Text))
+
+            if (new Regex(@"^([A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]*[ ]\d{1,3})+$").IsMatch(textBox3.Text))
                 Program.address = textBox3.Text;
             else
             {
-                MessageBox.Show("Συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\".");
+                MessageBox.Show("Συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\" (πχ. Ηροδότου 32).");
                 Program.address = "null";
             }
-            if (new Regex(@"^[a-zA-Z]*[ ]\d{1,3}+$").IsMatch(textBox4.Text))
+
+            if (new Regex(@"^([A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]*[ ]\d{1,3})+$").IsMatch(textBox4.Text))
                 Program.work_address = textBox4.Text;
             else
             {
-                MessageBox.Show("Συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\".");
+                MessageBox.Show("Συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\" (πχ. Ηροδότου 32).");
                 Program.work_address = "null";
             }
+
             if (comboBox2.Text != "")
                 Program.transportation = comboBox2.Text;
             else
@@ -83,13 +89,23 @@ namespace LifePlanner
                 MessageBox.Show("Επίλεξε το σύνηθες μεταφορικό σου μέσο.");
                 Program.transportation = "null";
             }
-            if (textBox5.Text != "" || new Regex(@"^\d{1,2}+$").IsMatch(textBox2.Text))
+
+            if (new Regex(@"^(\b([3][5-9]|4[0-9])\b)+$").IsMatch(textBox5.Text))
                 Program.shoe_size = textBox5.Text;
             else
             {
-                MessageBox.Show("Συμπλήρωσε το νούμερο παπουτσιού σου.");
+                MessageBox.Show("Συμπλήρωσε το νούμερο παπουτσιού σου (ακέραιος στο διάστημα 35-49.");
                 Program.shoe_size = "null";
             }
+
+            if (textBox6.Text != "")
+                Program.beverage = textBox6.Text;
+            else
+            {
+                MessageBox.Show("Συμπλήρωσε το αγαπημένο σου ρόφημα.");
+                Program.beverage = "null";
+            }
+
             if (comboBox3.Text != "")
                 Program.pet = comboBox3.Text;
             else
@@ -114,11 +130,7 @@ namespace LifePlanner
                 sw.Write(Program.Date); //Date
                 sw.Close();
 
-                Program.shoe_size = textBox5.Text;
-                Program.beverage = textBox6.Text;
-
                 Misc.openForm("Options");
-
                 Close();
             }
             

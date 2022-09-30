@@ -239,7 +239,7 @@ namespace LifePlanner
                 MessageBox.Show("Επίλεξε το είδος της δραστηριότητάς σου.");
                 selected_activity = "null";
             }
-            if (radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == "" || !new Regex(@"^[a-zA-Z]*[ ]\d{1,3}+$").IsMatch(textBox2.Text)))
+            if (radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == "" || !new Regex(@"^([Α-Ωα-ωίϊΐόάέύϋΰήώ]*[ ]\d{1,3})+$").IsMatch(textBox2.Text)))
             {
                 
                 MessageBox.Show("Διάλεξε ή συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\".");

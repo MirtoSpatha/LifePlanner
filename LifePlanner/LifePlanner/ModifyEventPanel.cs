@@ -53,36 +53,6 @@ namespace LifePlanner
             comboBox6.Visible = false;
             comboBox6.Hide();
 
-            TimeSpan t1 = TimeSpan.Parse(event_info["StartTime"]);
-            TimeSpan t2 = TimeSpan.Parse(event_info["EndTime"]);
-            TimeSpan t = t2.Subtract(t1);
-            int d = (int)t.TotalHours;
-            int start_hour = (int)t1.TotalHours;
-            for (int i = 0; i < d; i++)
-            {
-                int k = start_hour + i;
-                if (k / 10 >= 1)
-                {
-                    string k1 = k + ":00";
-                    DailyPlan.start_time_restricted_hours.Remove(k1);
-                }
-                else
-                {
-                    string k1 = "0" + k + ":00";
-                    DailyPlan.start_time_restricted_hours.Remove(k1);
-                }
-                int j = start_hour + i + 1;
-                if (j / 10 >= 1)
-                {
-                    string j1 = j + ":00";
-                    DailyPlan.end_time_restricted_hours.Remove(j1);
-                }
-                else
-                {
-                    string j1 = "0" + j + ":00";
-                    DailyPlan.end_time_restricted_hours.Remove(j1);
-                }
-            }
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -199,6 +169,38 @@ namespace LifePlanner
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
+            TimeSpan t1 = TimeSpan.Parse(event_info["StartTime"]);
+            TimeSpan t2 = TimeSpan.Parse(event_info["EndTime"]);
+            TimeSpan t = t2.Subtract(t1);
+            int d = (int)t.TotalHours;
+            int start_hour = (int)t1.TotalHours;
+            for (int i = 0; i < d; i++)
+            { 
+                int k = start_hour + i;
+                if (k / 10 >= 1)
+                {
+                    string k1 = k + ":00";
+                    DailyPlan.start_time_restricted_hours.Remove(k1);
+                }
+                else
+                {
+                    string k1 = "0" + k + ":00";
+                    DailyPlan.start_time_restricted_hours.Remove(k1);
+                }
+                int j = start_hour + i + 1;
+                if (j / 10 >= 1)
+                {
+                    string j1 = j + ":00";
+                    DailyPlan.end_time_restricted_hours.Remove(j1);
+                }
+                else
+                {
+                    string j1 = "0" + j + ":00";
+                    DailyPlan.end_time_restricted_hours.Remove(j1);
+                }
+            }
+
+
             //form validation 
             if (textBox1.Text == "")
             {
@@ -206,12 +208,12 @@ namespace LifePlanner
                 textBox1.Text = event_info["Title"];
                 Title = "null";
             }
-            if (DailyPlan.start_time_restricted_hours.Contains(comboBox1.Text) || (DailyPlan.panel_events.Where(kvp => kvp.Value["StartTime"] == comboBox1.Text).Count() > 0))
+            if (DailyPlan.start_time_restricted_hours.Contains(comboBox1.Text))
             {
                 MessageBox.Show("Επίλεξε μια ώρα έναρξης στην οποία δεν υπάρχει δραστηριότητα.");
                 StartTime = "null";
             }
-            if (DailyPlan.end_time_restricted_hours.Contains(comboBox2.Text) || (DailyPlan.panel_events.Where(kvp => kvp.Value["EndTime"] == comboBox2.Text).Count() > 0))
+            if (DailyPlan.end_time_restricted_hours.Contains(comboBox2.Text))
             {
                 MessageBox.Show("Επίλεξε μια ώρα λήξης στην οποία δεν υπάρχει δραστηριότητα.");
                 EndTime = "null";
@@ -243,7 +245,7 @@ namespace LifePlanner
                 selected_beverage = "null";
             }
             //event added in planner
-            if (Title != "null" & selected_activity != "null" & selected_address != "null" & selected_transportation != "null" & selected_beverage != "null")
+            if (Title != "null" & StartTime != "null" & EndTime != "null" & selected_activity != "null" & selected_address != "null" & selected_transportation != "null" & selected_beverage != "null")
             {
                 event_info["Title"] = Title;
                 event_info["StartTime"] = StartTime;
