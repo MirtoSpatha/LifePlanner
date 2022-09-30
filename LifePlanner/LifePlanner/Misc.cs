@@ -18,9 +18,7 @@ namespace LifePlanner
         public static List<Messagebox> mblist = new List<Messagebox>();
 
         //Form variables
-
-        private static DailyPlan dp = null;
-        private static Options o = null;
+        
         private static Kitchen k = null;
         private static Bedroom br = null;
         private static LivingRoom lr = null;
@@ -28,14 +26,17 @@ namespace LifePlanner
         private static Hall h = null;
         private static Feeder f = null;
         private static Alarm a = null;
+        private static DailyPlan dp = null;
+        private static Options o = null;
+        private static Shoes s = null;
 
-        /**
-         * Function that shows/hides the menu at House forms.
-         * returns a boolean value which indicates if the menu has
-         * been closed(false) or opened(true)
-         */
+       /**
+        * Function that shows/hides the menu at House forms.
+        * returns a boolean value which indicates if the menu has
+        * been closed(false) or opened(true)
+        */
 
-        public static bool ShowHide(Form form, Button menubutton, Panel menupanel, Label exitlabel, bool menu_open)
+       public static bool ShowHide(Form form, Button menubutton, Panel menupanel, Label exitlabel, bool menu_open)
         {
             if (!menu_open)
             {
@@ -296,6 +297,18 @@ namespace LifePlanner
                     else
                     {
                         dp.Show();
+                    }
+                    break;
+
+                case "Shoes":
+                    if (s == null)
+                    {
+                        s = new Shoes();
+                        s.Show();
+                    }
+                    else
+                    {
+                        s.Show();
                     }
                     break;
 
