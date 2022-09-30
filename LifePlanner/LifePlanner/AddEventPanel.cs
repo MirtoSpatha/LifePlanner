@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
@@ -39,14 +40,6 @@ namespace LifePlanner
 
         private void AddEventPanel_Load(object sender, EventArgs e)
         {
-            foreach (string h in DailyPlan.start_time_restricted_hours)
-            {
-                MessageBox.Show("Start time " + h);
-            }
-            foreach (string h in DailyPlan.end_time_restricted_hours)
-            {
-                MessageBox.Show("End time " + h);
-            }
             event_info.Clear();
             // date and time
             Date_label.Text = Program.Date.ToString();
@@ -246,8 +239,9 @@ namespace LifePlanner
                 MessageBox.Show("Επίλεξε το είδος της δραστηριότητάς σου.");
                 selected_activity = "null";
             }
-            if (radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == ""))
+            if (radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == "" || !new Regex(@"^[a-zA-Z]*[ ]\d{1,3}+$").IsMatch(textBox2.Text)))
             {
+                
                 MessageBox.Show("Διάλεξε ή συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\".");
                 selected_address = "null";
             }

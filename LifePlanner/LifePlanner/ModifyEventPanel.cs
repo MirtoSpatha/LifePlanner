@@ -52,6 +52,37 @@ namespace LifePlanner
             textBox3.Hide();
             comboBox6.Visible = false;
             comboBox6.Hide();
+
+            TimeSpan t1 = TimeSpan.Parse(event_info["StartTime"]);
+            TimeSpan t2 = TimeSpan.Parse(event_info["EndTime"]);
+            TimeSpan t = t2.Subtract(t1);
+            int d = (int)t.TotalHours;
+            int start_hour = (int)t1.TotalHours;
+            for (int i = 0; i < d; i++)
+            {
+                int k = start_hour + i;
+                if (k / 10 >= 1)
+                {
+                    string k1 = k + ":00";
+                    DailyPlan.start_time_restricted_hours.Remove(k1);
+                }
+                else
+                {
+                    string k1 = "0" + k + ":00";
+                    DailyPlan.start_time_restricted_hours.Remove(k1);
+                }
+                int j = start_hour + i + 1;
+                if (j / 10 >= 1)
+                {
+                    string j1 = j + ":00";
+                    DailyPlan.end_time_restricted_hours.Remove(j1);
+                }
+                else
+                {
+                    string j1 = "0" + j + ":00";
+                    DailyPlan.end_time_restricted_hours.Remove(j1);
+                }
+            }
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -68,6 +99,36 @@ namespace LifePlanner
 
         private void label5_Click(object sender, EventArgs e)
         {
+            TimeSpan t1 = TimeSpan.Parse(event_info["StartTime"]);
+            TimeSpan t2 = TimeSpan.Parse(event_info["EndTime"]);
+            TimeSpan t = t2.Subtract(t1);
+            int d = (int)t.TotalHours;
+            int start_hour = (int)t1.TotalHours;
+            for (int i = 0; i < d; i++)
+            {
+                int k = start_hour + i;
+                if (k / 10 >= 1)
+                {
+                    string k1 = k + ":00";
+                    DailyPlan.start_time_restricted_hours.Add(k1);
+                }
+                else
+                {
+                    string k1 = "0" + k + ":00";
+                    DailyPlan.start_time_restricted_hours.Add(k1);
+                }
+                int j = start_hour + i + 1;
+                if (j / 10 >= 1)
+                {
+                    string j1 = j + ":00";
+                    DailyPlan.end_time_restricted_hours.Add(j1);
+                }
+                else
+                {
+                    string j1 = "0" + j + ":00";
+                    DailyPlan.end_time_restricted_hours.Add(j1);
+                }
+            }
             Parent.Visible = true;
             Parent.Hide();
             Hide();
