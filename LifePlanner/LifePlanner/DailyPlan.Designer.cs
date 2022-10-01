@@ -866,6 +866,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
+            this.label29.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label29.Font = new System.Drawing.Font("Bookman Old Style", 10F);
             this.label29.Location = new System.Drawing.Point(2, 629);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1037,6 +1038,7 @@
             // 
             this.labelX.AutoSize = true;
             this.labelX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelX.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelX.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.labelX.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelX.Location = new System.Drawing.Point(832, 0);

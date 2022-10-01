@@ -288,6 +288,7 @@ namespace LifePlanner
                 Misc.redrawShoes();
                 MessageBox.Show("Η παπουτσοθήκη ενημερώθηκε!");
                 DailyPlan.modified = false;
+                BringToFront();
             }
         }
     }

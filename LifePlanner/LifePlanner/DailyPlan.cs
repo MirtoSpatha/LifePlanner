@@ -39,6 +39,10 @@ namespace LifePlanner
                     c.Enabled = false;
                 }
             }
+            foreach(Control c in tableLayoutPanel1.Controls.OfType<Panel>())
+            {
+                c.Cursor = Cursors.Hand;
+            }
             label2.Text = Program.Date.ToString();
             panel2.Hide();
             panel4.Hide();
