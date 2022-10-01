@@ -753,29 +753,9 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Αθλητική1___Copy {
-            get {
-                object obj = ResourceManager.GetObject("Αθλητική1___Copy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Αθλητική2 {
             get {
                 object obj = ResourceManager.GetObject("Αθλητική2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Αθλητική2___Copy {
-            get {
-                object obj = ResourceManager.GetObject("Αθλητική2___Copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -793,16 +773,6 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Αθλητική3___Copy {
-            get {
-                object obj = ResourceManager.GetObject("Αθλητική3___Copy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Αθλητική4 {
             get {
                 object obj = ResourceManager.GetObject("Αθλητική4", resourceCulture);
@@ -813,29 +783,9 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Αθλητική4___Copy {
-            get {
-                object obj = ResourceManager.GetObject("Αθλητική4___Copy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Εντός_Σπιτιού1 {
             get {
                 object obj = ResourceManager.GetObject("Εντός_Σπιτιού1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Εντός_Σπιτιού1___Copy {
-            get {
-                object obj = ResourceManager.GetObject("Εντός_Σπιτιού1___Copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

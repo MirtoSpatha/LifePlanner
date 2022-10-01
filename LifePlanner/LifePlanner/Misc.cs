@@ -301,7 +301,7 @@ namespace LifePlanner
                     break;
 
                 case "Shoes":
-                    if (s == null)
+                    if (s == null || s.IsDisposed)
                     {
                         s = new Shoes();
                         s.Show();

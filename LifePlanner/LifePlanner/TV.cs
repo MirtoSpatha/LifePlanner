@@ -15,6 +15,7 @@ namespace LifePlanner
 {
     public partial class TV : Form
     {
+        private ResourceManager rm = new ResourceManager("LifePlanner.Resource1", Assembly.GetExecutingAssembly());
         private PictureBox tvscreen;
         private LivingRoom form;
         private string channel;
@@ -30,6 +31,7 @@ namespace LifePlanner
         private void TV_Load(object sender, EventArgs e)
         {
             textBox1.Text = channel;
+            rm = new ResourceManager("LifePlanner.Resource1", Assembly.GetExecutingAssembly());
         }
 
         private void button2_MouseClick(object sender, MouseEventArgs e)
@@ -62,7 +64,7 @@ namespace LifePlanner
                     
             }*/
 
-            switch (gif_name)
+            /*switch (gif_name)
             {
                 case ("ch1"):
                     tvscreen.Image = form.gif_channel = Resource1.ch1;
@@ -87,8 +89,9 @@ namespace LifePlanner
                 case ("ch6"):
                     tvscreen.Image = form.gif_channel = Resource1.ch6;
                     break;
-            }
+            }*/
 
+            tvscreen.Image = form.gif_channel = (Bitmap)rm.GetObject(gif_name);
             form.channel = channel.ToString();
         }
 

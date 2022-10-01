@@ -120,7 +120,7 @@ namespace LifePlanner
         private void pictureBox11_Click(object sender, EventArgs e)
         {
             Misc.openForm("Shoes");
-            Hide();
+            //Hide();
         }
 
         private void label3_MouseHover(object sender, EventArgs e)

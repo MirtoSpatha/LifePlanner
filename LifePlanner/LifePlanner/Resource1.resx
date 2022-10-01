@@ -325,32 +325,17 @@
   <data name="Αθλητική1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Αθλητική1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Αθλητική1___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Αθλητική1 - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Αθλητική2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Αθλητική2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Αθλητική2___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Αθλητική2 - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Αθλητική3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Αθλητική3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Αθλητική3___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Αθλητική3 - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Αθλητική4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Αθλητική4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Αθλητική4___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Αθλητική4 - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Εντός_Σπιτιού1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Εντός Σπιτιού1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Εντός_Σπιτιού1___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Εντός Σπιτιού1 - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Εντός_Σπιτιού2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Εντός Σπιτιού2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
