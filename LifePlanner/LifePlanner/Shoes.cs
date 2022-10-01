@@ -17,7 +17,8 @@ namespace LifePlanner
     {
         private ResourceManager rm = new ResourceManager("LifePlanner.Resource1", Assembly.GetExecutingAssembly());
         private static int initial_height;
-        private static String activity_loss;
+        private static int initial_width;
+        private static String activity_loss = null;
         List<Dictionary<string, string>> unique_events;
         String gender_letter = Program.gender.Equals("Θυληκό") ? "Γ" : "Α";
 
@@ -62,38 +63,78 @@ namespace LifePlanner
         }
         private void Shoes_Load(object sender, EventArgs e)
         {
-            //if there are no activities 
-            if (DailyPlan.panel_events.Count == 0)
-            {
-                label2.Visible = true;
-                return;
-            }
-
-            tableLayoutPanel1.Visible = true;
+            
+            label2.Location = new Point(this.Width/2 - label2.Width/2, this.Height / 2 - label2.Height / 2);
 
             initial_height = tableLayoutPanel1.Size.Height;
-
-            unique_events = returnUniquedicsOf(DailyPlan.panel_events);
-
-            Random r = new Random();
-            int rand_int = r.Next(0, unique_events.Count);
-
-            activity_loss = unique_events[rand_int]["Activity"];
-            Console.WriteLine(activity_loss);
-
+            initial_width = tableLayoutPanel1.Size.Width;
 
             drawForm();
         }
 
-        private void drawForm()
+        private void pictureBox_Click(object sender, EventArgs e)
         {
+            if(((PictureBox)sender).Image == null)
+            {
+                DialogResult result =  MessageBox.Show("Αυτή η θέση είναι κενή! Θες να μεταβείς στο ηλεκτρονικό κατάστημα παπουτσιών για να " +
+                                    "αγοράσεις ένα νέο ζευγάρι παπούτσια;","Ector", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if(result == DialogResult.Yes)
+                    return; //go to shop
+                else
+                    return;
+            }
+
+            int pbrow = tableLayoutPanel1.GetRow((PictureBox)sender);
+            //int pbcolumn = tableLayoutPanel1.GetColumn((PictureBox)sender);
+
+            tableLayoutPanel1.GetControlFromPosition(0, pbrow).BackColor = Color.Transparent;
+            tableLayoutPanel1.GetControlFromPosition(1, pbrow).BackColor = Color.Transparent;
+            tableLayoutPanel1.GetControlFromPosition(2, pbrow).BackColor = Color.Transparent;
+
+            ((PictureBox)sender).BackColor = Color.FromArgb(128, 255, 128); // green
+        }
+
+        public void drawForm()
+        {
+            //if there are no activities 
+            if (DailyPlan.panel_events.Count == 0)
+            {
+                tableLayoutPanel1.Visible = false;
+                label2.Visible = true;
+                button1.Visible = false;
+                return;
+            }
+
+            if (tableLayoutPanel1.HasChildren)
+            {
+                Console.WriteLine("katharisma");
+                tableLayoutPanel1.Controls.Clear();
+                tableLayoutPanel1.RowStyles.Clear();
+                tableLayoutPanel1.Size = new Size(initial_width, initial_height);
+                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            }
+
+            tableLayoutPanel1.Visible = true;
+            label2.Visible = false;
+            button1.Visible = true;
+
+            unique_events = returnUniquedicsOf(DailyPlan.panel_events);
+
+            if(activity_loss == null)
+            {
+                Random r = new Random();
+                int rand_int = r.Next(0, unique_events.Count);
+                activity_loss = unique_events[rand_int]["Activity"];
+            }           
+
             for (int i = 0; i < unique_events.Count; i++)
             {
                 //table has 2 rows at the begining so in first itteration we dont want to add rows
                 if (i != 0)
                 {
                     //add 2 rows
-                    tableLayoutPanel1.RowCount += 2;
                     tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                     tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                     tableLayoutPanel1.Size = new Size(tableLayoutPanel1.Size.Width, tableLayoutPanel1.Size.Height + initial_height);
@@ -104,21 +145,26 @@ namespace LifePlanner
                 tableLayoutPanel1.Controls.Add(new Label() { Text = "Ώρα έναρξης: " + unique_events[i]["StartTime"] + "\nΏρα λήξης: " + unique_events[i]["EndTime"], AutoSize = true }, 1, 2 * i);
                 tableLayoutPanel1.Controls.Add(new Label() { Text = "Κατηγορία: " + unique_events[i]["Activity"], AutoSize = true }, 2, 2 * i);
 
+                PictureBox shoe1 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill, BackColor = Color.Transparent };
+                PictureBox shoe2 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill, BackColor = Color.Transparent };
+                PictureBox shoe3 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill, BackColor = Color.Transparent };
+                shoe1.Click += new EventHandler(pictureBox_Click);
+                shoe2.Click += new EventHandler(pictureBox_Click);
+                shoe3.Click += new EventHandler(pictureBox_Click);
 
                 //Activity: Καθημερινή, Επίσημη, Αθλητική, Εντός Σπιτιού
 
                 //if the activity is the one that has to have no shoes, set pictureboxes to empty
                 if (activity_loss.Equals(unique_events[i]["Activity"]))
                 {
-                    tableLayoutPanel1.Controls.Add(new PictureBox() {Image = null, BorderStyle = BorderStyle.FixedSingle}, 0, 2 * i + 1);
-                    tableLayoutPanel1.Controls.Add(new PictureBox() {Image = null, BorderStyle = BorderStyle.FixedSingle }, 1, 2 * i + 1);
-                    tableLayoutPanel1.Controls.Add(new PictureBox() {Image = null, BorderStyle = BorderStyle.FixedSingle }, 2, 2 * i + 1);
+                    shoe1.Image = shoe2.Image = shoe3.Image = null;
+
+                    tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
+                    tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);
+                    tableLayoutPanel1.Controls.Add(shoe3, 2, 2 * i + 1);
                 }
                 else
                 {
-                    //look for the resource images depending on activity and gender.
-                    //set the first two shoe pictureboxes only
-
                     /*string resxFile = @"..\..\Resource1.resx";
                     ResXResourceReader resxReader = new ResXResourceReader(resxFile);
                     foreach (DictionaryEntry entry in resxReader)
@@ -137,12 +183,10 @@ namespace LifePlanner
                         }
 
                     }*/
+                    
+                    //look for the resource images depending on activity and gender.
+                    //set the first two shoe pictureboxes only
 
-                    PictureBox shoe1 = new PictureBox(){ SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle };
-                    PictureBox shoe2 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle };
-
-
-                    //if we have gender shoes for this activity -> No exception
                     if (unique_events[i]["Activity"].Equals("Αθλητική"))
                     {
                         shoe1.Image = (Bitmap)rm.GetObject("Αθλητική1");
@@ -158,20 +202,14 @@ namespace LifePlanner
                         shoe1.Image = (Bitmap)rm.GetObject(unique_events[i]["Activity"] + gender_letter + "1");
                         shoe2.Image = (Bitmap)rm.GetObject(unique_events[i]["Activity"] + gender_letter + "2");
                     }
-                        
-                    
-
-                    //if we dont have gender shoes for this activity -> exception
-                    
-                    
-
+                                       
                     tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
                     tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);
+
                     //third picturebox is empty
-                    tableLayoutPanel1.Controls.Add(new PictureBox() { Image = null, BorderStyle = BorderStyle.FixedSingle }, 2, 2 * i + 1);
+                    shoe3.Image = null;
+                    tableLayoutPanel1.Controls.Add(shoe3, 2, 2 * i + 1);
                 }
-
-
             }
         }
 
@@ -189,16 +227,68 @@ namespace LifePlanner
 
         }
 
-
-
-        private void Shoes_Shown(object sender, EventArgs e)
+        private void checkExit()
         {
-            
+            if (DailyPlan.panel_events.Count == 0)
+            {
+                this.Hide();
+                return;
+            }
+
+            bool msg1 = false;
+            bool msg2 = false;
+
+            for(int i = 1; i<tableLayoutPanel1.RowCount; i += 2)
+            {
+                if( ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,i)).Image == null 
+                 && ((PictureBox)tableLayoutPanel1.GetControlFromPosition(1, i)).Image == null
+                 && ((PictureBox)tableLayoutPanel1.GetControlFromPosition(2, i)).Image == null
+                 && !msg1)
+                {
+                    MessageBox.Show("Καποιά/ες από τις δραστηριότητές σου δεν έχει/ουν κανένα διαθέσιμο ζευγάρι παπούτσια. Επέλεξε μία κενή θέση για να μεταβείς στο ηλεκτρονικό κατάστημα παπουτσιών!","Ector", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    msg1 = true;
+                }
+
+                if (((PictureBox)tableLayoutPanel1.GetControlFromPosition(0, i)).BackColor == Color.Transparent
+                 && ((PictureBox)tableLayoutPanel1.GetControlFromPosition(1, i)).BackColor == Color.Transparent
+                 && ((PictureBox)tableLayoutPanel1.GetControlFromPosition(2, i)).BackColor == Color.Transparent
+                 && !msg2)
+                {
+                    MessageBox.Show("Επέλεξε παπούτσια για όλες τις δραστηριότητες του πλάνου σου!", "Ector", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    msg2 = true;
+                }
+
+                //Skip uneccessary iterations
+                if (msg1 && msg2)
+                    return;
+            }
+
+            if (!msg1 && !msg2)
+            {                
+                this.Hide();
+            }
+                
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            this.Close(); //run checkExit function. In any case form is hiding
+        }
 
+        private void Shoes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            checkExit();
+        }
+
+        private void Shoes_MouseEnter(object sender, EventArgs e)
+        {
+            if (DailyPlan.modified)
+            {
+                Misc.redrawShoes();
+                MessageBox.Show("Η παπουτσοθήκη ενημερώθηκε!");
+                DailyPlan.modified = false;
+            }
         }
     }
 }

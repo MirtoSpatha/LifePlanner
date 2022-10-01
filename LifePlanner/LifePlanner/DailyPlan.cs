@@ -14,6 +14,7 @@ namespace LifePlanner
 {
     public partial class DailyPlan : Form
     {
+        public static bool modified = false;
         AddEventPanel new_event_panel = new AddEventPanel();
         ModifyEventPanel old_event_panel = new ModifyEventPanel();
         public static bool submit_clicked = false;
@@ -290,6 +291,12 @@ namespace LifePlanner
 
         private void labelX_Click(object sender, EventArgs e)
         {
+            if (modified)
+            {
+                Misc.redrawShoes();
+                MessageBox.Show("Η παπουτσοθήκη ενημερώθηκε!");
+                modified = false;
+            }
             //e.Cancel = true;
             this.Hide();
         }
@@ -761,6 +768,35 @@ namespace LifePlanner
 
         private void label29_Click(object sender, EventArgs e)
         {
+            if (modified)
+            {
+                Misc.redrawShoes();
+                MessageBox.Show("Η παπουτσοθήκη ενημερώθηκε!");
+                modified = false;
+            }
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (modified)
+            {
+                Misc.redrawShoes();
+                MessageBox.Show("Η παπουτσοθήκη ενημερώθηκε!");
+                modified = false;
+            }
+            Misc.openForm("Shoes");
+        }
+
+        private void DailyPlan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (modified)
+            {
+                Misc.redrawShoes();
+                MessageBox.Show("Η παπουτσοθήκη ενημερώθηκε!");
+                modified = false;
+            }
+            e.Cancel = true;
             this.Hide();
         }
     }

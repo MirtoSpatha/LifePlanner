@@ -903,16 +903,6 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Καθημερινή5 {
-            get {
-                object obj = ResourceManager.GetObject("Καθημερινή5", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ΚαθημερινήΑ1 {
             get {
                 object obj = ResourceManager.GetObject("ΚαθημερινήΑ1", resourceCulture);
@@ -953,6 +943,16 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ΚαθημερινήΑ5 {
+            get {
+                object obj = ResourceManager.GetObject("ΚαθημερινήΑ5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ΚαθημερινήΓ1 {
             get {
                 object obj = ResourceManager.GetObject("ΚαθημερινήΓ1", resourceCulture);
@@ -973,16 +973,6 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ΚαθημερινήΓ21 {
-            get {
-                object obj = ResourceManager.GetObject("ΚαθημερινήΓ21", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ΚαθημερινήΓ3 {
             get {
                 object obj = ResourceManager.GetObject("ΚαθημερινήΓ3", resourceCulture);
@@ -996,6 +986,16 @@ namespace LifePlanner {
         internal static System.Drawing.Bitmap ΚαθημερινήΓ4 {
             get {
                 object obj = ResourceManager.GetObject("ΚαθημερινήΓ4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ΚαθημερινήΓ5 {
+            get {
+                object obj = ResourceManager.GetObject("ΚαθημερινήΓ5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -64,7 +64,8 @@ namespace LifePlanner
                 Parent.Hide();
                 Hide();
                 Parent.Visible = false;
-            }
+                DailyPlan.modified = true;
+    }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -260,6 +261,8 @@ namespace LifePlanner
                 Parent.Visible = false;
                 Parent.Hide();
                 Hide();
+
+                DailyPlan.modified = true;
 
             }
         }

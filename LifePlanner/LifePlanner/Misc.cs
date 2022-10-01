@@ -301,7 +301,7 @@ namespace LifePlanner
                     break;
 
                 case "Shoes":
-                    if (s == null || s.IsDisposed)
+                    if (s == null)
                     {
                         s = new Shoes();
                         s.Show();
@@ -310,6 +310,7 @@ namespace LifePlanner
                     {
                         s.Show();
                     }
+                    s.BringToFront();
                     break;
 
                 default:
@@ -325,6 +326,12 @@ namespace LifePlanner
                     break;
             }
                 
+        }
+
+        public static void redrawShoes()
+        {
+            if(s!=null)
+                s.drawForm();
         }
 
     }

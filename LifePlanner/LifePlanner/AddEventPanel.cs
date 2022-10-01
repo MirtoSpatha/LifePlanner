@@ -288,8 +288,10 @@ namespace LifePlanner
                 Parent.Visible = false;
                 Parent.Hide();
                 Hide();
-                
-            }
+
+                DailyPlan.modified = true;
+
+    }
             
         }
     }
