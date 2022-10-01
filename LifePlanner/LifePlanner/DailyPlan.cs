@@ -32,13 +32,13 @@ namespace LifePlanner
 
         private void DailyPlan_Load(object sender, EventArgs e)
         {
-            foreach (Control c in Controls)
+            /*foreach (Control c in Controls)
             {
                 if(c.GetType() == typeof(Panel) && c != chatbot_panel)
                 {
                     c.Enabled = false;
                 }
-            }
+            }*/
             foreach(Control c in tableLayoutPanel1.Controls.OfType<Panel>())
             {
                 c.Cursor = Cursors.Hand;

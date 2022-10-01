@@ -62,8 +62,7 @@ namespace LifePlanner
             //foreach (var item in DailyPlan.panel_events.Where(x => x.Value["Activity"] == "Καθημερινή").ToList()) 
         }
         private void Shoes_Load(object sender, EventArgs e)
-        {
-            
+        {           
             label2.Location = new Point(this.Width/2 - label2.Width/2, this.Height / 2 - label2.Height / 2);
 
             initial_height = tableLayoutPanel1.Size.Height;
@@ -74,7 +73,7 @@ namespace LifePlanner
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-            if(((PictureBox)sender).Image == null)
+            if(((PictureBox)sender).Tag.ToString().Equals("purchase"))
             {
                 DialogResult result =  MessageBox.Show("Αυτή η θέση είναι κενή! Θες να μεταβείς στο ηλεκτρονικό κατάστημα παπουτσιών για να " +
                                     "αγοράσεις ένα νέο ζευγάρι παπούτσια;","Ector", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -171,19 +170,20 @@ namespace LifePlanner
                   Font = new Font("Bookman Old Style", 12, FontStyle.Bold) },
                   2, 2 * i);
 
-                PictureBox shoe1 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill, BackColor = Color.Transparent };
-                PictureBox shoe2 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill, BackColor = Color.Transparent };
-                PictureBox shoe3 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill, BackColor = Color.Transparent };
+                PictureBox shoe1 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill};
+                PictureBox shoe2 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill};
+                PictureBox shoe3 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill};
                 shoe1.Click += new EventHandler(pictureBox_Click);
                 shoe2.Click += new EventHandler(pictureBox_Click);
                 shoe3.Click += new EventHandler(pictureBox_Click);
 
                 //Activity: Καθημερινή, Επίσημη, Αθλητική, Εντός Σπιτιού
 
-                //if the activity is the one that has to have no shoes, set pictureboxes to empty
+                //if the activity is the one that has to have no shoes, set pictureboxes to purchase icons
                 if (activity_loss.Equals(unique_events[i]["Activity"]))
                 {
-                    shoe1.Image = shoe2.Image = shoe3.Image = null;
+                    shoe1.Image = shoe2.Image = shoe3.Image = Resource1.purchase;
+                    shoe1.Tag = shoe2.Tag = shoe3.Tag = "purchase";
                     shoe1.BackColor = shoe2.BackColor = shoe3.BackColor = Color.Empty;
 
                     tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
@@ -229,12 +229,14 @@ namespace LifePlanner
                         shoe1.Image = (Bitmap)rm.GetObject(unique_events[i]["Activity"] + gender_letter + "1");
                         shoe2.Image = (Bitmap)rm.GetObject(unique_events[i]["Activity"] + gender_letter + "2");
                     }
-                                       
+                    shoe1.BackColor = shoe2.BackColor = shoe3.BackColor = Color.Transparent;
+                    shoe1.Tag = shoe2.Tag = "";
                     tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
                     tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);
 
                     //third picturebox is empty
-                    shoe3.Image = null;
+                    shoe3.Image = Resource1.purchase;
+                    shoe3.Tag = "purchase";
                     tableLayoutPanel1.Controls.Add(shoe3, 2, 2 * i + 1);
                 }
             }
@@ -267,9 +269,9 @@ namespace LifePlanner
 
             for(int i = 1; i<tableLayoutPanel1.RowCount; i += 2)
             {
-                if( ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,i)).Image == null 
-                 && ((PictureBox)tableLayoutPanel1.GetControlFromPosition(1, i)).Image == null
-                 && ((PictureBox)tableLayoutPanel1.GetControlFromPosition(2, i)).Image == null
+                if( ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,i)).Tag.ToString().Equals("purchase")
+                 && ((PictureBox)tableLayoutPanel1.GetControlFromPosition(1, i)).Tag.ToString().Equals("purchase")
+                 && ((PictureBox)tableLayoutPanel1.GetControlFromPosition(2, i)).Tag.ToString().Equals("purchase")
                  && !msg1)
                 {
                     MessageBox.Show("Καποιά/ες από τις δραστηριότητές σου δεν έχει/ουν κανένα διαθέσιμο ζευγάρι παπούτσια. Επέλεξε μία κενή θέση για να μεταβείς στο ηλεκτρονικό κατάστημα παπουτσιών!","Ector", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
