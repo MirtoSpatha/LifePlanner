@@ -583,6 +583,28 @@ namespace LifePlanner
             {
                 string panelname = "panelt" + (start_hour + i);
                 Panel parent = this.tableLayoutPanel1.Controls.Find(panelname, false).FirstOrDefault() as Panel;
+
+                // panel coloring + adding colors to dictionary
+                switch (event_info["Activity"])
+                {
+                    case "Καθημερινή":
+                        parent.BackColor = Color.FromArgb(238, 142, 180);
+                        event_info["Color"] = "238142180";
+                        break;
+                    case "Αθλητική":
+                        parent.BackColor = Color.FromArgb(222, 125, 255);
+                        event_info["Color"] = "222125255";
+                        break;
+                    case "Επίσημη":
+                        parent.BackColor = Color.FromArgb(125, 142, 158);
+                        event_info["Color"] = "125142158";
+                        break;
+                    case "Εντός Σπιτιού":
+                        parent.BackColor = Color.FromArgb(125, 152, 255);
+                        event_info["Color"] = "125152255";
+                        break;
+                }
+
                 panel_events.Add(parent, event_info);
 
                 int k = start_hour + i;
@@ -637,24 +659,7 @@ namespace LifePlanner
                     b1.AutoSize = true;
                     b1.BringToFront();
                     b1.Tag = event_info;
-                }  
-
-                // panel coloring
-                switch (event_info["Activity"])
-                {
-                    case "Καθημερινή":
-                        parent.BackColor = Color.FromArgb(238, 142, 180);
-                        break;
-                    case "Αθλητική":
-                        parent.BackColor = Color.FromArgb(222, 125, 255);
-                        break;
-                    case "Επίσημη":
-                        parent.BackColor = Color.FromArgb(125, 142, 158);
-                        break;
-                    case "Εντός Σπιτιού":
-                        parent.BackColor = Color.FromArgb(125, 152, 255);
-                        break;
-                }
+                } 
             }
         }
 

@@ -141,9 +141,35 @@ namespace LifePlanner
                 }
 
                 //set labels for first imported row
-                tableLayoutPanel1.Controls.Add(new Label() { Text = unique_events[i]["Title"], AutoSize = true }, 0, 2 * i);
-                tableLayoutPanel1.Controls.Add(new Label() { Text = "Ώρα έναρξης: " + unique_events[i]["StartTime"] + "\nΏρα λήξης: " + unique_events[i]["EndTime"], AutoSize = true }, 1, 2 * i);
-                tableLayoutPanel1.Controls.Add(new Label() { Text = "Κατηγορία: " + unique_events[i]["Activity"], AutoSize = true }, 2, 2 * i);
+                tableLayoutPanel1.Controls.Add(new Label() 
+                { Text = "Τίτλος: " + unique_events[i]["Title"], 
+                  AutoSize = true, 
+                  TextAlign = ContentAlignment.MiddleCenter, 
+                  Anchor = AnchorStyles.None, 
+                  Dock = DockStyle.Fill, 
+                  BackColor = Color.FromArgb( Convert.ToInt32(unique_events[i]["Color"].Substring(0,3)), Convert.ToInt32(unique_events[i]["Color"].Substring(3, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(6, 3)) ),
+                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) }, 
+                  0, 2 * i);
+
+                tableLayoutPanel1.Controls.Add(new Label()
+                { Text = "Ώρα έναρξης: " + unique_events[i]["StartTime"] + "\nΏρα λήξης: " + unique_events[i]["EndTime"],
+                  AutoSize = true, 
+                  TextAlign = ContentAlignment.MiddleCenter, 
+                  Anchor = AnchorStyles.None, 
+                  Dock = DockStyle.Fill, 
+                  BackColor = Color.FromArgb(Convert.ToInt32(unique_events[i]["Color"].Substring(0, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(3, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(6, 3)) ),
+                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) },
+                  1, 2 * i);
+
+                tableLayoutPanel1.Controls.Add(new Label() 
+                { Text = "Κατηγορία: " + unique_events[i]["Activity"], 
+                  AutoSize = true, 
+                  TextAlign = ContentAlignment.MiddleCenter, 
+                  Anchor = AnchorStyles.None, 
+                  Dock = DockStyle.Fill, 
+                  BackColor = Color.FromArgb(Convert.ToInt32(unique_events[i]["Color"].Substring(0, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(3, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(6, 3)) ), 
+                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) },
+                  2, 2 * i);
 
                 PictureBox shoe1 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill, BackColor = Color.Transparent };
                 PictureBox shoe2 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill, BackColor = Color.Transparent };
@@ -158,6 +184,7 @@ namespace LifePlanner
                 if (activity_loss.Equals(unique_events[i]["Activity"]))
                 {
                     shoe1.Image = shoe2.Image = shoe3.Image = null;
+                    shoe1.BackColor = shoe2.BackColor = shoe3.BackColor = Color.Empty;
 
                     tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
                     tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);

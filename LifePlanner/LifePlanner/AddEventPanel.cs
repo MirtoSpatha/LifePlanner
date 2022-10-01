@@ -283,6 +283,8 @@ namespace LifePlanner
                 event_info.Add("Address", selected_address);
                 event_info.Add("Transportation", selected_transportation);
                 event_info.Add("Beverage", selected_beverage);
+                event_info.Add("Color", "");
+
                 //exit event form
                 DailyPlan.submit_clicked = true;
                 Parent.Visible = false;
