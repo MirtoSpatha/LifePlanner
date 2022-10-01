@@ -113,6 +113,7 @@ namespace LifePlanner
                 tableLayoutPanel1.Size = new Size(initial_width, initial_height);
                 tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                 tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                tableLayoutPanel1.RowCount = 2;
             }
 
             tableLayoutPanel1.Visible = true;
@@ -136,6 +137,7 @@ namespace LifePlanner
                     //add 2 rows
                     tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
                     tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+                    tableLayoutPanel1.RowCount += 2;
                     tableLayoutPanel1.Size = new Size(tableLayoutPanel1.Size.Width, tableLayoutPanel1.Size.Height + initial_height);
                 }
 
