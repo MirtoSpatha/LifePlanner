@@ -22,6 +22,8 @@ namespace LifePlanner
         List<Dictionary<string, string>> unique_events;
         String gender_letter = Program.gender.Equals("Θυληκό") ? "Γ" : "Α";
 
+        private int robot_clicks = 0;
+
         public Shoes()
         {
             InitializeComponent();
@@ -62,13 +64,17 @@ namespace LifePlanner
             //foreach (var item in DailyPlan.panel_events.Where(x => x.Value["Activity"] == "Καθημερινή").ToList()) 
         }
         private void Shoes_Load(object sender, EventArgs e)
-        {           
+        {
+            label2.SendToBack();
+            button2.SendToBack();
             label2.Location = new Point(this.Width/2 - label2.Width/2, this.Height / 2 - label2.Height / 2);
 
             initial_height = tableLayoutPanel1.Size.Height;
             initial_width = tableLayoutPanel1.Size.Width;
 
             drawForm();
+
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_shoes");
         }
 
         private void pictureBox_Click(object sender, EventArgs e)
@@ -102,6 +108,7 @@ namespace LifePlanner
                 tableLayoutPanel1.Visible = false;
                 label2.Visible = true;
                 button1.Visible = false;
+                button2.Location = new Point(this.Width / 2 - button2.Width / 2, this.Height / 2 - button2.Height / 2 + 50); ;
                 return;
             }
 
@@ -119,6 +126,7 @@ namespace LifePlanner
             tableLayoutPanel1.Visible = true;
             label2.Visible = false;
             button1.Visible = true;
+            button2.Location = new Point(431, 12);
 
             unique_events = returnUniquedicsOf(DailyPlan.panel_events);
 
@@ -306,10 +314,9 @@ namespace LifePlanner
             this.Close(); //run checkExit function. In any case form is hiding
         }
 
-        private void Shoes_FormClosing(object sender, FormClosingEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            e.Cancel = true;
-            checkExit();
+            Misc.openForm("DailyPlan");
         }
 
         private void Shoes_MouseEnter(object sender, EventArgs e)
@@ -321,6 +328,77 @@ namespace LifePlanner
                 DailyPlan.modified = false;
                 BringToFront();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            switch (robot_clicks)
+            {
+                case 0:
+                    label1.Text =   "Εάν δεν έχεις προσθέσει ακόμα δραστηριότητες\n" +
+                                    "στο πλάνο σου, πάτα το κουμπί 'Έξυπνο πλάνο'.\n"+
+                                    "Εάν έχεις προσθέσει, αυτή τη στιγμή βλέπεις\n" +
+                                    "μπροστά σου τον πίνακα με τις δραστηριότητες\n" +
+                                    "και τα προτεινόμενα παπούτσια.";
+                    robot_clicks += 1;
+                    break;
+
+                case 1:
+                    label1.Text =   "Για κάθε δραστηριότητα εγώ σου προτείνω τα\n" +
+                                    "παπούτσια που είναι κατάλληλα για την\n" +
+                                    "κατηγορία της. Μπορείς να διακρίνεις τον\n" +
+                                    "τίτλο, το χρονικό διάστημα και την κατηγορία\n" +
+                                    "της δραστηριότητας στη μία γραμμή και στην\n" +
+                                    "άλλη τις επιλογές σου.";
+                    robot_clicks += 1;
+                    break;
+
+                case 2:
+                    label1.Text =   "Κάνοντας κλικ ένα ζευγάρι για μία\n" +
+                                    "δραστηριότητα, αυτό γίνεται πράσινο, το όποίο\n" +
+                                    "σημαίνει ότι έχεις επιβεβαιώσει την επιλογή\n" +
+                                    "σου. Μπορείς να την αλλάξεις, πολυ απλα\n" +
+                                    "κάνοντας κλικ σε ένα άλλο ζευγάρι!\n";
+                    robot_clicks += 1;
+                    break;
+
+                case 3:
+                    label1.Text =   "Κάνοντας κλικ σε μία κενή θέση που έχει το\n" +
+                                    "εικονίδιο της αγοράς, έχεις την δυνατότητα\n" +
+                                    "να μεταβείς στο ηλεκτρονικό κατάστημα που\n" +
+                                    "θα σου προτείνω εγώ, για να αγοράσεις ένα\n" +
+                                    "νέο ζευγάρι της αντίστοιχης κατηγορίας!";
+                    robot_clicks += 1;
+                    break;
+
+                case 4:
+                    label1.Text =   "Μην ξεχάσεις να επιλέξεις/αγοράσεις παπούτσια\n" +
+                                    "για όλες σου τις δραστηριότητες! Ακόμα και αν\n" +
+                                    "το κάνεις, εγώ θα σε ιδοποιήσω!";
+                    robot_clicks += 1;
+                    break;
+
+                default:
+                    //hide robot and enable the other controls
+                    foreach (Control c in Controls)
+                    {
+                        if (c.Parent != chatbot_panel && c != chatbot_panel)
+                            c.Enabled = true;
+                        else if (c.Parent == chatbot_panel || c == chatbot_panel)
+                            c.Enabled = c.Visible = false;
+                    }
+
+                    //change the file variable for this assistant
+                    //Misc.changeAssistantStateInFile("first_shoes");
+
+                    break;
+            }
+        }
+
+        private void Shoes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            checkExit();
         }
     }
 }

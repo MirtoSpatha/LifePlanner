@@ -298,6 +298,7 @@ namespace LifePlanner
                     {
                         dp.Show();
                     }
+                    dp.BringToFront();
                     break;
 
                 case "Shoes":
