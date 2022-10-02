@@ -362,12 +362,13 @@
             this.Controls.Add(this.submit_button);
             this.Controls.Add(this.chatbot_panel);
             this.Controls.Add(this.data_panel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UserData";
+            this.Text = "Εισαγωγή Στοιχείων";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserData_FormClosing);
             this.Load += new System.EventHandler(this.UserData_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

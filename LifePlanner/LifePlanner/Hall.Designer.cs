@@ -29,6 +29,7 @@ namespace LifePlanner
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hall));
             this.button1 = new System.Windows.Forms.Button();
             this.Exit_panel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -83,7 +84,7 @@ namespace LifePlanner
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(291, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 60);
             this.button1.TabIndex = 7;
@@ -96,7 +97,7 @@ namespace LifePlanner
             this.Exit_panel.Controls.Add(this.pictureBox1);
             this.Exit_panel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_panel.Location = new System.Drawing.Point(525, 110);
-            this.Exit_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Exit_panel.Margin = new System.Windows.Forms.Padding(4);
             this.Exit_panel.Name = "Exit_panel";
             this.Exit_panel.Size = new System.Drawing.Size(87, 219);
             this.Exit_panel.TabIndex = 8;
@@ -109,7 +110,7 @@ namespace LifePlanner
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::LifePlanner.Resource1.locked;
             this.pictureBox1.Location = new System.Drawing.Point(23, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(47, 49);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -122,7 +123,7 @@ namespace LifePlanner
             this.Bathroom_panel.BackColor = System.Drawing.Color.Transparent;
             this.Bathroom_panel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Bathroom_panel.Location = new System.Drawing.Point(811, 85);
-            this.Bathroom_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Bathroom_panel.Margin = new System.Windows.Forms.Padding(4);
             this.Bathroom_panel.Name = "Bathroom_panel";
             this.Bathroom_panel.Size = new System.Drawing.Size(48, 290);
             this.Bathroom_panel.TabIndex = 9;
@@ -133,7 +134,7 @@ namespace LifePlanner
             this.LivingRoom_panel.BackColor = System.Drawing.Color.Transparent;
             this.LivingRoom_panel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LivingRoom_panel.Location = new System.Drawing.Point(965, 27);
-            this.LivingRoom_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LivingRoom_panel.Margin = new System.Windows.Forms.Padding(4);
             this.LivingRoom_panel.Name = "LivingRoom_panel";
             this.LivingRoom_panel.Size = new System.Drawing.Size(105, 487);
             this.LivingRoom_panel.TabIndex = 10;
@@ -144,7 +145,7 @@ namespace LifePlanner
             this.Bedroom_panel.BackColor = System.Drawing.Color.Transparent;
             this.Bedroom_panel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Bedroom_panel.Location = new System.Drawing.Point(301, 87);
-            this.Bedroom_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Bedroom_panel.Margin = new System.Windows.Forms.Padding(4);
             this.Bedroom_panel.Name = "Bedroom_panel";
             this.Bedroom_panel.Size = new System.Drawing.Size(43, 288);
             this.Bedroom_panel.TabIndex = 11;
@@ -155,7 +156,7 @@ namespace LifePlanner
             this.Kitchen_panel.BackColor = System.Drawing.Color.Transparent;
             this.Kitchen_panel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Kitchen_panel.Location = new System.Drawing.Point(109, 27);
-            this.Kitchen_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Kitchen_panel.Margin = new System.Windows.Forms.Padding(4);
             this.Kitchen_panel.Name = "Kitchen_panel";
             this.Kitchen_panel.Size = new System.Drawing.Size(95, 494);
             this.Kitchen_panel.TabIndex = 12;
@@ -166,7 +167,7 @@ namespace LifePlanner
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel7.Location = new System.Drawing.Point(641, 151);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(32, 30);
             this.panel7.TabIndex = 14;
@@ -178,7 +179,7 @@ namespace LifePlanner
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Image = global::LifePlanner.Resource1.wc;
             this.pictureBox2.Location = new System.Drawing.Point(781, 91);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(39, 43);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -191,7 +192,7 @@ namespace LifePlanner
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox4.Image = global::LifePlanner.Resource1.kitchen;
             this.pictureBox4.Location = new System.Drawing.Point(25, 107);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(75, 72);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -204,7 +205,7 @@ namespace LifePlanner
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox5.Image = global::LifePlanner.Resource1.bedroom;
             this.pictureBox5.Location = new System.Drawing.Point(221, 86);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(75, 73);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -222,7 +223,7 @@ namespace LifePlanner
             this.panel1.Controls.Add(this.Bathroombtn);
             this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(293, 450);
             this.panel1.TabIndex = 20;
@@ -235,7 +236,7 @@ namespace LifePlanner
             this.LivingRoombtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LivingRoombtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LivingRoombtn.Location = new System.Drawing.Point(-19, 382);
-            this.LivingRoombtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LivingRoombtn.Margin = new System.Windows.Forms.Padding(4);
             this.LivingRoombtn.Name = "LivingRoombtn";
             this.LivingRoombtn.Size = new System.Drawing.Size(335, 46);
             this.LivingRoombtn.TabIndex = 12;
@@ -264,7 +265,7 @@ namespace LifePlanner
             this.Bedroombtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Bedroombtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bedroombtn.Location = new System.Drawing.Point(-19, 308);
-            this.Bedroombtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Bedroombtn.Margin = new System.Windows.Forms.Padding(4);
             this.Bedroombtn.Name = "Bedroombtn";
             this.Bedroombtn.Size = new System.Drawing.Size(335, 44);
             this.Bedroombtn.TabIndex = 11;
@@ -279,7 +280,7 @@ namespace LifePlanner
             this.Hallbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hallbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hallbtn.Location = new System.Drawing.Point(-19, 86);
-            this.Hallbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Hallbtn.Margin = new System.Windows.Forms.Padding(4);
             this.Hallbtn.Name = "Hallbtn";
             this.Hallbtn.Size = new System.Drawing.Size(335, 46);
             this.Hallbtn.TabIndex = 8;
@@ -294,7 +295,7 @@ namespace LifePlanner
             this.Kitchenbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Kitchenbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Kitchenbtn.Location = new System.Drawing.Point(-19, 234);
-            this.Kitchenbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Kitchenbtn.Margin = new System.Windows.Forms.Padding(4);
             this.Kitchenbtn.Name = "Kitchenbtn";
             this.Kitchenbtn.Size = new System.Drawing.Size(335, 43);
             this.Kitchenbtn.TabIndex = 10;
@@ -309,7 +310,7 @@ namespace LifePlanner
             this.Bathroombtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Bathroombtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bathroombtn.Location = new System.Drawing.Point(-19, 160);
-            this.Bathroombtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Bathroombtn.Margin = new System.Windows.Forms.Padding(4);
             this.Bathroombtn.Name = "Bathroombtn";
             this.Bathroombtn.Size = new System.Drawing.Size(335, 46);
             this.Bathroombtn.TabIndex = 9;
@@ -323,7 +324,7 @@ namespace LifePlanner
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Image = global::LifePlanner.Resource1.livingroom;
             this.pictureBox3.Location = new System.Drawing.Point(889, 42);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(99, 104);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -336,7 +337,7 @@ namespace LifePlanner
             this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox9.Image = global::LifePlanner.Resource1.exit;
             this.pictureBox9.Location = new System.Drawing.Point(463, 107);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(54, 52);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -349,7 +350,7 @@ namespace LifePlanner
             this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox10.Image = global::LifePlanner.Resource1.light;
             this.pictureBox10.Location = new System.Drawing.Point(681, 138);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(53, 55);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -363,7 +364,7 @@ namespace LifePlanner
             this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox11.Image = global::LifePlanner.Resource1.shoes;
             this.pictureBox11.Location = new System.Drawing.Point(371, 194);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(146, 157);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -480,7 +481,8 @@ namespace LifePlanner
             this.Controls.Add(this.Exit_panel);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Hall";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "House";

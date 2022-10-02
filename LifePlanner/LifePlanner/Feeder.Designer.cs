@@ -94,7 +94,7 @@ namespace LifePlanner
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(44, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 19);
+            this.label3.Size = new System.Drawing.Size(169, 21);
             this.label3.TabIndex = 32;
             this.label3.Text = "Ποσότητα φαγητού:";
             // 
@@ -105,7 +105,7 @@ namespace LifePlanner
             this.label4.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(451, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 19);
+            this.label4.Size = new System.Drawing.Size(146, 21);
             this.label4.TabIndex = 33;
             this.label4.Text = "Ποσότητα νερού:";
             // 
@@ -116,7 +116,7 @@ namespace LifePlanner
             this.food_percentage_lbl.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.food_percentage_lbl.Location = new System.Drawing.Point(83, 49);
             this.food_percentage_lbl.Name = "food_percentage_lbl";
-            this.food_percentage_lbl.Size = new System.Drawing.Size(41, 19);
+            this.food_percentage_lbl.Size = new System.Drawing.Size(45, 21);
             this.food_percentage_lbl.TabIndex = 34;
             this.food_percentage_lbl.Text = "70%";
             // 
@@ -127,7 +127,7 @@ namespace LifePlanner
             this.water_percentage_lbl.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.water_percentage_lbl.Location = new System.Drawing.Point(491, 49);
             this.water_percentage_lbl.Name = "water_percentage_lbl";
-            this.water_percentage_lbl.Size = new System.Drawing.Size(41, 19);
+            this.water_percentage_lbl.Size = new System.Drawing.Size(45, 21);
             this.water_percentage_lbl.TabIndex = 35;
             this.water_percentage_lbl.Text = "70%";
             // 
@@ -171,7 +171,7 @@ namespace LifePlanner
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 27);
             this.numericUpDown1.TabIndex = 40;
             // 
             // label7
@@ -180,7 +180,7 @@ namespace LifePlanner
             this.label7.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(167, 14);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(218, 19);
+            this.label7.Size = new System.Drawing.Size(263, 21);
             this.label7.TabIndex = 41;
             this.label7.Text = "Ορισμός αυτόματου ταΐσματος:";
             // 
@@ -194,7 +194,7 @@ namespace LifePlanner
             0,
             0});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 27);
             this.numericUpDown2.TabIndex = 42;
             // 
             // label8
@@ -203,7 +203,7 @@ namespace LifePlanner
             this.label8.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(240, 166);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 19);
+            this.label8.Size = new System.Drawing.Size(56, 21);
             this.label8.TabIndex = 43;
             this.label8.Text = "Νερό:";
             // 
@@ -213,7 +213,7 @@ namespace LifePlanner
             this.label9.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(231, 49);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 19);
+            this.label9.Size = new System.Drawing.Size(77, 21);
             this.label9.TabIndex = 44;
             this.label9.Text = "Φαγητό:";
             // 
@@ -227,7 +227,7 @@ namespace LifePlanner
             0,
             0});
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown3.Size = new System.Drawing.Size(120, 27);
             this.numericUpDown3.TabIndex = 46;
             // 
             // numericUpDown4
@@ -240,7 +240,7 @@ namespace LifePlanner
             0,
             0});
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown4.Size = new System.Drawing.Size(120, 27);
             this.numericUpDown4.TabIndex = 47;
             // 
             // label10
@@ -249,7 +249,7 @@ namespace LifePlanner
             this.label10.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(146, 195);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 19);
+            this.label10.Size = new System.Drawing.Size(54, 21);
             this.label10.TabIndex = 48;
             this.label10.Text = "Ώρες:";
             // 
@@ -259,7 +259,7 @@ namespace LifePlanner
             this.label11.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(146, 81);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 19);
+            this.label11.Size = new System.Drawing.Size(54, 21);
             this.label11.TabIndex = 49;
             this.label11.Text = "Ώρες:";
             // 
@@ -269,7 +269,7 @@ namespace LifePlanner
             this.label12.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(274, 81);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 19);
+            this.label12.Size = new System.Drawing.Size(64, 21);
             this.label12.TabIndex = 50;
             this.label12.Text = "Λεπτά:";
             // 
@@ -279,7 +279,7 @@ namespace LifePlanner
             this.label13.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(274, 195);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 19);
+            this.label13.Size = new System.Drawing.Size(64, 21);
             this.label13.TabIndex = 51;
             this.label13.Text = "Λεπτά:";
             // 
@@ -326,7 +326,7 @@ namespace LifePlanner
             this.label14.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(166, 95);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(127, 38);
+            this.label14.Size = new System.Drawing.Size(153, 42);
             this.label14.TabIndex = 54;
             this.label14.Text = "Γέμισμα φαγητού\r\nσε:";
             this.label14.Visible = false;
@@ -338,7 +338,7 @@ namespace LifePlanner
             this.food_timer.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.food_timer.Location = new System.Drawing.Point(166, 133);
             this.food_timer.Name = "food_timer";
-            this.food_timer.Size = new System.Drawing.Size(61, 19);
+            this.food_timer.Size = new System.Drawing.Size(73, 21);
             this.food_timer.TabIndex = 55;
             this.food_timer.Text = "label15";
             this.food_timer.Visible = false;
@@ -350,7 +350,7 @@ namespace LifePlanner
             this.water_timer.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.water_timer.Location = new System.Drawing.Point(340, 133);
             this.water_timer.Name = "water_timer";
-            this.water_timer.Size = new System.Drawing.Size(61, 19);
+            this.water_timer.Size = new System.Drawing.Size(73, 21);
             this.water_timer.TabIndex = 57;
             this.water_timer.Text = "label16";
             this.water_timer.Visible = false;
@@ -362,7 +362,7 @@ namespace LifePlanner
             this.label17.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(340, 95);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(108, 38);
+            this.label17.Size = new System.Drawing.Size(130, 42);
             this.label17.TabIndex = 56;
             this.label17.Text = "Γέμισμα νερού\r\nσε:";
             this.label17.Visible = false;
@@ -412,7 +412,7 @@ namespace LifePlanner
             0,
             0});
             this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(44, 23);
+            this.numericUpDown5.Size = new System.Drawing.Size(44, 27);
             this.numericUpDown5.TabIndex = 66;
             this.numericUpDown5.Value = new decimal(new int[] {
             5,
@@ -426,7 +426,7 @@ namespace LifePlanner
             this.label5.Enabled = false;
             this.label5.Location = new System.Drawing.Point(93, 320);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(18, 15);
+            this.label5.Size = new System.Drawing.Size(21, 18);
             this.label5.TabIndex = 67;
             this.label5.Text = "%";
             // 
@@ -436,7 +436,7 @@ namespace LifePlanner
             this.label6.Enabled = false;
             this.label6.Location = new System.Drawing.Point(498, 320);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 15);
+            this.label6.Size = new System.Drawing.Size(21, 18);
             this.label6.TabIndex = 68;
             this.label6.Text = "%";
             // 
@@ -456,7 +456,7 @@ namespace LifePlanner
             0,
             0});
             this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(44, 23);
+            this.numericUpDown6.Size = new System.Drawing.Size(44, 27);
             this.numericUpDown6.TabIndex = 69;
             this.numericUpDown6.Value = new decimal(new int[] {
             5,
@@ -471,7 +471,7 @@ namespace LifePlanner
             this.label15.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(45, 272);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(141, 38);
+            this.label15.Size = new System.Drawing.Size(171, 42);
             this.label15.TabIndex = 70;
             this.label15.Text = "Προσθήκη φαγητού\r\nκατά:";
             // 
@@ -482,7 +482,7 @@ namespace LifePlanner
             this.label16.Font = new System.Drawing.Font("Bookman Old Style", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(453, 272);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(122, 38);
+            this.label16.Size = new System.Drawing.Size(148, 42);
             this.label16.TabIndex = 71;
             this.label16.Text = "Προσθήκη νερού\r\nκατά:";
             // 
@@ -535,7 +535,7 @@ namespace LifePlanner
             this.label1.Location = new System.Drawing.Point(62, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 112);
+            this.label1.Size = new System.Drawing.Size(304, 140);
             this.label1.TabIndex = 11;
             this.label1.Text = resources.GetString("label1.Text");
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -548,7 +548,7 @@ namespace LifePlanner
             this.label2.Location = new System.Drawing.Point(52, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 3;
             // 
             // pictureBox8
@@ -592,7 +592,7 @@ namespace LifePlanner
             // 
             // Feeder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(623, 680);
@@ -619,6 +619,7 @@ namespace LifePlanner
             this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Feeder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ταΐστρα";

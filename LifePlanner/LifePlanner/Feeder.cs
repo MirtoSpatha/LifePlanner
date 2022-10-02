@@ -116,14 +116,14 @@ namespace LifePlanner
                     label1.Text =   "Μόλις τελειώσεις, πάτα\n'Oρισμός αυτόματης " +
                                     "ταΐστρας' και η\nαντίστροφη μέτρηση για το\n" +
                                     "γέμισμα των μπολ θα ξεκινήσει.\nΕγώ θα σε " +
-                                    "ιδοποιήσω\nόταν γεμίσουν!";
+                                    "ειδοποιήσω\nόταν γεμίσουν!";
                     robot_clicks += 1;
                     break;
 
                 case 5:
                     label1.Text = "Εάν θέλεις να ακυρώσεις το\n" +
                                   "αυτόματο τάισμα, πάτα 'Ακύρωση'.\nΣε οποιαδήποτε άλλη περίπτωση που κάτι\n" +
-                                  "παέι στραβά, εγώ θα σε ιδοποιήσω!";
+                                  "παέι στραβά, εγώ θα σε ειδοποιήσω!";
                     robot_clicks += 1;
                     break;
 
@@ -165,7 +165,7 @@ namespace LifePlanner
 
             if (food_percentage_lbl.Text.Equals("100%"))
             {
-                MessageBox.Show("Το φαγητό είναι ήδη γεμάτο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Το φαγητό είναι ήδη γεμάτο!", "Προειδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -187,7 +187,7 @@ namespace LifePlanner
 
             if (water_percentage_lbl.Text.Equals("100%"))
             {
-                MessageBox.Show("Το νερό είναι ήδη γεμάτο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Το νερό είναι ήδη γεμάτο!", "Προειδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -231,7 +231,7 @@ namespace LifePlanner
 
                 if (food_mins == 0 && food_seconds == 0 && water_mins == 0 && water_seconds == 0)
                 {
-                    MessageBox.Show("Παρακαλώ ρυθμίστε σωστά τουλάχιστον ένα χρονόμετρο", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Παρακαλώ ρυθμίστε σωστά τουλάχιστον ένα χρονόμετρο", "Προειδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -264,7 +264,7 @@ namespace LifePlanner
         {
             if(Program.pet != "Σκύλος" && Program.pet != "Γάτα")
             {
-                MessageBox.Show("Φαίνεται πως δεν έχεις ορίσει κατοικίδιο!", "Προϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Φαίνεται πως δεν έχεις ορίσει κατοικίδιο!", "Προειδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
                                                                                                                          //green                        //red

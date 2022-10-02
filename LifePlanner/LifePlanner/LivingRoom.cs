@@ -69,7 +69,7 @@ namespace LifePlanner
         {
             if (!tv_on)
             {
-                MessageBox.Show("Παρακαλώ ανοίξτε πρώτα την τηλεόραση!", "Προεϊδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Παρακαλώ ανοίξτε πρώτα την τηλεόραση!", "Προειδοποίηση", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 

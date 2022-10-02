@@ -155,5 +155,24 @@ namespace LifePlanner
 
             label1.Hide();
         }
+
+        private void labelX_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
+
+        private void UserData_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult ms = MessageBox.Show("Είσαι σίγουρος ότι θες να τερματίσεις την εφαρμογή; \n Όλες σου οι αλλαγές θα χαθούν.", "Ector", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (ms.Equals(DialogResult.OK))
+            {
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+            
+        }
     }
 }
