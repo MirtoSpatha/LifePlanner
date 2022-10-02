@@ -40,13 +40,20 @@ namespace LifePlanner
         {
             //MessageBox.Show(event_info["Address"] + " new " + event_info["Beverage"]);
             Parent.Visible = true;
-            Title = textBox1.Text = event_info["Title"];
-            StartTime = comboBox1.Text = event_info["StartTime"];
-            EndTime = comboBox2.Text = event_info["EndTime"];
-            selected_activity = comboBox3.Text = event_info["Activity"];
-            selected_address = comboBox4.Text = event_info["Address"];
-            selected_transportation = comboBox5.Text = event_info["Transportation"];
-            selected_beverage = comboBox7.Text = event_info["Beverage"];
+            Title = event_info["Title"];
+            textBox1.Text = event_info["Title"];
+            StartTime = event_info["StartTime"];
+            comboBox1.Text = event_info["StartTime"];
+            EndTime = event_info["EndTime"];
+            comboBox2.Text = event_info["EndTime"];
+            selected_activity = event_info["Activity"];
+            comboBox3.Text = event_info["Activity"];
+            selected_address = event_info["Address"];
+            comboBox4.Text = event_info["Address"];
+            selected_transportation = event_info["Transportation"];
+            comboBox5.Text = event_info["Transportation"];
+            selected_beverage = event_info["Beverage"];
+            comboBox7.Text = event_info["Beverage"];
             comboBox7.Items.AddRange(new object[] { "Δεν θέλω να αγοράσω ρόφημα", Program.beverage, "Άλλο" });
             textBox2.Hide();
             textBox3.Hide();
@@ -123,15 +130,46 @@ namespace LifePlanner
         private void comboBox3_TextChanged(object sender, EventArgs e)
         {
             selected_activity = comboBox3.Text;
+            if (selected_activity == "Εντός Σπιτιού")
+            {
+                comboBox4.Enabled = false;
+                textBox2.Enabled = false;
+                comboBox5.Enabled = false;
+                comboBox6.Enabled = false;
+                comboBox7.Enabled = false;
+                textBox3.Enabled = false;
+            }
+            else
+            {
+                comboBox4.Enabled = true;
+                textBox2.Enabled = true;
+                comboBox5.Enabled = true;
+                comboBox6.Enabled = true;
+                comboBox7.Enabled = true;
+                textBox3.Enabled = true;
+            }
         }
 
         private void comboBox4_TextChanged(object sender, EventArgs e)
         {
             if (comboBox4.Text == "Άλλο")
             {
+                selected_address = comboBox4.Text;
                 textBox2.Show();
             }
-            selected_address = comboBox4.Text;
+            else
+            {
+                if (comboBox4.Text == "Σπίτι")
+                {
+                    selected_address = Program.address;
+                }
+                if (comboBox4.Text == "Εργασία")
+                {
+                    selected_address = Program.work_address;
+                }
+                textBox2.Hide();
+            }
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -146,6 +184,10 @@ namespace LifePlanner
                 comboBox6.Visible = true;
                 comboBox6.Show();
             }
+            else
+            {
+                comboBox6.Hide();
+            }
             selected_transportation = comboBox5.Text;
         }
 
@@ -159,6 +201,10 @@ namespace LifePlanner
             if (comboBox7.Text == "Άλλο")
             {
                 textBox3.Show();
+            }
+            else
+            {
+                textBox3.Hide();
             }
             selected_beverage = comboBox7.Text;
         }
@@ -230,17 +276,17 @@ namespace LifePlanner
                 MessageBox.Show("Επίλεξε το είδος της δραστηριότητάς σου.");
                 selected_activity = "null";
             }
-            if (comboBox4.Text == "" || (comboBox4.Text == "Άλλο" & textBox2.Text == ""))
+            if (comboBox4.Enabled == true & (comboBox4.Text == "" || (comboBox4.Text == "Άλλο" & textBox2.Text == "")))
             {
                 MessageBox.Show("Διάλεξε ή συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\".");
                 selected_address = "null";
             }
-            if (comboBox4.Text == "" || (comboBox5.Text == "Συνδυασμός" & comboBox6.Text == ""))
+            if (comboBox5.Enabled == true & (comboBox5.Text == "" || (comboBox5.Text == "Συνδυασμός" & comboBox6.Text == "")))
             {
                 MessageBox.Show("Διάλεξε έναν τρόπο μεταφοράς.");
                 selected_transportation = "null";
             }
-            if (comboBox7.Text == "" || (comboBox7.Text == "Άλλο" & textBox3.Text == ""))
+            if (comboBox7.Enabled == true & (comboBox7.Text == "" || (comboBox7.Text == "Άλλο" & textBox3.Text == "")))
             {
                 MessageBox.Show("Συμπλήρωσε το ρόφημα της αρεσκείας σου.");
                 selected_beverage = "null";
@@ -266,5 +312,6 @@ namespace LifePlanner
 
             }
         }
+
     }
 }
