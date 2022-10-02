@@ -367,6 +367,10 @@ namespace LifePlanner
 
                 chatbot_panel.Show();
 
+                //reset timer counting to disable stuff happening at the same time as filling food
+                pet_timer.Stop();
+                pet_timer.Start();
+
                 return;
             }
             else if (secs == 0 && mins != 0)
@@ -442,6 +446,10 @@ namespace LifePlanner
                 }
 
                 chatbot_panel.Show();
+
+                //reset timer counting to disable stuff happening at the same time as filling water
+                pet_timer.Stop();
+                pet_timer.Start();
 
                 return;
             }
