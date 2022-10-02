@@ -225,8 +225,10 @@ namespace LifePlanner
 
                 //Activity: Καθημερινή, Επίσημη, Αθλητική, Εντός Σπιτιού
 
+                //set images as sold out at the begining and then, depending on each shoe list content, update the shoe images
                 shoe1.Image = shoe2.Image = shoe3.Image = Resource1.purchase;
                 shoe1.Tag = shoe2.Tag = shoe3.Tag = "purchase";
+                //Empty color is for rows that dont have any shoes. Transparent for those that have at least one shoe
                 shoe1.BackColor = shoe2.BackColor = shoe3.BackColor = shoes[unique_events[i]["Activity"]].Count == 0 ? Color.Empty : Color.Transparent;
 
                 int counter = 1;
@@ -251,63 +253,10 @@ namespace LifePlanner
                     counter++;
                 }
 
+                //add controls to table
                 tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
                 tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);
                 tableLayoutPanel1.Controls.Add(shoe3, 2, 2 * i + 1);
-
-                //OLD//
-                /*
-
-                //if the activity is the one that has to have no shoes, set pictureboxes to purchase icons
-                if (activity_loss.Equals(unique_events[i]["Activity"]))
-                {
-                    shoe1.Image = shoe2.Image = shoe3.Image = Resource1.purchase;
-                    shoe1.Tag = shoe2.Tag = shoe3.Tag = "purchase";
-                    shoe1.BackColor = shoe2.BackColor = shoe3.BackColor = Color.Empty;
-
-                    tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
-                    tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);
-                    tableLayoutPanel1.Controls.Add(shoe3, 2, 2 * i + 1);
-                }
-                else
-                {
-                   
-                    //look for the resource images depending on activity and gender.
-                    //set the first two shoe pictureboxes only
-
-                    
-                    if (unique_events[i]["Activity"].Equals("Αθλητική"))
-                    {
-                        shoe1.Image = (Bitmap)rm.GetObject("Αθλητική1");
-                        shoe2.Image = (Bitmap)rm.GetObject("Αθλητική2");
-                        shoe1.Tag = "Αθλητική1";
-                        shoe2.Tag = "Αθλητική2";
-                    }
-                    else if(unique_events[i]["Activity"].Equals("Εντός Σπιτιού"))
-                    {
-                        shoe1.Image = (Bitmap)rm.GetObject("Εντός_Σπιτιού1");
-                        shoe2.Image = (Bitmap)rm.GetObject("Εντός_Σπιτιού2");
-                        shoe1.Tag = "Εντός_Σπιτιού1";
-                        shoe2.Tag = "Εντός_Σπιτιού2";
-                    }
-                    else
-                    {
-                        shoe1.Image = (Bitmap)rm.GetObject(unique_events[i]["Activity"] + gender_letter + "1");
-                        shoe2.Image = (Bitmap)rm.GetObject(unique_events[i]["Activity"] + gender_letter + "2");
-                        shoe1.Tag = unique_events[i]["Activity"] + gender_letter + "1";
-                        shoe2.Tag = unique_events[i]["Activity"] + gender_letter + "2";
-                    }
-                    shoe1.BackColor = shoe2.BackColor = shoe3.BackColor = Color.Transparent;
-                    
-                    tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
-                    tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);
-
-                    //third picturebox is empty
-                    shoe3.Image = Resource1.purchase;
-                    shoe3.Tag = "purchase";
-                    tableLayoutPanel1.Controls.Add(shoe3, 2, 2 * i + 1);
-                    
-                }*/
             }
         }
 
