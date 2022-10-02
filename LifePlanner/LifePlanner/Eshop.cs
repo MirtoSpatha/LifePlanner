@@ -17,24 +17,19 @@ namespace LifePlanner
         private ResourceManager rm = new ResourceManager("LifePlanner.Resource1", Assembly.GetExecutingAssembly());
         private String Eshopcategory;
         private Color titlecolor;
-        private String[] Eshopsoldout;
+        private List<String> Eshopsoldout;
 
         private int btn_counter = 0;
         private int limit;
         private int total;
 
-        public Eshop(String Eshopcategory, int Eshopcolor, String[] Eshopsoldout)
+        public Eshop(String Eshopcategory, int Eshopcolor, List<String> Eshopsoldout)
         {
             InitializeComponent();
             
             this.Eshopcategory = Eshopcategory;
             titlecolor = Color.FromArgb(Eshopcolor);
             this.Eshopsoldout = Eshopsoldout;
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Eshop_Load(object sender, EventArgs e)
@@ -49,7 +44,7 @@ namespace LifePlanner
                 Eshopcategory = "Εντός_Σπιτιού";
             
             String[] price_list = rm.GetString(Eshopcategory + "τιμές").Split(',');
-            limit = 3 - Eshopsoldout.Where(v => v != null).Count();
+            limit = 3 - Eshopsoldout.Count();
 
             label9.Text += limit.ToString();
 

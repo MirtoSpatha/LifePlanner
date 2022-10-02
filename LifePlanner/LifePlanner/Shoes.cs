@@ -87,29 +87,13 @@ namespace LifePlanner
 
                 if (result == DialogResult.Yes)
                 {
-                    String[] have_shoes;
                     int row = tableLayoutPanel1.GetRow((PictureBox)sender); //row of shoes
 
                     Label categorylbl = (Label)tableLayoutPanel1.GetControlFromPosition(2, row - 1);
                     String category = categorylbl.Text.Split(':')[1].Trim();
                     int category_color = categorylbl.BackColor.ToArgb();
 
-                    Console.WriteLine("Got color" + category_color);
-
-                    //array which contains the shoe Images that we have
-                    have_shoes = new String[]
-                    {
-                        !((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.Equals("purchase") ?
-                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.ToString() : null,
-
-                        !((PictureBox)tableLayoutPanel1.GetControlFromPosition(1,row)).Tag.Equals("purchase") ?
-                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(1,row)).Tag.ToString() : null,
-
-                        !((PictureBox)tableLayoutPanel1.GetControlFromPosition(2,row)).Tag.Equals("purchase") ?
-                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(2,row)).Tag.ToString() : null,
-                    };
-
-                    Misc.openForm("Eshop", category, category_color, have_shoes);
+                    Misc.openForm("Eshop", category, category_color, shoes[category]);
                 }
                     
                 return;

@@ -162,7 +162,7 @@ namespace LifePlanner
          * If not, the form object is being instantiated
          * and can be accessed later
          */
-        public static void openForm(String formname, String Eshopcategory = null, int Eshopcolor = 0, String[] Eshopsoldout = null)
+        public static void openForm(String formname, String Eshopcategory = null, int Eshopcolor = 0, List<String> Eshopsoldout = null)
         {
             /*foreach(Form f in Application.OpenForms)
             {
