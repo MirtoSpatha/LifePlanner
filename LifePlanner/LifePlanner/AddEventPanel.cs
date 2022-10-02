@@ -100,18 +100,12 @@ namespace LifePlanner
             selected_activity = comboBox3.Text;
             if (selected_activity == "Εντός Σπιτιού")
             {
-                address_panel.Cursor = Cursors.No;
-                beverage_panel.Cursor = Cursors.No;
-                transportation_panel.Cursor = Cursors.No;
                 address_panel.Enabled = false;
                 beverage_panel.Enabled = false;
                 transportation_panel.Enabled= false;
             }
             else
             {
-                address_panel.Cursor = Cursors.Default;
-                beverage_panel.Cursor = Cursors.Default;
-                transportation_panel.Cursor = Cursors.Default;
                 address_panel.Enabled = true;
                 beverage_panel.Enabled = true;
                 transportation_panel.Enabled = true;
@@ -193,12 +187,12 @@ namespace LifePlanner
         private void radioButton9_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton9.Checked == true)
-                selected_beverage = "Όχι";
+                selected_beverage = "Δεν θέλω να αγοράσω ρόφημα";
         }
 
         private void radioButton10_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton9.Checked == true)
+            if (radioButton10.Checked == true)
                 selected_beverage = Program.beverage;
         }
 
@@ -257,18 +251,18 @@ namespace LifePlanner
                 MessageBox.Show("Επίλεξε το είδος της δραστηριότητάς σου.");
                 selected_activity = "null";
             }
-            if (radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == "" || !new Regex(@"^([Α-Ωα-ωίϊΐόάέύϋΰήώ]*[ ]\d{1,3})+$").IsMatch(textBox2.Text)))
+            if (address_panel.Enabled = true & radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == "" || !new Regex(@"^([a-zA-ZΑ-Ωα-ωίϊΐόάέύϋΰήώ]*[ ]\d{1,3})+$").IsMatch(textBox2.Text)))
             {
                 
                 MessageBox.Show("Διάλεξε ή συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\".");
                 selected_address = "null";
             }
-            if (radioButton4.Checked == false & radioButton5.Checked == false & radioButton6.Checked == false & radioButton7.Checked == false & (radioButton8.Checked == false || comboBox4.Text == ""))
+            if (transportation_panel.Enabled = true & radioButton4.Checked == false & radioButton5.Checked == false & radioButton6.Checked == false & radioButton7.Checked == false & (radioButton8.Checked == false || comboBox4.Text == ""))
             {
                 MessageBox.Show("Διάλεξε έναν τρόπο μεταφοράς.");
                 selected_transportation = "null";
             }
-            if (radioButton9.Checked == false & radioButton10.Checked == false & (radioButton11.Checked == false || textBox3.Text == ""))
+            if (beverage_panel.Enabled = true & radioButton9.Checked == false & radioButton10.Checked == false & (radioButton11.Checked == false || textBox3.Text == ""))
             {
                 MessageBox.Show("Συμπλήρωσε το ρόφημα της αρεσκείας σου.");
                 selected_beverage = "null";
