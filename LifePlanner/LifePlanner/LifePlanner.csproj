@@ -79,6 +79,12 @@
     <Compile Include="DailyPlan.Designer.cs">
       <DependentUpon>DailyPlan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Eshop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eshop.Designer.cs">
+      <DependentUpon>Eshop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Feeder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DailyPlan.resx">
       <DependentUpon>DailyPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eshop.resx">
+      <DependentUpon>Eshop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Feeder.resx">
       <DependentUpon>Feeder.cs</DependentUpon>
@@ -589,30 +598,6 @@
     <None Include="Resources\Εντός_Σπιτιού4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ΕπίσημηΑ1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ΕπίσημηΑ2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ΕπίσημηΑ3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ΕπίσημηΑ4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ΕπίσημηΓ1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ΕπίσημηΓ2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ΕπίσημηΓ3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ΕπίσημηΓ4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ΚαθημερινήΑ1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -644,6 +629,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\purchase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sold_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΑ1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΑ2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΑ3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΑ4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΓ1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΓ2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΓ3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ΕπίσημηΓ4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

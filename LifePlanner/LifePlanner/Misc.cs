@@ -29,6 +29,7 @@ namespace LifePlanner
         private static DailyPlan dp = null;
         private static Options o = null;
         private static Shoes s = null;
+        private static Eshop e = null;
 
        /**
         * Function that shows/hides the menu at House forms.
@@ -161,7 +162,7 @@ namespace LifePlanner
          * If not, the form object is being instantiated
          * and can be accessed later
          */
-        public static void openForm(String formname)
+        public static void openForm(String formname, String Eshopcategory = null, int Eshopcolor = 0, String[] Eshopsoldout = null)
         {
             /*foreach(Form f in Application.OpenForms)
             {
@@ -312,6 +313,20 @@ namespace LifePlanner
                         s.Show();
                     }
                     s.BringToFront();
+                    break;
+
+                case "Eshop":
+                    if (e == null)
+                    {
+                        e = new Eshop(Eshopcategory, Eshopcolor, Eshopsoldout);
+                        e.Show();
+                    }
+                    else
+                    {
+                        e.Close();
+                        e = new Eshop(Eshopcategory, Eshopcolor, Eshopsoldout);
+                        e.Show();
+                    }
                     break;
 
                 default:

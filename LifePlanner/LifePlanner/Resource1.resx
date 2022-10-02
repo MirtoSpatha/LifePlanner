@@ -301,6 +301,9 @@
   <data name="shoes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\shoes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sold_out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sold_out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="speech_bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\speech-bubble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -337,6 +340,9 @@
   <data name="Αθλητική4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Αθλητική4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Αθλητικήτιμές" xml:space="preserve">
+    <value>45,50,60,70</value>
+  </data>
   <data name="Εντός_Σπιτιού1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Εντός_Σπιτιού1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -348,6 +354,9 @@
   </data>
   <data name="Εντός_Σπιτιού4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Εντός_Σπιτιού4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Εντός_Σπιτιούτιμές" xml:space="preserve">
+    <value>25,30,15,20</value>
   </data>
   <data name="ΕπίσημηΑ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ΕπίσημηΑ1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -373,11 +382,14 @@
   <data name="ΕπίσημηΓ4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ΕπίσημηΓ4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Επίσημητιμές" xml:space="preserve">
+    <value>50,60,70,80</value>
+  </data>
   <data name="ΚαθημερινήΑ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\ΚαθημερινήΑ1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Resources\ΚαθημερινήΑ2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ΚαθημερινήΑ2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\ΚαθημερινήΑ2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Resources\ΚαθημερινήΑ1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ΚαθημερινήΑ3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ΚαθημερινήΑ3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -402,5 +414,8 @@
   </data>
   <data name="ΚαθημερινήΓ5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ΚαθημερινήΓ5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Καθημερινήτιμές" xml:space="preserve">
+    <value>40,60,40,50,55</value>
   </data>
 </root>

@@ -683,6 +683,16 @@ namespace LifePlanner {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sold_out {
+            get {
+                object obj = ResourceManager.GetObject("sold_out", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap speech_bubble {
             get {
                 object obj = ResourceManager.GetObject("speech_bubble", resourceCulture);
@@ -791,6 +801,15 @@ namespace LifePlanner {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 45,50,60,70.
+        /// </summary>
+        internal static string Αθλητικήτιμές {
+            get {
+                return ResourceManager.GetString("Αθλητικήτιμές", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Εντός_Σπιτιού1 {
@@ -827,6 +846,15 @@ namespace LifePlanner {
             get {
                 object obj = ResourceManager.GetObject("Εντός_Σπιτιού4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 25,30,15,20.
+        /// </summary>
+        internal static string Εντός_Σπιτιούτιμές {
+            get {
+                return ResourceManager.GetString("Εντός_Σπιτιούτιμές", resourceCulture);
             }
         }
         
@@ -907,6 +935,15 @@ namespace LifePlanner {
             get {
                 object obj = ResourceManager.GetObject("ΕπίσημηΓ4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 50,60,70,80.
+        /// </summary>
+        internal static string Επίσημητιμές {
+            get {
+                return ResourceManager.GetString("Επίσημητιμές", resourceCulture);
             }
         }
         
@@ -1007,6 +1044,15 @@ namespace LifePlanner {
             get {
                 object obj = ResourceManager.GetObject("ΚαθημερινήΓ5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 40,60,40,50,55.
+        /// </summary>
+        internal static string Καθημερινήτιμές {
+            get {
+                return ResourceManager.GetString("Καθημερινήτιμές", resourceCulture);
             }
         }
     }

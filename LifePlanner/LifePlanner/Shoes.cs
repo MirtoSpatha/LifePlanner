@@ -19,8 +19,8 @@ namespace LifePlanner
         private static int initial_height;
         private static int initial_width;
         private static String activity_loss = null;
-        List<Dictionary<string, string>> unique_events;
-        String gender_letter = Program.gender.Equals("Θυληκό") ? "Γ" : "Α";
+        private List<Dictionary<string, string>> unique_events;
+        private String gender_letter = Program.gender.Equals("Θυληκό") ? "Γ" : "Α";
 
         private int robot_clicks = 0;
 
@@ -64,7 +64,7 @@ namespace LifePlanner
             //foreach (var item in DailyPlan.panel_events.Where(x => x.Value["Activity"] == "Καθημερινή").ToList()) 
         }
         private void Shoes_Load(object sender, EventArgs e)
-        {
+        {   
             label2.SendToBack();
             button2.SendToBack();
             label2.Location = new Point(this.Width/2 - label2.Width/2, this.Height / 2 - label2.Height / 2);
@@ -84,10 +84,34 @@ namespace LifePlanner
                 DialogResult result =  MessageBox.Show("Αυτή η θέση είναι κενή! Θες να μεταβείς στο ηλεκτρονικό κατάστημα παπουτσιών για να " +
                                     "αγοράσεις ένα νέο ζευγάρι παπούτσια;","Ector", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                if(result == DialogResult.Yes)
-                    return; //go to shop
-                else
-                    return;
+                if (result == DialogResult.Yes)
+                {
+                    String[] have_shoes;
+                    int row = tableLayoutPanel1.GetRow((PictureBox)sender); //row of shoes
+
+                    Label categorylbl = (Label)tableLayoutPanel1.GetControlFromPosition(2, row - 1);
+                    String category = categorylbl.Text.Split(':')[1].Trim();
+                    int category_color = categorylbl.BackColor.ToArgb();
+
+                    Console.WriteLine("Got color" + category_color);
+
+                    //array which contains the shoe Images that we have
+                    have_shoes = new String[]
+                    {
+                        !((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.Equals("purchase") ?
+                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.ToString() : null,
+
+                        !((PictureBox)tableLayoutPanel1.GetControlFromPosition(1,row)).Tag.Equals("purchase") ?
+                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.ToString() : null,
+
+                        !((PictureBox)tableLayoutPanel1.GetControlFromPosition(2,row)).Tag.Equals("purchase") ?
+                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.ToString() : null,
+                    };
+
+                    Misc.openForm("Eshop", category, category_color, have_shoes);
+                }
+                    
+                return;
             }
 
             int pbrow = tableLayoutPanel1.GetRow((PictureBox)sender);
@@ -228,19 +252,25 @@ namespace LifePlanner
                     {
                         shoe1.Image = (Bitmap)rm.GetObject("Αθλητική1");
                         shoe2.Image = (Bitmap)rm.GetObject("Αθλητική2");
+                        shoe1.Tag = "Αθλητική1";
+                        shoe2.Tag = "Αθλητική2";
                     }
                     else if(unique_events[i]["Activity"].Equals("Εντός Σπιτιού"))
                     {
                         shoe1.Image = (Bitmap)rm.GetObject("Εντός_Σπιτιού1");
                         shoe2.Image = (Bitmap)rm.GetObject("Εντός_Σπιτιού2");
+                        shoe1.Tag = "Εντός_Σπιτιού1";
+                        shoe2.Tag = "Εντός_Σπιτιού2";
                     }
                     else
                     {
                         shoe1.Image = (Bitmap)rm.GetObject(unique_events[i]["Activity"] + gender_letter + "1");
                         shoe2.Image = (Bitmap)rm.GetObject(unique_events[i]["Activity"] + gender_letter + "2");
+                        shoe1.Tag = unique_events[i]["Activity"] + gender_letter + "1";
+                        shoe2.Tag = unique_events[i]["Activity"] + gender_letter + "2";
                     }
                     shoe1.BackColor = shoe2.BackColor = shoe3.BackColor = Color.Transparent;
-                    shoe1.Tag = shoe2.Tag = "";
+                    
                     tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
                     tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);
 
