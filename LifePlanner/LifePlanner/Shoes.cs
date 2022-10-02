@@ -389,7 +389,7 @@ namespace LifePlanner
                     }
 
                     //change the file variable for this assistant
-                    //Misc.changeAssistantStateInFile("first_shoes");
+                    Misc.changeAssistantStateInFile("first_shoes");
 
                     break;
             }
