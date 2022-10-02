@@ -293,9 +293,6 @@
     <None Include="Resources\icon_1_tr.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\kitchen_Dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\light_switch.png" />
   </ItemGroup>
   <ItemGroup>
@@ -505,9 +502,6 @@
     <None Include="Resources\Bedroom_Dark.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\kitchen_Bright.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\shoes.png" />
   </ItemGroup>
   <ItemGroup>
@@ -656,6 +650,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ΕπίσημηΓ4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kitchen_Bright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kitchen_Dark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

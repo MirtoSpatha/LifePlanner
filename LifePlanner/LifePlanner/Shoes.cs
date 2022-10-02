@@ -100,7 +100,6 @@ namespace LifePlanner
             }
 
             int pbrow = tableLayoutPanel1.GetRow((PictureBox)sender);
-            //int pbcolumn = tableLayoutPanel1.GetColumn((PictureBox)sender);
 
             tableLayoutPanel1.GetControlFromPosition(0, pbrow).BackColor = Color.Transparent;
             tableLayoutPanel1.GetControlFromPosition(1, pbrow).BackColor = Color.Transparent;
