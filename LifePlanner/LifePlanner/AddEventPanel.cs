@@ -251,18 +251,18 @@ namespace LifePlanner
                 MessageBox.Show("Επίλεξε το είδος της δραστηριότητάς σου.");
                 selected_activity = "null";
             }
-            if (address_panel.Enabled = true & radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == "" || !new Regex(@"^([a-zA-ZΑ-Ωα-ωίϊΐόάέύϋΰήώ]*[ ]\d{1,3})+$").IsMatch(textBox2.Text)))
+            if (address_panel.Enabled = false & (radioButton1.Checked == false & radioButton2.Checked == false & (radioButton3.Checked == false || textBox2.Text == "" || !new Regex(@"^([a-zA-ZΑ-Ωα-ωίϊΐόάέύϋΰήώ]*[ ]\d{1,3})+$").IsMatch(textBox2.Text))))
             {
                 
                 MessageBox.Show("Διάλεξε ή συμπλήρωσε μια διεύθυνση της ακόλουθης μορφής: \"Οδός Αριθμός\".");
                 selected_address = "null";
             }
-            if (transportation_panel.Enabled = true & radioButton4.Checked == false & radioButton5.Checked == false & radioButton6.Checked == false & radioButton7.Checked == false & (radioButton8.Checked == false || comboBox4.Text == ""))
+            if (transportation_panel.Enabled = false & (radioButton4.Checked == false & radioButton5.Checked == false & radioButton6.Checked == false & radioButton7.Checked == false & (radioButton8.Checked == false || comboBox4.Text == "")))
             {
                 MessageBox.Show("Διάλεξε έναν τρόπο μεταφοράς.");
                 selected_transportation = "null";
             }
-            if (beverage_panel.Enabled = true & radioButton9.Checked == false & radioButton10.Checked == false & (radioButton11.Checked == false || textBox3.Text == ""))
+            if (beverage_panel.Enabled = false & (radioButton9.Checked == false & radioButton10.Checked == false & (radioButton11.Checked == false || textBox3.Text == "")))
             {
                 MessageBox.Show("Συμπλήρωσε το ρόφημα της αρεσκείας σου.");
                 selected_beverage = "null";
