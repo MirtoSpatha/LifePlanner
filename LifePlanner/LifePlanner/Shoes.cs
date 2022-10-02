@@ -20,6 +20,7 @@ namespace LifePlanner
         private static int initial_width;
         private static String activity_loss = null;
         private List<Dictionary<string, string>> unique_events;
+        private Dictionary<string, List<string>> shoes = new Dictionary<string, List<string>>();
         private String gender_letter = Program.gender.Equals("Θυληκό") ? "Γ" : "Α";
 
         private int robot_clicks = 0;
@@ -159,6 +160,17 @@ namespace LifePlanner
                 Random r = new Random();
                 int rand_int = r.Next(0, unique_events.Count);
                 activity_loss = unique_events[rand_int]["Activity"];
+
+                //initialize dictionary with activity categories as keys and shoe names list as values
+                foreach(String category in new string[] { "Καθημερινή", "Επίσημη", "Αθλητική", "Εντός Σπιτιού" })
+                {
+                    if (!category.Equals("Αθλητική") && !category.Equals("Εντός Σπιτιού"))
+                        shoes.Add(category, new List<string> { category + gender_letter + "1", category + gender_letter + "2"});
+                    else
+                        shoes.Add(category, new List<string> { category.Replace(" ", "_") + "1", category.Replace(" ", "_") + "2"});                    
+                }
+
+                shoes[activity_loss].Clear(); //Empty shoe list that has to be displayed empty    
             }           
 
             for (int i = 0; i < unique_events.Count; i++)
@@ -213,6 +225,39 @@ namespace LifePlanner
 
                 //Activity: Καθημερινή, Επίσημη, Αθλητική, Εντός Σπιτιού
 
+                shoe1.Image = shoe2.Image = shoe3.Image = Resource1.purchase;
+                shoe1.Tag = shoe2.Tag = shoe3.Tag = "purchase";
+                shoe1.BackColor = shoe2.BackColor = shoe3.BackColor = shoes[unique_events[i]["Activity"]].Count == 0 ? Color.Empty : Color.Transparent;
+
+                int counter = 1;
+                foreach(string shoe_name in shoes[unique_events[i]["Activity"]])
+                {
+                    switch (counter)
+                    {
+                        case 1:
+                            shoe1.Image = (Bitmap)rm.GetObject(shoe_name);
+                            shoe1.Tag = shoe_name;
+                            break;
+                        case 2:
+                            shoe2.Image = (Bitmap)rm.GetObject(shoe_name);
+                            shoe2.Tag = shoe_name;
+                            break;
+                        case 3:
+                            shoe3.Image = (Bitmap)rm.GetObject(shoe_name);
+                            shoe3.Tag = shoe_name;
+                            break;
+                    }
+
+                    counter++;
+                }
+
+                tableLayoutPanel1.Controls.Add(shoe1, 0, 2 * i + 1);
+                tableLayoutPanel1.Controls.Add(shoe2, 1, 2 * i + 1);
+                tableLayoutPanel1.Controls.Add(shoe3, 2, 2 * i + 1);
+
+                //OLD//
+                /*
+
                 //if the activity is the one that has to have no shoes, set pictureboxes to purchase icons
                 if (activity_loss.Equals(unique_events[i]["Activity"]))
                 {
@@ -226,28 +271,11 @@ namespace LifePlanner
                 }
                 else
                 {
-                    /*string resxFile = @"..\..\Resource1.resx";
-                    ResXResourceReader resxReader = new ResXResourceReader(resxFile);
-                    foreach (DictionaryEntry entry in resxReader)
-                    {
-                        //first picturebox
-                        if ( ((string)entry.Key).Equals(unique_events[i]["Activity"]+gender_letter +"1") || 
-                            ((string)entry.Key).Equals(unique_events[i]["Activity"] + "1") )
-                        {
-                            tableLayoutPanel1.Controls.Add(new PictureBox() { Image = (Bitmap)entry.Value, SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle }, 0, 2 * i + 1);
-                        }
-                        //second picturebox
-                        else if ( ((string)entry.Key).Equals(unique_events[i]["Activity"] + gender_letter + "2") ||
-                            ((string)entry.Key).Equals(unique_events[i]["Activity"] + "2") )
-                        {
-                            tableLayoutPanel1.Controls.Add(new PictureBox() { Image = (Bitmap)entry.Value, SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle }, 1, 2 * i + 1);
-                        }
-
-                    }*/
-                    
+                   
                     //look for the resource images depending on activity and gender.
                     //set the first two shoe pictureboxes only
 
+                    
                     if (unique_events[i]["Activity"].Equals("Αθλητική"))
                     {
                         shoe1.Image = (Bitmap)rm.GetObject("Αθλητική1");
@@ -278,7 +306,8 @@ namespace LifePlanner
                     shoe3.Image = Resource1.purchase;
                     shoe3.Tag = "purchase";
                     tableLayoutPanel1.Controls.Add(shoe3, 2, 2 * i + 1);
-                }
+                    
+                }*/
             }
         }
 
