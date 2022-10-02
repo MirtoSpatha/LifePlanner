@@ -102,10 +102,10 @@ namespace LifePlanner
                         ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.ToString() : null,
 
                         !((PictureBox)tableLayoutPanel1.GetControlFromPosition(1,row)).Tag.Equals("purchase") ?
-                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.ToString() : null,
+                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(1,row)).Tag.ToString() : null,
 
                         !((PictureBox)tableLayoutPanel1.GetControlFromPosition(2,row)).Tag.Equals("purchase") ?
-                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(0,row)).Tag.ToString() : null,
+                        ((PictureBox)tableLayoutPanel1.GetControlFromPosition(2,row)).Tag.ToString() : null,
                     };
 
                     Misc.openForm("Eshop", category, category_color, have_shoes);

@@ -77,7 +77,6 @@ namespace LifePlanner
                 }
 
                 p.Image = Resource1.sold_out;
-                Console.WriteLine("Ola null sto " + i.ToString());
             }
         }
     }
