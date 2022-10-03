@@ -50,11 +50,20 @@ namespace LifePlanner
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.chatbot_panel = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.chatbot_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -157,7 +166,7 @@ namespace LifePlanner
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(217, 89);
             this.button2.TabIndex = 44;
-            this.button2.Text = "Αγορά προϊόντων στο καλάθι (0)";
+            this.button2.Text = "Επιβεβαίωση προϊόντων στο καλάθι (0)";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -281,12 +290,80 @@ namespace LifePlanner
             this.label9.TabIndex = 56;
             this.label9.Text = "Θέσεις που απομένουν\r\nστην παπουτσοθήκη: ";
             // 
+            // chatbot_panel
+            // 
+            this.chatbot_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.chatbot_panel.Controls.Add(this.label10);
+            this.chatbot_panel.Controls.Add(this.pictureBox6);
+            this.chatbot_panel.Controls.Add(this.pictureBox7);
+            this.chatbot_panel.Controls.Add(this.pictureBox8);
+            this.chatbot_panel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chatbot_panel.Location = new System.Drawing.Point(148, 377);
+            this.chatbot_panel.Margin = new System.Windows.Forms.Padding(2);
+            this.chatbot_panel.Name = "chatbot_panel";
+            this.chatbot_panel.Size = new System.Drawing.Size(652, 390);
+            this.chatbot_panel.TabIndex = 57;
+            this.chatbot_panel.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.SystemColors.Control;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label10.Location = new System.Drawing.Point(77, 49);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(294, 112);
+            this.label10.TabIndex = 3;
+            this.label10.Text = resources.GetString("label10.Text");
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.pictureBox6.Image = global::LifePlanner.Resource1.logo_ali;
+            this.pictureBox6.Location = new System.Drawing.Point(429, 346);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 8;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Image = global::LifePlanner.Resource1.chatbot;
+            this.pictureBox7.Location = new System.Drawing.Point(472, 235);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(178, 154);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Image = global::LifePlanner.Resource1.speech_bubble;
+            this.pictureBox8.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(469, 346);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 2;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.label10_Click);
+            // 
             // Eshop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(800, 768);
+            this.Controls.Add(this.chatbot_panel);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -319,6 +396,11 @@ namespace LifePlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.chatbot_panel.ResumeLayout(false);
+            this.chatbot_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +428,10 @@ namespace LifePlanner
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel chatbot_panel;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

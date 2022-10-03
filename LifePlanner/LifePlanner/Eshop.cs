@@ -21,6 +21,7 @@ namespace LifePlanner
         private List<String> Eshopbought;
 
         private int btn_counter = 0;
+        private int robot_clicks = 0;
         private int limit;
         private int total;
 
@@ -114,6 +115,8 @@ namespace LifePlanner
                 ((Label)Controls["label" + (i + 1).ToString()]).Hide();
                 ((CheckBox)Controls["checkBox" + i.ToString()]).Hide();
             }
+
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_shop");
         }
 
         private void checkBox1_Click(object sender, EventArgs e)
@@ -162,9 +165,90 @@ namespace LifePlanner
             Hide();
         }
 
+        private void label10_Click(object sender, EventArgs e)
+        {
+            switch (robot_clicks)
+            {
+                case 0:
+                    label10.Text =   "Μπορείς να επιλέξεις να κάνεις προσθήκη στο\n" +
+                                    "καλάθι ένα ζευγάρι, κάνοντας κλικ στο\n" +
+                                    "αντίστοιχο checkbox του ζευγαριού. Πρόσεξε\n" +
+                                    "όμως να μην ξεπεράσεις το όριο των διαθέσιμων\n" +
+                                    "θέσεων στην παπουτσοθήκη, το οποίο αναγράφεται\n" +
+                                    "κάτω αριστερά.";
+                    robot_clicks += 1;
+                    break;
+
+                case 1:
+                    label10.Text =   "Κάτω δεξιά θα διακρίνεις το σύνολικό ποσό\n" +
+                                    "που ενδέχεται να χρεωθείς. Όταν τελειώσεις με\n" +
+                                    "τις επιλογές σου, πάτα\n" +
+                                    "'Επιβεβαίωση προϊόντων στο καλάθι'.";
+                    robot_clicks += 1;
+                    break;
+
+                case 2:
+                    label10.Text =   "Στη συνέχεια θα μεταβείς στην επιβεβαίωση της\n" +
+                                    "αγοράς σου. Εκεί θα έχεις την δυνατότητα να\n" +
+                                    "επιλέξεις τον τρόπο πληρωμής και παραλαβής των\n" +
+                                    "προϊόντων σου! ";
+                    robot_clicks += 1;
+                    break;
+
+                case 3:
+                    label10.Text =   "Μπορείς να επιλέξεις να πληρώσεις με μετρητά,\n" +
+                                    "ή κάρτα. Αν επιλέξεις να πληρώσεις με κάρτα,\n" +
+                                    "σιγουρέψου ότι έχεις συμπληρώσει όλα τα\n" +
+                                    "στοιχεία σωστά και ολοκληρώμένα!";
+                    robot_clicks += 1;
+                    break;
+
+                case 4:
+                    label10.Text =   "Οι τρόποι παραλαβής, είναι στο κατάστημα ή σε\n" +
+                                    "μία διεύθυνση της επιλογής σου. Αν επιλέξεις\n" +
+                                    "μία διεύθυνση πέρα του καταστήματος, σιγουρέψου\n" +
+                                    "ότι την έχεις συμπληρώσει σωστά!";
+                    robot_clicks += 1;
+                    break;
+
+                case 5:
+                    label10.Text =   "Αφού επιλέξεις/συμπληρώσεις όλα τα προηγούμενα,\n" +
+                                    "πάτα το κουμπί\n" +
+                                    "'Αγορά προϊόντων/καταχώρηση παραγγελιας'.\n" +
+                                    "Αν όλα είναι σωστά, το ποσό θα χρεωθεί στον\n" +
+                                    "λογαριασμό σου αν επέλεξες να πληρώσεις με\n" +
+                                    "κάρτα ηλεκτρονικά ή η παραγγελία σου θα\n" +
+                                    "καταχωρηθεί αν επέλεξες να πληρώσεις με\n" +
+                                    "μετρητά";
+                    robot_clicks += 1;
+                    break;
+
+                case 6:
+                    label10.Text = "Μόλις παραλάβεις τα παπούτσια, εγώ θα ενημερώσω\n" +
+                                  "αυτόματα την παπουτσοθήκη!";
+                    robot_clicks += 1;
+                    break;
+
+                default:
+                    //hide robot and enable the other controls
+                    foreach (Control c in Controls)
+                    {
+                        if (c.Parent != chatbot_panel && c != chatbot_panel)
+                            c.Enabled = true;
+                        else if (c.Parent == chatbot_panel || c == chatbot_panel)
+                            c.Enabled = c.Visible = false;
+                    }
+
+                    //change the file variable for this assistant
+                    Misc.changeAssistantStateInFile("first_shop");
+
+                    break;
+            }
+        }
+
         private void Eshop_FormClosing(object sender, FormClosingEventArgs e)
         {
             Misc.openForm("Shoes");
-        }
+        }   
     }
 }
