@@ -142,7 +142,16 @@ namespace LifePlanner
                 return;
             }
 
-            Eshopbought.Add(Controls["pictureBox"+ chkbox.ToString()].Tag.ToString());
+            if (btn_counter > 0)
+                button2.Enabled = true;
+            else
+                button2.Enabled = false;
+            
+            if(((CheckBox)sender).Checked == true)
+                Eshopbought.Add(Controls["pictureBox"+ chkbox.ToString()].Tag.ToString());
+            else
+                Eshopbought.Remove(Controls["pictureBox" + chkbox.ToString()].Tag.ToString());
+
             label8.Text = "Σύνολο: " + total + "€";
             button2.Text = "Αγορά προϊόντων στο καλάθι(" + btn_counter + ")";
         }
@@ -151,6 +160,11 @@ namespace LifePlanner
         {
             Misc.openForm("EshopConfirm", Eshopcategory, Eshopcolor, Eshopsoldout, Eshopbought, total);
             Hide();
+        }
+
+        private void Eshop_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Misc.openForm("Shoes");
         }
     }
 }

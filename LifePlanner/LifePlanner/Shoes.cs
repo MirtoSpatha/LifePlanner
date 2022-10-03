@@ -170,33 +170,39 @@ namespace LifePlanner
 
                 //set labels for first imported row
                 tableLayoutPanel1.Controls.Add(new Label() 
-                { Text = "Τίτλος: " + unique_events[i]["Title"], 
+                { 
+                  Text = "Τίτλος: " + unique_events[i]["Title"], 
                   AutoSize = true, 
                   TextAlign = ContentAlignment.MiddleCenter, 
                   Anchor = AnchorStyles.None, 
                   Dock = DockStyle.Fill, 
                   BackColor = Color.FromArgb( Convert.ToInt32(unique_events[i]["Color"].Substring(0,3)), Convert.ToInt32(unique_events[i]["Color"].Substring(3, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(6, 3)) ),
-                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) }, 
+                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) 
+                }, 
                   0, 2 * i);
 
                 tableLayoutPanel1.Controls.Add(new Label()
-                { Text = "Ώρα έναρξης: " + unique_events[i]["StartTime"] + "\nΏρα λήξης: " + unique_events[i]["EndTime"],
+                { 
+                  Text = "Ώρα έναρξης: " + unique_events[i]["StartTime"] + "\nΏρα λήξης: " + unique_events[i]["EndTime"],
                   AutoSize = true, 
                   TextAlign = ContentAlignment.MiddleCenter, 
                   Anchor = AnchorStyles.None, 
                   Dock = DockStyle.Fill, 
                   BackColor = Color.FromArgb(Convert.ToInt32(unique_events[i]["Color"].Substring(0, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(3, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(6, 3)) ),
-                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) },
+                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) 
+                },
                   1, 2 * i);
 
                 tableLayoutPanel1.Controls.Add(new Label() 
-                { Text = "Κατηγορία: " + unique_events[i]["Activity"], 
+                { 
+                  Text = "Κατηγορία: " + unique_events[i]["Activity"], 
                   AutoSize = true, 
                   TextAlign = ContentAlignment.MiddleCenter, 
                   Anchor = AnchorStyles.None, 
                   Dock = DockStyle.Fill, 
                   BackColor = Color.FromArgb(Convert.ToInt32(unique_events[i]["Color"].Substring(0, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(3, 3)), Convert.ToInt32(unique_events[i]["Color"].Substring(6, 3)) ), 
-                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) },
+                  Font = new Font("Bookman Old Style", 12, FontStyle.Bold) 
+                },
                   2, 2 * i);
 
                 PictureBox shoe1 = new PictureBox() { SizeMode = PictureBoxSizeMode.StretchImage, BorderStyle = BorderStyle.FixedSingle, Cursor = Cursors.Hand, Dock = DockStyle.Fill};
