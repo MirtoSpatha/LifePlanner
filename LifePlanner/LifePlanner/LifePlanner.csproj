@@ -85,6 +85,12 @@
     <Compile Include="Eshop.Designer.cs">
       <DependentUpon>Eshop.cs</DependentUpon>
     </Compile>
+    <Compile Include="EshopConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EshopConfirm.Designer.cs">
+      <DependentUpon>EshopConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Feeder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Eshop.resx">
       <DependentUpon>Eshop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EshopConfirm.resx">
+      <DependentUpon>EshopConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Feeder.resx">
       <DependentUpon>Feeder.cs</DependentUpon>

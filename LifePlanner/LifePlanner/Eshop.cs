@@ -16,8 +16,9 @@ namespace LifePlanner
     {
         private ResourceManager rm = new ResourceManager("LifePlanner.Resource1", Assembly.GetExecutingAssembly());
         private String Eshopcategory;
-        private Color titlecolor;
+        private int Eshopcolor;
         private List<String> Eshopsoldout;
+        private List<String> Eshopbought;
 
         private int btn_counter = 0;
         private int limit;
@@ -28,14 +29,15 @@ namespace LifePlanner
             InitializeComponent();
             
             this.Eshopcategory = Eshopcategory;
-            titlecolor = Color.FromArgb(Eshopcolor);
+            this.Eshopcolor = Eshopcolor;
             this.Eshopsoldout = Eshopsoldout;
+            Eshopbought = new List<String>();
         }
 
         private void Eshop_Load(object sender, EventArgs e)
         {
             label1.Padding = new Padding(this.Width / 2 - label1.Width / 2, label1.Padding.Top, this.Width / 2 - label1.Width / 2, label1.Padding.Bottom);
-            label1.BackColor = titlecolor;
+            label1.BackColor = Color.FromArgb(Eshopcolor);
 
             label7.Text += Eshopcategory;
             label7.Location = new Point(this.Width / 2 - label7.Width / 2, label7.Location.Y);
@@ -66,13 +68,20 @@ namespace LifePlanner
 
                 var img = rm.GetObject(Eshopcategory + i.ToString());
                 if (img != null)
-                {
-                    p.Image = Eshopsoldout.Contains(Eshopcategory + i.ToString()) ? Resource1.sold_out : (Bitmap)img;
-
-                    if(Eshopsoldout.Contains(Eshopcategory + i.ToString()))
+                {                    
+                    if (Eshopsoldout.Contains(Eshopcategory + i.ToString()))
                     {
+                        
                         ((Label)Controls["label" + (i + 1).ToString()]).Hide();
                         ((CheckBox)Controls["checkBox" + i.ToString()]).Hide();
+
+                        p.Image = Resource1.sold_out;
+                        p.Tag = "soldout";
+                    }
+                    else
+                    {
+                        p.Image = (Bitmap)img;
+                        p.Tag = Eshopcategory + i.ToString();
                     }
                         
                     continue;
@@ -81,18 +90,26 @@ namespace LifePlanner
                 img = rm.GetObject(Eshopcategory + gender_letter + i.ToString());
                 if (img != null)
                 {
-                    p.Image = Eshopsoldout.Contains(Eshopcategory + gender_letter + i.ToString()) ? Resource1.sold_out : (Bitmap)img;
-
                     if (Eshopsoldout.Contains(Eshopcategory + gender_letter + i.ToString()))
                     {
+
                         ((Label)Controls["label" + (i + 1).ToString()]).Hide();
                         ((CheckBox)Controls["checkBox" + i.ToString()]).Hide();
+
+                        p.Image = Resource1.sold_out;
+                        p.Tag = "soldout";
+                    }
+                    else
+                    {
+                        p.Image = (Bitmap)img;
+                        p.Tag = Eshopcategory + gender_letter + i.ToString();
                     }
 
                     continue;
                 }
 
                 p.Image = Resource1.sold_out;
+                p.Tag = "soldout";
 
                 ((Label)Controls["label" + (i + 1).ToString()]).Hide();
                 ((CheckBox)Controls["checkBox" + i.ToString()]).Hide();
@@ -125,8 +142,15 @@ namespace LifePlanner
                 return;
             }
 
+            Eshopbought.Add(Controls["pictureBox"+ chkbox.ToString()].Tag.ToString());
             label8.Text = "Σύνολο: " + total + "€";
             button2.Text = "Αγορά προϊόντων στο καλάθι(" + btn_counter + ")";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Misc.openForm("EshopConfirm", Eshopcategory, Eshopcolor, Eshopsoldout, Eshopbought, total);
+            Hide();
         }
     }
 }

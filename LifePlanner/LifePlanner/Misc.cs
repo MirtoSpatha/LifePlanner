@@ -30,14 +30,15 @@ namespace LifePlanner
         private static Options o = null;
         private static Shoes s = null;
         private static Eshop e = null;
+        private static EshopConfirm ec = null;
 
-       /**
-        * Function that shows/hides the menu at House forms.
-        * returns a boolean value which indicates if the menu has
-        * been closed(false) or opened(true)
-        */
+        /**
+         * Function that shows/hides the menu at House forms.
+         * returns a boolean value which indicates if the menu has
+         * been closed(false) or opened(true)
+         */
 
-       public static bool ShowHide(Form form, Button menubutton, Panel menupanel, Label exitlabel, bool menu_open)
+        public static bool ShowHide(Form form, Button menubutton, Panel menupanel, Label exitlabel, bool menu_open)
         {
             if (!menu_open)
             {
@@ -162,7 +163,7 @@ namespace LifePlanner
          * If not, the form object is being instantiated
          * and can be accessed later
          */
-        public static void openForm(String formname, String Eshopcategory = null, int Eshopcolor = 0, List<String> Eshopsoldout = null)
+        public static void openForm(String formname, String Eshopcategory = null, int Eshopcolor = 0, List<String> Eshopsoldout = null, List<String> Eshopbought = null, int total = 0)
         {
             /*foreach(Form f in Application.OpenForms)
             {
@@ -318,15 +319,32 @@ namespace LifePlanner
                 case "Eshop":
                     if (e == null)
                     {
+                        Console.WriteLine("First eshop");
+                        e = new Eshop(Eshopcategory, Eshopcolor, Eshopsoldout);
+                        e.Show();
+                    }
+                    else if(total == 0)
+                    {
+                        Console.WriteLine("Closing and reopening eshop");
+                        if (ec != null)
+                        {
+                            ec.Close();
+                            Console.WriteLine("Eshop Confirm closed");
+                        }
+                        e.Close();
                         e = new Eshop(Eshopcategory, Eshopcolor, Eshopsoldout);
                         e.Show();
                     }
                     else
                     {
-                        e.Close();
-                        e = new Eshop(Eshopcategory, Eshopcolor, Eshopsoldout);
+                        Console.WriteLine("Showing Eshop after closing confirm");
                         e.Show();
                     }
+                    break;
+
+                case "EshopConfirm":
+                    ec = new EshopConfirm(Eshopcategory, Eshopcolor, Eshopsoldout, Eshopbought, total);
+                    ec.Show();
                     break;
 
                 default:

@@ -202,7 +202,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Μενού Επιλογών";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Options_FormClosing);
-            this.Load += new System.EventHandler(this.Options_Load_1);
             this.chatbot_panel.ResumeLayout(false);
             this.chatbot_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
