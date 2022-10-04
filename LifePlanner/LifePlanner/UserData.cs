@@ -14,6 +14,8 @@ namespace LifePlanner
 {
     public partial class UserData : Form
     {
+        private bool submit = false;
+
         public UserData()
         {
             InitializeComponent();
@@ -131,6 +133,7 @@ namespace LifePlanner
                 sw.Close();
 
                 Misc.openForm("Options");
+                submit = true;
                 Close();
             }
             
@@ -156,22 +159,20 @@ namespace LifePlanner
             label1.Hide();
         }
 
-        private void labelX_Click(object sender, EventArgs e)
-        {
-            Hide();
-        }
-
         private void UserData_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult ms = MessageBox.Show("Είσαι σίγουρος ότι θες να τερματίσεις την εφαρμογή; \n Όλες σου οι αλλαγές θα χαθούν.", "Ector", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-            if (ms.Equals(DialogResult.OK))
+            if (!submit)
             {
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
+                DialogResult ms = MessageBox.Show("Είσαι σίγουρος ότι θες να τερματίσεις την εφαρμογή; \n Όλες σου οι αλλαγές θα χαθούν.", "Ector", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                if (ms.Equals(DialogResult.OK))
+                {
+                    Application.OpenForms[0].Close();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }           
             
         }
     }

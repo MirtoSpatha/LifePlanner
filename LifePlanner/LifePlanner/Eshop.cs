@@ -156,7 +156,7 @@ namespace LifePlanner
                 Eshopbought.Remove(Controls["pictureBox" + chkbox.ToString()].Tag.ToString());
 
             label8.Text = "Σύνολο: " + total + "€";
-            button2.Text = "Αγορά προϊόντων στο καλάθι(" + btn_counter + ")";
+            button2.Text = "Επιβεβαίωση προϊόντων στο καλάθι(" + btn_counter + ")";
         }
 
         private void button2_Click(object sender, EventArgs e)
