@@ -62,6 +62,7 @@ namespace LifePlanner
 
                     NewUser = false;
                     Application.Run(new LoadingPage());
+                    //Application.Run(new EshopConfirm(null, 0, null, null, 0));
                 }   
                 
             }

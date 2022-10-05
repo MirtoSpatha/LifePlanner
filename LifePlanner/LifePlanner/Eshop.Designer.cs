@@ -298,7 +298,7 @@ namespace LifePlanner
             this.chatbot_panel.Controls.Add(this.pictureBox7);
             this.chatbot_panel.Controls.Add(this.pictureBox8);
             this.chatbot_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chatbot_panel.Location = new System.Drawing.Point(74, 229);
+            this.chatbot_panel.Location = new System.Drawing.Point(148, 377);
             this.chatbot_panel.Margin = new System.Windows.Forms.Padding(2);
             this.chatbot_panel.Name = "chatbot_panel";
             this.chatbot_panel.Size = new System.Drawing.Size(652, 390);

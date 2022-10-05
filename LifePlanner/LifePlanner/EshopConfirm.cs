@@ -26,6 +26,9 @@ namespace LifePlanner
         private int validation_counter = 0;
         private bool end = false;
 
+        private int initial_height;
+        private int initial_width;
+
         public EshopConfirm(String Eshopcategory, int Eshopcolor, List<String> Eshopsoldout, List<String> Eshopbought, int total)
         {
             InitializeComponent();
@@ -39,7 +42,9 @@ namespace LifePlanner
 
         private void EshopConfirm_Load(object sender, EventArgs e)
         {
-            label1.Padding = new Padding(this.Width / 2 - label1.Width / 2, label1.Padding.Top, this.Width / 2 - label1.Width / 2, label1.Padding.Bottom);
+            initial_height = this.Height;
+            initial_width = this.Width;
+
             label1.BackColor = Color.FromArgb(Eshopcolor);
 
             String[] price_list = rm.GetString(Eshopcategory + "τιμές").Split(',');
@@ -51,7 +56,7 @@ namespace LifePlanner
                     Size = new Size(163, 150),
                     Image = (Bitmap)rm.GetObject(name),
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    BorderStyle = BorderStyle.FixedSingle                   
+                    BorderStyle = BorderStyle.FixedSingle
                 };
 
                 Label l = new Label()
@@ -68,6 +73,40 @@ namespace LifePlanner
             }
 
             label5.Text += total.ToString() + "€";
+
+        }
+
+        private void EshopConfirm_Resize(object sender, EventArgs e)
+        {
+            //for size
+
+            int diff_height = this.Height - initial_height;
+            int diff_width = this.Width - initial_width;
+
+            flowLayoutPanel1.Height += diff_height;
+            flowLayoutPanel2.Height += diff_height;
+
+            flowLayoutPanel1.Width += diff_width/2;
+            button1.Width += diff_width/2;
+            button2.Width += diff_width/2;
+
+            foreach (Control cg in flowLayoutPanel1.Controls)
+            {
+                cg.Height += diff_height / 3;
+                cg.Width += diff_width / 3;
+            }
+
+            initial_height = this.Height;
+            initial_width = this.Width;
+
+            //for location
+
+            button1.Location = new Point(button1.Location.X, button1.Location.Y + diff_height);
+            flowLayoutPanel2.Location = new Point(flowLayoutPanel2.Location.X + diff_width, flowLayoutPanel2.Location.Y);
+            button2.Location = new Point(button2.Location.X + diff_width, button2.Location.Y + diff_height);
+            label5.Location = new Point(button2.Location.X + button2.Width + 20, button2.Location.Y + button2.Height / 2 - label5.Height /2);
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
