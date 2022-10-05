@@ -127,7 +127,7 @@ namespace LifePlanner
          * Change the given file variable to value.
          * This is for disabling/enabling the assistant interaction next time
          */
-        public static void changeAssistantStateInFile(String variable, bool value = true)
+        public static void changeAssistantStateInFile(String variable, bool value = false)
         {            
             try
             {
@@ -139,8 +139,8 @@ namespace LifePlanner
 
                 for (int i=0; i<lines.Length; i++)
                 {
-                    if (lines[i].StartsWith(variable + ": "+(!value).ToString()))
-                        lines[i] = lines[i].Replace((!value).ToString(), value.ToString());
+                    if (lines[i].StartsWith(variable + ": "+(!value).ToString().ToLower()))
+                        lines[i] = lines[i].Replace((!value).ToString().ToLower(), value.ToString().ToLower());
                 }
 
                 StreamWriter sw = new StreamWriter("OtherData.txt");
