@@ -42,6 +42,11 @@ namespace LifePlanner
 
         private void EshopConfirm_Load(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Size = new Size(253, 542);
+            flowLayoutPanel2.Size = new Size(352, 577);
+            button1.Size = new Size(278, 89);
+            button2.Size = new Size(290, 89);
+
             initial_height = this.Height;
             initial_width = this.Width;
 
