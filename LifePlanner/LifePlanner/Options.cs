@@ -33,6 +33,7 @@ namespace LifePlanner
                                     "συσκευές του σπιτιού σου\n" +
                                     "από απόσταση!";
 
+                    panel1.Visible = true;
                     robot_clicks += 1;
                     break;
                case 1:
@@ -44,33 +45,41 @@ namespace LifePlanner
                                         "στο πάνω δεξιό μέρος της οθόνης, και εγώ\n" +
                                         "θα σου δίνω οδηγίες για τις ενέργειές σου.";
 
-                        robot_clicks += 1;
                         first = false;
+                        robot_clicks += 1;
+                    }
+                    else
+                    {
+                        defCase();
                     }
                     robot_clicks += 1;
                     break;
 
                 default:
-                    
-                    //hide robot and enable the other controls
-                    foreach (Control c in Controls)
-                    {
-                        if (c.Parent != chatbot_panel && c != chatbot_panel)
-                        {
-                            c.Enabled = true;
-                            c.Visible = true;
-                        }
-                        else if (c.Parent == chatbot_panel || c == chatbot_panel)
-                            c.Enabled = c.Visible = false;
-                    }
-
-                    //change the file variable for this assistant
-                    Misc.changeAssistantStateInFile("first_options");
-                    label1.Text = "Διάλεξε τι θες να κάνεις πρώτα!";
-
-
+                    defCase();
                     break;
+
+
             }
+        }
+
+        private void defCase()
+        {
+            //hide robot and enable the other controls
+            foreach (Control c in Controls)
+            {
+                if (c.Parent != chatbot_panel && c != chatbot_panel)
+                {
+                    c.Enabled = true;
+                    c.Visible = true;
+                }
+                else if (c.Parent == chatbot_panel || c == chatbot_panel)
+                    c.Enabled = c.Visible = false;
+            }
+
+            //change the file variable for this assistant
+            Misc.changeAssistantStateInFile("first_options");
+            label1.Text = "Διάλεξε τι θες να κάνεις πρώτα!";
         }
 
         private void home_pictureBox_Click(object sender, EventArgs e)
@@ -117,14 +126,8 @@ namespace LifePlanner
         }
 
         private void Options_Load(object sender, EventArgs e)
-        {
-            Misc.manageAssistantfromFile(this, chatbot_panel, "first_options");
-            chatbot_panel.Show();
-            panel1.Show();
-            foreach (Control c in Controls)
-            {
-                c.Visible = true;
-            }
+        {           
+            panel1.Visible = !Misc.manageAssistantfromFile(this, chatbot_panel, "first_options");
         }
     }
 }

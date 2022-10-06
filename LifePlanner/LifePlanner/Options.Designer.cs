@@ -35,19 +35,19 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.home_pictureBox = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.calendar_pictureBox = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.chatbot_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.home_pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calendar_pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // chatbot_panel
@@ -57,10 +57,10 @@
             this.chatbot_panel.Controls.Add(this.pictureBox1);
             this.chatbot_panel.Controls.Add(this.pictureBox2);
             this.chatbot_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chatbot_panel.Location = new System.Drawing.Point(281, 224);
-            this.chatbot_panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chatbot_panel.Location = new System.Drawing.Point(181, 182);
+            this.chatbot_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chatbot_panel.Name = "chatbot_panel";
-            this.chatbot_panel.Size = new System.Drawing.Size(616, 299);
+            this.chatbot_panel.Size = new System.Drawing.Size(558, 301);
             this.chatbot_panel.TabIndex = 5;
             this.chatbot_panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
             // 
@@ -69,9 +69,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label1.Location = new System.Drawing.Point(46, 42);
+            this.label1.Location = new System.Drawing.Point(82, 40);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 40);
+            this.label1.Size = new System.Drawing.Size(196, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "Διάλεξε τι θες να κάνεις πρώτα!\r\n\r\n";
             this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chatbot_panel_MouseClick);
@@ -80,10 +81,10 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pictureBox3.Image = global::LifePlanner.Resource1.logo_ali;
-            this.pictureBox3.Location = new System.Drawing.Point(363, 247);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(369, 256);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(43, 39);
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
@@ -93,10 +94,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::LifePlanner.Resource1.chatbot;
-            this.pictureBox1.Location = new System.Drawing.Point(415, 122);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(405, 155);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(201, 177);
+            this.pictureBox1.Size = new System.Drawing.Size(151, 144);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -106,10 +107,10 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::LifePlanner.Resource1.speech_bubble;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(425, 240);
+            this.pictureBox2.Size = new System.Drawing.Size(399, 250);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -122,28 +123,37 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.calendar_pictureBox);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(897, 219);
+            this.panel1.Size = new System.Drawing.Size(737, 178);
             this.panel1.TabIndex = 6;
-            this.panel1.Visible = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::LifePlanner.Resource1.help;
+            this.pictureBox4.Location = new System.Drawing.Point(700, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(35, 34);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // home_pictureBox
             // 
             this.home_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.home_pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.home_pictureBox.Enabled = false;
             this.home_pictureBox.Image = global::LifePlanner.Resource1.building_home;
-            this.home_pictureBox.Location = new System.Drawing.Point(569, 71);
-            this.home_pictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.home_pictureBox.Location = new System.Drawing.Point(473, 58);
+            this.home_pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.home_pictureBox.Name = "home_pictureBox";
-            this.home_pictureBox.Size = new System.Drawing.Size(164, 124);
+            this.home_pictureBox.Size = new System.Drawing.Size(123, 101);
             this.home_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.home_pictureBox.TabIndex = 5;
             this.home_pictureBox.TabStop = false;
-            this.home_pictureBox.Visible = false;
             this.home_pictureBox.Click += new System.EventHandler(this.home_pictureBox_Click);
             this.home_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
             this.home_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
@@ -151,29 +161,26 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Enabled = false;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label3.Location = new System.Drawing.Point(512, 20);
+            this.label3.Location = new System.Drawing.Point(423, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(281, 23);
+            this.label3.Size = new System.Drawing.Size(232, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Περιήγηση στο Έξυπνο Σπίτι:";
-            this.label3.Visible = false;
             // 
             // calendar_pictureBox
             // 
             this.calendar_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.calendar_pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.calendar_pictureBox.Enabled = false;
             this.calendar_pictureBox.Image = global::LifePlanner.Resource1.calendar;
-            this.calendar_pictureBox.Location = new System.Drawing.Point(127, 71);
-            this.calendar_pictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.calendar_pictureBox.Location = new System.Drawing.Point(143, 58);
+            this.calendar_pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.calendar_pictureBox.Name = "calendar_pictureBox";
-            this.calendar_pictureBox.Size = new System.Drawing.Size(164, 124);
+            this.calendar_pictureBox.Size = new System.Drawing.Size(123, 101);
             this.calendar_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.calendar_pictureBox.TabIndex = 3;
             this.calendar_pictureBox.TabStop = false;
-            this.calendar_pictureBox.Visible = false;
             this.calendar_pictureBox.Click += new System.EventHandler(this.calendar_pictureBox_Click);
             this.calendar_pictureBox.MouseLeave += new System.EventHandler(this.home_pictureBox_MouseLeave);
             this.calendar_pictureBox.MouseHover += new System.EventHandler(this.home_pictureBox_MouseHover);
@@ -181,38 +188,25 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label2.Location = new System.Drawing.Point(19, 20);
+            this.label2.Location = new System.Drawing.Point(69, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(347, 23);
+            this.label2.Size = new System.Drawing.Size(286, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Δημιουργία του Ημερήσιου Πλάνου:";
-            this.label2.Visible = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::LifePlanner.Resource1.help;
-            this.pictureBox4.Location = new System.Drawing.Point(847, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(47, 42);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 38;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // Options
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(900, 526);
+            this.ClientSize = new System.Drawing.Size(738, 481);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chatbot_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Options";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Μενού Επιλογών";
@@ -225,9 +219,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.home_pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calendar_pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }

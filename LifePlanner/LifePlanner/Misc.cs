@@ -89,6 +89,7 @@ namespace LifePlanner
 
         /**
          * Check if current form's assistant has been viewed before. If yes, Disable interaction
+         * returns if its the first time or not viewing assistant
          */
         public static bool manageAssistantfromFile(Form form, Panel chatbot_panel, String variable)
         {

@@ -249,6 +249,14 @@ namespace LifePlanner
         private void Eshop_FormClosing(object sender, FormClosingEventArgs e)
         {
             Misc.openForm("Shoes");
-        }   
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            Misc.changeAssistantStateInFile("first_shop", true);
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_shop");
+            robot_clicks = 0;
+            chatbot_panel.Show();
+        }
     }
 }

@@ -23,6 +23,9 @@ namespace LifePlanner
         private static int old_food_percentage = 0;
         private static int old_water_percentage = 0;
 
+        private bool food_was_enabled = false;
+        private bool water_was_enabled = false;
+
         private static void soundThread(String type)
         {
             if (!type.Equals("None"))
@@ -137,21 +140,34 @@ namespace LifePlanner
                 default:
                     //hide robot and enable the other controls
                     chatbot_panel.Hide();
-                    foreach (Control c in Controls)
-                    {
-                        if (c.Parent != chatbot_panel && c != chatbot_panel)
-                            c.Enabled = true;
-                    }
 
-                    if(robot_clicks == 7)
+                    set_feeder.Enabled = true;
+                    info.Enabled = true;
+
+                    if (set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας"))
+                    {
+                        foreach (Control c in Controls)
+                        {
+                            if (c.Parent != chatbot_panel && c != chatbot_panel)
+                                c.Enabled = true;
+                        }
+                    }                    
+
+                    //start pet timer for pet events
+                    pet_timer.Enabled = true;
+
+                    if (robot_clicks == 7)
                     {
                         //change the file variable for this assistant
                         Misc.changeAssistantStateInFile("first_feeder");
                         first_visit = false;
 
-                        //start pet timer for pet events
-                        pet_timer.Enabled = true;
+                        if (food_was_enabled)
+                            food_clock.Enabled = true;
+                        if (water_was_enabled)
+                            water_clock.Enabled = true;
                     }
+
                     label1.Text = "Καλωσήρθες στην αυτόματη ταΐστρα!\n" +
                                   "Εδώ μπορείς να ρυθμίσεις μία ώρα που\n" +
                                   "θες να ταΐσεις το κατοικίδιο σου\n" +
@@ -289,7 +305,7 @@ namespace LifePlanner
             //Otherwise we have to enable/disable the feeder controls
             foreach (Control c in Controls)
             {
-                if (c.Parent != chatbot_panel && c != chatbot_panel && !c.Name.Equals("set_feeder"))
+                if (c.Parent != chatbot_panel && c != chatbot_panel && !c.Name.Equals("set_feeder") && !c.Name.Equals("info"))
                     c.Enabled = set_feeder.Text.Equals("Απενεργοποίηση αυτόματης ταΐστρας");
             }
 
@@ -672,9 +688,16 @@ namespace LifePlanner
 
         private void pictureBox12_Click(object sender, EventArgs e)
         {
+            pet_timer.Enabled = false;
+            food_was_enabled = food_clock.Enabled;
+            water_was_enabled = water_clock.Enabled;
+
+            water_clock.Enabled = false;
+            food_clock.Enabled = false;
+
             Misc.changeAssistantStateInFile("first_feeder", true);
             Misc.manageAssistantfromFile(this, chatbot_panel, "first_feeder");
-            robot_clicks = 0;
+            robot_clicks = 2;
             chatbot_panel.Show();
         }
     }
