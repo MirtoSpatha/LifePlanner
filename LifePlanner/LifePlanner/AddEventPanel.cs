@@ -62,6 +62,8 @@ namespace LifePlanner
             // Beverage
             textBox3.Hide();
             radioButton10.Text = Program.beverage + " (Προεπιλογή)";
+            radioButton4.Checked = true;
+            radioButton10.Checked = true;
         }
 
         private void textBox1_Click(object sender, EventArgs e)
