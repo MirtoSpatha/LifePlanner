@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace LifePlanner
 {
     public partial class Options : Form
     {
+        int robot_clicks = 0;
         bool first = true;
 
         public Options()
@@ -21,35 +23,53 @@ namespace LifePlanner
 
         private void chatbot_panel_MouseClick(object sender, MouseEventArgs e)
         {
-            if (first)
+            switch (robot_clicks)
             {
-                panel1.Visible = panel1.Enabled = true;
-                foreach (Control c in panel1.Controls)
-                {
-                    c.Visible = true;
-                }
+                case 0:
 
-                label1.Text = "Κάνε κλικ πανω στο ημερολόγιο\nγια τη δημιουργία του\n" +
-                "ημερήσιου πλάνου σου ή στο\n" +
-                "σπιτάκι για να διαχειριστείς τις\n" +
-                "συσκευές του σπιτιού σου\n" +
-                "από απόσταση!";
+                    label1.Text = "Κάνε κλικ πανω στο ημερολόγιο\nγια τη δημιουργία του\n" +
+                                    "ημερήσιου πλάνου σου ή στο\n" +
+                                    "σπιτάκι για να διαχειριστείς τις\n" +
+                                    "συσκευές του σπιτιού σου\n" +
+                                    "από απόσταση!";
 
-                first = false;
+                    robot_clicks += 1;
+                    break;
+               case 1:
+                    if (first)
+                    {
 
-                return;
-            }
+                        label1.Text = "Αν χρειαστείς τη βοήθειά μου,κάνε κλικ\n" +
+                                        "στο μπλε κουμπί με το ερωτηματικό\n" +
+                                        "στο πάνω δεξιό μέρος της οθόνης, και εγώ\n" +
+                                        "θα σου δίνω οδηγίες για τις ενέργειές σου.";
 
-            foreach (Control c in panel1.Controls)
-            {
-                c.Enabled = true;
-            }
-            
-            chatbot_panel.Visible = chatbot_panel.Enabled = false;
-            foreach (Control c in chatbot_panel.Controls)
-            {
-                c.Visible = false;
-                c.Enabled = false;
+                        robot_clicks += 1;
+                        first = false;
+                    }
+                    robot_clicks += 1;
+                    break;
+
+                default:
+                    
+                    //hide robot and enable the other controls
+                    foreach (Control c in Controls)
+                    {
+                        if (c.Parent != chatbot_panel && c != chatbot_panel)
+                        {
+                            c.Enabled = true;
+                            c.Visible = true;
+                        }
+                        else if (c.Parent == chatbot_panel || c == chatbot_panel)
+                            c.Enabled = c.Visible = false;
+                    }
+
+                    //change the file variable for this assistant
+                    Misc.changeAssistantStateInFile("first_options");
+                    label1.Text = "Διάλεξε τι θες να κάνεις πρώτα!";
+
+
+                    break;
             }
         }
 
@@ -85,6 +105,25 @@ namespace LifePlanner
             else
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            Misc.changeAssistantStateInFile("first_options", true);
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_options");
+            robot_clicks = 0;
+            chatbot_panel.Show();
+        }
+
+        private void Options_Load(object sender, EventArgs e)
+        {
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_options");
+            chatbot_panel.Show();
+            panel1.Show();
+            foreach (Control c in Controls)
+            {
+                c.Visible = true;
             }
         }
     }

@@ -111,8 +111,10 @@ namespace LifePlanner
                     {
                         if (c.Parent != chatbot_panel && c != chatbot_panel)
                             c.Enabled = false;
+                        else
+                            c.Enabled = true;
                     }
-
+                    
                     return true;
                 }              
             }

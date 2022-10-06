@@ -152,6 +152,13 @@ namespace LifePlanner
                         //start pet timer for pet events
                         pet_timer.Enabled = true;
                     }
+                    label1.Text = "Καλωσήρθες στην αυτόματη ταΐστρα!\n" +
+                                  "Εδώ μπορείς να ρυθμίσεις μία ώρα που\n" +
+                                  "θες να ταΐσεις το κατοικίδιο σου\n" +
+                                  "αυτόματα, να ελέγξεις τη ποσότητα του\n" +
+                                  "φαγητού και του νερού του και να\n" +
+                                  "προσθέσεις άμεσα λίγο νερό ή και\n" +
+                                  "φαγητό!";
 
                     robot_clicks += 1;
 
@@ -661,6 +668,14 @@ namespace LifePlanner
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            Misc.changeAssistantStateInFile("first_feeder", true);
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_feeder");
+            robot_clicks = 0;
+            chatbot_panel.Show();
         }
     }
 }

@@ -53,6 +53,7 @@ namespace LifePlanner
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.tvpanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -63,6 +64,7 @@ namespace LifePlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -75,7 +77,7 @@ namespace LifePlanner
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(291, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(65, 60);
             this.button1.TabIndex = 21;
@@ -88,7 +90,7 @@ namespace LifePlanner
             this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox10.Image = global::LifePlanner.Resource1.light;
             this.pictureBox10.Location = new System.Drawing.Point(717, 222);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(53, 55);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +104,7 @@ namespace LifePlanner
             this.tvpanel.Controls.Add(this.pictureBox1);
             this.tvpanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tvpanel.Location = new System.Drawing.Point(169, 235);
-            this.tvpanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tvpanel.Margin = new System.Windows.Forms.Padding(4);
             this.tvpanel.Name = "tvpanel";
             this.tvpanel.Size = new System.Drawing.Size(268, 139);
             this.tvpanel.TabIndex = 25;
@@ -127,7 +129,7 @@ namespace LifePlanner
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Location = new System.Drawing.Point(11, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(247, 126);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,7 +142,7 @@ namespace LifePlanner
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel3.Location = new System.Drawing.Point(611, 194);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(99, 297);
             this.panel3.TabIndex = 26;
@@ -157,7 +159,7 @@ namespace LifePlanner
             this.panel1.Controls.Add(this.Bathroombtn);
             this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(293, 450);
             this.panel1.TabIndex = 27;
@@ -170,7 +172,7 @@ namespace LifePlanner
             this.LivingRoombtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LivingRoombtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LivingRoombtn.Location = new System.Drawing.Point(-19, 382);
-            this.LivingRoombtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LivingRoombtn.Margin = new System.Windows.Forms.Padding(4);
             this.LivingRoombtn.Name = "LivingRoombtn";
             this.LivingRoombtn.Size = new System.Drawing.Size(335, 46);
             this.LivingRoombtn.TabIndex = 12;
@@ -199,7 +201,7 @@ namespace LifePlanner
             this.Bedroombtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Bedroombtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bedroombtn.Location = new System.Drawing.Point(-19, 308);
-            this.Bedroombtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Bedroombtn.Margin = new System.Windows.Forms.Padding(4);
             this.Bedroombtn.Name = "Bedroombtn";
             this.Bedroombtn.Size = new System.Drawing.Size(335, 44);
             this.Bedroombtn.TabIndex = 11;
@@ -214,7 +216,7 @@ namespace LifePlanner
             this.Hallbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hallbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hallbtn.Location = new System.Drawing.Point(-19, 86);
-            this.Hallbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Hallbtn.Margin = new System.Windows.Forms.Padding(4);
             this.Hallbtn.Name = "Hallbtn";
             this.Hallbtn.Size = new System.Drawing.Size(335, 46);
             this.Hallbtn.TabIndex = 8;
@@ -229,7 +231,7 @@ namespace LifePlanner
             this.Kitchenbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Kitchenbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Kitchenbtn.Location = new System.Drawing.Point(-19, 234);
-            this.Kitchenbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Kitchenbtn.Margin = new System.Windows.Forms.Padding(4);
             this.Kitchenbtn.Name = "Kitchenbtn";
             this.Kitchenbtn.Size = new System.Drawing.Size(335, 43);
             this.Kitchenbtn.TabIndex = 10;
@@ -244,7 +246,7 @@ namespace LifePlanner
             this.Bathroombtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Bathroombtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bathroombtn.Location = new System.Drawing.Point(-19, 160);
-            this.Bathroombtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Bathroombtn.Margin = new System.Windows.Forms.Padding(4);
             this.Bathroombtn.Name = "Bathroombtn";
             this.Bathroombtn.Size = new System.Drawing.Size(335, 46);
             this.Bathroombtn.TabIndex = 9;
@@ -257,7 +259,7 @@ namespace LifePlanner
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel4.Location = new System.Drawing.Point(717, 284);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(31, 28);
             this.panel4.TabIndex = 28;
@@ -336,7 +338,7 @@ namespace LifePlanner
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::LifePlanner.Resource1.feeder;
             this.pictureBox2.Location = new System.Drawing.Point(0, 558);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(99, 87);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -360,6 +362,18 @@ namespace LifePlanner
             this.label3.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
             this.label3.MouseHover += new System.EventHandler(this.label3_MouseHover);
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox12.Image = global::LifePlanner.Resource1.help;
+            this.pictureBox12.Location = new System.Drawing.Point(1170, 18);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(47, 42);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 45;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
+            // 
             // LivingRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -368,6 +382,7 @@ namespace LifePlanner
             this.BackgroundImage = global::LifePlanner.Resource1.living_room_Bright;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1229, 644);
+            this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.chatbot_panel);
@@ -379,7 +394,7 @@ namespace LifePlanner
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LivingRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LivingRoom";
@@ -397,6 +412,7 @@ namespace LifePlanner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,5 +441,6 @@ namespace LifePlanner
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox12;
     }
 }

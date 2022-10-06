@@ -126,6 +126,12 @@ namespace LifePlanner
 
                     //change the file variable for this assistant
                     Misc.changeAssistantStateInFile("first_livingroom");
+                    label2.Text = "Καλωσήρθες στο σαλόνι!Για να\n" +
+                                  "ανάψεις ή να σβήσεις την τηλεόραση\n" +
+                                  "κάνε αριστερό κλικ πάνω της. Για να\n" +
+                                  "επιλέξεις κανάλι κάνε δεξί κλίκ στην\n" +
+                                  "τηλεόραση όσο αυτή είναι αναμμένη και\n" +
+                                  "πάτα 'Αλλαγή καναλιού'.";
 
                     break;
             }
@@ -155,6 +161,14 @@ namespace LifePlanner
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            Misc.changeAssistantStateInFile("first_livingroom", true);
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_livingroom");
+            robot_clicks = 0;
+            chatbot_panel.Show();
         }
     }
 }

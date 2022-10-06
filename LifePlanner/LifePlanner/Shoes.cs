@@ -387,6 +387,11 @@ namespace LifePlanner
 
                     //change the file variable for this assistant
                     Misc.changeAssistantStateInFile("first_shoes");
+                    label1.Text = "Καλωσήρθες στην έξυπνη παπουτσοθήκη!\n"+
+                                   "Εδώ μπορείς να επιλέξεις ένα ζευγάρι\n"+
+                                   "παπούτσια από αυτά που σου προτείνω εγώ, \n"+
+                                   "για κάθε δραστηριότητα που έχεις προσθέσει\n" +
+                                   "στο έξυπνο πλάνο!";
 
                     break;
             }
@@ -396,6 +401,14 @@ namespace LifePlanner
         {
             e.Cancel = true;
             checkExit();
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            Misc.changeAssistantStateInFile("first_shoes", true);
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_shoes");
+            robot_clicks = 0;
+            chatbot_panel.Show();
         }
     }
 }

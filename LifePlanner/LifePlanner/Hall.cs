@@ -97,6 +97,11 @@ namespace LifePlanner
 
                     //change the file variable for this assistant
                     Misc.changeAssistantStateInFile("first_house");
+                    label2.Text = "Καλωσήρθες στο έξυπνο σπίτι!\n" +
+                                   "Μέσω της εφαρμογής αυτής μπορείς\n" +
+                                   "πολύ εύκολα να διαχειριστείς τις\n" +
+                                   "ηλεκτρικές συσκευές σου από όπου\n" +
+                                   "και αν βρίσκεσαι!";
 
                     break;
             }
@@ -145,6 +150,12 @@ namespace LifePlanner
             this.Hide();
         }
 
-        
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            Misc.changeAssistantStateInFile("first_house", true);
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_house");
+            robot_clicks = 0;
+            chatbot_panel.Show();
+        }
     }
 }

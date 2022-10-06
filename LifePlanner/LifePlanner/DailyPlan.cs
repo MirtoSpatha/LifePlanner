@@ -117,6 +117,12 @@ namespace LifePlanner
 
                     //change the file variable for this assistant
                     Misc.changeAssistantStateInFile("first_plan");
+                    label30.Text = "Καλωσήρθες στην πλατφόρμα\n"+
+                                    "διαχείρισης του ημερήσιου πλάνου σου!\n"+
+                                    "Μέσω της εφαρμογής αυτής μπορείς\n"+
+                                    "πολύ εύκολα να δημιουργείς δραστηριότητες,\n"+
+                                    "και να εξοικονομείς χρόνο\n"+
+                                    "ώστε να είσαι πάντα αποτελεσματικός.";
 
                     break;
             }
@@ -807,6 +813,14 @@ namespace LifePlanner
             }
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Misc.changeAssistantStateInFile("first_plan", true);
+            Misc.manageAssistantfromFile(this, chatbot_panel, "first_plan");
+            robot_clicks = 0;
+            chatbot_panel.Show();
         }
     }
 

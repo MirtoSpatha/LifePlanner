@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.calendar_pictureBox = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.chatbot_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,6 +47,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.home_pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calendar_pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // chatbot_panel
@@ -67,7 +69,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label1.Location = new System.Drawing.Point(83, 33);
+            this.label1.Location = new System.Drawing.Point(46, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(247, 40);
             this.label1.TabIndex = 3;
@@ -115,6 +117,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.home_pictureBox);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.calendar_pictureBox);
@@ -187,6 +190,18 @@
             this.label2.Text = "Δημιουργία του Ημερήσιου Πλάνου:";
             this.label2.Visible = false;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::LifePlanner.Resource1.help;
+            this.pictureBox4.Location = new System.Drawing.Point(847, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(47, 42);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -202,6 +217,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Μενού Επιλογών";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Options_FormClosing);
+            this.Load += new System.EventHandler(this.Options_Load);
             this.chatbot_panel.ResumeLayout(false);
             this.chatbot_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -211,6 +227,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.home_pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calendar_pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,5 +244,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox home_pictureBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
